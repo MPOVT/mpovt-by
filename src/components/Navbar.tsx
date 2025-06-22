@@ -1,24 +1,41 @@
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ThemeToggle from "./ThemeToggle";
-import LanguageSelector from "./LanguageSelector";
 import { Button } from "@/components/ui/button";
-import { useLanguage } from "@/contexts/LanguageContext";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
 
 export default function Navbar() {
-  const { t } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  
-  const navLinks = [
-    { name: t.nav.home, path: "/" },
-    { name: t.nav.apartments, path: "/apartments" },
-    { name: t.nav.amenities, path: "/amenities" },
-    { name: t.nav.gallery, path: "/gallery" },
-    { name: t.nav.contact, path: "/contact" }
+
+  const companyMenuItems = [
+    { name: "Электронное обращение", path: "/company/electronic-appeal" },
+    { name: "Система менеджмента качества", path: "/company/quality-management" },
+    { name: "Кооперация", path: "/company/cooperation" },
+    { name: "Вакансии", path: "/company/vacancies" },
+    { name: "Арендные площади", path: "/company/rental-areas" },
+    { name: "Противодействие коррупции", path: "/company/anti-corruption" },
+    { name: "Продажа неликвидов", path: "/company/asset-sales" }
+  ];
+
+  const productMenuItems = [
+    { name: "Блоки для автомобилей", path: "/products/car-blocks" },
+    { name: "Блоки для тракторов", path: "/products/tractor-blocks" },
+    { name: "Блоки для комбайнов", path: "/products/combine-blocks" },
+    { name: "Блоки для карьерных самосвалов", path: "/products/dump-truck-blocks" },
+    { name: "Ноутбуки", path: "/products/laptops" },
+    { name: "Домофоны", path: "/products/intercoms" },
+    { name: "Специальная связь", path: "/products/special-communication" },
+    { name: "Информационные системы", path: "/products/information-systems" },
+    { name: "Металлические шкафы", path: "/products/metal-cabinets" }
   ];
 
   useEffect(() => {
@@ -32,30 +49,87 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [scrolled]);
   
-  return <header className={cn("fixed top-0 left-0 right-0 z-50 transition-all duration-300", scrolled ? "bg-white/80 dark:bg-card/80 backdrop-blur-lg py-3 shadow-md" : "bg-transparent py-5")}>
+  return (
+    <header className={cn(
+      "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+      scrolled ? "glass-nav py-3 shadow-lg" : "bg-transparent py-5"
+    )}>
       <nav className="container flex justify-between items-center">
-        <div className="flex items-center space-x-2">
-          <LanguageSelector />
-        </div>
+        <Link to="/" className="flex items-center space-x-2">
+          <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+            <span className="text-white font-bold text-lg">М</span>
+          </div>
+          <span className="font-bold text-xl">МПОВТ</span>
+        </Link>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex space-x-8">
-          {navLinks.map(link => <li key={link.name} className="relative">
-              <Link to={link.path} className="font-medium transition-colors hover:text-primary after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all hover:after:w-full">
-                {link.name}
-              </Link>
-            </li>)}
+        <ul className="hidden lg:flex space-x-8">
+          <li>
+            <Link to="/" className="font-medium transition-colors hover:text-primary">
+              Главная
+            </Link>
+          </li>
+          
+          <li className="relative">
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center font-medium transition-colors hover:text-primary">
+                О компании <ChevronDown className="ml-1 h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="glass-card border-white/20">
+                {companyMenuItems.map(item => (
+                  <DropdownMenuItem key={item.path} asChild>
+                    <Link to={item.path} className="w-full cursor-pointer">
+                      {item.name}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </li>
+
+          <li className="relative">
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center font-medium transition-colors hover:text-primary">
+                Продукция <ChevronDown className="ml-1 h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="glass-card border-white/20">
+                {productMenuItems.map(item => (
+                  <DropdownMenuItem key={item.path} asChild>
+                    <Link to={item.path} className="w-full cursor-pointer">
+                      {item.name}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </li>
+
+          <li>
+            <Link to="/services" className="font-medium transition-colors hover:text-primary">
+              Услуги
+            </Link>
+          </li>
+          <li>
+            <Link to="/contact" className="font-medium transition-colors hover:text-primary">
+              Контакты
+            </Link>
+          </li>
+          <li>
+            <Link to="/support" className="font-medium transition-colors hover:text-primary">
+              Поддержка и сервис
+            </Link>
+          </li>
         </ul>
 
-        <div className="hidden md:flex items-center space-x-2">
+        <div className="hidden lg:flex items-center space-x-2">
           <ThemeToggle />
           <Button asChild className="btn-primary">
-            <Link to="/booking">{t.nav.bookNow}</Link>
+            <Link to="/contact">Связаться с нами</Link>
           </Button>
         </div>
 
         {/* Mobile Navigation */}
-        <div className="md:hidden flex items-center space-x-2">
+        <div className="lg:hidden flex items-center space-x-2">
           <ThemeToggle />
           <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="rounded-full">
             {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -64,32 +138,69 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile Menu */}
-      <div className={cn("fixed inset-0 z-40 bg-background/80 backdrop-blur-sm md:hidden transition-opacity duration-300", mobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none")}>
-        <div className={cn("fixed inset-y-0 right-0 w-3/4 max-w-sm bg-card shadow-xl p-6 transition-transform duration-300 ease-in-out", mobileMenuOpen ? "translate-x-0" : "translate-x-full")}>
-          <div className="flex flex-col h-full justify-between">
-            <div>
-              <div className="flex justify-between mb-8">
-                <LanguageSelector />
-                <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(false)} className="rounded-full">
-                  <X className="h-6 w-6" />
-                </Button>
-              </div>
-              <ul className="space-y-6">
-                {navLinks.map(link => <li key={link.name}>
-                    <Link to={link.path} className="text-lg font-medium transition-colors hover:text-primary" onClick={() => setMobileMenuOpen(false)}>
-                      {link.name}
-                    </Link>
-                  </li>)}
-              </ul>
+      <div className={cn(
+        "fixed inset-0 z-40 glass-nav lg:hidden transition-opacity duration-300",
+        mobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+      )}>
+        <div className={cn(
+          "fixed inset-y-0 right-0 w-3/4 max-w-sm glass-card shadow-xl p-6 transition-transform duration-300 ease-in-out",
+          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        )}>
+          <div className="flex flex-col h-full">
+            <div className="flex justify-end mb-8">
+              <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(false)} className="rounded-full">
+                <X className="h-6 w-6" />
+              </Button>
             </div>
-            
-            <Button asChild className="w-full btn-primary mt-6">
-              <Link to="/booking" onClick={() => setMobileMenuOpen(false)}>
-                {t.nav.bookNow}
-              </Link>
-            </Button>
+            <ul className="space-y-4 flex-1 overflow-y-auto">
+              <li>
+                <Link to="/" className="block text-lg font-medium py-2" onClick={() => setMobileMenuOpen(false)}>
+                  Главная
+                </Link>
+              </li>
+              <li>
+                <div className="text-lg font-medium py-2 text-muted-foreground">О компании</div>
+                <ul className="ml-4 space-y-2">
+                  {companyMenuItems.map(item => (
+                    <li key={item.path}>
+                      <Link to={item.path} className="block py-1 text-sm" onClick={() => setMobileMenuOpen(false)}>
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+              <li>
+                <div className="text-lg font-medium py-2 text-muted-foreground">Продукция</div>
+                <ul className="ml-4 space-y-2">
+                  {productMenuItems.map(item => (
+                    <li key={item.path}>
+                      <Link to={item.path} className="block py-1 text-sm" onClick={() => setMobileMenuOpen(false)}>
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+              <li>
+                <Link to="/services" className="block text-lg font-medium py-2" onClick={() => setMobileMenuOpen(false)}>
+                  Услуги
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="block text-lg font-medium py-2" onClick={() => setMobileMenuOpen(false)}>
+                  Контакты
+                </Link>
+              </li>
+              <li>
+                <Link to="/support" className="block text-lg font-medium py-2" onClick={() => setMobileMenuOpen(false)}>
+                  Поддержка и сервис
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-    </header>;
+    </header>
+  );
 }

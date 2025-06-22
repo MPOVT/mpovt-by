@@ -1,292 +1,264 @@
+
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import HeroSection from "@/components/HeroSection";
-import BookingForm from "@/components/BookingForm";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import ApartmentCard, { ApartmentProps } from "@/components/ApartmentCard";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, Wifi, Utensils, Waves, LifeBuoy, MapPin, Coffee } from "lucide-react";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { ArrowRight, Factory, Cpu, Truck, Award, TrendingUp, Users } from "lucide-react";
 
-// Sample apartments data
-const featuredApartments: ApartmentProps[] = [
+const achievements = [
   {
-    id: "1",
-    name: "Deluxe Sea View Suite",
-    description: "Luxurious suite with panoramic sea views, modern amenities, and a private balcony.",
-    price: 180,
-    capacity: 2,
-    size: 45,
-    image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop",
-    location: "Beachfront",
-    features: ["Wi-Fi", "Kitchen", "Bathroom", "Air Conditioning", "TV", "Balcony"]
+    icon: <TrendingUp className="h-8 w-8 text-primary" />,
+    title: "Рост производства в 10 раз",
+    description: "За последние 2 года предприятие значительно увеличило объемы производства"
   },
   {
-    id: "2",
-    name: "Premium Family Apartment",
-    description: "Spacious apartment ideal for families, with full kitchen and stunning coastal views.",
-    price: 250,
-    capacity: 4,
-    size: 75,
-    image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop",
-    location: "Second row",
-    features: ["Wi-Fi", "Kitchen", "Bathroom", "Air Conditioning", "TV", "Washing Machine"]
+    icon: <Award className="h-8 w-8 text-primary" />,
+    title: "85% инновационной продукции",
+    description: "Доля инновационной продукции превысила 85% от общего объема"
   },
   {
-    id: "3",
-    name: "Executive Beach Studio",
-    description: "Elegant studio with direct beach access, modern design, and premium finishes.",
-    price: 150,
-    capacity: 2,
-    size: 35,
-    image: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=800&h=600&fit=crop",
-    location: "Beachfront",
-    features: ["Wi-Fi", "Kitchenette", "Bathroom", "Air Conditioning", "TV"]
+    icon: <Factory className="h-8 w-8 text-primary" />,
+    title: "Лидер отрасли",
+    description: "Первое место в социально-экономическом соревновании в сфере промышленности"
+  }
+];
+
+const partners = [
+  "БЕЛАЗ", "МАЗ", "МТЗ", "Гомсельмаш", "ПТЗ", "КАМАЗ"
+];
+
+const products = [
+  {
+    title: "Автокомпоненты",
+    description: "Блоки управления для автомобилей, тракторов и спецтехники",
+    image: "https://images.unsplash.com/photo-1486753484588-804d0bf8c36d?w=800&h=600&fit=crop",
+    link: "/products/car-blocks"
+  },
+  {
+    title: "Компьютерная техника",
+    description: "Ноутбуки и компоненты на собственной платформе",
+    image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&h=600&fit=crop",
+    link: "/products/laptops"
+  },
+  {
+    title: "Средства связи", 
+    description: "Домофоны, системы специальной связи и информационные системы",
+    image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&h=600&fit=crop",
+    link: "/products/intercoms"
   }
 ];
 
 export default function Index() {
-  const { t } = useLanguage();
-  
   useEffect(() => {
-    // Scroll to top when component mounts
     window.scrollTo(0, 0);
   }, []);
   
-  // Feature items
-  const features = [
-    {
-      icon: <Waves className="h-8 w-8 text-primary" />,
-      title: t.home.amenities.features.beachfront.title,
-      description: t.home.amenities.features.beachfront.description
-    },
-    {
-      icon: <LifeBuoy className="h-8 w-8 text-primary" />,
-      title: t.home.amenities.features.pools.title,
-      description: t.home.amenities.features.pools.description
-    },
-    {
-      icon: <Utensils className="h-8 w-8 text-primary" />,
-      title: t.home.amenities.features.restaurant.title,
-      description: t.home.amenities.features.restaurant.description
-    },
-    {
-      icon: <Wifi className="h-8 w-8 text-primary" />,
-      title: t.home.amenities.features.wifi.title,
-      description: t.home.amenities.features.wifi.description
-    },
-    {
-      icon: <Coffee className="h-8 w-8 text-primary" />,
-      title: t.home.amenities.features.bar.title,
-      description: t.home.amenities.features.bar.description
-    },
-    {
-      icon: <MapPin className="h-8 w-8 text-primary" />,
-      title: t.home.amenities.features.location.title,
-      description: t.home.amenities.features.location.description
-    }
-  ];
-  
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col page-transition-enter page-transition-enter-active">
       <Navbar />
       
       <main className="flex-1">
         {/* Hero Section */}
-        <HeroSection />
-        
-        {/* Welcome Section */}
-        <section id="welcome" className="section">
+        <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-primary/5 overflow-hidden">
+          <div className="container relative z-10 pt-20">
+            <div className="text-center max-w-4xl mx-auto">
+              <div className="glass-card p-8 md:p-12 animate-fade-in">
+                <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                  ОАО «МПОВТ»
+                </h1>
+                <p className="text-xl md:text-2xl text-muted-foreground mb-8">
+                  Отечественный производитель изделий промышленной электроники, 
+                  автокомпонентов и компьютерной техники
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button asChild size="lg" className="btn-primary">
+                    <Link to="/products/car-blocks">Наша продукция</Link>
+                  </Button>
+                  <Button asChild variant="outline" size="lg" className="glass-card border-white/30">
+                    <Link to="/company/cooperation">О компании</Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Background decorations */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute top-1/4 -left-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse-slow" />
+            <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse-slow [animation-delay:2s]" />
+          </div>
+        </section>
+
+        {/* About Section */}
+        <section className="section">
           <div className="container">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="animate-fade-in [animation-delay:100ms]">
                 <span className="text-sm text-primary font-medium uppercase tracking-wider">
-                  {t.home.welcome.subtitle}
+                  О предприятии
                 </span>
                 <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-6">
-                  {t.home.welcome.title}
+                  Инновационные решения для промышленности
                 </h2>
                 <p className="text-muted-foreground mb-6">
-                  {t.home.welcome.description1}
+                  ОАО «МПОВТ» является отечественным производителем изделий промышленной электроники, 
+                  автокомпонентов, компьютерной техники и средств связи на интеллектуальной платформе.
                 </p>
                 <p className="text-muted-foreground mb-8">
-                  {t.home.welcome.description2}
+                  Мы активно сотрудничаем с ведущими предприятиями системы Минпрома и развиваем 
+                  кооперационное взаимодействие с российскими партнерами.
                 </p>
                 <Button asChild className="btn-primary">
-                  <Link to="/about">
-                    {t.home.welcome.learnMore} <ArrowRight className="ml-2 h-4 w-4" />
+                  <Link to="/company/cooperation">
+                    Подробнее <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </div>
               
               <div className="relative animate-fade-in [animation-delay:300ms]">
-                <div className="aspect-[4/3] rounded-2xl overflow-hidden">
+                <div className="glass-card p-6 rounded-2xl">
                   <img 
-                    src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&h=600&fit=crop"
-                    alt="Seaside view" 
-                    className="w-full h-full object-cover"
+                    src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop"
+                    alt="Производственные мощности" 
+                    className="w-full h-64 object-cover rounded-lg mb-4"
                   />
-                </div>
-                <div className="absolute -bottom-6 -left-6 w-2/3 rounded-2xl overflow-hidden shadow-xl">
-                  <img 
-                    src="https://images.unsplash.com/photo-1545579133-99bb5ab189bd?w=400&h=300&fit=crop"
-                    alt="Luxury apartment interior" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="absolute -top-6 -right-6 w-1/2 rounded-2xl overflow-hidden shadow-xl">
-                  <img 
-                    src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=400&h=300&fit=crop"
-                    alt="Pool view" 
-                    className="w-full h-full object-cover"
-                  />
+                  <h3 className="text-xl font-semibold mb-2">Современное производство</h3>
+                  <p className="text-muted-foreground">
+                    Высокотехнологичное оборудование и строгий контроль качества на всех этапах производства
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </section>
-        
-        {/* Booking Form Section */}
-        <section className="relative py-20 bg-gradient-to-r from-sea-light to-white dark:from-sea-dark dark:to-background overflow-hidden">
-          <div className="container relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="animate-fade-in">
-                <span className="text-sm text-primary font-medium uppercase tracking-wider">
-                  {t.home.booking.subtitle}
-                </span>
-                <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-6">
-                  {t.home.booking.title}
-                </h2>
-                <p className="text-muted-foreground mb-6">
-                  {t.home.booking.description}
-                </p>
-                <ul className="space-y-3 mb-8">
-                  {t.home.booking.benefits.map((item, index) => (
-                    <li key={index} className="flex items-center">
-                      <div className="h-5 w-5 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-3">
-                        <ArrowRight className="h-3 w-3" />
-                      </div>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              
-              <BookingForm />
+
+        {/* Achievements Section */}
+        <section className="section bg-primary/5">
+          <div className="container">
+            <div className="text-center max-w-3xl mx-auto mb-12 animate-fade-in">
+              <span className="text-sm text-primary font-medium uppercase tracking-wider">
+                Наши достижения
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
+                Результаты работы предприятия
+              </h2>
+              <p className="text-muted-foreground">
+                За последние годы МПОВТ демонстрирует устойчивый рост и развитие
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {achievements.map((achievement, index) => (
+                <div 
+                  key={index} 
+                  className="glass-card p-6 rounded-xl animate-fade-in text-center"
+                  style={{ animationDelay: `${(index + 1) * 100}ms` }}
+                >
+                  <div className="mb-4 flex justify-center">
+                    <div className="p-3 rounded-full bg-primary/10">
+                      {achievement.icon}
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">{achievement.title}</h3>
+                  <p className="text-muted-foreground">{achievement.description}</p>
+                </div>
+              ))}
             </div>
           </div>
-          
-          {/* Decorative elements */}
-          <div className="absolute top-0 right-0 w-1/3 h-full opacity-10">
-            <div className="absolute top-10 right-10 w-64 h-64 rounded-full bg-primary/50 blur-3xl" />
-            <div className="absolute bottom-10 right-40 w-48 h-48 rounded-full bg-sea-light blur-3xl" />
-          </div>
         </section>
-        
-        {/* Featured Apartments */}
+
+        {/* Products Section */}
         <section className="section">
           <div className="container">
             <div className="text-center max-w-3xl mx-auto mb-12 animate-fade-in">
               <span className="text-sm text-primary font-medium uppercase tracking-wider">
-                {t.home.featuredApartments.subtitle}
+                Наша продукция
               </span>
               <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
-                {t.home.featuredApartments.title}
+                Основные направления производства
               </h2>
               <p className="text-muted-foreground">
-                {t.home.featuredApartments.description}
+                Широкий спектр высококачественной продукции для различных отраслей промышленности
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {featuredApartments.map((apartment, index) => (
-                <div key={apartment.id} className="animate-fade-in" style={{ animationDelay: `${(index + 1) * 100}ms` }}>
-                  <ApartmentCard apartment={apartment} />
-                </div>
-              ))}
-            </div>
-            
-            <div className="text-center mt-12">
-              <Button asChild className="btn-primary">
-                <Link to="/apartments">
-                  {t.home.featuredApartments.viewAll} <ArrowRight className="ml-2 h-4 w-4" />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {products.map((product, index) => (
+                <Link 
+                  key={index}
+                  to={product.link}
+                  className="group animate-fade-in"
+                  style={{ animationDelay: `${(index + 1) * 100}ms` }}
+                >
+                  <div className="glass-card p-6 rounded-xl transition-all duration-300 group-hover:scale-105">
+                    <div className="aspect-video rounded-lg overflow-hidden mb-4">
+                      <img 
+                        src={product.image}
+                        alt={product.title}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                      />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">{product.title}</h3>
+                    <p className="text-muted-foreground mb-4">{product.description}</p>
+                    <div className="flex items-center text-primary font-medium">
+                      Подробнее <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </div>
+                  </div>
                 </Link>
-              </Button>
+              ))}
             </div>
           </div>
         </section>
-        
-        {/* Testimonials Section */}
-        <TestimonialsSection />
-        
-        {/* Features Section */}
+
+        {/* Partners Section */}
         <section className="section bg-card">
           <div className="container">
             <div className="text-center max-w-3xl mx-auto mb-12 animate-fade-in">
               <span className="text-sm text-primary font-medium uppercase tracking-wider">
-                {t.home.amenities.subtitle}
+                Наши партнеры
               </span>
               <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
-                {t.home.amenities.title}
+                Кооперационное взаимодействие
               </h2>
               <p className="text-muted-foreground">
-                {t.home.amenities.description}
+                Мы сотрудничаем с ведущими предприятиями автомобильной и сельскохозяйственной техники
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {features.map((feature, index) => (
+            <div className="flex flex-wrap justify-center gap-8">
+              {partners.map((partner, index) => (
                 <div 
-                  key={index} 
-                  className="glass-card p-6 rounded-xl animate-fade-in flex flex-col items-center text-center"
-                  style={{ animationDelay: `${(index + 1) * 100}ms` }}
+                  key={index}
+                  className="glass-card px-8 py-4 rounded-lg animate-fade-in"
+                  style={{ animationDelay: `${(index + 1) * 50}ms` }}
                 >
-                  <div className="mb-4 p-3 rounded-full bg-primary/10">
-                    {feature.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-muted-foreground">{feature.description}</p>
+                  <span className="text-lg font-semibold">{partner}</span>
                 </div>
               ))}
             </div>
           </div>
         </section>
-        
+
         {/* CTA Section */}
-        <section className="relative py-24 bg-primary/5">
+        <section className="relative section bg-gradient-to-r from-primary/10 to-primary/5">
           <div className="container">
             <div className="max-w-3xl mx-auto text-center animate-fade-in">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                {t.home.cta.title}
+                Готовы к сотрудничеству?
               </h2>
-              <p className="text-muted-foreground mb-8">
-                {t.home.cta.description}
+              <p className="text-muted-foreground mb-8 text-lg">
+                Свяжитесь с нами для обсуждения возможностей кооперации и поставок нашей продукции
               </p>
-              <Button asChild size="lg" className="btn-primary">
-                <Link to="/booking">{t.home.cta.bookNow}</Link>
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button asChild size="lg" className="btn-primary">
+                  <Link to="/contact">Связаться с нами</Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="glass-card border-white/30">
+                  <Link to="/company/cooperation">Узнать о кооперации</Link>
+                </Button>
+              </div>
             </div>
-          </div>
-          
-          {/* Decorative waves */}
-          <div className="absolute bottom-0 left-0 right-0 h-24 overflow-hidden">
-            <svg 
-              className="absolute bottom-0 w-full h-24 fill-background"
-              preserveAspectRatio="none"
-              viewBox="0 0 1440 74"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path 
-                d="M0,37.1L40,34.5C80,32,160,27,240,29.6C320,32,400,42,480,42.9C560,44,640,35,720,32.1C800,30,880,34,960,40.8C1040,47,1120,56,1200,56.6C1280,57,1360,48,1400,43.3L1440,39.1L1440,74L1400,74C1360,74,1280,74,1200,74C1120,74,1040,74,960,74C880,74,800,74,720,74C640,74,560,74,480,74C400,74,320,74,240,74C160,74,80,74,40,74L0,74Z"
-                className="animate-wave opacity-50"
-              />
-              <path 
-                d="M0,37.1L40,34.5C80,32,160,27,240,29.6C320,32,400,42,480,42.9C560,44,640,35,720,32.1C800,30,880,34,960,40.8C1040,47,1120,56,1200,56.6C1280,57,1360,48,1400,43.3L1440,39.1L1440,74L1400,74C1360,74,1280,74,1200,74C1120,74,1040,74,960,74C880,74,800,74,720,74C640,74,560,74,480,74C400,74,320,74,240,74C160,74,80,74,40,74L0,74Z"
-                className="animate-wave opacity-100 [animation-delay:-4s]"
-              />
-            </svg>
           </div>
         </section>
       </main>
