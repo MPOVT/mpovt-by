@@ -91,7 +91,11 @@
   }
   
   .btn-primary {
-    @apply bg-primary text-primary-foreground rounded-lg px-6 py-2.5 font-medium transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 active:scale-[0.98] hover:bg-primary/90;
+    @apply bg-primary text-primary-foreground rounded-lg px-6 py-2.5 font-medium transition-all duration-500 hover:shadow-lg active:scale-[0.98] hover:bg-primary/90;
+  }
+  
+  .btn-primary:hover {
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.6), 0 0 40px rgba(249, 115, 22, 0.3);
   }
   
   .section {
@@ -138,11 +142,15 @@
   }
 
   .dropdown-item {
-    @apply px-4 py-3 text-sm transition-all duration-200 hover:bg-primary/10 hover:text-primary rounded-md mx-1 my-0.5;
+    @apply px-4 py-3 text-sm transition-all duration-300 hover:bg-primary/10 hover:text-primary rounded-md mx-2 my-1;
   }
 
   .animate-bounce-in {
-    animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .animate-bounce-in-soft {
+    animation: bounceInSoft 0.6s ease-out;
   }
 
   .animate-slide-in-left {
@@ -155,6 +163,22 @@
 
   .animate-glow {
     animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-text-glow {
+    animation: textGlow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
   }
 }
 
@@ -173,6 +197,17 @@
   100% {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@keyframes bounceInSoft {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
   }
 }
 
@@ -200,9 +235,49 @@
 
 @keyframes glow {
   0% {
-    box-shadow: 0 0 5px rgba(255, 123, 0, 0.5);
+    box-shadow: 0 0 5px rgba(249, 115, 22, 0.5);
   }
   100% {
-    box-shadow: 0 0 20px rgba(255, 123, 0, 0.8), 0 0 30px rgba(255, 123, 0, 0.6);
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.8), 0 0 30px rgba(249, 115, 22, 0.6);
+  }
+}
+
+@keyframes textGlow {
+  0% {
+    text-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(249, 115, 22, 0.8), 0 0 30px rgba(249, 115, 22, 0.6);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
   }
 }

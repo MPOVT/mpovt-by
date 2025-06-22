@@ -98,9 +98,6 @@ export default function Footer() {
         
         <div className="border-t border-border pt-8 mt-8 text-center text-muted-foreground animate-fade-in" style={{ animationDelay: '800ms' }}>
           <p>&copy; {currentYear} ОАО «МПОВТ». Все права защищены.</p>
-          <p className="text-sm mt-2">
-            Отечественное предприятие промышленной электроники и автокомпонентов
-          </p>
         </div>
       </div>
     </footer>

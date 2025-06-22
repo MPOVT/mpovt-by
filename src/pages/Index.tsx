@@ -1,10 +1,10 @@
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, Factory, Cpu, Truck, Award, TrendingUp, Users } from "lucide-react";
+import { ArrowRight, Factory, Cpu, Truck, Award, TrendingUp, Users, Settings, Zap, Shield } from "lucide-react";
 
 const achievements = [
   {
@@ -32,7 +32,7 @@ const products = [
   {
     title: "Автокомпоненты",
     description: "Блоки управления для автомобилей, тракторов и спецтехники",
-    image: "https://images.unsplash.com/photo-1486753484588-804d0bf8c36d?w=800&h=600&fit=crop",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop",
     link: "/products/car-blocks"
   },
   {
@@ -44,12 +44,45 @@ const products = [
   {
     title: "Средства связи", 
     description: "Домофоны, системы специальной связи и информационные системы",
-    image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&h=600&fit=crop",
+    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=800&h=600&fit=crop",
     link: "/products/intercoms"
   }
 ];
 
+const aboutCards = [
+  {
+    id: 1,
+    title: "Современное производство",
+    description: "Высокотехнологичное оборудование и строгий контроль качества на всех этапах производства",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop",
+    icon: <Factory className="h-6 w-6 text-primary" />
+  },
+  {
+    id: 2,
+    title: "Инновационные технологии",
+    description: "Применение передовых технологий и разработка собственных инновационных решений",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop",
+    icon: <Zap className="h-6 w-6 text-primary" />
+  },
+  {
+    id: 3,
+    title: "Система качества",
+    description: "Сертифицированная система менеджмента качества и международные стандарты",
+    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&h=600&fit=crop",
+    icon: <Shield className="h-6 w-6 text-primary" />
+  },
+  {
+    id: 4,
+    title: "Профессиональная команда",
+    description: "Высококвалифицированные специалисты и постоянное повышение квалификации",
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=600&fit=crop",
+    icon: <Users className="h-6 w-6 text-primary" />
+  }
+];
+
 export default function Index() {
+  const [activeCard, setActiveCard] = useState(1);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -118,15 +151,34 @@ export default function Index() {
               
               <div className="relative animate-fade-in [animation-delay:300ms]">
                 <div className="glass-card p-6 rounded-2xl">
-                  <img 
-                    src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop"
-                    alt="Производственные мощности" 
-                    className="w-full h-64 object-cover rounded-lg mb-4"
-                  />
-                  <h3 className="text-xl font-semibold mb-2">Современное производство</h3>
-                  <p className="text-muted-foreground">
-                    Высокотехнологичное оборудование и строгий контроль качества на всех этапах производства
-                  </p>
+                  <div className="flex space-x-2 mb-4">
+                    {aboutCards.map((card) => (
+                      <button
+                        key={card.id}
+                        onClick={() => setActiveCard(card.id)}
+                        className={`p-2 rounded-lg transition-all duration-300 ${
+                          activeCard === card.id 
+                            ? 'bg-primary text-white' 
+                            : 'bg-primary/10 text-primary hover:bg-primary/20'
+                        }`}
+                      >
+                        {card.icon}
+                      </button>
+                    ))}
+                  </div>
+                  <div className="animate-fade-in" key={activeCard}>
+                    <img 
+                      src={aboutCards.find(card => card.id === activeCard)?.image}
+                      alt={aboutCards.find(card => card.id === activeCard)?.title}
+                      className="w-full h-64 object-cover rounded-lg mb-4"
+                    />
+                    <h3 className="text-xl font-semibold mb-2">
+                      {aboutCards.find(card => card.id === activeCard)?.title}
+                    </h3>
+                    <p className="text-muted-foreground">
+                      {aboutCards.find(card => card.id === activeCard)?.description}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -152,10 +204,10 @@ export default function Index() {
               {achievements.map((achievement, index) => (
                 <div 
                   key={index} 
-                  className="glass-card p-6 rounded-xl animate-fade-in text-center"
-                  style={{ animationDelay: `${(index + 1) * 100}ms` }}
+                  className="glass-card p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-lg animate-scale-in"
+                  style={{ animationDelay: `${(index + 1) * 150}ms` }}
                 >
-                  <div className="mb-4 flex justify-center">
+                  <div className="mb-4 flex justify-center animate-bounce-in" style={{ animationDelay: `${(index + 1) * 200}ms` }}>
                     <div className="p-3 rounded-full bg-primary/10">
                       {achievement.icon}
                     </div>
@@ -188,10 +240,10 @@ export default function Index() {
                 <Link 
                   key={index}
                   to={product.link}
-                  className="group animate-fade-in"
+                  className="group animate-fade-in-up"
                   style={{ animationDelay: `${(index + 1) * 100}ms` }}
                 >
-                  <div className="glass-card p-6 rounded-xl transition-all duration-300 group-hover:scale-105">
+                  <div className="glass-card p-6 rounded-xl transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl">
                     <div className="aspect-video rounded-lg overflow-hidden mb-4">
                       <img 
                         src={product.image}
@@ -230,8 +282,11 @@ export default function Index() {
               {partners.map((partner, index) => (
                 <div 
                   key={index}
-                  className="glass-card px-8 py-4 rounded-lg animate-fade-in"
-                  style={{ animationDelay: `${(index + 1) * 50}ms` }}
+                  className="glass-card px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg animate-float"
+                  style={{ 
+                    animationDelay: `${(index + 1) * 200}ms`,
+                    animationDuration: `${3 + index * 0.5}s`
+                  }}
                 >
                   <span className="text-lg font-semibold">{partner}</span>
                 </div>

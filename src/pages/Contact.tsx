@@ -1,294 +1,297 @@
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { MapPin, Phone, Mail, Clock, Send, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { MapPin, Phone, Mail, Clock, Building2 } from "lucide-react";
+import { toast } from "@/hooks/use-toast";
+
+const contactFormSchema = z.object({
+  name: z.string().min(2, "Имя должно содержать минимум 2 символа"),
+  email: z.string().email("Пожалуйста, введите корректный email"),
+  company: z.string().optional(),
+  phone: z.string().optional(),
+  message: z.string().min(10, "Сообщение должно содержать минимум 10 символов"),
+});
+
+type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 export default function Contact() {
-  const { t } = useLanguage();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: ""
-  });
-  
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  
   useEffect(() => {
-    // Scroll to top when component mounts
     window.scrollTo(0, 0);
   }, []);
-  
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      company: "",
+      phone: "",
+      message: "",
+    },
+  });
+
+  const onSubmit = (data: ContactFormValues) => {
+    console.log(data);
+    toast({
+      title: "Сообщение отправлено!",
+      description: "Мы свяжемся с вами в ближайшее время.",
+    });
+    form.reset();
   };
-  
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // In a real app, this would send the form data to a server
-    console.log("Form submitted:", formData);
-    
-    setIsSubmitted(true);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: ""
-      });
-    }, 3000);
-  };
-  
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col page-transition-enter page-transition-enter-active">
       <Navbar />
       
       <main className="flex-1 pt-20">
-        {/* Header Section */}
-        <section className="relative py-20 bg-gradient-to-r from-sea-light to-white dark:from-sea-dark dark:to-background overflow-hidden">
-          <div className="container relative z-10">
-            <div className="max-w-3xl mx-auto text-center animate-fade-in">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-                {t.contact.title}
+        {/* Hero Section */}
+        <section className="section bg-gradient-to-br from-primary/10 via-background to-primary/5">
+          <div className="container">
+            <div className="text-center max-w-4xl mx-auto mb-16 animate-fade-in">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                Свяжитесь с нами
               </h1>
-              <p className="text-muted-foreground text-lg mb-6">
-                {t.contact.subtitle}
+              <p className="text-xl text-muted-foreground">
+                Готовы обсудить сотрудничество или ответить на ваши вопросы. 
+                Выберите удобный способ связи.
               </p>
             </div>
           </div>
-          
-          {/* Decorative elements */}
-          <div className="absolute top-0 right-0 w-1/3 h-full opacity-10">
-            <div className="absolute top-10 right-10 w-64 h-64 rounded-full bg-primary/50 blur-3xl" />
-            <div className="absolute bottom-10 right-40 w-48 h-48 rounded-full bg-sea-light blur-3xl" />
-          </div>
         </section>
-        
-        {/* Contact Information & Form */}
+
+        {/* Contact Info & Form Section */}
         <section className="section">
           <div className="container">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Contact Information */}
-              <div className="animate-fade-in [animation-delay:100ms]">
-                <h2 className="text-2xl font-bold mb-6">{t.contact.getInTouch}</h2>
-                
-                <div className="glass-card p-6 space-y-6 mb-8">
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center mr-4">
-                      <MapPin className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">{t.contact.address}</h3>
-                      <p className="text-muted-foreground">
-                        123 Seaside Boulevard<br />
-                        Costa Bella, 12345<br />
-                        Italy
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center mr-4">
-                      <Phone className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">{t.contact.phone}</h3>
-                      <p className="text-muted-foreground">+39 123 4567 890</p>
-                      <p className="text-muted-foreground">+39 098 7654 321 (Reservations)</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center mr-4">
-                      <Mail className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">{t.contact.email}</h3>
-                      <p className="text-muted-foreground">info@maresereno.com</p>
-                      <p className="text-muted-foreground">reservations@maresereno.com</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center mr-4">
-                      <Clock className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">{t.contact.receptionHours}</h3>
-                      <p className="text-muted-foreground">
-                        Monday - Sunday: 24 hours<br />
-                        {t.contact.checkInTime}<br />
-                        {t.contact.checkOutTime}
-                      </p>
-                    </div>
-                  </div>
+              <div className="space-y-8 animate-fade-in [animation-delay:200ms]">
+                <div>
+                  <h2 className="text-3xl font-bold mb-6">Контактная информация</h2>
+                  <p className="text-muted-foreground mb-8">
+                    Наша команда готова помочь вам с любыми вопросами о продукции, 
+                    сотрудничестве и услугах компании.
+                  </p>
                 </div>
-                
-                <div className="aspect-video rounded-xl overflow-hidden">
-                  <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.03606358136!2d14.165818971864153!3d40.85529294646443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133b0a3c328d896b%3A0x309e11f99628150!2sGulf%20of%20Naples!5e0!3m2!1sen!2sus!4v1628613152777!5m2!1sen!2sus" 
-                    width="100%" 
-                    height="100%" 
-                    style={{ border: 0 }} 
-                    allowFullScreen 
-                    loading="lazy"
-                    title="Location Map"
-                  />
+
+                <div className="space-y-6">
+                  <Card className="glass-card border-white/20 transition-all duration-300 hover:shadow-lg">
+                    <CardContent className="p-6">
+                      <div className="flex items-start space-x-4">
+                        <div className="p-3 rounded-lg bg-primary/10">
+                          <MapPin className="h-6 w-6 text-primary" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold mb-2">Адрес</h3>
+                          <p className="text-muted-foreground">
+                            г. Минск, Фрунзенский район<br />
+                            Республика Беларусь
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="glass-card border-white/20 transition-all duration-300 hover:shadow-lg">
+                    <CardContent className="p-6">
+                      <div className="flex items-start space-x-4">
+                        <div className="p-3 rounded-lg bg-primary/10">
+                          <Phone className="h-6 w-6 text-primary" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold mb-2">Телефон</h3>
+                          <p className="text-muted-foreground">
+                            +375 (17) XXX-XX-XX<br />
+                            <span className="text-sm">Многоканальный</span>
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="glass-card border-white/20 transition-all duration-300 hover:shadow-lg">
+                    <CardContent className="p-6">
+                      <div className="flex items-start space-x-4">
+                        <div className="p-3 rounded-lg bg-primary/10">
+                          <Mail className="h-6 w-6 text-primary" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold mb-2">Email</h3>
+                          <p className="text-muted-foreground">
+                            info@mpovt.by<br />
+                            <span className="text-sm">Общие вопросы</span>
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="glass-card border-white/20 transition-all duration-300 hover:shadow-lg">
+                    <CardContent className="p-6">
+                      <div className="flex items-start space-x-4">
+                        <div className="p-3 rounded-lg bg-primary/10">
+                          <Clock className="h-6 w-6 text-primary" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold mb-2">Режим работы</h3>
+                          <p className="text-muted-foreground">
+                            Пн-Пт: 8:00 - 17:00<br />
+                            <span className="text-sm">Сб-Вс: выходные</span>
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </div>
               </div>
-              
+
               {/* Contact Form */}
-              <div className="animate-fade-in [animation-delay:300ms]">
-                <h2 className="text-2xl font-bold mb-6">{t.contact.sendMessage}</h2>
-                
-                <div className="glass-card p-6">
-                  {!isSubmitted ? (
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                          <Label htmlFor="name">{t.contact.fullName}</Label>
-                          <Input 
-                            id="name" 
+              <div className="animate-fade-in [animation-delay:400ms]">
+                <Card className="glass-card border-white/20">
+                  <CardHeader>
+                    <CardTitle className="text-2xl">Отправить сообщение</CardTitle>
+                    <CardDescription>
+                      Заполните форму ниже, и мы свяжемся с вами в ближайшее время
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Form {...form}>
+                      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <FormField
+                            control={form.control}
                             name="name"
-                            value={formData.name}
-                            onChange={handleInputChange}
-                            placeholder="John Doe" 
-                            required 
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Имя *</FormLabel>
+                                <FormControl>
+                                  <Input placeholder="Ваше имя" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
                           />
-                        </div>
-                        
-                        <div className="space-y-2">
-                          <Label htmlFor="email">{t.contact.email}</Label>
-                          <Input 
-                            id="email" 
+                          <FormField
+                            control={form.control}
                             name="email"
-                            type="email"
-                            value={formData.email}
-                            onChange={handleInputChange}
-                            placeholder="john@example.com" 
-                            required 
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Email *</FormLabel>
+                                <FormControl>
+                                  <Input placeholder="email@example.com" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
                           />
                         </div>
-                      </div>
-                      
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                          <Label htmlFor="phone">{t.contact.phoneNumber}</Label>
-                          <Input 
-                            id="phone" 
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <FormField
+                            control={form.control}
+                            name="company"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Компания</FormLabel>
+                                <FormControl>
+                                  <Input placeholder="Название компании" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          <FormField
+                            control={form.control}
                             name="phone"
-                            value={formData.phone}
-                            onChange={handleInputChange}
-                            placeholder="+1 234 567 8900" 
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Телефон</FormLabel>
+                                <FormControl>
+                                  <Input placeholder="+375 (XX) XXX-XX-XX" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
                           />
                         </div>
-                        
-                        <div className="space-y-2">
-                          <Label htmlFor="subject">{t.contact.subject}</Label>
-                          <Input 
-                            id="subject" 
-                            name="subject"
-                            value={formData.subject}
-                            onChange={handleInputChange}
-                            placeholder="Reservation Inquiry" 
-                            required 
-                          />
-                        </div>
-                      </div>
-                      
-                      <div className="space-y-2">
-                        <Label htmlFor="message">{t.contact.message}</Label>
-                        <textarea 
-                          id="message" 
+
+                        <FormField
+                          control={form.control}
                           name="message"
-                          value={formData.message}
-                          onChange={handleInputChange}
-                          placeholder={t.contact.howCanWeHelp} 
-                          className="w-full min-h-[150px] p-3 rounded-md border border-input bg-background"
-                          required 
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Сообщение *</FormLabel>
+                              <FormControl>
+                                <Textarea 
+                                  placeholder="Расскажите о ваших потребностях или задайте вопрос..."
+                                  className="min-h-[120px]"
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
                         />
-                      </div>
-                      
-                      <Button type="submit" className="w-full btn-primary">
-                        <Send className="mr-2 h-4 w-4" />
-                        {t.contact.send}
-                      </Button>
-                    </form>
-                  ) : (
-                    <div className="text-center py-12">
-                      <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <Check className="h-8 w-8 text-green-600 dark:text-green-400" />
-                      </div>
-                      <h3 className="text-xl font-semibold mb-2">{t.contact.messageSent}</h3>
-                      <p className="text-muted-foreground mb-6">
-                        {t.contact.thankYou}
-                      </p>
-                    </div>
-                  )}
-                </div>
+
+                        <Button type="submit" className="btn-primary w-full">
+                          Отправить сообщение
+                        </Button>
+                      </form>
+                    </Form>
+                  </CardContent>
+                </Card>
               </div>
             </div>
           </div>
         </section>
-        
-        {/* FAQ Section */}
-        <section className="section bg-muted">
+
+        {/* Additional Info Section */}
+        <section className="section bg-primary/5">
           <div className="container">
-            <div className="max-w-3xl mx-auto text-center mb-12 animate-fade-in">
-              <h2 className="text-3xl font-bold mb-4">{t.contact.faq}</h2>
-              <p className="text-muted-foreground">
-                {t.contact.faqSubtitle}
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-in [animation-delay:200ms]">
-              {[
-                {
-                  questionKey: "checkInOut",
-                  icon: <Clock className="h-5 w-5 text-primary" />
-                },
-                {
-                  questionKey: "parking",
-                  icon: <MapPin className="h-5 w-5 text-primary" />
-                },
-                {
-                  questionKey: "pets",
-                  icon: <MapPin className="h-5 w-5 text-primary" />
-                },
-                {
-                  questionKey: "breakfast",
-                  icon: <MapPin className="h-5 w-5 text-primary" />
-                },
-                {
-                  questionKey: "transfers",
-                  icon: <MapPin className="h-5 w-5 text-primary" />
-                },
-                {
-                  questionKey: "amenities",
-                  icon: <MapPin className="h-5 w-5 text-primary" />
-                },
-              ].map((faq, index) => (
-                <div key={index} className="glass-card p-6">
-                  <h3 className="font-semibold text-lg mb-2">
-                    {t.contact.questions[faq.questionKey].question}
-                  </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <Card className="glass-card border-white/20 text-center animate-scale-in" style={{ animationDelay: '100ms' }}>
+                <CardContent className="p-6">
+                  <div className="p-3 rounded-lg bg-primary/10 w-fit mx-auto mb-4">
+                    <Building2 className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Корпоративные клиенты</h3>
                   <p className="text-muted-foreground">
-                    {t.contact.questions[faq.questionKey].answer}
+                    Специальные условия сотрудничества для крупных предприятий и организаций
                   </p>
-                </div>
-              ))}
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card border-white/20 text-center animate-scale-in" style={{ animationDelay: '200ms' }}>
+                <CardContent className="p-6">
+                  <div className="p-3 rounded-lg bg-primary/10 w-fit mx-auto mb-4">
+                    <Phone className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Техническая поддержка</h3>
+                  <p className="text-muted-foreground">
+                    Круглосуточная поддержка по вопросам эксплуатации нашей продукции
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card border-white/20 text-center animate-scale-in" style={{ animationDelay: '300ms' }}>
+                <CardContent className="p-6">
+                  <div className="p-3 rounded-lg bg-primary/10 w-fit mx-auto mb-4">
+                    <Mail className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Быстрый ответ</h3>
+                  <p className="text-muted-foreground">
+                    Гарантируем ответ на ваше обращение в течение 24 часов
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>

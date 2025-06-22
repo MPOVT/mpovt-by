@@ -52,7 +52,7 @@ export default function Navbar() {
   return (
     <header className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-500 animate-slide-in-right",
-      scrolled ? "glass-nav py-3 shadow-lg animate-glow" : "bg-transparent py-5"
+      scrolled ? "glass-nav py-3 shadow-lg animate-glow" : "glass-nav py-5"
     )}>
       <nav className="container flex justify-between items-center">
         <Link to="/" className="flex items-center space-x-2 animate-bounce-in">
@@ -75,10 +75,10 @@ export default function Navbar() {
               <DropdownMenuTrigger className="flex items-center font-medium transition-all duration-300 hover:text-primary hover:scale-105">
                 О компании <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="glass-card border-white/20 p-2 min-w-[280px] animate-slide-down">
+              <DropdownMenuContent className="glass-card border-white/20 p-3 min-w-[320px] mt-2 animate-fade-in-up">
                 {companyMenuItems.map((item, index) => (
-                  <DropdownMenuItem key={item.path} asChild className="dropdown-item" style={{ animationDelay: `${index * 50}ms` }}>
-                    <Link to={item.path} className="w-full cursor-pointer animate-fade-in">
+                  <DropdownMenuItem key={item.path} asChild className="dropdown-item animate-fade-in" style={{ animationDelay: `${index * 80}ms` }}>
+                    <Link to={item.path} className="w-full cursor-pointer">
                       {item.name}
                     </Link>
                   </DropdownMenuItem>
@@ -92,10 +92,10 @@ export default function Navbar() {
               <DropdownMenuTrigger className="flex items-center font-medium transition-all duration-300 hover:text-primary hover:scale-105">
                 Продукция <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="glass-card border-white/20 p-2 min-w-[320px] animate-slide-down">
+              <DropdownMenuContent className="glass-card border-white/20 p-3 min-w-[360px] mt-2 animate-fade-in-up">
                 {productMenuItems.map((item, index) => (
-                  <DropdownMenuItem key={item.path} asChild className="dropdown-item" style={{ animationDelay: `${index * 50}ms` }}>
-                    <Link to={item.path} className="w-full cursor-pointer animate-fade-in">
+                  <DropdownMenuItem key={item.path} asChild className="dropdown-item animate-fade-in" style={{ animationDelay: `${index * 80}ms` }}>
+                    <Link to={item.path} className="w-full cursor-pointer">
                       {item.name}
                     </Link>
                   </DropdownMenuItem>
@@ -123,7 +123,7 @@ export default function Navbar() {
 
         <div className="hidden lg:flex items-center space-x-2 animate-fade-in" style={{ animationDelay: '700ms' }}>
           <ThemeToggle />
-          <Button asChild className="btn-primary animate-glow">
+          <Button asChild className="btn-primary">
             <Link to="/contact">Связаться с нами</Link>
           </Button>
         </div>
