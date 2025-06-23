@@ -1,5 +1,5 @@
 
-import { useEffect } from "react";
+import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -10,7 +10,7 @@ import Footer from "@/components/Footer";
 const NotFound = () => {
   const location = useLocation();
 
-  useEffect(() => {
+  React.useEffect(() => {
     console.error(
       "404 Error: User attempted to access non-existent route:",
       location.pathname
@@ -22,39 +22,25 @@ const NotFound = () => {
       <Navigation />
       
       <div className="min-h-screen flex flex-col items-center justify-center px-4 pt-20">
-        <Card className="max-w-lg w-full text-center p-12 glass-card rounded-2xl shadow-2xl animate-bounce-in-soft">
+        <Card className="max-w-lg w-full text-center p-12 glass-card rounded-2xl shadow-2xl animate-fade-in">
           <div className="relative mb-8">
-            <h1 
-              className="text-8xl md:text-9xl font-bold text-primary mb-4 relative z-10"
-              style={{
-                textShadow: "0 0 20px rgba(249, 115, 22, 0.6), 0 0 40px rgba(249, 115, 22, 0.4), 0 0 60px rgba(249, 115, 22, 0.2)"
-              }}
-            >
+            <h1 className="text-8xl md:text-9xl font-bold text-primary mb-4">
               404
             </h1>
-            <div 
-              className="absolute inset-0 text-8xl md:text-9xl font-bold text-primary opacity-50 blur-sm"
-              style={{
-                textShadow: "0 0 30px rgba(249, 115, 22, 0.8)"
-              }}
-            >
-              404
-            </div>
           </div>
           
-          <h2 className="text-2xl md:text-3xl font-semibold mb-4 animate-fade-in" style={{ animationDelay: '200ms' }}>
+          <h2 className="text-2xl md:text-3xl font-semibold mb-4">
             Страница не найдена
           </h2>
           
-          <p className="text-muted-foreground mb-8 animate-fade-in leading-relaxed" style={{ animationDelay: '400ms' }}>
+          <p className="text-muted-foreground mb-8 leading-relaxed">
             К сожалению, запрашиваемая страница не существует. Возможно, она была перемещена или удалена.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               asChild 
-              className="btn-primary animate-fade-in-up group" 
-              style={{ animationDelay: '600ms' }}
+              className="btn-primary-smooth group"
             >
               <Link to="/">
                 <Home className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
@@ -65,8 +51,7 @@ const NotFound = () => {
             <Button 
               asChild 
               variant="outline" 
-              className="border-primary text-primary hover:bg-primary hover:text-white animate-fade-in-up group" 
-              style={{ animationDelay: '700ms' }}
+              className="border-primary text-primary hover:bg-primary hover:text-white group"
               onClick={() => window.history.back()}
             >
               <span className="cursor-pointer">

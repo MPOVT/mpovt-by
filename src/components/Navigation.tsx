@@ -58,13 +58,24 @@ export default function Navigation() {
     setMobileMenuOpen(false);
   };
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <>
       <header className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out",
-        "bg-white/10 dark:bg-black/10 backdrop-blur-xl py-4",
-        scrolled && "border-b navbar-border-fade",
-        scrolled ? "border-white/20 dark:border-white/10 shadow-2xl" : "border-transparent"
+        "bg-white/15 dark:bg-black/15 backdrop-blur-xl py-4",
+        scrolled && "border-b border-white/20 dark:border-white/10 shadow-2xl"
       )}>
         <nav className="container mx-auto px-4 flex justify-between items-center">
           {/* Logo */}
@@ -211,7 +222,7 @@ export default function Navigation() {
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center space-x-3">
             <ThemeToggle />
-            <Button asChild className="bg-primary/90 hover:bg-primary text-white border-0 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/50">
+            <Button asChild className="btn-primary-smooth">
               <Link to="/contact">Связаться с нами</Link>
             </Button>
           </div>
@@ -231,106 +242,103 @@ export default function Navigation() {
         </nav>
       </header>
 
-      {/* Mobile Menu Overlay */}
-      <div className={cn(
-        "fixed inset-0 z-30 lg:hidden mobile-menu-overlay",
-        mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-      )}>
-        {/* Background overlay */}
-        <div 
-          className={cn(
-            "absolute inset-0 transition-all duration-300",
-            mobileMenuOpen ? "backdrop-blur-sm bg-black/20" : "backdrop-blur-0 bg-black/0"
-          )}
-          onClick={closeMobileMenu}
-        />
-        
-        {/* Mobile menu content */}
-        <div className={cn(
-          "absolute top-16 left-4 right-4 bg-white/15 dark:bg-black/15 backdrop-blur-xl border border-white/20 dark:border-white/10 rounded-xl shadow-2xl p-6 transition-all duration-300 ease-out",
-          mobileMenuOpen 
-            ? "opacity-100 translate-y-0 scale-100" 
-            : "opacity-0 -translate-y-4 scale-95"
-        )}>
-          <div className="space-y-4 max-h-[70vh] overflow-y-auto">
-            <Link 
-              to="/" 
-              className="block text-lg font-medium py-2 transition-all duration-300 hover:text-primary hover:translate-x-2" 
-              onClick={closeMobileMenu}
-            >
-              Главная
-            </Link>
-            
-            <div>
-              <div className="text-lg font-medium py-2 text-muted-foreground">О компании</div>
-              <div className="ml-4 space-y-2">
-                <Link 
-                  to="/company"
-                  className="block py-1 text-sm transition-all duration-300 hover:text-primary hover:translate-x-2 font-medium" 
-                  onClick={closeMobileMenu}
-                >
-                  О компании - Главная
-                </Link>
-                {companyMenuItems.map(item => (
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-40 lg:hidden">
+          {/* Background overlay */}
+          <div 
+            className={cn(
+              "absolute inset-0 transition-all duration-300",
+              "backdrop-blur-sm bg-black/30"
+            )}
+            onClick={closeMobileMenu}
+          />
+          
+          {/* Mobile menu content */}
+          <div className={cn(
+            "absolute top-20 left-4 right-4 bg-white/20 dark:bg-black/20 backdrop-blur-xl border border-white/30 dark:border-white/10 rounded-xl shadow-2xl p-6 transition-all duration-300 ease-out",
+            "animate-slide-down"
+          )}>
+            <div className="space-y-4 max-h-[70vh] overflow-y-auto">
+              <Link 
+                to="/" 
+                className="block text-lg font-medium py-2 transition-all duration-300 hover:text-primary" 
+                onClick={closeMobileMenu}
+              >
+                Главная
+              </Link>
+              
+              <div>
+                <div className="text-lg font-medium py-2 text-muted-foreground">О компании</div>
+                <div className="ml-4 space-y-2">
                   <Link 
-                    key={item.path}
-                    to={item.path} 
-                    className="block py-1 text-sm transition-all duration-300 hover:text-primary hover:translate-x-2" 
+                    to="/company"
+                    className="block py-1 text-sm transition-all duration-300 hover:text-primary font-medium" 
                     onClick={closeMobileMenu}
                   >
-                    {item.name}
+                    О компании - Главная
                   </Link>
-                ))}
+                  {companyMenuItems.map(item => (
+                    <Link 
+                      key={item.path}
+                      to={item.path} 
+                      className="block py-1 text-sm transition-all duration-300 hover:text-primary" 
+                      onClick={closeMobileMenu}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
-            
-            <div>
-              <div className="text-lg font-medium py-2 text-muted-foreground">Продукция</div>
-              <div className="ml-4 space-y-2">
-                <Link 
-                  to="/products"
-                  className="block py-1 text-sm transition-all duration-300 hover:text-primary hover:translate-x-2 font-medium" 
-                  onClick={closeMobileMenu}
-                >
-                  Продукция - Главная
-                </Link>
-                {productMenuItems.map(item => (
+              
+              <div>
+                <div className="text-lg font-medium py-2 text-muted-foreground">Продукция</div>
+                <div className="ml-4 space-y-2">
                   <Link 
-                    key={item.path}
-                    to={item.path} 
-                    className="block py-1 text-sm transition-all duration-300 hover:text-primary hover:translate-x-2" 
+                    to="/products"
+                    className="block py-1 text-sm transition-all duration-300 hover:text-primary font-medium" 
                     onClick={closeMobileMenu}
                   >
-                    {item.name}
+                    Продукция - Главная
                   </Link>
-                ))}
+                  {productMenuItems.map(item => (
+                    <Link 
+                      key={item.path}
+                      to={item.path} 
+                      className="block py-1 text-sm transition-all duration-300 hover:text-primary" 
+                      onClick={closeMobileMenu}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
               </div>
+              
+              <Link 
+                to="/services" 
+                className="block text-lg font-medium py-2 transition-all duration-300 hover:text-primary" 
+                onClick={closeMobileMenu}
+              >
+                Услуги
+              </Link>
+              <Link 
+                to="/contact" 
+                className="block text-lg font-medium py-2 transition-all duration-300 hover:text-primary" 
+                onClick={closeMobileMenu}
+              >
+                Контакты
+              </Link>
+              <Link 
+                to="/support" 
+                className="block text-lg font-medium py-2 transition-all duration-300 hover:text-primary" 
+                onClick={closeMobileMenu}
+              >
+                Поддержка и сервис
+              </Link>
             </div>
-            
-            <Link 
-              to="/services" 
-              className="block text-lg font-medium py-2 transition-all duration-300 hover:text-primary hover:translate-x-2" 
-              onClick={closeMobileMenu}
-            >
-              Услуги
-            </Link>
-            <Link 
-              to="/contact" 
-              className="block text-lg font-medium py-2 transition-all duration-300 hover:text-primary hover:translate-x-2" 
-              onClick={closeMobileMenu}
-            >
-              Контакты
-            </Link>
-            <Link 
-              to="/support" 
-              className="block text-lg font-medium py-2 transition-all duration-300 hover:text-primary hover:translate-x-2" 
-              onClick={closeMobileMenu}
-            >
-              Поддержка и сервис
-            </Link>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 }

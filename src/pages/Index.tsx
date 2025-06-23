@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -28,25 +29,29 @@ const Index = () => {
       icon: Factory,
       title: "Современное производство",
       description: "Высокотехнологичное оборудование и автоматизированные производственные линии обеспечивают качество продукции мирового уровня.",
-      image: "/placeholder.svg"
+      fullDescription: "Наше предприятие оснащено самым современным высокотехнологичным оборудованием и полностью автоматизированными производственными линиями. Мы постоянно инвестируем в модернизацию производства, что позволяет нам выпускать продукцию, соответствующую самым высоким международным стандартам качества.",
+      backgroundImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop"
     },
     {
       icon: Settings,
       title: "Инновационные технологии",
       description: "Постоянное внедрение передовых технологий и инновационных решений в производственные процессы.",
-      image: "/placeholder.svg"
+      fullDescription: "Мы активно внедряем самые передовые технологии и разрабатываем инновационные решения для совершенствования наших производственных процессов. Наша команда инженеров постоянно работает над созданием новых методов производства и улучшением существующих технологий.",
+      backgroundImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop"
     },
     {
       icon: Shield,
       title: "Система качества",
       description: "Сертифицированная система менеджмента качества ISO 9001 гарантирует соответствие международным стандартам.",
-      image: "/placeholder.svg"
+      fullDescription: "Наша система менеджмента качества сертифицирована по стандарту ISO 9001, что гарантирует высочайший уровень качества всей выпускаемой продукции. Мы строго следим за соблюдением всех технологических процессов и постоянно совершенствуем систему контроля качества.",
+      backgroundImage: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop"
     },
     {
       icon: Award,
       title: "Опыт и надежность",
       description: "Более 65 лет опыта в разработке и производстве электронных компонентов и систем.",
-      image: "/placeholder.svg"
+      fullDescription: "За более чем 65 лет работы мы накопили огромный опыт в области разработки и производства электронных компонентов и систем. Этот богатый опыт, передаваемый из поколения в поколение, является нашим главным конкурентным преимуществом и гарантией надежности для наших клиентов.",
+      backgroundImage: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&h=600&fit=crop"
     }
   ];
 
@@ -69,14 +74,14 @@ const Index = () => {
       title: "Компьютерная техника",
       description: "Ноутбуки и компьютерное оборудование",
       icon: Laptop,
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=400&h=300&fit=crop",
       link: "/products/laptops"
     },
     {
       title: "Информационные системы",
       description: "Комплексные IT-решения для бизнеса",
       icon: FileText,
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=400&h=300&fit=crop",
       link: "/products/information-systems"
     }
   ];
@@ -118,7 +123,7 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-20 pb-16 px-4 text-center relative overflow-hidden">
+      <section className="pt-28 pb-16 px-4 text-center relative overflow-hidden">
         <div className="container mx-auto relative z-10">
           <div className="max-w-4xl mx-auto animate-fade-in">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-orange-500 to-primary bg-clip-text text-transparent">
@@ -128,7 +133,7 @@ const Index = () => {
               Ведущий производитель электронных компонентов и автокомпонентов с 1956 года
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              <Button asChild size="lg" className="btn-primary">
+              <Button asChild size="lg" className="btn-primary-smooth">
                 <Link to="/products">
                   Наша продукция
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -142,14 +147,15 @@ const Index = () => {
         </div>
         
         {/* Background decoration */}
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-10 overflow-hidden">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary rounded-full blur-3xl animate-pulse-slow"></div>
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-400 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[150%] h-32 bg-gradient-to-r from-primary/5 via-orange-400/10 to-primary/5 blur-3xl"></div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 bg-gradient-to-b from-transparent via-white/30 to-transparent dark:via-black/30">
         <div className="container mx-auto">
           <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-4xl font-bold mb-4">Инновационные решения для промышленности</h2>
@@ -166,24 +172,31 @@ const Index = () => {
                 return (
                   <Card
                     key={index}
-                    className={`p-6 cursor-pointer transition-all duration-500 hover:shadow-xl glass-card animate-fade-in-left ${
+                    className={cn(
+                      "p-6 cursor-pointer transition-all duration-500 hover:shadow-xl glass-card animate-fade-in-left",
                       activeFeature === index 
-                        ? 'border-primary/50 bg-primary/10 shadow-lg scale-105' 
+                        ? 'border-primary/50 bg-primary/20 shadow-lg scale-105' 
                         : 'hover:scale-102'
-                    }`}
+                    )}
                     style={{ animationDelay: `${index * 100}ms` }}
                     onClick={() => setActiveFeature(index)}
                   >
                     <div className="flex items-center space-x-4">
-                      <div className={`p-3 rounded-xl transition-all duration-300 ${
+                      <div className={cn(
+                        "p-3 rounded-xl transition-all duration-300",
                         activeFeature === index 
-                          ? 'bg-primary/30 text-primary shadow-lg' 
-                          : 'bg-primary/10 text-primary/70'
-                      }`}>
+                          ? 'bg-primary/60 text-white shadow-lg' 
+                          : 'bg-primary/20 text-primary'
+                      )}>
                         <Icon className="h-6 w-6" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold">{feature.title}</h3>
+                        <h3 className={cn(
+                          "text-lg font-semibold transition-all duration-300",
+                          activeFeature === index ? 'text-primary font-bold text-xl' : ''
+                        )}>
+                          {feature.title}
+                        </h3>
                         <p className="text-sm text-muted-foreground">{feature.description}</p>
                       </div>
                     </div>
@@ -196,14 +209,24 @@ const Index = () => {
             <div className="relative h-96 rounded-2xl overflow-hidden glass-card animate-fade-in-right">
               <div 
                 key={activeFeature}
-                className="absolute inset-0 bg-gradient-to-br from-primary/20 to-orange-400/20 flex items-center justify-center transition-all duration-500 ease-in-out"
+                className="absolute inset-0 transition-all duration-700 ease-in-out"
+                style={{
+                  backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url(${features[activeFeature].backgroundImage})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  filter: 'blur(1px)'
+                }}
+              />
+              <div 
+                key={`content-${activeFeature}`}
+                className="absolute inset-0 flex items-center justify-center transition-all duration-700 ease-in-out animate-fade-in-content"
               >
-                <div className="text-center p-8 transition-all duration-500 ease-in-out">
-                  <div className="w-24 h-24 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-500">
-                    {React.createElement(features[activeFeature].icon, { className: "h-12 w-12 text-primary" })}
+                <div className="text-center p-8 text-white">
+                  <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
+                    {React.createElement(features[activeFeature].icon, { className: "h-12 w-12 text-white" })}
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 transition-all duration-500">{features[activeFeature].title}</h3>
-                  <p className="text-muted-foreground transition-all duration-500">{features[activeFeature].description}</p>
+                  <h3 className="text-2xl font-bold mb-4">{features[activeFeature].title}</h3>
+                  <p className="text-white/90 leading-relaxed">{features[activeFeature].fullDescription}</p>
                 </div>
               </div>
             </div>
@@ -319,7 +342,7 @@ const Index = () => {
               Свяжитесь с нами для обсуждения ваших потребностей в электронных компонентах и автокомпонентах
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="btn-primary">
+              <Button asChild size="lg" className="btn-primary-smooth">
                 <Link to="/contact">
                   Связаться с нами
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -337,5 +360,9 @@ const Index = () => {
     </div>
   );
 };
+
+function cn(...inputs: any[]) {
+  return inputs.filter(Boolean).join(' ');
+}
 
 export default Index;
