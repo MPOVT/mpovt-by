@@ -29,28 +29,60 @@ const Index = () => {
       title: "Современное производство",
       description: "Высокотехнологичное оборудование и автоматизация обеспечивают качество мирового уровня.",
       fullDescription: "Наше предприятие оснащено современным высокотехнологичным оборудованием и автоматизированными линиями. Постоянные инвестиции в модернизацию позволяют выпускать продукцию, соответствующую высоким международным стандартам качества.",
-      backgroundImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop"
+      backgroundImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop",
+      colorScheme: {
+        primary: "text-blue-600 dark:text-blue-400",
+        background: "bg-blue-100/50 dark:bg-blue-900/30",
+        activeBackground: "bg-blue-500/20 dark:bg-blue-600/30",
+        activeBorder: "border-blue-500/50",
+        iconActive: "bg-blue-500/60 text-white",
+        iconInactive: "bg-blue-500/20 text-blue-600 dark:text-blue-400"
+      }
     },
     {
       icon: Settings,
       title: "Инновационные технологии",
       description: "Постоянное внедрение передовых технологий и инновационных решений в производственные процессы.",
       fullDescription: "Мы активно внедряем самые передовые технологии и разрабатываем инновационные решения для совершенствования наших производственных процессов. Наша команда инженеров постоянно работает над созданием новых методов производства и улучшением существующих технологий.",
-      backgroundImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop"
+      backgroundImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop",
+      colorScheme: {
+        primary: "text-emerald-600 dark:text-emerald-400",
+        background: "bg-emerald-100/50 dark:bg-emerald-900/30",
+        activeBackground: "bg-emerald-500/20 dark:bg-emerald-600/30",
+        activeBorder: "border-emerald-500/50",
+        iconActive: "bg-emerald-500/60 text-white",
+        iconInactive: "bg-emerald-500/20 text-emerald-600 dark:text-emerald-400"
+      }
     },
     {
       icon: Shield,
       title: "Система качества",
       description: "Сертифицированная система менеджмента качества ISO 9001 гарантирует соответствие международным стандартам.",
       fullDescription: "Наша система менеджмента качества сертифицирована по стандарту ISO 9001, что гарантирует высочайший уровень качества всей выпускаемой продукции. Мы строго следим за соблюдением всех технологических процессов и постоянно совершенствуем систему контроля качества.",
-      backgroundImage: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop"
+      backgroundImage: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop",
+      colorScheme: {
+        primary: "text-purple-600 dark:text-purple-400",
+        background: "bg-purple-100/50 dark:bg-purple-900/30",
+        activeBackground: "bg-purple-500/20 dark:bg-purple-600/30",
+        activeBorder: "border-purple-500/50",
+        iconActive: "bg-purple-500/60 text-white",
+        iconInactive: "bg-purple-500/20 text-purple-600 dark:text-purple-400"
+      }
     },
     {
       icon: Award,
       title: "Опыт и надежность",
       description: "Более 65 лет опыта в разработке и производстве электронных компонентов и систем.",
       fullDescription: "За более чем 65 лет работы мы накопили огромный опыт в области разработки и производства электронных компонентов и систем. Этот богатый опыт, передаваемый из поколения в поколение, является нашим главным конкурентным преимуществом и гарантией надежности для наших клиентов.",
-      backgroundImage: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&h=600&fit=crop"
+      backgroundImage: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&h=600&fit=crop",
+      colorScheme: {
+        primary: "text-amber-600 dark:text-amber-400",
+        background: "bg-amber-100/50 dark:bg-amber-900/30",
+        activeBackground: "bg-amber-500/20 dark:bg-amber-600/30",
+        activeBorder: "border-amber-500/50",
+        iconActive: "bg-amber-500/60 text-white",
+        iconInactive: "bg-amber-500/20 text-amber-600 dark:text-amber-400"
+      }
     }
   ];
 
@@ -176,13 +208,14 @@ const Index = () => {
             <div className="space-y-2 md:space-y-3 lg:space-y-4">
               {features.map((feature, index) => {
                 const Icon = feature.icon;
+                const colors = feature.colorScheme;
                 return (
                   <Card
                     key={index}
                     className={cn(
                       "p-3 sm:p-4 md:p-6 cursor-pointer transition-all duration-500 hover:shadow-xl glass-card",
                       activeFeature === index 
-                        ? 'border-primary/50 bg-primary/20 shadow-lg scale-105' 
+                        ? `${colors.activeBorder} ${colors.activeBackground} shadow-lg scale-105` 
                         : 'hover:scale-102'
                     )}
                     onClick={() => setActiveFeature(index)}
@@ -191,15 +224,15 @@ const Index = () => {
                       <div className={cn(
                         "p-1.5 sm:p-2 md:p-3 rounded-xl transition-all duration-300 flex-shrink-0",
                         activeFeature === index 
-                          ? 'bg-primary/60 text-white shadow-lg' 
-                          : 'bg-primary/20 text-primary'
+                          ? `${colors.iconActive} shadow-lg` 
+                          : colors.iconInactive
                       )}>
                         <Icon className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
                       </div>
                       <div className="min-w-0 flex-1">
                         <h3 className={cn(
                           "text-sm sm:text-base md:text-lg font-semibold transition-all duration-300 mb-1 sm:mb-2",
-                          activeFeature === index ? 'text-primary font-bold sm:text-lg md:text-xl' : ''
+                          activeFeature === index ? `${colors.primary} font-bold sm:text-lg md:text-xl` : ''
                         )}>
                           {feature.title}
                         </h3>
