@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -12,7 +11,7 @@ import {
   Phone,
   Radio,
   FileText,
-  Cabinet,
+  Archive,
   ArrowRight,
   Settings,
   Shield,
@@ -56,7 +55,7 @@ const Products = () => {
     {
       title: "Промышленное оборудование",
       description: "Металлические шкафы и промышленная мебель",
-      icon: Cabinet,
+      icon: Archive,
       image: "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=400&h=300&fit=crop",
       products: ["Металлические шкафы", "Стеллажи", "Промышленная мебель", "Оборудование для офиса"],
       link: "/products/metal-cabinets"
