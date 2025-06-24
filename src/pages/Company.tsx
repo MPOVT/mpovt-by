@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -20,6 +20,8 @@ import {
 } from "lucide-react";
 
 const Company = () => {
+  const [activeTimelineIndex, setActiveTimelineIndex] = useState(0);
+
   const values = [
     {
       icon: Factory,
@@ -132,7 +134,7 @@ const Company = () => {
 
             <div className="animate-fade-in-right space-y-4 md:space-y-6">
               <Card className="p-3 sm:p-4 md:p-6 glass-card h-full">
-                <div className="aspect-square bg-gradient-to-br from-primary/20 to-orange-400/20 rounded-xl overflow-hidden mb-4">
+                <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-orange-400/20 rounded-xl overflow-hidden mb-4">
                   <img 
                     src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=600&fit=crop" 
                     alt="Здание МПОВТ"
@@ -209,37 +211,76 @@ const Company = () => {
               </p>
             </div>
 
-            <div className="relative">
-              {/* Timeline line */}
-              <div className="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-orange-400 to-primary opacity-30"></div>
-              
-              <div className="space-y-4 md:space-y-6 lg:space-y-8">
-                {timelineEvents.map((event, index) => (
+            <Card className="p-6 md:p-8 glass-card">
+              {/* Horizontal Timeline */}
+              <div className="relative">
+                {/* Timeline line */}
+                <div className="absolute top-6 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/30 via-orange-400/50 to-primary/30"></div>
+                
+                {/* Timeline points */}
+                <div className="flex justify-between items-center relative z-10 mb-8">
+                  {timelineEvents.map((event, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setActiveTimelineIndex(index)}
+                      className={`relative group transition-all duration-300 ${
+                        activeTimelineIndex === index ? 'scale-110' : 'hover:scale-105'
+                      }`}
+                    >
+                      <div className={`w-12 h-12 rounded-full border-4 transition-all duration-300 flex items-center justify-center ${
+                        activeTimelineIndex === index 
+                          ? 'bg-primary border-primary shadow-lg shadow-primary/30' 
+                          : 'bg-white dark:bg-gray-800 border-primary/30 hover:border-primary/60'
+                      }`}>
+                        <div className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                          activeTimelineIndex === index 
+                            ? 'bg-white' 
+                            : 'bg-primary/40'
+                        }`}></div>
+                      </div>
+                      
+                      {/* Year label */}
+                      <div className={`absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs md:text-sm font-medium whitespace-nowrap transition-all duration-300 ${
+                        activeTimelineIndex === index 
+                          ? 'text-primary scale-110' 
+                          : 'text-muted-foreground'
+                      }`}>
+                        {event.year}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+
+                {/* Active event details */}
+                <div className="mt-12 min-h-[120px]">
                   <div 
-                    key={index} 
-                    className="relative flex items-start space-x-4 md:space-x-8 animate-fade-in-left"
-                    style={{ animationDelay: `${index * 100}ms` }}
+                    key={activeTimelineIndex}
+                    className="animate-fade-in-up"
                   >
-                    {/* Timeline dot */}
-                    <div className="relative z-10 flex-shrink-0">
-                      <div className="w-8 h-8 md:w-12 md:h-12 bg-primary rounded-full flex items-center justify-center shadow-lg">
-                        <div className="w-3 h-3 md:w-4 md:h-4 bg-white rounded-full"></div>
-                      </div>
-                    </div>
+                    <h3 className="text-xl md:text-2xl font-bold mb-3 text-primary">
+                      {timelineEvents[activeTimelineIndex].title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                      {timelineEvents[activeTimelineIndex].description}
+                    </p>
                     
-                    {/* Content */}
-                    <Card className="flex-grow p-4 sm:p-6 md:p-8 glass-card hover:shadow-xl transition-all duration-500">
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2 md:mb-4">
-                        <span className="text-lg sm:text-xl md:text-2xl font-bold text-primary mb-1 sm:mb-0">{event.year}</span>
-                        <div className="hidden sm:block w-8 md:w-12 h-0.5 bg-gradient-to-r from-primary to-transparent"></div>
-                      </div>
-                      <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 md:mb-3">{event.title}</h3>
-                      <p className="text-muted-foreground text-sm md:text-base leading-relaxed">{event.description}</p>
-                    </Card>
+                    {/* Progress indicator */}
+                    <div className="flex items-center mt-4 space-x-2">
+                      {timelineEvents.map((_, index) => (
+                        <div
+                          key={index}
+                          className={`h-1 rounded-full transition-all duration-300 ${
+                            index === activeTimelineIndex 
+                              ? 'bg-primary w-8' 
+                              : 'bg-primary/20 w-2'
+                          }`}
+                        ></div>
+                      ))}
+                    </div>
                   </div>
-                ))}
+                </div>
               </div>
-            </div>
+            </Card>
           </div>
 
           {/* CTA Section */}
