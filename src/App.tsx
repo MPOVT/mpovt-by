@@ -7,11 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Company from "./pages/Company";
 import Products from "./pages/Products";
-import Apartments from "./pages/Apartments";
-import BookingPage from "./pages/BookingPage";
-import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
-import Amenities from "./pages/Amenities";
 import NotFound from "./pages/NotFound";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import ScrollToTop from "./components/ScrollToTop";
@@ -31,11 +27,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/company" element={<Company />} />
             <Route path="/products" element={<Products />} />
-            <Route path="/apartments" element={<Apartments />} />
-            <Route path="/booking" element={<BookingPage />} />
-            <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/amenities" element={<Amenities />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
