@@ -14,58 +14,59 @@ import {
   ArrowRight,
   Zap,
   Shield,
-  Award
+  Award,
+  CheckCircle
 } from "lucide-react";
 
 const Products = () => {
   const productCategories = [
     {
       title: "Блоки для автомобилей",
-      description: "Электронные блоки управления для автомобильной промышленности",
+      description: "Высокотехнологичные электронные блоки управления для современной автомобильной промышленности",
       icon: Car,
       path: "/products/car-blocks",
       color: "from-blue-500 to-cyan-500",
-      features: ["ECU блоки", "Системы впрыска", "ABS модули"]
+      features: ["ECU блоки управления", "Системы впрыска топлива", "ABS модули безопасности", "Диагностические системы"]
     },
     {
       title: "Блоки для тракторов",
-      description: "Специализированные решения для сельскохозяйственной техники",
+      description: "Специализированные решения для повышения эффективности сельскохозяйственной техники",
       icon: Tractor,
       path: "/products/tractor-blocks",
       color: "from-green-500 to-emerald-500",
-      features: ["Управление двигателем", "GPS-системы", "Автопилот"]
+      features: ["Управление двигателем", "GPS-навигационные системы", "Системы автопилота", "Мониторинг параметров"]
     },
     {
       title: "Блоки для комбайнов",
-      description: "Высокотехнологичные системы для уборочной техники",
+      description: "Высокотехнологичные системы автоматизации для современной уборочной техники",
       icon: Archive,
       path: "/products/combine-blocks",
       color: "from-yellow-500 to-orange-500",
-      features: ["Мониторинг урожая", "Автоматизация", "Диагностика"]
+      features: ["Мониторинг урожайности", "Автоматизация процессов", "Диагностика состояния", "Оптимизация работы"]
     },
     {
       title: "Блоки для карьерных самосвалов",
-      description: "Надежные решения для тяжелой промышленной техники",
+      description: "Надежные и долговечные решения для экстремальных условий тяжелой промышленности",
       icon: Truck,
       path: "/products/dump-truck-blocks",
       color: "from-red-500 to-pink-500",
-      features: ["Системы безопасности", "Телематика", "Мониторинг"]
+      features: ["Системы безопасности", "Телематические решения", "Мониторинг нагрузки", "Контроль производительности"]
     },
     {
-      title: "Ноутбуки",
-      description: "Защищенные вычислительные решения для промышленности",
+      title: "Промышленные ноутбуки",
+      description: "Защищенные вычислительные решения для работы в сложных промышленных условиях",
       icon: Laptop,
       path: "/products/laptops",
       color: "from-purple-500 to-indigo-500",
-      features: ["Защищенные корпуса", "Промышленные стандарты", "Надежность"]
+      features: ["Защищенные корпуса IP67", "Промышленные стандарты", "Высокая надежность", "Расширенная гарантия"]
     },
     {
-      title: "Домофоны",
-      description: "Современные системы домофонной связи",
+      title: "Системы домофонной связи",
+      description: "Современные IP-системы домофонной связи с видеонаблюдением и интеграцией",
       icon: Radio,
       path: "/products/intercoms",
       color: "from-teal-500 to-cyan-500",
-      features: ["IP-технологии", "Видеосвязь", "Интеграция"]
+      features: ["IP-технологии связи", "HD видеосвязь", "Мобильная интеграция", "Облачные сервисы"]
     }
   ];
 
@@ -137,10 +138,10 @@ const Products = () => {
                 return (
                   <Card 
                     key={index} 
-                    className="group overflow-hidden glass-card border-white/40 hover:border-primary/30 hover:shadow-2xl transition-all duration-500 cursor-pointer animate-fade-in-up"
+                    className="group overflow-hidden glass-card border-white/40 hover:border-primary/30 hover:shadow-2xl transition-all duration-500 cursor-pointer animate-fade-in-up h-full flex flex-col"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    <div className="p-8">
+                    <div className="p-6 flex flex-col h-full">
                       {/* Icon with gradient background */}
                       <div className="relative mb-6">
                         <div className={`absolute inset-0 bg-gradient-to-r ${category.color} opacity-20 rounded-2xl blur-xl`}></div>
@@ -153,23 +154,23 @@ const Products = () => {
                       <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
                         {category.title}
                       </h3>
-                      <p className="text-muted-foreground mb-6 leading-relaxed">
+                      <p className="text-muted-foreground mb-6 leading-relaxed flex-grow">
                         {category.description}
                       </p>
                       
                       {/* Features */}
-                      <div className="space-y-2 mb-8">
+                      <div className="space-y-3 mb-8">
                         {category.features.map((feature, featureIndex) => (
-                          <div key={featureIndex} className="flex items-center space-x-3">
-                            <div className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></div>
-                            <span className="text-sm text-muted-foreground">{feature}</span>
+                          <div key={featureIndex} className="flex items-start space-x-3">
+                            <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span className="text-sm text-muted-foreground leading-relaxed">{feature}</span>
                           </div>
                         ))}
                       </div>
                       
                       {/* Button */}
                       <Button 
-                        className="w-full btn-primary-smooth group-hover:bg-primary/90 transition-all duration-300"
+                        className="w-full btn-primary-smooth group-hover:bg-primary/90 transition-all duration-300 mt-auto"
                         onClick={() => window.location.href = category.path}
                       >
                         Подробнее
