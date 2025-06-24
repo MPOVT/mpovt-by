@@ -252,10 +252,13 @@ const Company = () => {
                 </div>
 
                 {/* Active event details */}
-                <div className="mt-12 min-h-[120px]">
+                <div className="mt-12 min-h-[120px] relative overflow-hidden">
                   <div 
                     key={activeTimelineIndex}
-                    className="animate-fade-in-up"
+                    className="animate-fade-in opacity-0 translate-y-4"
+                    style={{
+                      animation: 'fadeInUp 0.4s ease-out forwards'
+                    }}
                   >
                     <h3 className="text-xl md:text-2xl font-bold mb-3 text-primary">
                       {timelineEvents[activeTimelineIndex].title}
@@ -263,20 +266,23 @@ const Company = () => {
                     <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
                       {timelineEvents[activeTimelineIndex].description}
                     </p>
-                    
-                    {/* Progress indicator */}
-                    <div className="flex items-center mt-4 space-x-2">
-                      {timelineEvents.map((_, index) => (
-                        <div
-                          key={index}
-                          className={`h-1 rounded-full transition-all duration-300 ${
-                            index === activeTimelineIndex 
-                              ? 'bg-primary w-8' 
-                              : 'bg-primary/20 w-2'
-                          }`}
-                        ></div>
-                      ))}
-                    </div>
+                  </div>
+                  
+                  {/* Progress indicator with smooth transition */}
+                  <div className="flex items-center mt-6 space-x-2">
+                    {timelineEvents.map((_, index) => (
+                      <div
+                        key={index}
+                        className={`h-1 rounded-full transition-all duration-500 ease-out ${
+                          index === activeTimelineIndex 
+                            ? 'bg-primary w-8' 
+                            : 'bg-primary/20 w-2'
+                        }`}
+                        style={{
+                          transitionDelay: index === activeTimelineIndex ? '0ms' : '100ms'
+                        }}
+                      ></div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -305,6 +311,19 @@ const Company = () => {
       </div>
 
       <Footer />
+      
+      <style jsx>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(16px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </div>
   );
 };
