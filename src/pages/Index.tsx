@@ -17,7 +17,12 @@ import {
   Users,
   TrendingUp,
   Globe,
-  CheckCircle
+  CheckCircle,
+  Monitor,
+  Tablet,
+  HardDrive,
+  Crown,
+  Star
 } from "lucide-react";
 
 const Index = () => {
@@ -28,7 +33,7 @@ const Index = () => {
       icon: Factory,
       title: "Современное производство",
       description: "Высокотехнологичное оборудование и автоматизация обеспечивают качество мирового уровня.",
-      fullDescription: "Наше предприятие оснащено современным высокотехнологичным оборудованием и автоматизированными линиями. Постоянные инвестиции в модернизацию позволяют выпускать продукцию, соответствующую высоким международным стандартам качества.",
+      fullDescription: "Наше предприятие оснащено современным высокотехнологичным оборудованием и автоматизированными линиями. Постоянные инвестиции в модернизацию позволяют выпускать продукцию мирового уровня.",
       backgroundImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop",
       colorScheme: {
         primary: "text-blue-600 dark:text-blue-400",
@@ -86,7 +91,57 @@ const Index = () => {
     }
   ];
 
-  const products = [
+  // Priority products (main focus) - for hero section
+  const priorityProducts = [
+    {
+      title: "Промышленные ПК (H-PC)",
+      description: "Высокопроизводительные промышленные компьютеры для критически важных задач",
+      icon: Laptop,
+      image: "https://images.unsplash.com/photo-1483058712412-4245e9b90334?w=800&h=600&fit=crop",
+      link: "/products/h-pc",
+      color: "from-orange-500 to-red-500",
+      badge: "Флагманская продукция"
+    },
+    {
+      title: "Промышленные ноутбуки (H-Book)",
+      description: "Мобильные защищенные решения для полевых условий и промышленного применения",
+      icon: Laptop,
+      image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&h=600&fit=crop",
+      link: "/products/h-book",
+      color: "from-orange-600 to-amber-500",
+      badge: "Инновации"
+    },
+    {
+      title: "Промышленные мониторы (H)",
+      description: "Профессиональные дисплеи повышенной надежности для промышленного мониторинга",
+      icon: Monitor,
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=600&fit=crop",
+      link: "/products/h-monitors",
+      color: "from-orange-500 to-yellow-500",
+      badge: "Премиум качество"
+    },
+    {
+      title: "Промышленные планшеты (H-Tab)",
+      description: "Компактные мобильные решения для управления производством и мониторинга",
+      icon: Tablet,
+      image: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?w=800&h=600&fit=crop",
+      link: "/products/h-tab",
+      color: "from-orange-400 to-orange-600",
+      badge: "Мобильность"
+    },
+    {
+      title: "M2.SSD накопители (H-Storage)",
+      description: "Высокоскоростные твердотельные накопители для промышленных применений",
+      icon: HardDrive,
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop",
+      link: "/products/h-storage",
+      color: "from-orange-500 to-orange-700",
+      badge: "Высокие технологии"
+    }
+  ];
+
+  // Secondary products
+  const secondaryProducts = [
     {
       title: "Автокомпоненты",
       description: "Электронные блоки управления для автомобильной промышленности",
@@ -100,13 +155,6 @@ const Index = () => {
       icon: Radio,
       image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
       link: "/products/special-communication"
-    },
-    {
-      title: "Компьютерная техника",
-      description: "Ноутбуки и компьютерное оборудование",
-      icon: Laptop,
-      image: "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=300&fit=crop",
-      link: "/products/laptops"
     },
     {
       title: "Информационные системы",
@@ -185,9 +233,93 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Priority Products Section - NEW! */}
+      <section className="py-16 md:py-20 px-4 bg-gradient-to-b from-orange-50/70 via-white/50 to-orange-50/70 dark:from-orange-950/70 dark:via-black/50 dark:to-orange-950/70">
+        <div className="container mx-auto">
+          <div className="text-center mb-12 md:mb-16">
+            <div className="inline-flex items-center gap-3 mb-6">
+              <Crown className="h-8 w-8 text-orange-500" />
+              <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-orange-500 via-orange-600 to-orange-500 bg-clip-text text-transparent">
+                Наша флагманская продукция
+              </h2>
+              <Crown className="h-8 w-8 text-orange-500" />
+            </div>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+              Высокотехнологичные решения промышленной вычислительной техники
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {priorityProducts.map((product, index) => {
+              const Icon = product.icon;
+              return (
+                <Card 
+                  key={index} 
+                  className="group overflow-hidden glass-card border-orange-200/50 hover:border-orange-400/60 hover:shadow-2xl transition-all duration-500 cursor-pointer animate-fade-in-up h-full flex flex-col relative"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  {/* Priority Badge */}
+                  <div className="absolute top-4 right-4 z-10">
+                    <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white text-xs px-3 py-1 rounded-full font-semibold flex items-center gap-1">
+                      <Star className="w-3 h-3" />
+                      {product.badge}
+                    </div>
+                  </div>
+                  
+                  {/* Image Section */}
+                  <div className="aspect-video bg-gradient-to-br from-primary/10 to-orange-400/10 relative overflow-hidden">
+                    <img 
+                      src={product.image} 
+                      alt={product.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                    
+                    {/* Icon overlay */}
+                    <div className="absolute bottom-4 left-4">
+                      <div className={`p-3 bg-gradient-to-r ${product.color} rounded-xl shadow-lg`}>
+                        <Icon className="h-6 w-6 text-white" />
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="p-6 flex flex-col flex-grow">
+                    <h3 className="text-xl font-bold mb-3 group-hover:text-orange-600 transition-colors">
+                      {product.title}
+                    </h3>
+                    <p className="text-muted-foreground mb-6 leading-relaxed flex-grow">
+                      {product.description}
+                    </p>
+                    
+                    <Button 
+                      asChild
+                      className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white transition-all duration-300 mt-auto shadow-lg hover:shadow-xl"
+                    >
+                      <Link to={product.link}>
+                        Подробнее
+                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </Link>
+                    </Button>
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+          
+          {/* Call to Action for all products */}
+          <div className="text-center">
+            <Button asChild size="lg" variant="outline" className="border-orange-500 text-orange-600 hover:bg-orange-500 hover:text-white">
+              <Link to="/products">
+                Смотреть всю продукцию
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="py-12 md:py-16 lg:py-20 px-4 bg-gradient-to-b from-orange-50/70 via-white/50 to-orange-50/70 dark:from-orange-950/70 dark:via-black/50 dark:to-orange-950/70 relative">
-        {/* Continuous background gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-orange-50/30 to-white/30 dark:from-orange-950/30 dark:to-black/30"></div>
         
         <div className="container mx-auto relative z-10">
@@ -296,23 +428,23 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Products Section */}
+      {/* Secondary Products Section */}
       <section className="py-12 md:py-16 lg:py-20 px-4 bg-white/50 dark:bg-black/50">
         <div className="container mx-auto">
           <div className="text-center mb-8 md:mb-12 lg:mb-16">
             <div className="relative inline-block">
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 lg:mb-6 bg-gradient-to-r from-primary via-orange-500 to-primary bg-clip-text text-transparent">
-                Наша продукция
+                Дополнительные направления
               </h2>
               <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-16 sm:w-20 md:w-24 lg:w-32 h-0.5 md:h-1 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full"></div>
             </div>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mt-4 md:mt-6">
-              Широкий спектр высококачественных электронных компонентов и систем
+              Проверенные решения для различных отраслей промышленности
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
-            {products.map((product, index) => {
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+            {secondaryProducts.map((product, index) => {
               const Icon = product.icon;
               return (
                 <Card 
