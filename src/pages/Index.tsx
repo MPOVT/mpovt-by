@@ -287,6 +287,15 @@ const Index = () => {
       
       {/* Hero Section - Updated with animated mouse scroll indicator */}
       <section className="pt-40 md:pt-44 lg:pt-48 pb-12 md:pb-16 lg:pb-20 px-4 text-center relative overflow-hidden bg-black">
+        {/* Animated fireflies for hero section */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-cyan-400 rounded-full blur-sm opacity-60 animate-pulse" style={{ animationDuration: '3s', animationDelay: '0s' }}></div>
+          <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-purple-400 rounded-full blur-sm opacity-50 animate-pulse" style={{ animationDuration: '4s', animationDelay: '1s' }}></div>
+          <div className="absolute bottom-1/4 left-1/3 w-2.5 h-2.5 bg-emerald-400 rounded-full blur-sm opacity-70 animate-pulse" style={{ animationDuration: '5s', animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 right-1/4 w-1.5 h-1.5 bg-cyan-300 rounded-full blur-sm opacity-40 animate-pulse" style={{ animationDuration: '3.5s', animationDelay: '0.5s' }}></div>
+          <div className="absolute bottom-1/3 right-1/5 w-2 h-2 bg-purple-300 rounded-full blur-sm opacity-55 animate-pulse" style={{ animationDuration: '4.5s', animationDelay: '1.5s' }}></div>
+        </div>
+        
         <div className="container mx-auto relative z-10">
           <div className="max-w-4xl mx-auto animate-fade-in">
             <h1 className="text-5xl sm:text-6xl md:text-7xl xl:text-9xl font-black mb-8 md:mb-12 text-white/95 leading-tight" style={{ fontWeight: '900', letterSpacing: '0.02em' }}>
@@ -320,17 +329,19 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Priority Products Section - Updated gradient and shadow */}
-      <section className="py-16 md:py-20 bg-gradient-to-b from-black via-slate-900/90 to-slate-800/80 relative overflow-hidden shadow-2xl">
-        {/* Extended background effects from hero section */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl opacity-60 animate-pulse-slow"></div>
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-3xl opacity-60 animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-128 h-128 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-full blur-3xl opacity-60 animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+      {/* Priority Products Section - Updated with darker gradient and fireflies */}
+      <section className="py-16 md:py-20 bg-gradient-to-b from-black via-slate-900/50 to-black relative overflow-hidden shadow-2xl">
+        {/* Animated fireflies for flagship products */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-1/5 w-2 h-2 bg-cyan-400 rounded-full blur-sm opacity-50 animate-pulse" style={{ animationDuration: '4s', animationDelay: '0s' }}></div>
+          <div className="absolute top-1/3 right-1/4 w-2.5 h-2.5 bg-purple-400 rounded-full blur-sm opacity-60 animate-pulse" style={{ animationDuration: '5s', animationDelay: '1s' }}></div>
+          <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-emerald-400 rounded-full blur-sm opacity-45 animate-pulse" style={{ animationDuration: '3.5s', animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 right-1/6 w-2 h-2 bg-orange-400 rounded-full blur-sm opacity-55 animate-pulse" style={{ animationDuration: '4.5s', animationDelay: '0.5s' }}></div>
+          <div className="absolute bottom-1/4 right-1/3 w-2.5 h-2.5 bg-red-400 rounded-full blur-sm opacity-50 animate-pulse" style={{ animationDuration: '6s', animationDelay: '1.5s' }}></div>
         </div>
         
         {/* Enhanced bottom shadow separator */}
-        <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-b from-transparent via-black/40 to-black/60 shadow-2xl"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent via-black/60 to-black shadow-2xl"></div>
 
         <div className="relative z-10">
           <div className="text-center mb-12 md:mb-16 px-4">
@@ -439,8 +450,17 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section with smooth transition from above */}
+      {/* Features Section - Updated with black background and blue fireflies */}
       <section className="py-12 md:py-16 lg:py-20 px-4 bg-black relative transition-all duration-1000 ease-in-out">
+        {/* Animated fireflies for features section */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-1/6 w-2 h-2 bg-cyan-400 rounded-full blur-sm opacity-50 animate-pulse" style={{ animationDuration: '4s', animationDelay: '0s' }}></div>
+          <div className="absolute top-1/3 right-1/5 w-1.5 h-1.5 bg-blue-400 rounded-full blur-sm opacity-60 animate-pulse" style={{ animationDuration: '5s', animationDelay: '1s' }}></div>
+          <div className="absolute bottom-1/3 left-1/4 w-2.5 h-2.5 bg-cyan-300 rounded-full blur-sm opacity-45 animate-pulse" style={{ animationDuration: '3.5s', animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 right-1/4 w-2 h-2 bg-blue-300 rounded-full blur-sm opacity-55 animate-pulse" style={{ animationDuration: '4.5s', animationDelay: '0.5s' }}></div>
+          <div className="absolute bottom-1/4 right-1/6 w-1.5 h-1.5 bg-cyan-500 rounded-full blur-sm opacity-50 animate-pulse" style={{ animationDuration: '6s', animationDelay: '1.5s' }}></div>
+        </div>
+        
         {/* Smooth gradient background that changes based on active feature */}
         <div className="absolute inset-0 transition-all duration-1000 ease-in-out">
           <div className={`absolute inset-0 bg-gradient-to-b from-black via-black/95 transition-all duration-1000 ${
@@ -449,22 +469,6 @@ const Index = () => {
             activeFeature === 2 ? 'to-purple-900/20' :
             'to-amber-900/20'
           }`}></div>
-        </div>
-        
-        {/* Animated background circles that change color based on active feature */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className={`absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl opacity-20 transition-all duration-1000 animate-pulse-slow ${
-            activeFeature === 0 ? 'bg-gradient-to-r from-blue-500/30 to-cyan-500/30' :
-            activeFeature === 1 ? 'bg-gradient-to-r from-emerald-500/30 to-teal-500/30' :
-            activeFeature === 2 ? 'bg-gradient-to-r from-purple-500/30 to-violet-500/30' :
-            'bg-gradient-to-r from-amber-500/30 to-yellow-500/30'
-          }`}></div>
-          <div className={`absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full blur-2xl opacity-15 transition-all duration-1000 animate-pulse-slow ${
-            activeFeature === 0 ? 'bg-gradient-to-r from-cyan-500/30 to-blue-500/30' :
-            activeFeature === 1 ? 'bg-gradient-to-r from-teal-500/30 to-emerald-500/30' :
-            activeFeature === 2 ? 'bg-gradient-to-r from-violet-500/30 to-purple-500/30' :
-            'bg-gradient-to-r from-yellow-500/30 to-amber-500/30'
-          }`} style={{ animationDelay: '2s' }}></div>
         </div>
         
         <div className="container mx-auto relative z-10">
@@ -575,9 +579,18 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Secondary Products Section */}
-      <section className="py-12 md:py-16 lg:py-20 px-4 bg-gradient-to-b from-emerald-900/30 via-emerald-800/20 to-teal-900/30">
-        <div className="container mx-auto">
+      {/* Secondary Products Section - Updated with emerald fireflies */}
+      <section className="py-12 md:py-16 lg:py-20 px-4 bg-black relative">
+        {/* Animated fireflies for secondary products */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-1/5 w-2 h-2 bg-emerald-400 rounded-full blur-sm opacity-50 animate-pulse" style={{ animationDuration: '4s', animationDelay: '0s' }}></div>
+          <div className="absolute top-1/3 right-1/4 w-2.5 h-2.5 bg-teal-400 rounded-full blur-sm opacity-60 animate-pulse" style={{ animationDuration: '5s', animationDelay: '1s' }}></div>
+          <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-cyan-400 rounded-full blur-sm opacity-45 animate-pulse" style={{ animationDuration: '3.5s', animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 right-1/6 w-2 h-2 bg-emerald-300 rounded-full blur-sm opacity-55 animate-pulse" style={{ animationDuration: '4.5s', animationDelay: '0.5s' }}></div>
+          <div className="absolute bottom-1/4 right-1/3 w-2.5 h-2.5 bg-teal-300 rounded-full blur-sm opacity-50 animate-pulse" style={{ animationDuration: '6s', animationDelay: '1.5s' }}></div>
+        </div>
+        
+        <div className="container mx-auto relative z-10">
           <div className="text-center mb-8 md:mb-12 lg:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 lg:mb-6 bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
               Дополнительные направления
@@ -625,9 +638,18 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Achievements Section */}
-      <section className="py-16 md:py-20 px-4 bg-gradient-to-b from-orange-900/30 via-red-900/20 to-pink-900/30">
-        <div className="container mx-auto">
+      {/* Achievements Section - Updated with orange fireflies and white numbers */}
+      <section className="py-16 md:py-20 px-4 bg-black relative">
+        {/* Animated fireflies for achievements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-1/5 w-2 h-2 bg-orange-400 rounded-full blur-sm opacity-50 animate-pulse" style={{ animationDuration: '4s', animationDelay: '0s' }}></div>
+          <div className="absolute top-1/3 right-1/4 w-2.5 h-2.5 bg-red-400 rounded-full blur-sm opacity-60 animate-pulse" style={{ animationDuration: '5s', animationDelay: '1s' }}></div>
+          <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-pink-400 rounded-full blur-sm opacity-45 animate-pulse" style={{ animationDuration: '3.5s', animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 right-1/6 w-2 h-2 bg-orange-300 rounded-full blur-sm opacity-55 animate-pulse" style={{ animationDuration: '4.5s', animationDelay: '0.5s' }}></div>
+          <div className="absolute bottom-1/4 right-1/3 w-2.5 h-2.5 bg-red-300 rounded-full blur-sm opacity-50 animate-pulse" style={{ animationDuration: '6s', animationDelay: '1.5s' }}></div>
+        </div>
+        
+        <div className="container mx-auto relative z-10">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-orange-400 via-red-400 to-pink-400 bg-clip-text text-transparent">
               Наши достижения
@@ -643,7 +665,7 @@ const Index = () => {
                 key={index} 
                 className="text-center p-6 md:p-8 glass-card hover:shadow-xl transition-all duration-500 hover:scale-105 bg-gradient-to-br from-orange-900/30 to-pink-900/30 border-orange-700/30"
               >
-                <div className="text-2xl md:text-4xl font-bold text-orange-400 mb-2">{achievement.number}</div>
+                <div className="text-2xl md:text-4xl font-bold text-white mb-2">{achievement.number}</div>
                 <div className="text-base md:text-lg font-semibold mb-2 text-red-400">{achievement.label}</div>
                 <div className="text-orange-200 text-sm">{achievement.description}</div>
               </Card>
@@ -652,9 +674,18 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Partners Section */}
-      <section className="py-16 md:py-20 px-4 bg-gradient-to-b from-indigo-900/30 via-purple-900/20 to-pink-900/30">
-        <div className="container mx-auto">
+      {/* Partners Section - Updated with indigo fireflies */}
+      <section className="py-16 md:py-20 px-4 bg-black relative">
+        {/* Animated fireflies for partners */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-1/5 w-2 h-2 bg-indigo-400 rounded-full blur-sm opacity-50 animate-pulse" style={{ animationDuration: '4s', animationDelay: '0s' }}></div>
+          <div className="absolute top-1/3 right-1/4 w-2.5 h-2.5 bg-purple-400 rounded-full blur-sm opacity-60 animate-pulse" style={{ animationDuration: '5s', animationDelay: '1s' }}></div>
+          <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-pink-400 rounded-full blur-sm opacity-45 animate-pulse" style={{ animationDuration: '3.5s', animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 right-1/6 w-2 h-2 bg-indigo-300 rounded-full blur-sm opacity-55 animate-pulse" style={{ animationDuration: '4.5s', animationDelay: '0.5s' }}></div>
+          <div className="absolute bottom-1/4 right-1/3 w-2.5 h-2.5 bg-purple-300 rounded-full blur-sm opacity-50 animate-pulse" style={{ animationDuration: '6s', animationDelay: '1.5s' }}></div>
+        </div>
+        
+        <div className="container mx-auto relative z-10">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Наши партнеры
@@ -677,10 +708,19 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 md:py-20 px-4 bg-gradient-to-b from-blue-900/30 via-purple-900/20 to-teal-900/30">
-        <div className="container mx-auto text-center">
-          <Card className="max-w-4xl mx-auto p-8 md:p-12 glass-card bg-gradient-to-br from-blue-900/30 via-purple-900/20 to-teal-900/30 border-blue-700/30">
+      {/* CTA Section - Updated with blue fireflies */}
+      <section className="py-16 md:py-20 px-4 bg-black relative">
+        {/* Animated fireflies for CTA */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-1/5 w-2 h-2 bg-blue-400 rounded-full blur-sm opacity-50 animate-pulse" style={{ animationDuration: '4s', animationDelay: '0s' }}></div>
+          <div className="absolute top-1/3 right-1/4 w-2.5 h-2.5 bg-purple-400 rounded-full blur-sm opacity-60 animate-pulse" style={{ animationDuration: '5s', animationDelay: '1s' }}></div>
+          <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-teal-400 rounded-full blur-sm opacity-45 animate-pulse" style={{ animationDuration: '3.5s', animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 right-1/6 w-2 h-2 bg-blue-300 rounded-full blur-sm opacity-55 animate-pulse" style={{ animationDuration: '4.5s', animationDelay: '0.5s' }}></div>
+          <div className="absolute bottom-1/4 right-1/3 w-2.5 h-2.5 bg-purple-300 rounded-full blur-sm opacity-50 animate-pulse" style={{ animationDuration: '6s', animationDelay: '1.5s' }}></div>
+        </div>
+        
+        <div className="container mx-auto text-center relative z-10">
+          <Card className="max-w-4xl mx-auto p-8 md:p-12 glass-card bg-gradient-to-br from-blue-900/30 via-purple-900/20 to-slate-900/30 border-blue-700/30">
             <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400 bg-clip-text text-transparent">
               Готовы к сотрудничеству?
             </h2>
@@ -688,13 +728,13 @@ const Index = () => {
               Свяжитесь с нами для обсуждения ваших потребностей в электронных компонентах и автокомпонентах
             </p>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
-              <Button asChild size="lg" className="text-sm md:text-base bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-500 shadow-none hover:shadow-none">
+              <Button asChild size="lg" className="text-sm md:text-base bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-500">
                 <Link to="/contact">
                   Связаться с нами
                   <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-white/30 text-purple-100 hover:bg-white hover:text-purple-900 text-sm md:text-base bg-white/20 transition-all duration-500">
+              <Button asChild variant="outline" size="lg" className="border-white/30 text-purple-100 hover:bg-white hover:text-purple-900 text-sm md:text-base bg-white transition-all duration-500">
                 <Link to="/products">Каталог продукции</Link>
               </Button>
             </div>
