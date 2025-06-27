@@ -321,7 +321,7 @@ const Index = () => {
       </section>
 
       {/* Priority Products Section - Updated gradient and shadow */}
-      <section className="py-16 md:py-20 bg-gradient-to-b from-black via-slate-900/90 to-slate-700/80 relative overflow-hidden shadow-2xl">
+      <section className="py-16 md:py-20 bg-gradient-to-b from-black via-slate-900/90 to-slate-800/80 relative overflow-hidden shadow-2xl">
         {/* Extended background effects from hero section */}
         <div className="absolute inset-0">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl opacity-60 animate-pulse-slow"></div>
@@ -329,8 +329,8 @@ const Index = () => {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-128 h-128 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-full blur-3xl opacity-60 animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
         </div>
         
-        {/* Bottom shadow separator */}
-        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-b from-transparent to-black/20 shadow-lg"></div>
+        {/* Enhanced bottom shadow separator */}
+        <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-b from-transparent via-black/40 to-black/60 shadow-2xl"></div>
 
         <div className="relative z-10">
           <div className="text-center mb-12 md:mb-16 px-4">
@@ -389,7 +389,7 @@ const Index = () => {
                       </div>
                       
                       {/* Content Section */}
-                      <div className="p-6 lg:p-8 flex flex-col justify-center bg-gradient-to-br from-slate-800/20 to-slate-900/20 backdrop-blur-lg">
+                      <div className="p-6 lg:p-8 flex flex-col justify-center bg-gradient-to-br from-slate-800/10 to-slate-900/10 backdrop-blur-lg">
                         
                         {/* Product title */}
                         <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4 drop-shadow-lg">
@@ -440,21 +440,39 @@ const Index = () => {
       </section>
 
       {/* Features Section with smooth transition from above */}
-      <section className={`py-12 md:py-16 lg:py-20 px-4 bg-gradient-to-b from-slate-700/80 via-white/50 to-${features[activeFeature].colorScheme.gradientColor} dark:from-slate-700/80 dark:via-black/50 dark:to-${features[activeFeature].colorScheme.gradientColor} relative transition-all duration-1000 ease-in-out`}>
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-700/80 to-white/30 dark:from-slate-700/80 dark:to-black/30 transition-all duration-1000"></div>
+      <section className="py-12 md:py-16 lg:py-20 px-4 bg-black relative transition-all duration-1000 ease-in-out">
+        {/* Smooth gradient background that changes based on active feature */}
+        <div className="absolute inset-0 transition-all duration-1000 ease-in-out">
+          <div className={`absolute inset-0 bg-gradient-to-b from-black via-black/95 transition-all duration-1000 ${
+            activeFeature === 0 ? 'to-blue-900/20' :
+            activeFeature === 1 ? 'to-emerald-900/20' :
+            activeFeature === 2 ? 'to-purple-900/20' :
+            'to-amber-900/20'
+          }`}></div>
+        </div>
         
         {/* Animated background circles that change color based on active feature */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className={`absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-${features[activeFeature].colorScheme.gradientColor} to-${features[activeFeature].colorScheme.gradientColor} rounded-full blur-3xl opacity-30 transition-all duration-1000 animate-pulse-slow`}></div>
-          <div className={`absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-to-r from-${features[activeFeature].colorScheme.gradientColor} to-${features[activeFeature].colorScheme.gradientColor} rounded-full blur-2xl opacity-20 transition-all duration-1000 animate-pulse-slow`} style={{ animationDelay: '2s' }}></div>
+          <div className={`absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl opacity-20 transition-all duration-1000 animate-pulse-slow ${
+            activeFeature === 0 ? 'bg-gradient-to-r from-blue-500/30 to-cyan-500/30' :
+            activeFeature === 1 ? 'bg-gradient-to-r from-emerald-500/30 to-teal-500/30' :
+            activeFeature === 2 ? 'bg-gradient-to-r from-purple-500/30 to-violet-500/30' :
+            'bg-gradient-to-r from-amber-500/30 to-yellow-500/30'
+          }`}></div>
+          <div className={`absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full blur-2xl opacity-15 transition-all duration-1000 animate-pulse-slow ${
+            activeFeature === 0 ? 'bg-gradient-to-r from-cyan-500/30 to-blue-500/30' :
+            activeFeature === 1 ? 'bg-gradient-to-r from-teal-500/30 to-emerald-500/30' :
+            activeFeature === 2 ? 'bg-gradient-to-r from-violet-500/30 to-purple-500/30' :
+            'bg-gradient-to-r from-yellow-500/30 to-amber-500/30'
+          }`} style={{ animationDelay: '2s' }}></div>
         </div>
         
         <div className="container mx-auto relative z-10">
           <div className="text-center mb-8 md:mb-12 lg:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 lg:mb-6 bg-gradient-to-r from-slate-700 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 lg:mb-6 bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent">
               Инновационные решения для промышленности
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mt-4 md:mt-6">
+            <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mt-4 md:mt-6">
               Современные технологии и многолетний опыт позволяют нам создавать продукцию высочайшего качества
             </p>
           </div>
@@ -469,16 +487,16 @@ const Index = () => {
                   <Card
                     key={index}
                     className={cn(
-                      "p-3 sm:p-4 md:p-6 cursor-pointer transition-all duration-500 hover:shadow-xl glass-card",
+                      "p-3 sm:p-4 md:p-6 cursor-pointer transition-all duration-700 ease-in-out hover:shadow-xl glass-card bg-slate-900/20 border-slate-700/30",
                       activeFeature === index 
-                        ? `${colors.activeBorder} ${colors.activeBackground} shadow-lg scale-105` 
-                        : 'hover:scale-102'
+                        ? `${colors.activeBorder} ${colors.activeBackground} shadow-2xl scale-105 bg-slate-800/40 border-opacity-100` 
+                        : 'hover:scale-102 hover:bg-slate-800/30'
                     )}
                     onClick={() => setActiveFeature(index)}
                   >
                     <div className="flex items-start space-x-2 sm:space-x-3 md:space-x-4">
                       <div className={cn(
-                        "p-1.5 sm:p-2 md:p-3 rounded-xl transition-all duration-300 flex-shrink-0",
+                        "p-1.5 sm:p-2 md:p-3 rounded-xl transition-all duration-700 flex-shrink-0",
                         activeFeature === index 
                           ? `${colors.iconActive} shadow-lg` 
                           : colors.iconInactive
@@ -487,14 +505,14 @@ const Index = () => {
                       </div>
                       <div className="min-w-0 flex-1">
                         <h3 className={cn(
-                          "text-sm sm:text-base md:text-lg font-semibold transition-all duration-300 mb-1 sm:mb-2",
-                          activeFeature === index ? `${colors.primary} font-bold sm:text-lg md:text-xl` : ''
+                          "text-sm sm:text-base md:text-lg font-semibold transition-all duration-700 mb-1 sm:mb-2",
+                          activeFeature === index ? `${colors.primary} font-bold sm:text-lg md:text-xl` : 'text-slate-300'
                         )}>
                           {feature.title}
                         </h3>
                         <p className={cn(
-                          "text-xs sm:text-sm leading-relaxed transition-colors duration-300",
-                          activeFeature === index ? "text-white" : "text-muted-foreground"
+                          "text-xs sm:text-sm leading-relaxed transition-all duration-700",
+                          activeFeature === index ? "text-white" : "text-slate-400"
                         )}>
                           {feature.description}
                         </p>
@@ -522,28 +540,28 @@ const Index = () => {
                 >
                   <div className={cn(
                     "absolute inset-0 flex items-center justify-center transition-all duration-1000 ease-in-out p-4 sm:p-6 md:p-8",
-                    activeFeature === index ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                    activeFeature === index ? "opacity-100 translate-y-0 backdrop-blur-sm" : "opacity-0 translate-y-4 backdrop-blur-none"
                   )}>
                     <div className="text-center text-white max-w-full">
                       <div className={cn(
-                        "w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 md:mb-6 backdrop-blur-sm transition-all duration-700",
+                        "w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 md:mb-6 backdrop-blur-sm transition-all duration-1000",
                         activeFeature === index ? "scale-100 rotate-0" : "scale-75 rotate-12"
                       )}>
                         {React.createElement(feature.icon, { 
                           className: cn(
-                            "text-white transition-all duration-700",
+                            "text-white transition-all duration-1000",
                             "h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 lg:h-12 lg:w-12"
                           )
                         })}
                       </div>
                       <h3 className={cn(
-                        "text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-2 sm:mb-3 md:mb-4 transition-all duration-700",
+                        "text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-2 sm:mb-3 md:mb-4 transition-all duration-1000",
                         activeFeature === index ? "translate-y-0 opacity-100" : "translate-y-2 opacity-75"
                       )}>
                         {feature.title}
                       </h3>
                       <p className={cn(
-                        "text-white/90 leading-relaxed text-xs sm:text-sm md:text-base transition-all duration-700 delay-100",
+                        "text-white/90 leading-relaxed text-xs sm:text-sm md:text-base transition-all duration-1000 delay-100",
                         activeFeature === index ? "translate-y-0 opacity-100" : "translate-y-2 opacity-75"
                       )}>
                         {feature.fullDescription}
@@ -558,13 +576,13 @@ const Index = () => {
       </section>
 
       {/* Secondary Products Section */}
-      <section className="py-12 md:py-16 lg:py-20 px-4 bg-gradient-to-b from-emerald-50/80 via-teal-50/60 to-cyan-50/80 dark:from-emerald-950/80 dark:via-teal-950/60 dark:to-cyan-950/80">
+      <section className="py-12 md:py-16 lg:py-20 px-4 bg-gradient-to-b from-emerald-900/30 via-emerald-800/20 to-teal-900/30">
         <div className="container mx-auto">
           <div className="text-center mb-8 md:mb-12 lg:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 lg:mb-6 bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-600 bg-clip-text text-transparent">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 lg:mb-6 bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
               Дополнительные направления
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mt-4 md:mt-6">
+            <p className="text-base sm:text-lg md:text-xl text-emerald-100 max-w-3xl mx-auto mt-4 md:mt-6">
               Проверенные решения для различных отраслей промышленности
             </p>
           </div>
@@ -575,7 +593,7 @@ const Index = () => {
               return (
                 <Card 
                   key={index} 
-                  className="group overflow-hidden hover:shadow-2xl transition-all duration-500 glass-card hover:scale-105 flex flex-col h-full"
+                  className="group overflow-hidden hover:shadow-2xl transition-all duration-500 glass-card hover:scale-105 flex flex-col h-full bg-emerald-900/20 border-emerald-700/30"
                 >
                   <div className="aspect-video bg-gradient-to-br from-emerald-100/20 to-teal-100/20 relative overflow-hidden">
                     <img 
@@ -589,11 +607,11 @@ const Index = () => {
                     </div>
                   </div>
                   <div className="p-3 sm:p-4 md:p-6 flex flex-col flex-grow">
-                    <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold mb-2 group-hover:text-emerald-600 transition-colors">
+                    <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold mb-2 group-hover:text-emerald-400 transition-colors text-white">
                       {product.title}
                     </h3>
-                    <p className="text-muted-foreground mb-3 md:mb-4 text-xs sm:text-sm md:text-base flex-grow">{product.description}</p>
-                    <Button asChild variant="outline" size="sm" className="w-full group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-600 mt-auto text-xs sm:text-sm">
+                    <p className="text-emerald-200 mb-3 md:mb-4 text-xs sm:text-sm md:text-base flex-grow">{product.description}</p>
+                    <Button asChild variant="outline" size="sm" className="w-full group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-600 mt-auto text-xs sm:text-sm border-emerald-600 text-emerald-400">
                       <Link to={product.link}>
                         Подробнее
                         <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
@@ -608,13 +626,13 @@ const Index = () => {
       </section>
 
       {/* Achievements Section */}
-      <section className="py-16 md:py-20 px-4 bg-gradient-to-b from-orange-50/80 via-red-50/60 to-pink-50/80 dark:from-orange-950/80 dark:via-red-950/60 dark:to-pink-950/80">
+      <section className="py-16 md:py-20 px-4 bg-gradient-to-b from-orange-900/30 via-red-900/20 to-pink-900/30">
         <div className="container mx-auto">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-orange-600 via-red-500 to-pink-600 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-orange-400 via-red-400 to-pink-400 bg-clip-text text-transparent">
               Наши достижения
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mt-6">
+            <p className="text-lg md:text-xl text-orange-100 max-w-3xl mx-auto mt-6">
               Цифры, которые говорят о нашем успехе и надежности
             </p>
           </div>
@@ -623,11 +641,11 @@ const Index = () => {
             {achievements.map((achievement, index) => (
               <Card 
                 key={index} 
-                className="text-center p-6 md:p-8 glass-card hover:shadow-xl transition-all duration-500 hover:scale-105 bg-gradient-to-br from-orange-100/30 to-pink-100/30 dark:from-orange-900/30 dark:to-pink-900/30"
+                className="text-center p-6 md:p-8 glass-card hover:shadow-xl transition-all duration-500 hover:scale-105 bg-gradient-to-br from-orange-900/30 to-pink-900/30 border-orange-700/30"
               >
-                <div className="text-2xl md:text-4xl font-bold text-orange-600 dark:text-orange-400 mb-2">{achievement.number}</div>
-                <div className="text-base md:text-lg font-semibold mb-2 text-red-600 dark:text-red-400">{achievement.label}</div>
-                <div className="text-muted-foreground text-sm">{achievement.description}</div>
+                <div className="text-2xl md:text-4xl font-bold text-orange-400 mb-2">{achievement.number}</div>
+                <div className="text-base md:text-lg font-semibold mb-2 text-red-400">{achievement.label}</div>
+                <div className="text-orange-200 text-sm">{achievement.description}</div>
               </Card>
             ))}
           </div>
@@ -635,13 +653,13 @@ const Index = () => {
       </section>
 
       {/* Partners Section */}
-      <section className="py-16 md:py-20 px-4 bg-gradient-to-b from-indigo-50/80 via-purple-50/60 to-pink-50/80 dark:from-indigo-950/80 dark:via-purple-950/60 dark:to-pink-950/80">
+      <section className="py-16 md:py-20 px-4 bg-gradient-to-b from-indigo-900/30 via-purple-900/20 to-pink-900/30">
         <div className="container mx-auto">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-indigo-600 via-purple-500 to-pink-600 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Наши партнеры
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mt-6">
+            <p className="text-lg md:text-xl text-indigo-100 max-w-3xl mx-auto mt-6">
               Мы сотрудничаем с ведущими компаниями по всему миру
             </p>
           </div>
@@ -650,7 +668,7 @@ const Index = () => {
             {partners.map((partner, index) => (
               <div 
                 key={index} 
-                className="bg-white/20 dark:bg-black/20 backdrop-blur-sm border border-indigo-200/30 dark:border-indigo-800/30 rounded-xl p-4 md:p-6 flex items-center justify-center hover:bg-indigo-100/30 dark:hover:bg-indigo-900/30 transition-all duration-300 hover:scale-105"
+                className="bg-indigo-900/20 backdrop-blur-sm border border-indigo-700/30 rounded-xl p-4 md:p-6 flex items-center justify-center hover:bg-indigo-800/30 transition-all duration-300 hover:scale-105"
               >
                 <img src={partner.logo} alt={partner.name} className="max-w-full max-h-8 md:max-h-12 opacity-70 hover:opacity-100 transition-opacity" />
               </div>
@@ -660,23 +678,23 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 px-4 bg-gradient-to-b from-blue-50/80 via-purple-50/60 to-emerald-50/80 dark:from-blue-950/80 dark:via-purple-950/60 dark:to-emerald-950/80">
+      <section className="py-16 md:py-20 px-4 bg-gradient-to-b from-blue-900/30 via-purple-900/20 to-teal-900/30">
         <div className="container mx-auto text-center">
-          <Card className="max-w-4xl mx-auto p-8 md:p-12 glass-card bg-gradient-to-br from-blue-100/30 via-purple-100/20 to-emerald-100/30 dark:from-blue-900/30 dark:via-purple-900/20 dark:to-emerald-900/30">
-            <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-blue-600 via-purple-500 to-emerald-600 bg-clip-text text-transparent">
+          <Card className="max-w-4xl mx-auto p-8 md:p-12 glass-card bg-gradient-to-br from-blue-900/30 via-purple-900/20 to-teal-900/30 border-blue-700/30">
+            <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400 bg-clip-text text-transparent">
               Готовы к сотрудничеству?
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-blue-100 mb-6 md:mb-8 max-w-2xl mx-auto">
               Свяжитесь с нами для обсуждения ваших потребностей в электронных компонентах и автокомпонентах
             </p>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
-              <Button asChild size="lg" className="btn-primary-smooth text-sm md:text-base bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+              <Button asChild size="lg" className="text-sm md:text-base bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-500 shadow-none hover:shadow-none">
                 <Link to="/contact">
                   Связаться с нами
                   <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-purple-500 text-purple-600 hover:bg-purple-600 hover:text-white text-sm md:text-base">
+              <Button asChild variant="outline" size="lg" className="border-white/30 text-purple-100 hover:bg-white hover:text-purple-900 text-sm md:text-base bg-white/20 transition-all duration-500">
                 <Link to="/products">Каталог продукции</Link>
               </Button>
             </div>
