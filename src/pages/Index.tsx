@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -33,7 +32,9 @@ import {
   Battery,
   Wifi,
   Shield as ShieldIcon,
-  Layers
+  Layers,
+  Mouse,
+  ChevronDown
 } from "lucide-react";
 
 const Index = () => {
@@ -55,7 +56,8 @@ const Index = () => {
         activeBackground: "bg-blue-500/20 dark:bg-blue-600/30",
         activeBorder: "border-blue-500/50",
         iconActive: "bg-blue-500/60 text-white",
-        iconInactive: "bg-blue-500/20 text-blue-600 dark:text-blue-400"
+        iconInactive: "bg-blue-500/20 text-blue-600 dark:text-blue-400",
+        gradientColor: "blue-500/30"
       }
     },
     {
@@ -70,7 +72,8 @@ const Index = () => {
         activeBackground: "bg-emerald-500/20 dark:bg-emerald-600/30",
         activeBorder: "border-emerald-500/50",
         iconActive: "bg-emerald-500/60 text-white",
-        iconInactive: "bg-emerald-500/20 text-emerald-600 dark:text-emerald-400"
+        iconInactive: "bg-emerald-500/20 text-emerald-600 dark:text-emerald-400",
+        gradientColor: "emerald-500/30"
       }
     },
     {
@@ -78,14 +81,15 @@ const Index = () => {
       title: "Система качества",
       description: "Сертифицированная система менеджмента качества ISO 9001 гарантирует соответствие международным стандартам.",
       fullDescription: "Наша система менеджмента качества сертифицирована по стандарту ISO 9001, что гарантирует высочайший уровень качества всей выпускаемой продукции. Мы строго следим за соблюдением всех технологических процессов и постоянно совершенствуем систему контроля качества.",
-      backgroundImage: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop",
+      backgroundImage: "https://images.unsplash.com/photo-1560472354-b33ff0c44a35?w=800&h=600&fit=crop",
       colorScheme: {
         primary: "text-purple-600 dark:text-purple-400",
         background: "bg-purple-100/50 dark:bg-purple-900/30",
         activeBackground: "bg-purple-500/20 dark:bg-purple-600/30",
         activeBorder: "border-purple-500/50",
         iconActive: "bg-purple-500/60 text-white",
-        iconInactive: "bg-purple-500/20 text-purple-600 dark:text-purple-400"
+        iconInactive: "bg-purple-500/20 text-purple-600 dark:text-purple-400",
+        gradientColor: "purple-500/30"
       }
     },
     {
@@ -100,7 +104,8 @@ const Index = () => {
         activeBackground: "bg-amber-500/20 dark:bg-amber-600/30",
         activeBorder: "border-amber-500/50",
         iconActive: "bg-amber-500/60 text-white",
-        iconInactive: "bg-amber-500/20 text-amber-600 dark:text-amber-400"
+        iconInactive: "bg-amber-500/20 text-amber-600 dark:text-amber-400",
+        gradientColor: "amber-500/30"
       }
     }
   ];
@@ -280,7 +285,7 @@ const Index = () => {
     <div className="min-h-screen">
       <Navigation />
       
-      {/* Hero Section - Black background with smooth animated abstract colors extending to next section */}
+      {/* Hero Section - Updated with animated mouse scroll indicator */}
       <section className="pt-40 md:pt-44 lg:pt-48 pb-12 md:pb-16 lg:pb-20 px-4 text-center relative overflow-hidden bg-black">
         <div className="container mx-auto relative z-10">
           <div className="max-w-4xl mx-auto animate-fade-in">
@@ -290,28 +295,16 @@ const Index = () => {
             <p className="text-lg md:text-xl xl:text-2xl text-white/50 mb-6 md:mb-8" style={{ animationDelay: '200ms' }}>
               Ведущий производитель электронных компонентов и автокомпонентов с 1956 года
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center" style={{ animationDelay: '400ms' }}>
-              <Button asChild size="lg" className="text-sm md:text-base bg-gradient-to-r from-cyan-500/70 via-blue-500/70 to-purple-500/70 hover:from-cyan-600/80 hover:via-blue-600/80 hover:to-purple-600/80 text-white border-0 shadow-2xl transition-all duration-500 backdrop-blur-sm">
-                <Link to="/products">
-                  Наша продукция
-                  <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="text-sm md:text-base bg-black/30 backdrop-blur-sm border-2 border-gradient-to-r from-emerald-400/60 via-teal-400/60 to-cyan-400/60 hover:bg-black/40 transition-all duration-500 relative overflow-hidden">
-                <Link to="/company">
-                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/10 via-teal-400/10 to-cyan-400/10 rounded"></div>
-                  <div className="absolute inset-[1px] rounded" style={{
-                    background: 'linear-gradient(90deg, rgba(52, 211, 153, 0.6), rgba(45, 212, 191, 0.6), rgba(34, 211, 238, 0.6))',
-                    padding: '1px'
-                  }}>
-                    <div className="w-full h-full bg-black/70 backdrop-blur-sm rounded flex items-center justify-center px-6 py-2">
-                      <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent relative z-10 font-medium">
-                        О компании
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              </Button>
+            
+            {/* Animated mouse scroll indicator */}
+            <div className="flex flex-col items-center mt-12 md:mt-16" style={{ animationDelay: '600ms' }}>
+              <div className="animate-bounce">
+                <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+                  <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
+                </div>
+              </div>
+              <p className="text-white/40 text-sm mt-3 animate-pulse">Прокрутите вниз</p>
+              <ChevronDown className="w-5 h-5 text-white/30 mt-2 animate-bounce" style={{ animationDelay: '1s' }} />
             </div>
           </div>
         </div>
@@ -327,14 +320,17 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Priority Products Section - Extended smooth gradient transition from black */}
-      <section className="py-16 md:py-20 bg-gradient-to-b from-black via-slate-900/90 to-slate-800/50 relative overflow-hidden">
+      {/* Priority Products Section - Updated gradient and shadow */}
+      <section className="py-16 md:py-20 bg-gradient-to-b from-black via-slate-900/90 to-slate-700/80 relative overflow-hidden shadow-2xl">
         {/* Extended background effects from hero section */}
         <div className="absolute inset-0">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl opacity-60 animate-pulse-slow"></div>
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-3xl opacity-60 animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-128 h-128 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-full blur-3xl opacity-60 animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
         </div>
+        
+        {/* Bottom shadow separator */}
+        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-b from-transparent to-black/20 shadow-lg"></div>
 
         <div className="relative z-10">
           <div className="text-center mb-12 md:mb-16 px-4">
@@ -359,7 +355,7 @@ const Index = () => {
                   className="w-full animate-fade-in-up"
                   style={{ animationDelay: `${index * 200}ms` }}
                 >
-                  <Card className="group overflow-hidden bg-slate-800/20 backdrop-blur-xl border border-slate-700/30 hover:border-slate-600/50 transition-all duration-700 mx-4 hover:shadow-2xl hover:shadow-slate-900/50">
+                  <Card className="group overflow-hidden bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-700 mx-4 hover:shadow-2xl hover:shadow-slate-900/50">
                     <div className="grid lg:grid-cols-2 gap-0 min-h-[60vh] max-h-[600px]">
                       {/* Video/Image Section */}
                       <div 
@@ -393,7 +389,7 @@ const Index = () => {
                       </div>
                       
                       {/* Content Section */}
-                      <div className="p-6 lg:p-8 flex flex-col justify-center bg-gradient-to-br from-slate-800/40 to-slate-900/40 backdrop-blur-sm">
+                      <div className="p-6 lg:p-8 flex flex-col justify-center bg-gradient-to-br from-slate-800/20 to-slate-900/20 backdrop-blur-lg">
                         
                         {/* Product title */}
                         <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4 drop-shadow-lg">
@@ -440,25 +436,18 @@ const Index = () => {
               );
             })}
           </div>
-          
-          {/* Enhanced 3D Call to Action */}
-          <div className="text-center mt-16 px-4">
-            <Button asChild size="lg" className="group relative bg-gradient-to-r from-orange-500 via-orange-600 to-orange-500 hover:from-orange-600 hover:via-orange-700 hover:to-orange-600 text-white text-lg px-12 py-6 shadow-2xl hover:shadow-orange-500/25 transform hover:scale-110 transition-all duration-500 overflow-hidden">
-              <Link to="/products">
-                <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="relative z-10 flex items-center">
-                  Смотреть всю продукцию
-                  <ArrowRight className="ml-2 h-6 w-6 transform group-hover:translate-x-2 transition-transform duration-300" />
-                </span>
-              </Link>
-            </Button>
-          </div>
         </div>
       </section>
 
       {/* Features Section with smooth transition from above */}
-      <section className="py-12 md:py-16 lg:py-20 px-4 bg-gradient-to-b from-slate-800/50 via-white/50 to-orange-50/70 dark:from-slate-800/50 dark:via-black/50 dark:to-orange-950/70 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-800/50 to-white/30 dark:from-slate-800/50 dark:to-black/30"></div>
+      <section className={`py-12 md:py-16 lg:py-20 px-4 bg-gradient-to-b from-slate-700/80 via-white/50 to-${features[activeFeature].colorScheme.gradientColor} dark:from-slate-700/80 dark:via-black/50 dark:to-${features[activeFeature].colorScheme.gradientColor} relative transition-all duration-1000 ease-in-out`}>
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-700/80 to-white/30 dark:from-slate-700/80 dark:to-black/30 transition-all duration-1000"></div>
+        
+        {/* Animated background circles that change color based on active feature */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className={`absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-${features[activeFeature].colorScheme.gradientColor} to-${features[activeFeature].colorScheme.gradientColor} rounded-full blur-3xl opacity-30 transition-all duration-1000 animate-pulse-slow`}></div>
+          <div className={`absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-to-r from-${features[activeFeature].colorScheme.gradientColor} to-${features[activeFeature].colorScheme.gradientColor} rounded-full blur-2xl opacity-20 transition-all duration-1000 animate-pulse-slow`} style={{ animationDelay: '2s' }}></div>
+        </div>
         
         <div className="container mx-auto relative z-10">
           <div className="text-center mb-8 md:mb-12 lg:mb-16">
@@ -569,7 +558,7 @@ const Index = () => {
       </section>
 
       {/* Secondary Products Section */}
-      <section className="py-12 md:py-16 lg:py-20 px-4 bg-white/50 dark:bg-black/50">
+      <section className="py-12 md:py-16 lg:py-20 px-4 bg-gradient-to-b from-emerald-50/80 via-teal-50/60 to-cyan-50/80 dark:from-emerald-950/80 dark:via-teal-950/60 dark:to-cyan-950/80">
         <div className="container mx-auto">
           <div className="text-center mb-8 md:mb-12 lg:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 lg:mb-6 bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-600 bg-clip-text text-transparent">
@@ -588,7 +577,7 @@ const Index = () => {
                   key={index} 
                   className="group overflow-hidden hover:shadow-2xl transition-all duration-500 glass-card hover:scale-105 flex flex-col h-full"
                 >
-                  <div className="aspect-video bg-gradient-to-br from-primary/10 to-orange-400/10 relative overflow-hidden">
+                  <div className="aspect-video bg-gradient-to-br from-emerald-100/20 to-teal-100/20 relative overflow-hidden">
                     <img 
                       src={product.image} 
                       alt={product.title}
@@ -600,11 +589,11 @@ const Index = () => {
                     </div>
                   </div>
                   <div className="p-3 sm:p-4 md:p-6 flex flex-col flex-grow">
-                    <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                    <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold mb-2 group-hover:text-emerald-600 transition-colors">
                       {product.title}
                     </h3>
                     <p className="text-muted-foreground mb-3 md:mb-4 text-xs sm:text-sm md:text-base flex-grow">{product.description}</p>
-                    <Button asChild variant="outline" size="sm" className="w-full group-hover:bg-primary group-hover:text-white group-hover:border-primary mt-auto text-xs sm:text-sm">
+                    <Button asChild variant="outline" size="sm" className="w-full group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-600 mt-auto text-xs sm:text-sm">
                       <Link to={product.link}>
                         Подробнее
                         <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
@@ -619,7 +608,7 @@ const Index = () => {
       </section>
 
       {/* Achievements Section */}
-      <section className="py-16 md:py-20 px-4">
+      <section className="py-16 md:py-20 px-4 bg-gradient-to-b from-orange-50/80 via-red-50/60 to-pink-50/80 dark:from-orange-950/80 dark:via-red-950/60 dark:to-pink-950/80">
         <div className="container mx-auto">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-orange-600 via-red-500 to-pink-600 bg-clip-text text-transparent">
@@ -634,10 +623,10 @@ const Index = () => {
             {achievements.map((achievement, index) => (
               <Card 
                 key={index} 
-                className="text-center p-6 md:p-8 glass-card hover:shadow-xl transition-all duration-500 hover:scale-105"
+                className="text-center p-6 md:p-8 glass-card hover:shadow-xl transition-all duration-500 hover:scale-105 bg-gradient-to-br from-orange-100/30 to-pink-100/30 dark:from-orange-900/30 dark:to-pink-900/30"
               >
-                <div className="text-2xl md:text-4xl font-bold text-primary mb-2">{achievement.number}</div>
-                <div className="text-base md:text-lg font-semibold mb-2">{achievement.label}</div>
+                <div className="text-2xl md:text-4xl font-bold text-orange-600 dark:text-orange-400 mb-2">{achievement.number}</div>
+                <div className="text-base md:text-lg font-semibold mb-2 text-red-600 dark:text-red-400">{achievement.label}</div>
                 <div className="text-muted-foreground text-sm">{achievement.description}</div>
               </Card>
             ))}
@@ -646,7 +635,7 @@ const Index = () => {
       </section>
 
       {/* Partners Section */}
-      <section className="py-16 md:py-20 px-4 bg-white/50 dark:bg-black/50">
+      <section className="py-16 md:py-20 px-4 bg-gradient-to-b from-indigo-50/80 via-purple-50/60 to-pink-50/80 dark:from-indigo-950/80 dark:via-purple-950/60 dark:to-pink-950/80">
         <div className="container mx-auto">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-indigo-600 via-purple-500 to-pink-600 bg-clip-text text-transparent">
@@ -661,7 +650,7 @@ const Index = () => {
             {partners.map((partner, index) => (
               <div 
                 key={index} 
-                className="bg-white/20 dark:bg-black/20 backdrop-blur-sm border border-white/30 dark:border-white/10 rounded-xl p-4 md:p-6 flex items-center justify-center hover:bg-white/30 dark:hover:bg-black/30 transition-all duration-300 hover:scale-105"
+                className="bg-white/20 dark:bg-black/20 backdrop-blur-sm border border-indigo-200/30 dark:border-indigo-800/30 rounded-xl p-4 md:p-6 flex items-center justify-center hover:bg-indigo-100/30 dark:hover:bg-indigo-900/30 transition-all duration-300 hover:scale-105"
               >
                 <img src={partner.logo} alt={partner.name} className="max-w-full max-h-8 md:max-h-12 opacity-70 hover:opacity-100 transition-opacity" />
               </div>
@@ -671,9 +660,9 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 px-4">
+      <section className="py-16 md:py-20 px-4 bg-gradient-to-b from-blue-50/80 via-purple-50/60 to-emerald-50/80 dark:from-blue-950/80 dark:via-purple-950/60 dark:to-emerald-950/80">
         <div className="container mx-auto text-center">
-          <Card className="max-w-4xl mx-auto p-8 md:p-12 glass-card">
+          <Card className="max-w-4xl mx-auto p-8 md:p-12 glass-card bg-gradient-to-br from-blue-100/30 via-purple-100/20 to-emerald-100/30 dark:from-blue-900/30 dark:via-purple-900/20 dark:to-emerald-900/30">
             <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-blue-600 via-purple-500 to-emerald-600 bg-clip-text text-transparent">
               Готовы к сотрудничеству?
             </h2>
@@ -681,13 +670,13 @@ const Index = () => {
               Свяжитесь с нами для обсуждения ваших потребностей в электронных компонентах и автокомпонентах
             </p>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
-              <Button asChild size="lg" className="btn-primary-smooth text-sm md:text-base">
+              <Button asChild size="lg" className="btn-primary-smooth text-sm md:text-base bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
                 <Link to="/contact">
                   Связаться с нами
                   <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-white text-sm md:text-base">
+              <Button asChild variant="outline" size="lg" className="border-purple-500 text-purple-600 hover:bg-purple-600 hover:text-white text-sm md:text-base">
                 <Link to="/products">Каталог продукции</Link>
               </Button>
             </div>
