@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -298,9 +299,13 @@ const Index = () => {
         
         <div className="container mx-auto relative z-10">
           <div className="max-w-4xl mx-auto animate-fade-in">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl xl:text-9xl font-black mb-8 md:mb-12 text-white/95 leading-tight" style={{ fontWeight: '900', letterSpacing: '0.02em' }}>
-              ОАО «МПОВТ»
-            </h1>
+            <div className="mb-8 md:mb-12 flex justify-center">
+              <img 
+                src="/lovable-uploads/70fca613-4992-4ede-98c2-f9c7e669d23e.png" 
+                alt="ОАО МПОВТ Logo" 
+                className="h-24 sm:h-32 md:h-40 lg:h-48 xl:h-56 w-auto opacity-95 hover:opacity-100 transition-opacity duration-300"
+              />
+            </div>
             <p className="text-lg md:text-xl xl:text-2xl text-white/50 mb-6 md:mb-8" style={{ animationDelay: '200ms' }}>
               Ведущий производитель электронных компонентов и автокомпонентов с 1956 года
             </p>
