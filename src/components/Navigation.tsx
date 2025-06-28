@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -81,13 +80,12 @@ export default function Navigation() {
       )}>
         <nav className="container mx-auto px-4 flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
+          <Link to="/" className="flex items-center group">
             <img 
               src="/lovable-uploads/70fca613-4992-4ede-98c2-f9c7e669d23e.png" 
               alt="ОАО МПОВТ Logo" 
               className="h-8 xl:h-10 w-auto transition-all duration-500 group-hover:scale-110 group-hover:rotate-6"
             />
-            <span className="font-bold text-lg xl:text-xl transition-all duration-300 group-hover:text-primary">МПОВТ</span>
           </Link>
 
           {/* Desktop Navigation */}

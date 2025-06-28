@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -55,13 +54,12 @@ export default function Navbar() {
       scrolled ? "glass-nav py-3 shadow-lg animate-glow" : "glass-nav py-5"
     )}>
       <nav className="container flex justify-between items-center">
-        <Link to="/" className="flex items-center space-x-2 animate-bounce-in">
+        <Link to="/" className="flex items-center animate-bounce-in">
           <img 
             src="/lovable-uploads/70fca613-4992-4ede-98c2-f9c7e669d23e.png" 
             alt="ОАО МПОВТ Logo" 
             className="h-10 w-auto shadow-lg transition-all duration-500 hover:scale-110"
           />
-          <span className="font-bold text-xl">МПОВТ</span>
         </Link>
 
         {/* Desktop Navigation */}
