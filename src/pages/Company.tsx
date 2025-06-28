@@ -209,7 +209,7 @@ const Company = () => {
 
             <div className="animate-fade-in-right space-y-4 md:space-y-6">
               <Card className="p-3 sm:p-4 md:p-6 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-500 h-full">
-                <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-orange-400/20 rounded-xl overflow-hidden mb-6">
+                <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-orange-400/20 rounded-xl overflow-hidden mb-4">
                   <img 
                     src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=600&fit=crop" 
                     alt="Здание МПОВТ"
@@ -217,26 +217,25 @@ const Company = () => {
                   />
                 </div>
                 
-                {/* Image Caption */}
-                <div className="mb-6 text-left">
-                  <p className="text-white/90 font-medium text-base md:text-lg mb-3">
+                {/* Image Caption - now as centered subheading */}
+                <div className="mb-6 text-center">
+                  <p className="text-white/70 font-medium text-base md:text-lg">
                     Головной офис ОАО "МПОВТ"
                   </p>
-                  <Separator className="bg-gradient-to-r from-cyan-500/60 via-purple-500/60 to-emerald-500/60 h-0.5" />
                 </div>
                 
-                {/* Company Stats */}
-                <div className="grid grid-cols-1 gap-6">
+                {/* Company Stats - reduced icon size and adjusted positioning */}
+                <div className="grid grid-cols-1 gap-4 ml-0">
                   {companyStats.map((stat, index) => {
                     const Icon = stat.icon;
                     return (
-                      <div key={index} className="flex items-center space-x-6 p-5 bg-white/5 dark:bg-black/20 backdrop-blur-sm rounded-lg hover:bg-white/10 transition-all duration-300">
-                        <div className={`p-4 ${stat.bgColor} rounded-xl flex-shrink-0`}>
-                          <Icon className={`h-8 w-8 ${stat.color}`} />
+                      <div key={index} className="flex items-center space-x-4 p-4 bg-white/5 dark:bg-black/20 backdrop-blur-sm rounded-lg hover:bg-white/10 transition-all duration-300">
+                        <div className={`p-3 ${stat.bgColor} rounded-xl flex-shrink-0`}>
+                          <Icon className={`h-6 w-6 ${stat.color}`} />
                         </div>
                         <div className="min-w-0 flex-1">
-                          <p className="text-lg md:text-xl font-semibold text-white">{stat.value}</p>
-                          <p className="text-base text-slate-400">{stat.label}</p>
+                          <p className="text-lg font-semibold text-white">{stat.value}</p>
+                          <p className="text-sm text-slate-400">{stat.label}</p>
                         </div>
                       </div>
                     );
@@ -291,17 +290,15 @@ const Company = () => {
             <Card className="p-6 md:p-8 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20">
               {/* Desktop Horizontal Timeline */}
               <div className="hidden md:block relative">
-                {/* Timeline segments - disconnected with rounded edges */}
-                <div className="absolute top-6 left-0 right-0 h-1 flex justify-between">
-                  {timelineEvents.map((event, index) => (
+                {/* Timeline segments - positioned between points */}
+                <div className="absolute top-6 left-0 right-0 h-1 flex">
+                  {timelineEvents.slice(0, -1).map((event, index) => (
                     <div
                       key={index}
-                      className="w-16 h-1 bg-slate-600/40 rounded-full"
-                      style={{
-                        marginLeft: index === 0 ? '24px' : '0',
-                        marginRight: index === timelineEvents.length - 1 ? '24px' : '0'
-                      }}
-                    />
+                      className="flex-1 flex justify-center items-center px-6"
+                    >
+                      <div className="w-16 h-1 bg-slate-600/40 rounded-full"></div>
+                    </div>
                   ))}
                 </div>
                 
@@ -319,7 +316,7 @@ const Company = () => {
                       >
                         <div className={`w-12 h-12 rounded-full transition-all duration-300 flex items-center justify-center ${
                           activeTimelineIndex === index 
-                            ? `${event.bgColor} shadow-lg shadow-${event.color}/30` 
+                            ? `${event.bgColor} shadow-lg` 
                             : `${event.bgColor}/60 hover:${event.bgColor}/80`
                         }`}>
                           <Icon className={`w-5 h-5 transition-all duration-300 ${
@@ -356,7 +353,7 @@ const Company = () => {
                     </p>
                   </div>
                   
-                  {/* Progress indicator with smooth transition and color animation - showing all 6 points */}
+                  {/* Progress indicator with all 6 colors */}
                   <div className="flex items-center mt-6 space-x-2">
                     {timelineEvents.map((event, index) => (
                       <div
@@ -390,13 +387,13 @@ const Company = () => {
                       }`}>
                         {/* Timeline point */}
                         <div className="flex-shrink-0 relative z-10">
-                          <div className={`w-12 h-12 rounded-full border-4 border-${event.color} ${event.bgColor} flex items-center justify-center shadow-lg`}>
+                          <div className={`w-12 h-12 rounded-full ${event.bgColor} flex items-center justify-center shadow-lg`}>
                             <Icon className="w-5 h-5 text-white" />
                           </div>
                         </div>
                         
                         {/* Connecting line from point to card */}
-                        <div className={`w-4 h-0.5 bg-${event.color}/40 mt-6 ${
+                        <div className={`w-4 h-0.5 bg-slate-600/40 mt-6 ${
                           index % 2 === 0 ? 'ml-0' : 'mr-0'
                         }`}></div>
                         
@@ -429,15 +426,15 @@ const Company = () => {
               Узнайте больше о наших возможностях и продукции
             </p>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
-              <Button asChild size="lg" className="text-sm md:text-base bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 transition-all duration-500 shadow-lg">
+              <Button asChild size="lg" className="text-sm md:text-base bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 transition-all duration-500 shadow-lg">
                 <Link to="/contact">
                   Связаться с нами
                   <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-emerald-400/30 bg-emerald-500/10 hover:bg-emerald-500/20 text-sm md:text-base transition-all duration-500">
+              <Button asChild variant="outline" size="lg" className="border-purple-400/30 bg-purple-500/10 hover:bg-purple-500/20 text-sm md:text-base transition-all duration-500">
                 <Link to="/products">
-                  <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent font-semibold">
+                  <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent font-semibold">
                     Наша продукция
                   </span>
                 </Link>
@@ -449,6 +446,7 @@ const Company = () => {
 
       <Footer />
 
+      {/* CSS animations */}
       <style>{`
         @keyframes moveX {
           0%, 100% { transform: translateX(-20px); }
