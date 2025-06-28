@@ -851,7 +851,7 @@ const Index = () => {
 
       <Footer />
       
-      <style jsx>{`
+      <style>{`
         @keyframes moveX {
           0%, 100% { transform: translateX(-20px); }
           50% { transform: translateX(20px); }
