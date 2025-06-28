@@ -209,7 +209,7 @@ const Company = () => {
 
             <div className="animate-fade-in-right space-y-4 md:space-y-6">
               <Card className="p-3 sm:p-4 md:p-6 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-500 h-full">
-                <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-orange-400/20 rounded-xl overflow-hidden mb-4">
+                <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-orange-400/20 rounded-xl overflow-hidden mb-6">
                   <img 
                     src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=600&fit=crop" 
                     alt="Здание МПОВТ"
@@ -218,25 +218,25 @@ const Company = () => {
                 </div>
                 
                 {/* Image Caption */}
-                <div className="mb-4 text-center">
-                  <p className="text-white/90 font-medium text-sm md:text-base">
+                <div className="mb-6 text-left">
+                  <p className="text-white/90 font-medium text-base md:text-lg mb-3">
                     Головной офис ОАО "МПОВТ"
                   </p>
-                  <Separator className="my-3 bg-gradient-to-r from-transparent via-slate-600 to-transparent" />
+                  <Separator className="bg-gradient-to-r from-cyan-500/60 via-purple-500/60 to-emerald-500/60 h-0.5" />
                 </div>
                 
                 {/* Company Stats */}
-                <div className="grid grid-cols-1 gap-4">
+                <div className="grid grid-cols-1 gap-6">
                   {companyStats.map((stat, index) => {
                     const Icon = stat.icon;
                     return (
-                      <div key={index} className="flex items-center space-x-4 p-4 bg-white/5 dark:bg-black/20 backdrop-blur-sm rounded-lg hover:bg-white/10 transition-all duration-300">
-                        <div className={`p-3 ${stat.bgColor} rounded-xl flex-shrink-0`}>
-                          <Icon className={`h-6 w-6 ${stat.color}`} />
+                      <div key={index} className="flex items-center space-x-6 p-5 bg-white/5 dark:bg-black/20 backdrop-blur-sm rounded-lg hover:bg-white/10 transition-all duration-300">
+                        <div className={`p-4 ${stat.bgColor} rounded-xl flex-shrink-0`}>
+                          <Icon className={`h-8 w-8 ${stat.color}`} />
                         </div>
                         <div className="min-w-0 flex-1">
-                          <p className="text-base md:text-lg font-semibold text-white">{stat.value}</p>
-                          <p className="text-sm text-slate-400">{stat.label}</p>
+                          <p className="text-lg md:text-xl font-semibold text-white">{stat.value}</p>
+                          <p className="text-base text-slate-400">{stat.label}</p>
                         </div>
                       </div>
                     );
@@ -291,20 +291,18 @@ const Company = () => {
             <Card className="p-6 md:p-8 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20">
               {/* Desktop Horizontal Timeline */}
               <div className="hidden md:block relative">
-                {/* Timeline segments with gradients */}
-                <div className="absolute top-6 left-0 right-0 h-1 flex">
-                  {timelineEvents.slice(0, -1).map((event, index) => {
-                    const nextEvent = timelineEvents[index + 1];
-                    return (
-                      <div
-                        key={index}
-                        className="flex-1 h-full rounded-full"
-                        style={{
-                          background: `linear-gradient(to right, rgb(34 197 94 / 0.8), rgb(59 130 246 / 0.8), rgb(168 85 247 / 0.8), rgb(249 115 22 / 0.8), rgb(6 182 212 / 0.8))`
-                        }}
-                      />
-                    );
-                  })}
+                {/* Timeline segments - disconnected with rounded edges */}
+                <div className="absolute top-6 left-0 right-0 h-1 flex justify-between">
+                  {timelineEvents.map((event, index) => (
+                    <div
+                      key={index}
+                      className="w-16 h-1 bg-slate-600/40 rounded-full"
+                      style={{
+                        marginLeft: index === 0 ? '24px' : '0',
+                        marginRight: index === timelineEvents.length - 1 ? '24px' : '0'
+                      }}
+                    />
+                  ))}
                 </div>
                 
                 {/* Timeline points */}
@@ -319,15 +317,15 @@ const Company = () => {
                           activeTimelineIndex === index ? 'scale-110' : 'hover:scale-105'
                         }`}
                       >
-                        <div className={`w-12 h-12 rounded-full border-4 transition-all duration-300 flex items-center justify-center ${
+                        <div className={`w-12 h-12 rounded-full transition-all duration-300 flex items-center justify-center ${
                           activeTimelineIndex === index 
-                            ? `${event.bgColor} border-${event.color} shadow-lg shadow-${event.color}/30` 
-                            : `bg-white dark:bg-gray-800 border-${event.color}/30 hover:border-${event.color}/60`
+                            ? `${event.bgColor} shadow-lg shadow-${event.color}/30` 
+                            : `${event.bgColor}/60 hover:${event.bgColor}/80`
                         }`}>
                           <Icon className={`w-5 h-5 transition-all duration-300 ${
                             activeTimelineIndex === index 
                               ? 'text-white' 
-                              : `${event.textColor}/60`
+                              : 'text-white/80'
                           }`} />
                         </div>
                         
@@ -358,7 +356,7 @@ const Company = () => {
                     </p>
                   </div>
                   
-                  {/* Progress indicator with smooth transition and color animation */}
+                  {/* Progress indicator with smooth transition and color animation - showing all 6 points */}
                   <div className="flex items-center mt-6 space-x-2">
                     {timelineEvents.map((event, index) => (
                       <div
@@ -366,7 +364,7 @@ const Company = () => {
                         className={`h-1 rounded-full transition-all duration-500 ease-out ${
                           index === activeTimelineIndex 
                             ? `${event.bgColor} w-8` 
-                            : `bg-${event.color}/20 w-2`
+                            : `${event.bgColor}/20 w-2`
                         }`}
                         style={{
                           transitionDelay: index === activeTimelineIndex ? '0ms' : '100ms'
