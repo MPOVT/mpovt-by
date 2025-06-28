@@ -21,7 +21,7 @@ import {
   Layers,
   Settings,
   Award,
-  Star,
+  CheckCircle,
   Sparkles
 } from "lucide-react";
 
@@ -188,15 +188,9 @@ const Products = () => {
         
         <div className="relative z-10">
           <div className="text-center mb-12 md:mb-16 px-4">
-            <div className="mb-8 flex items-center justify-center gap-4">
-              {/* Animated 3D star */}
-              <div className="relative">
-                <Star className="w-8 h-8 md:w-12 md:h-12 text-yellow-400 animate-spin-slow floating-star" fill="currentColor" />
-              </div>
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
-                Флагманская продукция
-              </h2>
-            </div>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent mb-8">
+              Флагманская продукция
+            </h2>
             <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
               Революционные решения потребительской вычислительной техники нового поколения
             </p>
@@ -341,12 +335,12 @@ const Products = () => {
                     </h3>
                     <p className="text-emerald-200 mb-3 md:mb-4 text-xs sm:text-sm md:text-base flex-grow">{product.description}</p>
                     
-                    {/* Features list */}
+                    {/* Features list with icons */}
                     <div className="mb-4 space-y-1">
                       {product.features.map((feature, featureIndex) => (
                         <div key={featureIndex} className="flex items-center gap-2">
-                          <div className="w-1 h-1 bg-emerald-400 rounded-full flex-shrink-0"></div>
-                          <span className="text-emerald-300 text-xs">{feature}</span>
+                          <CheckCircle className="w-3 h-3 text-emerald-400 flex-shrink-0" />
+                          <span className="text-white text-xs">{feature}</span>
                         </div>
                       ))}
                     </div>

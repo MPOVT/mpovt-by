@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
@@ -96,29 +97,44 @@ const Company = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-950 dark:to-orange-900">
+    <div className="min-h-screen">
       <Navigation />
-      
-      <div className="pt-24 md:pt-28 lg:pt-32 pb-16 px-4">
-        <div className="container mx-auto">
-          {/* Header */}
-          <div className="text-center mb-12 md:mb-16 animate-fade-in-up">
-            <div className="relative inline-block">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-primary via-orange-500 to-primary bg-clip-text text-transparent">
-                О компании
-              </h1>
-              <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-16 sm:w-20 md:w-24 lg:w-32 h-0.5 md:h-1 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full"></div>
-            </div>
-            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mt-4 md:mt-6">
+
+      {/* Hero Section */}
+      <section className="pt-40 md:pt-44 lg:pt-48 pb-12 md:pb-16 lg:pb-20 px-4 text-center relative overflow-hidden bg-black">
+        {/* Animated background matching main page style */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 md:w-64 md:h-64 bg-gradient-to-r from-cyan-500/30 to-blue-500/30 rounded-full blur-3xl animate-pulse moving-sphere-1"></div>
+          <div className="absolute bottom-1/6 right-1/4 w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-full blur-3xl animate-pulse moving-sphere-2"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-128 md:h-128 bg-gradient-to-r from-emerald-500/30 to-teal-500/30 rounded-full blur-3xl animate-pulse moving-sphere-3"></div>
+          <div className="absolute top-3/4 left-1/3 w-40 h-40 md:w-80 md:h-80 bg-gradient-to-r from-yellow-500/30 to-orange-500/30 rounded-full blur-3xl animate-pulse moving-sphere-4"></div>
+        </div>
+        
+        <div className="container mx-auto relative z-10">
+          <div className="max-w-4xl mx-auto animate-fade-in">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-8xl font-black mb-6 md:mb-8 text-white/95 leading-tight">
+              О компании
+            </h1>
+            <p className="text-lg md:text-xl xl:text-2xl text-white/70 mb-6 md:mb-8">
               Более 65 лет опыта в разработке и производстве электронных компонентов
             </p>
           </div>
+        </div>
+      </section>
 
-          {/* About Section */}
+      {/* About Section */}
+      <section className="py-16 md:py-20 bg-gradient-to-b from-black via-slate-900/50 to-black relative overflow-hidden">
+        {/* Animated background spheres */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 md:w-64 md:h-64 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse moving-sphere-5"></div>
+          <div className="absolute bottom-1/3 right-1/4 w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r from-purple-500/20 to-emerald-500/20 rounded-full blur-3xl animate-pulse moving-sphere-6"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 mb-12 md:mb-16 lg:mb-20">
-            <Card className="p-4 sm:p-6 md:p-8 glass-card animate-fade-in-left">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-4 lg:mb-6">Наша история</h2>
-              <div className="space-y-3 md:space-y-4 text-muted-foreground leading-relaxed">
+            <Card className="p-4 sm:p-6 md:p-8 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-500 animate-fade-in-left">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-4 lg:mb-6 text-white">Наша история</h2>
+              <div className="space-y-3 md:space-y-4 text-slate-300 leading-relaxed">
                 <p className="text-sm md:text-base">
                   ОАО «МПОВТ» (Минское производственное объединение вычислительной техники) — ведущее предприятие Беларуси в области разработки и производства электронных компонентов и систем. Основанное в 1956 году, предприятие прошло долгий путь развития и модернизации.
                 </p>
@@ -132,7 +148,7 @@ const Company = () => {
             </Card>
 
             <div className="animate-fade-in-right space-y-4 md:space-y-6">
-              <Card className="p-3 sm:p-4 md:p-6 glass-card h-full">
+              <Card className="p-3 sm:p-4 md:p-6 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-500 h-full">
                 <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-orange-400/20 rounded-xl overflow-hidden mb-4">
                   <img 
                     src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=600&fit=crop" 
@@ -151,8 +167,8 @@ const Company = () => {
                           <Icon className="h-3 w-3 md:h-4 md:w-4 text-primary" />
                         </div>
                         <div className="min-w-0">
-                          <p className="text-xs md:text-sm font-medium">{stat.value}</p>
-                          <p className="text-xs text-muted-foreground truncate">{stat.label}</p>
+                          <p className="text-xs md:text-sm font-medium text-white">{stat.value}</p>
+                          <p className="text-xs text-slate-400 truncate">{stat.label}</p>
                         </div>
                       </div>
                     );
@@ -165,13 +181,10 @@ const Company = () => {
           {/* Values Section */}
           <div className="mb-12 md:mb-16 lg:mb-20">
             <div className="text-center mb-8 md:mb-12">
-              <div className="relative inline-block">
-                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4 bg-gradient-to-r from-primary via-orange-500 to-primary bg-clip-text text-transparent">
-                  Наши ценности
-                </h2>
-                <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-12 sm:w-16 md:w-20 lg:w-24 h-0.5 md:h-1 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full"></div>
-              </div>
-              <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mt-3 md:mt-4">
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-cyan-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
+                Наши ценности
+              </h2>
+              <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
                 Принципы, которыми мы руководствуемся в своей работе
               </p>
             </div>
@@ -182,14 +195,14 @@ const Company = () => {
                 return (
                   <Card 
                     key={index} 
-                    className="p-4 sm:p-6 md:p-8 text-center glass-card hover:shadow-xl transition-all duration-500 hover:scale-105 animate-fade-in-up"
+                    className="p-4 sm:p-6 md:p-8 text-center bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-500 hover:scale-105 animate-fade-in-up"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-primary/20 rounded-xl flex items-center justify-center mx-auto mb-3 md:mb-4 lg:mb-6">
                       <Icon className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-primary" />
                     </div>
-                    <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 md:mb-3">{value.title}</h3>
-                    <p className="text-muted-foreground text-xs sm:text-sm md:text-base">{value.description}</p>
+                    <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 md:mb-3 text-white">{value.title}</h3>
+                    <p className="text-slate-300 text-xs sm:text-sm md:text-base">{value.description}</p>
                   </Card>
                 );
               })}
@@ -199,18 +212,15 @@ const Company = () => {
           {/* Timeline Section */}
           <div className="mb-12 md:mb-16 lg:mb-20">
             <div className="text-center mb-8 md:mb-12">
-              <div className="relative inline-block">
-                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4 bg-gradient-to-r from-primary via-orange-500 to-primary bg-clip-text text-transparent">
-                  История развития
-                </h2>
-                <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-12 sm:w-16 md:w-20 lg:w-24 h-0.5 md:h-1 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full"></div>
-              </div>
-              <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mt-3 md:mt-4">
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-cyan-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
+                История развития
+              </h2>
+              <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
                 Ключевые моменты нашего развития за более чем 65 лет
               </p>
             </div>
 
-            <Card className="p-6 md:p-8 glass-card">
+            <Card className="p-6 md:p-8 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20">
               {/* Desktop Horizontal Timeline */}
               <div className="hidden md:block relative">
                 {/* Timeline line */}
@@ -242,7 +252,7 @@ const Company = () => {
                       <div className={`absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs md:text-sm font-medium whitespace-nowrap transition-all duration-300 ${
                         activeTimelineIndex === index 
                           ? 'text-primary scale-110' 
-                          : 'text-muted-foreground'
+                          : 'text-slate-400'
                       }`}>
                         {event.year}
                       </div>
@@ -268,7 +278,7 @@ const Company = () => {
                     <h3 className="text-xl md:text-2xl font-bold mb-3 text-primary">
                       {timelineEvents[activeTimelineIndex].title}
                     </h3>
-                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                    <p className="text-slate-300 text-sm md:text-base leading-relaxed">
                       {timelineEvents[activeTimelineIndex].description}
                     </p>
                   </div>
@@ -321,10 +331,10 @@ const Company = () => {
                           <div className="text-sm font-bold text-primary mb-1">
                             {event.year}
                           </div>
-                          <h3 className="text-lg font-semibold mb-2 text-foreground">
+                          <h3 className="text-lg font-semibold mb-2 text-white">
                             {event.title}
                           </h3>
-                          <p className="text-sm text-muted-foreground leading-relaxed">
+                          <p className="text-sm text-slate-300 leading-relaxed">
                             {event.description}
                           </p>
                         </div>
@@ -337,27 +347,67 @@ const Company = () => {
           </div>
 
           {/* CTA Section */}
-          <Card className="p-6 sm:p-8 md:p-12 text-center glass-card animate-fade-in-up">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-4 lg:mb-6">Свяжитесь с нами</h2>
-            <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-4 md:mb-6 lg:mb-8 max-w-2xl mx-auto">
+          <Card className="p-6 sm:p-8 md:p-12 text-center bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 animate-fade-in-up">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-4 lg:mb-6 text-white">Свяжитесь с нами</h2>
+            <p className="text-sm sm:text-base md:text-lg text-slate-300 mb-4 md:mb-6 lg:mb-8 max-w-2xl mx-auto">
               Узнайте больше о наших возможностях и продукции
             </p>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
-              <Button asChild size="lg" className="btn-primary-smooth text-sm md:text-base">
+              <Button asChild size="lg" className="text-sm md:text-base bg-gradient-to-r from-primary to-orange-600 hover:from-primary/80 hover:to-orange-600/80 transition-all duration-500 shadow-lg">
                 <Link to="/contact">
                   Связаться с нами
                   <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-white text-sm md:text-base">
-                <Link to="/products">Наша продукция</Link>
+              <Button asChild variant="outline" size="lg" className="border-white/30 bg-white/10 hover:bg-white/20 text-sm md:text-base transition-all duration-500">
+                <Link to="/products">
+                  <span className="bg-gradient-to-r from-primary to-orange-600 bg-clip-text text-transparent font-semibold">
+                    Наша продукция
+                  </span>
+                </Link>
               </Button>
             </div>
           </Card>
         </div>
-      </div>
+      </section>
 
       <Footer />
+
+      <style>{`
+        @keyframes moveX {
+          0%, 100% { transform: translateX(-20px); }
+          50% { transform: translateX(20px); }
+        }
+        
+        @keyframes moveY {
+          0%, 100% { transform: translateY(-15px); }
+          50% { transform: translateY(15px); }
+        }
+        
+        .moving-sphere-1 {
+          animation: pulse 8s infinite, moveX 20s infinite alternate, moveY 25s infinite alternate-reverse;
+        }
+        
+        .moving-sphere-2 {
+          animation: pulse 10s infinite 3s, moveX 18s infinite alternate-reverse 3s, moveY 22s infinite alternate 3s;
+        }
+        
+        .moving-sphere-3 {
+          animation: pulse 12s infinite 2s, moveX 24s infinite alternate 2s, moveY 28s infinite alternate-reverse 2s;
+        }
+        
+        .moving-sphere-4 {
+          animation: pulse 9s infinite 4s, moveX 22s infinite alternate 4s, moveY 26s infinite alternate-reverse 4s;
+        }
+        
+        .moving-sphere-5 {
+          animation: pulse 8s infinite, moveX 22s infinite alternate, moveY 26s infinite alternate-reverse;
+        }
+        
+        .moving-sphere-6 {
+          animation: pulse 10s infinite 3s, moveX 20s infinite alternate-reverse 3s, moveY 24s infinite alternate 3s;
+        }
+      `}</style>
     </div>
   );
 };
