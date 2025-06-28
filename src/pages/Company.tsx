@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
@@ -290,14 +291,14 @@ const Company = () => {
             <Card className="p-6 md:p-8 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20">
               {/* Desktop Horizontal Timeline */}
               <div className="hidden md:block relative">
-                {/* Timeline segments - positioned between points */}
-                <div className="absolute top-6 left-0 right-0 h-1 flex">
+                {/* Timeline segments - properly centered between points */}
+                <div className="absolute top-6 left-0 right-0 h-1 flex items-center">
                   {timelineEvents.slice(0, -1).map((event, index) => (
                     <div
                       key={index}
-                      className="flex-1 flex justify-center items-center px-6"
+                      className="flex-1 flex justify-center items-center"
                     >
-                      <div className="w-16 h-1 bg-slate-600/40 rounded-full"></div>
+                      <div className="w-8 h-1 bg-slate-600/40 rounded-full"></div>
                     </div>
                   ))}
                 </div>
@@ -317,7 +318,7 @@ const Company = () => {
                         <div className={`w-12 h-12 rounded-full transition-all duration-300 flex items-center justify-center ${
                           activeTimelineIndex === index 
                             ? `${event.bgColor} shadow-lg` 
-                            : `${event.bgColor}/60 hover:${event.bgColor}/80`
+                            : `${event.bgColor} hover:${event.bgColor}`
                         }`}>
                           <Icon className={`w-5 h-5 transition-all duration-300 ${
                             activeTimelineIndex === index 
