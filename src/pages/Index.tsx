@@ -440,41 +440,38 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section - Updated with moving gradient animation */}
+      {/* Features Section - Updated with moving gradient animation and smooth background transition */}
       <section className="py-12 md:py-16 lg:py-20 px-4 bg-black relative transition-all duration-1000 ease-in-out">
         {/* Moving animated background spheres with blue/cyan colors */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute w-32 h-32 md:w-64 md:h-64 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse" 
+          <div className="absolute w-32 h-32 md:w-64 md:h-64 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse moving-sphere-1" 
                style={{ 
                  animationDuration: '8s', 
                  left: '25%', 
                  top: '25%',
-                 transform: 'translateX(-50%) translateY(-50%)',
-                 animation: 'pulse 8s infinite, moveX 20s infinite alternate, moveY 25s infinite alternate-reverse'
+                 transform: 'translateX(-50%) translateY(-50%)'
                }}></div>
-          <div className="absolute w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r from-blue-500/20 to-cyan-400/20 rounded-full blur-3xl animate-pulse" 
+          <div className="absolute w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r from-blue-500/20 to-cyan-400/20 rounded-full blur-3xl animate-pulse moving-sphere-2" 
                style={{ 
                  animationDelay: '3s', 
                  animationDuration: '10s',
                  right: '25%',
                  bottom: '33%',
-                 transform: 'translateX(50%) translateY(50%)',
-                 animation: 'pulse 10s infinite 3s, moveX 18s infinite alternate-reverse 3s, moveY 22s infinite alternate 3s'
+                 transform: 'translateX(50%) translateY(50%)'
                }}></div>
-          <div className="absolute w-64 h-64 md:w-128 md:h-128 bg-gradient-to-r from-cyan-400/20 to-blue-400/20 rounded-full blur-3xl animate-pulse" 
+          <div className="absolute w-64 h-64 md:w-128 md:h-128 bg-gradient-to-r from-cyan-400/20 to-blue-400/20 rounded-full blur-3xl animate-pulse moving-sphere-3" 
                style={{ 
                  animationDelay: '2s', 
                  animationDuration: '12s',
                  left: '50%',
                  top: '50%',
-                 transform: 'translateX(-50%) translateY(-50%)',
-                 animation: 'pulse 12s infinite 2s, moveX 24s infinite alternate 2s, moveY 28s infinite alternate-reverse 2s'
+                 transform: 'translateX(-50%) translateY(-50%)'
                }}></div>
         </div>
         
-        {/* Smooth gradient background that changes based on active feature */}
+        {/* Smooth gradient background that changes based on active feature with transition */}
         <div className="absolute inset-0 transition-all duration-1000 ease-in-out">
-          <div className={`absolute inset-0 bg-gradient-to-b from-black via-black/95 transition-all duration-1000 ${
+          <div className={`absolute inset-0 bg-gradient-to-b from-black via-black/95 transition-all duration-1000 ease-in-out ${
             activeFeature === 0 ? 'to-blue-900/20' :
             activeFeature === 1 ? 'to-emerald-900/20' :
             activeFeature === 2 ? 'to-purple-900/20' :
@@ -590,32 +587,29 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Secondary Products Section - Updated with moving background spheres and improved buttons */}
+      {/* Secondary Products Section - Updated with improved 3D card effects */}
       <section className="py-12 md:py-16 lg:py-20 px-4 bg-black relative">
         {/* Moving animated background spheres with emerald/teal colors */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute w-32 h-32 md:w-64 md:h-64 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-full blur-3xl animate-pulse" 
+          <div className="absolute w-32 h-32 md:w-64 md:h-64 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-full blur-3xl animate-pulse moving-sphere-4" 
                style={{ 
                  animationDuration: '8s', 
                  left: '25%', 
-                 top: '25%',
-                 animation: 'pulse 8s infinite, moveX 22s infinite alternate, moveY 26s infinite alternate-reverse'
+                 top: '25%'
                }}></div>
-          <div className="absolute w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r from-teal-500/20 to-cyan-500/20 rounded-full blur-3xl animate-pulse" 
+          <div className="absolute w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r from-teal-500/20 to-cyan-500/20 rounded-full blur-3xl animate-pulse moving-sphere-5" 
                style={{ 
                  animationDelay: '3s', 
                  animationDuration: '10s',
                  right: '25%',
-                 bottom: '33%',
-                 animation: 'pulse 10s infinite 3s, moveX 20s infinite alternate-reverse 3s, moveY 24s infinite alternate 3s'
+                 bottom: '33%'
                }}></div>
-          <div className="absolute w-64 h-64 md:w-128 md:h-128 bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 rounded-full blur-3xl animate-pulse" 
+          <div className="absolute w-64 h-64 md:w-128 md:h-128 bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 rounded-full blur-3xl animate-pulse moving-sphere-6" 
                style={{ 
                  animationDelay: '2s', 
                  animationDuration: '12s',
                  left: '50%',
-                 top: '50%',
-                 animation: 'pulse 12s infinite 2s, moveX 26s infinite alternate 2s, moveY 30s infinite alternate-reverse 2s'
+                 top: '50%'
                }}></div>
         </div>
         
@@ -635,9 +629,9 @@ const Index = () => {
               return (
                 <Card 
                   key={index} 
-                  className="group overflow-hidden hover:shadow-2xl transition-all duration-500 glass-card flex flex-col h-full bg-emerald-900/20 border-emerald-700/30 hover:scale-105 perspective-1000"
+                  className="group overflow-hidden hover:shadow-2xl transition-all duration-500 glass-card flex flex-col h-full bg-emerald-900/20 border-emerald-700/30 card-3d"
                   style={{ 
-                    transform: 'perspective(1000px)',
+                    perspective: '1000px',
                     transformStyle: 'preserve-3d'
                   }}
                   onMouseMove={(e) => {
@@ -646,10 +640,10 @@ const Index = () => {
                     const y = e.clientY - rect.top;
                     const centerX = rect.width / 2;
                     const centerY = rect.height / 2;
-                    const rotateX = (y - centerY) / 10;
-                    const rotateY = (centerX - x) / 10;
+                    const rotateX = (y - centerY) / 20; // Reduced rotation intensity
+                    const rotateY = (centerX - x) / 20; // Fixed direction and reduced intensity
                     
-                    e.currentTarget.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+                    e.currentTarget.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
@@ -674,7 +668,7 @@ const Index = () => {
                     <Button 
                       asChild 
                       size="sm" 
-                      className="w-full mt-auto text-xs sm:text-sm bg-gradient-to-r from-emerald-600 to-teal-600 text-white hover:from-emerald-700 hover:to-teal-700 border-0 transition-all duration-300 hover:shadow-lg"
+                      className="w-full mt-auto text-xs sm:text-sm bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 backdrop-blur-sm text-white transition-all duration-300 hover:shadow-lg"
                     >
                       <Link to={product.link}>
                         Подробнее
@@ -693,28 +687,25 @@ const Index = () => {
       <section className="py-16 md:py-20 px-4 bg-black relative">
         {/* Moving animated background spheres with orange/red colors */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute w-32 h-32 md:w-64 md:h-64 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-full blur-3xl animate-pulse" 
+          <div className="absolute w-32 h-32 md:w-64 md:h-64 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-full blur-3xl animate-pulse moving-sphere-7" 
                style={{ 
                  animationDuration: '8s', 
                  left: '25%', 
-                 top: '25%',
-                 animation: 'pulse 8s infinite, moveX 18s infinite alternate, moveY 22s infinite alternate-reverse'
+                 top: '25%'
                }}></div>
-          <div className="absolute w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r from-red-500/20 to-pink-500/20 rounded-full blur-3xl animate-pulse" 
+          <div className="absolute w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r from-red-500/20 to-pink-500/20 rounded-full blur-3xl animate-pulse moving-sphere-8" 
                style={{ 
                  animationDelay: '3s', 
                  animationDuration: '10s',
                  right: '25%',
-                 bottom: '33%',
-                 animation: 'pulse 10s infinite 3s, moveX 16s infinite alternate-reverse 3s, moveY 20s infinite alternate 3s'
+                 bottom: '33%'
                }}></div>
-          <div className="absolute w-64 h-64 md:w-128 md:h-128 bg-gradient-to-r from-pink-500/20 to-orange-500/20 rounded-full blur-3xl animate-pulse" 
+          <div className="absolute w-64 h-64 md:w-128 md:h-128 bg-gradient-to-r from-pink-500/20 to-orange-500/20 rounded-full blur-3xl animate-pulse moving-sphere-9" 
                style={{ 
                  animationDelay: '2s', 
                  animationDuration: '12s',
                  left: '50%',
-                 top: '50%',
-                 animation: 'pulse 12s infinite 2s, moveX 20s infinite alternate 2s, moveY 24s infinite alternate-reverse 2s'
+                 top: '50%'
                }}></div>
         </div>
         
@@ -743,111 +734,100 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Partners Section - Updated with moving background spheres */}
-      <section className="py-16 md:py-20 px-4 bg-black relative">
-        {/* Moving animated background spheres with indigo/purple colors */}
+      {/* Partners and CTA sections with unified background */}
+      <div className="bg-black relative">
+        {/* Unified moving animated background spheres with indigo/purple colors */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute w-32 h-32 md:w-64 md:h-64 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse" 
+          <div className="absolute w-32 h-32 md:w-64 md:h-64 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse moving-sphere-10" 
                style={{ 
                  animationDuration: '8s', 
                  left: '25%', 
-                 top: '25%',
-                 animation: 'pulse 8s infinite, moveX 24s infinite alternate, moveY 28s infinite alternate-reverse'
+                 top: '15%'
                }}></div>
-          <div className="absolute w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-3xl animate-pulse" 
+          <div className="absolute w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-3xl animate-pulse moving-sphere-11" 
                style={{ 
                  animationDelay: '3s', 
                  animationDuration: '10s',
                  right: '25%',
-                 bottom: '33%',
-                 animation: 'pulse 10s infinite 3s, moveX 22s infinite alternate-reverse 3s, moveY 26s infinite alternate 3s'
+                 top: '40%'
                }}></div>
-          <div className="absolute w-64 h-64 md:w-128 md:h-128 bg-gradient-to-r from-pink-500/20 to-indigo-500/20 rounded-full blur-3xl animate-pulse" 
+          <div className="absolute w-64 h-64 md:w-128 md:h-128 bg-gradient-to-r from-pink-500/20 to-indigo-500/20 rounded-full blur-3xl animate-pulse moving-sphere-12" 
                style={{ 
                  animationDelay: '2s', 
                  animationDuration: '12s',
                  left: '50%',
-                 top: '50%',
-                 animation: 'pulse 12s infinite 2s, moveX 26s infinite alternate 2s, moveY 30s infinite alternate-reverse 2s'
+                 top: '70%'
+               }}></div>
+          <div className="absolute w-40 h-40 md:w-80 md:h-80 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse moving-sphere-13" 
+               style={{ 
+                 animationDelay: '4s', 
+                 animationDuration: '9s',
+                 left: '15%',
+                 bottom: '20%'
+               }}></div>
+          <div className="absolute w-56 h-56 md:w-112 md:h-112 bg-gradient-to-r from-purple-500/20 to-teal-500/20 rounded-full blur-3xl animate-pulse moving-sphere-14" 
+               style={{ 
+                 animationDelay: '5s', 
+                 animationDuration: '11s',
+                 right: '15%',
+                 bottom: '10%'
                }}></div>
         </div>
-        
-        <div className="container mx-auto relative z-10">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Наши партнеры
-            </h2>
-            <p className="text-lg md:text-xl text-indigo-100 max-w-3xl mx-auto mt-6">
-              Мы сотрудничаем с ведущими компаниями по всему миру
-            </p>
-          </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-8">
-            {partners.map((partner, index) => (
-              <div 
-                key={index} 
-                className="bg-indigo-900/20 backdrop-blur-sm border border-indigo-700/30 rounded-xl p-4 md:p-6 flex items-center justify-center hover:bg-indigo-800/30 transition-all duration-300 hover:scale-105"
-              >
-                <img src={partner.logo} alt={partner.name} className="max-w-full max-h-8 md:max-h-12 opacity-70 hover:opacity-100 transition-opacity" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section - Updated with moving background spheres and improved button */}
-      <section className="py-16 md:py-20 px-4 bg-black relative">
-        {/* Moving animated background spheres with blue/purple colors */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute w-32 h-32 md:w-64 md:h-64 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse" 
-               style={{ 
-                 animationDuration: '8s', 
-                 left: '25%', 
-                 top: '25%',
-                 animation: 'pulse 8s infinite, moveX 20s infinite alternate, moveY 24s infinite alternate-reverse'
-               }}></div>
-          <div className="absolute w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r from-purple-500/20 to-teal-500/20 rounded-full blur-3xl animate-pulse" 
-               style={{ 
-                 animationDelay: '3s', 
-                 animationDuration: '10s',
-                 right: '25%',
-                 bottom: '33%',
-                 animation: 'pulse 10s infinite 3s, moveX 18s infinite alternate-reverse 3s, moveY 22s infinite alternate 3s'
-               }}></div>
-          <div className="absolute w-64 h-64 md:w-128 md:h-128 bg-gradient-to-r from-teal-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse" 
-               style={{ 
-                 animationDelay: '2s', 
-                 animationDuration: '12s',
-                 left: '50%',
-                 top: '50%',
-                 animation: 'pulse 12s infinite 2s, moveX 22s infinite alternate 2s, moveY 26s infinite alternate-reverse 2s'
-               }}></div>
-        </div>
-        
-        <div className="container mx-auto text-center relative z-10">
-          <Card className="max-w-4xl mx-auto p-8 md:p-12 glass-card bg-gradient-to-br from-blue-900/30 via-purple-900/20 to-slate-900/30 border-blue-700/30">
-            <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400 bg-clip-text text-transparent">
-              Готовы к сотрудничеству?
-            </h2>
-            <p className="text-lg md:text-xl text-blue-100 mb-6 md:mb-8 max-w-2xl mx-auto">
-              Свяжитесь с нами для обсуждения ваших потребностей в электронных компонентах и автокомпонентах
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
-              <Button asChild size="lg" className="text-sm md:text-base bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 transition-all duration-500 shadow-lg">
-                <Link to="/contact">
-                  Связаться с нами
-                  <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="border-white/30 bg-white hover:bg-white/90 text-sm md:text-base transition-all duration-500">
-                <Link to="/products" className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">
-                  Каталог продукции
-                </Link>
-              </Button>
+        {/* Partners Section */}
+        <section className="py-16 md:py-20 px-4 relative z-10">
+          <div className="container mx-auto">
+            <div className="text-center mb-12 md:mb-16">
+              <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Наши партнеры
+              </h2>
+              <p className="text-lg md:text-xl text-indigo-100 max-w-3xl mx-auto mt-6">
+                Мы сотрудничаем с ведущими компаниями по всему миру
+              </p>
             </div>
-          </Card>
-        </div>
-      </section>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-8">
+              {partners.map((partner, index) => (
+                <div 
+                  key={index} 
+                  className="bg-indigo-900/20 backdrop-blur-sm border border-indigo-700/30 rounded-xl p-4 md:p-6 flex items-center justify-center hover:bg-indigo-800/30 transition-all duration-300 hover:scale-105"
+                >
+                  <img src={partner.logo} alt={partner.name} className="max-w-full max-h-8 md:max-h-12 opacity-70 hover:opacity-100 transition-opacity" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-16 md:py-20 px-4 relative z-10">
+          <div className="container mx-auto text-center">
+            <Card className="max-w-4xl mx-auto p-8 md:p-12 glass-card bg-gradient-to-br from-blue-900/30 via-purple-900/20 to-slate-900/30 border-blue-700/30">
+              <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400 bg-clip-text text-transparent">
+                Готовы к сотрудничеству?
+              </h2>
+              <p className="text-lg md:text-xl text-blue-100 mb-6 md:mb-8 max-w-2xl mx-auto">
+                Свяжитесь с нами для обсуждения ваших потребностей в электронных компонентах и автокомпонентах
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
+                <Button asChild size="lg" className="text-sm md:text-base bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 transition-all duration-500 shadow-lg">
+                  <Link to="/contact">
+                    Связаться с нами
+                    <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="border-white/30 bg-white/10 hover:bg-white/20 text-sm md:text-base transition-all duration-500">
+                  <Link to="/products">
+                    <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">
+                      Каталог продукции
+                    </span>
+                  </Link>
+                </Button>
+              </div>
+            </Card>
+          </div>
+        </section>
+      </div>
 
       <Footer />
       
@@ -860,6 +840,66 @@ const Index = () => {
         @keyframes moveY {
           0%, 100% { transform: translateY(-15px); }
           50% { transform: translateY(15px); }
+        }
+        
+        .moving-sphere-1 {
+          animation: pulse 8s infinite, moveX 20s infinite alternate, moveY 25s infinite alternate-reverse;
+        }
+        
+        .moving-sphere-2 {
+          animation: pulse 10s infinite 3s, moveX 18s infinite alternate-reverse 3s, moveY 22s infinite alternate 3s;
+        }
+        
+        .moving-sphere-3 {
+          animation: pulse 12s infinite 2s, moveX 24s infinite alternate 2s, moveY 28s infinite alternate-reverse 2s;
+        }
+        
+        .moving-sphere-4 {
+          animation: pulse 8s infinite, moveX 22s infinite alternate, moveY 26s infinite alternate-reverse;
+        }
+        
+        .moving-sphere-5 {
+          animation: pulse 10s infinite 3s, moveX 20s infinite alternate-reverse 3s, moveY 24s infinite alternate 3s;
+        }
+        
+        .moving-sphere-6 {
+          animation: pulse 12s infinite 2s, moveX 26s infinite alternate 2s, moveY 30s infinite alternate-reverse 2s;
+        }
+        
+        .moving-sphere-7 {
+          animation: pulse 8s infinite, moveX 18s infinite alternate, moveY 22s infinite alternate-reverse;
+        }
+        
+        .moving-sphere-8 {
+          animation: pulse 10s infinite 3s, moveX 16s infinite alternate-reverse 3s, moveY 20s infinite alternate 3s;
+        }
+        
+        .moving-sphere-9 {
+          animation: pulse 12s infinite 2s, moveX 20s infinite alternate 2s, moveY 24s infinite alternate-reverse 2s;
+        }
+        
+        .moving-sphere-10 {
+          animation: pulse 8s infinite, moveX 24s infinite alternate, moveY 28s infinite alternate-reverse;
+        }
+        
+        .moving-sphere-11 {
+          animation: pulse 10s infinite 3s, moveX 22s infinite alternate-reverse 3s, moveY 26s infinite alternate 3s;
+        }
+        
+        .moving-sphere-12 {
+          animation: pulse 12s infinite 2s, moveX 26s infinite alternate 2s, moveY 30s infinite alternate-reverse 2s;
+        }
+        
+        .moving-sphere-13 {
+          animation: pulse 9s infinite 4s, moveX 19s infinite alternate 4s, moveY 23s infinite alternate-reverse 4s;
+        }
+        
+        .moving-sphere-14 {
+          animation: pulse 11s infinite 5s, moveX 21s infinite alternate-reverse 5s, moveY 25s infinite alternate 5s;
+        }
+        
+        .card-3d {
+          transition: transform 0.3s ease-out;
         }
       `}</style>
     </div>
