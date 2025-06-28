@@ -16,7 +16,8 @@ import {
   ArrowRight,
   MapPin,
   Calendar,
-  Building
+  Building,
+  Quote
 } from "lucide-react";
 
 const Company = () => {
@@ -26,22 +27,30 @@ const Company = () => {
     {
       icon: Factory,
       title: "Качество",
-      description: "Высочайшие стандарты качества в каждом продукте"
+      description: "Высочайшие стандарты качества в каждом продукте",
+      color: "text-emerald-500",
+      bgColor: "bg-emerald-500/20"
     },
     {
       icon: Users,
       title: "Команда",
-      description: "Опытные специалисты и профессионалы своего дела"
+      description: "Опытные специалисты и профессионалы своего дела",
+      color: "text-blue-500",
+      bgColor: "bg-blue-500/20"
     },
     {
       icon: TrendingUp,
       title: "Развитие",
-      description: "Постоянное совершенствование и инновации"
+      description: "Постоянное совершенствование и инновации",
+      color: "text-purple-500",
+      bgColor: "bg-purple-500/20"
     },
     {
       icon: Globe,
       title: "Глобальность",
-      description: "Работаем с партнерами по всему миру"
+      description: "Работаем с партнерами по всему миру",
+      color: "text-orange-500",
+      bgColor: "bg-orange-500/20"
     }
   ];
 
@@ -49,32 +58,38 @@ const Company = () => {
     {
       year: "1956",
       title: "Основание предприятия",
-      description: "Создание Минского производственного объединения вычислительной техники"
+      description: "Создание Минского производственного объединения вычислительной техники",
+      color: "emerald-500"
     },
     {
       year: "1970-80",
       title: "Период роста",
-      description: "Активное развитие производства электронных компонентов"
+      description: "Активное развитие производства электронных компонентов",
+      color: "blue-500"
     },
     {
       year: "1990-2000",
       title: "Модернизация",
-      description: "Внедрение современных технологий и оборудования"
+      description: "Внедрение современных технологий и оборудования",
+      color: "purple-500"
     },
     {
       year: "2001-2010",
       title: "Сертификация",
-      description: "Получение международных сертификатов качества ISO 9001"
+      description: "Получение международных сертификатов качества ISO 9001",
+      color: "orange-500"
     },
     {
       year: "2011-2020",
       title: "Инновации",
-      description: "Разработка новых продуктов и технологических решений"
+      description: "Разработка новых продуктов и технологических решений",
+      color: "cyan-500"
     },
     {
       year: "2021-2024",
       title: "Цифровизация",
-      description: "Внедрение цифровых технологий и автоматизация производства"
+      description: "Внедрение цифровых технологий и автоматизация производства",
+      color: "pink-500"
     }
   ];
 
@@ -95,6 +110,13 @@ const Company = () => {
       value: "1956"
     }
   ];
+
+  // Generate gradient between two timeline points
+  const getTimelineGradient = (fromIndex: number, toIndex: number) => {
+    const fromColor = timelineEvents[fromIndex]?.color || 'primary';
+    const toColor = timelineEvents[toIndex]?.color || 'primary';
+    return `linear-gradient(to right, rgb(var(--${fromColor})), rgb(var(--${toColor})))`;
+  };
 
   return (
     <div className="min-h-screen">
@@ -144,6 +166,21 @@ const Company = () => {
                 <p className="text-sm md:text-base">
                   Наша компания сертифицирована по международным стандартам качества ISO 9001, что подтверждает высокий уровень нашей продукции и процессов. Мы постоянно инвестируем в исследования и разработки, внедряя инновационные технологии и решения.
                 </p>
+              </div>
+              
+              {/* Quote Section */}
+              <div className="mt-6 md:mt-8 p-4 md:p-6 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-xl border border-cyan-500/20">
+                <div className="flex items-start space-x-3">
+                  <Quote className="h-6 w-6 md:h-8 md:w-8 text-cyan-400 flex-shrink-0 mt-1" />
+                  <div>
+                    <blockquote className="text-sm md:text-base text-white/90 italic leading-relaxed mb-2">
+                      "Инженер должен быть не только техником, но и художником, не только математиком, но и психологом."
+                    </blockquote>
+                    <cite className="text-xs md:text-sm text-cyan-400 font-medium">
+                      — Игорь Курчатов, советский физик-ядерщик
+                    </cite>
+                  </div>
+                </div>
               </div>
             </Card>
 
@@ -198,8 +235,8 @@ const Company = () => {
                     className="p-4 sm:p-6 md:p-8 text-center bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-500 hover:scale-105 animate-fade-in-up"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-primary/20 rounded-xl flex items-center justify-center mx-auto mb-3 md:mb-4 lg:mb-6">
-                      <Icon className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-primary" />
+                    <div className={`w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 ${value.bgColor} rounded-xl flex items-center justify-center mx-auto mb-3 md:mb-4 lg:mb-6`}>
+                      <Icon className={`h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 ${value.color}`} />
                     </div>
                     <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 md:mb-3 text-white">{value.title}</h3>
                     <p className="text-slate-300 text-xs sm:text-sm md:text-base">{value.description}</p>
@@ -223,8 +260,18 @@ const Company = () => {
             <Card className="p-6 md:p-8 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20">
               {/* Desktop Horizontal Timeline */}
               <div className="hidden md:block relative">
-                {/* Timeline line */}
-                <div className="absolute top-6 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/30 via-orange-400/50 to-primary/30"></div>
+                {/* Timeline segments with gradients */}
+                <div className="absolute top-6 left-0 right-0 h-0.5 flex">
+                  {timelineEvents.slice(0, -1).map((event, index) => (
+                    <div
+                      key={index}
+                      className="flex-1 h-full"
+                      style={{
+                        background: `linear-gradient(to right, rgb(34 197 94), rgb(59 130 246))`
+                      }}
+                    />
+                  ))}
+                </div>
                 
                 {/* Timeline points */}
                 <div className="flex justify-between items-center relative z-10 mb-8">
@@ -238,20 +285,20 @@ const Company = () => {
                     >
                       <div className={`w-12 h-12 rounded-full border-4 transition-all duration-300 flex items-center justify-center ${
                         activeTimelineIndex === index 
-                          ? 'bg-primary border-primary shadow-lg shadow-primary/30' 
-                          : 'bg-white dark:bg-gray-800 border-primary/30 hover:border-primary/60'
+                          ? `bg-${event.color} border-${event.color} shadow-lg shadow-${event.color}/30` 
+                          : `bg-white dark:bg-gray-800 border-${event.color}/30 hover:border-${event.color}/60`
                       }`}>
                         <div className={`w-3 h-3 rounded-full transition-all duration-300 ${
                           activeTimelineIndex === index 
                             ? 'bg-white' 
-                            : 'bg-primary/40'
+                            : `bg-${event.color}/40`
                         }`}></div>
                       </div>
                       
                       {/* Year label */}
                       <div className={`absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs md:text-sm font-medium whitespace-nowrap transition-all duration-300 ${
                         activeTimelineIndex === index 
-                          ? 'text-primary scale-110' 
+                          ? `text-${event.color} scale-110` 
                           : 'text-slate-400'
                       }`}>
                         {event.year}
@@ -275,7 +322,7 @@ const Company = () => {
                       e.currentTarget.style.transform = 'translateY(0)';
                     }}
                   >
-                    <h3 className="text-xl md:text-2xl font-bold mb-3 text-primary">
+                    <h3 className={`text-xl md:text-2xl font-bold mb-3 text-${timelineEvents[activeTimelineIndex].color}`}>
                       {timelineEvents[activeTimelineIndex].title}
                     </h3>
                     <p className="text-slate-300 text-sm md:text-base leading-relaxed">
@@ -283,15 +330,15 @@ const Company = () => {
                     </p>
                   </div>
                   
-                  {/* Progress indicator with smooth transition */}
+                  {/* Progress indicator with smooth transition and color animation */}
                   <div className="flex items-center mt-6 space-x-2">
-                    {timelineEvents.map((_, index) => (
+                    {timelineEvents.map((event, index) => (
                       <div
                         key={index}
                         className={`h-1 rounded-full transition-all duration-500 ease-out ${
                           index === activeTimelineIndex 
-                            ? 'bg-primary w-8' 
-                            : 'bg-primary/20 w-2'
+                            ? `bg-${event.color} w-8` 
+                            : `bg-${event.color}/20 w-2`
                         }`}
                         style={{
                           transitionDelay: index === activeTimelineIndex ? '0ms' : '100ms'
@@ -315,20 +362,20 @@ const Company = () => {
                     }`}>
                       {/* Timeline point */}
                       <div className="flex-shrink-0 relative z-10">
-                        <div className="w-12 h-12 rounded-full border-4 border-primary bg-white dark:bg-gray-800 flex items-center justify-center shadow-lg">
-                          <div className="w-3 h-3 rounded-full bg-primary"></div>
+                        <div className={`w-12 h-12 rounded-full border-4 border-${event.color} bg-white dark:bg-gray-800 flex items-center justify-center shadow-lg`}>
+                          <div className={`w-3 h-3 rounded-full bg-${event.color}`}></div>
                         </div>
                       </div>
                       
                       {/* Connecting line from point to card */}
-                      <div className={`w-4 h-0.5 bg-primary/40 mt-6 ${
+                      <div className={`w-4 h-0.5 bg-${event.color}/40 mt-6 ${
                         index % 2 === 0 ? 'ml-0' : 'mr-0'
                       }`}></div>
                       
                       {/* Event content */}
                       <div className={`flex-1 ${index % 2 === 0 ? 'ml-0' : 'mr-0'}`}>
                         <div className="bg-white/20 dark:bg-black/20 backdrop-blur-sm rounded-lg p-4 shadow-md">
-                          <div className="text-sm font-bold text-primary mb-1">
+                          <div className={`text-sm font-bold text-${event.color} mb-1`}>
                             {event.year}
                           </div>
                           <h3 className="text-lg font-semibold mb-2 text-white">
@@ -353,15 +400,15 @@ const Company = () => {
               Узнайте больше о наших возможностях и продукции
             </p>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
-              <Button asChild size="lg" className="text-sm md:text-base bg-gradient-to-r from-primary to-orange-600 hover:from-primary/80 hover:to-orange-600/80 transition-all duration-500 shadow-lg">
+              <Button asChild size="lg" className="text-sm md:text-base bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 transition-all duration-500 shadow-lg">
                 <Link to="/contact">
                   Связаться с нами
                   <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-white/30 bg-white/10 hover:bg-white/20 text-sm md:text-base transition-all duration-500">
+              <Button asChild variant="outline" size="lg" className="border-purple-400/30 bg-purple-500/10 hover:bg-purple-500/20 text-sm md:text-base transition-all duration-500">
                 <Link to="/products">
-                  <span className="bg-gradient-to-r from-primary to-orange-600 bg-clip-text text-transparent font-semibold">
+                  <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent font-semibold">
                     Наша продукция
                   </span>
                 </Link>

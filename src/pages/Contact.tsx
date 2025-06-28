@@ -49,70 +49,70 @@ const Contact = () => {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
-            {/* Contact Information */}
-            <div className="space-y-4 md:space-y-6 lg:space-y-8">
-              <Card className="p-4 sm:p-6 md:p-8 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-500 animate-fade-in-left">
-                <div className="flex items-center space-x-3 md:space-x-4 mb-3 md:mb-4 lg:mb-6">
-                  <div className="p-2 md:p-3 bg-primary/20 rounded-xl">
-                    <Phone className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-primary" />
-                  </div>
-                  <h3 className="text-base sm:text-lg md:text-2xl font-semibold text-white">Телефон</h3>
+          {/* Contact Information Grid 2x2 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 lg:gap-8 mb-12 md:mb-16 lg:mb-20">
+            <Card className="p-4 sm:p-6 md:p-8 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-500 animate-fade-in-left">
+              <div className="flex items-center space-x-3 md:space-x-4 mb-3 md:mb-4 lg:mb-6">
+                <div className="p-2 md:p-3 bg-emerald-500/20 rounded-xl">
+                  <Phone className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-emerald-500" />
                 </div>
-                <div className="space-y-1 md:space-y-2">
-                  <p className="text-sm sm:text-base md:text-lg text-slate-300">+375 (17) 298-45-67</p>
-                  <p className="text-sm sm:text-base md:text-lg text-slate-300">+375 (17) 298-45-68</p>
-                  <p className="text-slate-400 text-xs sm:text-sm md:text-base">Отдел продаж</p>
-                </div>
-              </Card>
+                <h3 className="text-base sm:text-lg md:text-2xl font-semibold text-white">Телефон</h3>
+              </div>
+              <div className="space-y-1 md:space-y-2">
+                <p className="text-sm sm:text-base md:text-lg text-slate-300">+375 (17) 298-45-67</p>
+                <p className="text-sm sm:text-base md:text-lg text-slate-300">+375 (17) 298-45-68</p>
+                <p className="text-slate-400 text-xs sm:text-sm md:text-base">Отдел продаж</p>
+              </div>
+            </Card>
 
-              <Card className="p-4 sm:p-6 md:p-8 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-500 animate-fade-in-left" style={{ animationDelay: '100ms' }}>
-                <div className="flex items-center space-x-3 md:space-x-4 mb-3 md:mb-4 lg:mb-6">
-                  <div className="p-2 md:p-3 bg-primary/20 rounded-xl">
-                    <Mail className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-primary" />
-                  </div>
-                  <h3 className="text-base sm:text-lg md:text-2xl font-semibold text-white">Email</h3>
+            <Card className="p-4 sm:p-6 md:p-8 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-500 animate-fade-in-left" style={{ animationDelay: '100ms' }}>
+              <div className="flex items-center space-x-3 md:space-x-4 mb-3 md:mb-4 lg:mb-6">
+                <div className="p-2 md:p-3 bg-blue-500/20 rounded-xl">
+                  <Mail className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-blue-500" />
                 </div>
-                <div className="space-y-1 md:space-y-2">
-                  <p className="text-sm sm:text-base md:text-lg text-slate-300">info@mpovt.by</p>
-                  <p className="text-sm sm:text-base md:text-lg text-slate-300">sales@mpovt.by</p>
-                  <p className="text-slate-400 text-xs sm:text-sm md:text-base">Основная почта</p>
-                </div>
-              </Card>
+                <h3 className="text-base sm:text-lg md:text-2xl font-semibold text-white">Email</h3>
+              </div>
+              <div className="space-y-1 md:space-y-2">
+                <p className="text-sm sm:text-base md:text-lg text-slate-300">info@mpovt.by</p>
+                <p className="text-sm sm:text-base md:text-lg text-slate-300">sales@mpovt.by</p>
+                <p className="text-slate-400 text-xs sm:text-sm md:text-base">Основная почта</p>
+              </div>
+            </Card>
 
-              <Card className="p-4 sm:p-6 md:p-8 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-500 animate-fade-in-left" style={{ animationDelay: '200ms' }}>
-                <div className="flex items-center space-x-3 md:space-x-4 mb-3 md:mb-4 lg:mb-6">
-                  <div className="p-2 md:p-3 bg-primary/20 rounded-xl">
-                    <MapPin className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-primary" />
-                  </div>
-                  <h3 className="text-base sm:text-lg md:text-2xl font-semibold text-white">Адрес</h3>
+            <Card className="p-4 sm:p-6 md:p-8 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-500 animate-fade-in-left" style={{ animationDelay: '200ms' }}>
+              <div className="flex items-center space-x-3 md:space-x-4 mb-3 md:mb-4 lg:mb-6">
+                <div className="p-2 md:p-3 bg-purple-500/20 rounded-xl">
+                  <MapPin className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-purple-500" />
                 </div>
-                <div className="space-y-1 md:space-y-2">
-                  <p className="text-sm sm:text-base md:text-lg text-slate-300">Республика Беларусь</p>
-                  <p className="text-sm sm:text-base md:text-lg text-slate-300">220012, г. Минск</p>
-                  <p className="text-sm sm:text-base md:text-lg text-slate-300">ул. Академика Купревича, 21</p>
-                </div>
-              </Card>
+                <h3 className="text-base sm:text-lg md:text-2xl font-semibold text-white">Адрес</h3>
+              </div>
+              <div className="space-y-1 md:space-y-2">
+                <p className="text-sm sm:text-base md:text-lg text-slate-300">Республика Беларусь</p>
+                <p className="text-sm sm:text-base md:text-lg text-slate-300">220012, г. Минск</p>
+                <p className="text-sm sm:text-base md:text-lg text-slate-300">ул. Академика Купревича, 21</p>
+              </div>
+            </Card>
 
-              <Card className="p-4 sm:p-6 md:p-8 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-500 animate-fade-in-left" style={{ animationDelay: '300ms' }}>
-                <div className="flex items-center space-x-3 md:space-x-4 mb-3 md:mb-4 lg:mb-6">
-                  <div className="p-2 md:p-3 bg-primary/20 rounded-xl">
-                    <Clock className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-primary" />
-                  </div>
-                  <h3 className="text-base sm:text-lg md:text-2xl font-semibold text-white">Время работы</h3>
+            <Card className="p-4 sm:p-6 md:p-8 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-500 animate-fade-in-left" style={{ animationDelay: '300ms' }}>
+              <div className="flex items-center space-x-3 md:space-x-4 mb-3 md:mb-4 lg:mb-6">
+                <div className="p-2 md:p-3 bg-orange-500/20 rounded-xl">
+                  <Clock className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-orange-500" />
                 </div>
-                <div className="space-y-1 md:space-y-2">
-                  <p className="text-sm sm:text-base md:text-lg text-slate-300">Пн-Пт: 8:00 - 17:00</p>
-                  <p className="text-sm sm:text-base md:text-lg text-slate-300">Сб-Вс: выходной</p>
-                  <p className="text-slate-400 text-xs sm:text-sm md:text-base">Время указано по Минску</p>
-                </div>
-              </Card>
-            </div>
+                <h3 className="text-base sm:text-lg md:text-2xl font-semibold text-white">Время работы</h3>
+              </div>
+              <div className="space-y-1 md:space-y-2">
+                <p className="text-sm sm:text-base md:text-lg text-slate-300">Пн-Пт: 8:00 - 17:00</p>
+                <p className="text-sm sm:text-base md:text-lg text-slate-300">Сб-Вс: выходной</p>
+                <p className="text-slate-400 text-xs sm:text-sm md:text-base">Время указано по Минску</p>
+              </div>
+            </Card>
+          </div>
 
-            {/* Contact Form */}
-            <Card className="p-4 sm:p-6 md:p-8 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-500 animate-fade-in-right h-fit">
-              <h3 className="text-base sm:text-lg md:text-2xl font-semibold mb-4 md:mb-6 text-white">Отправить сообщение</h3>
-              <form className="space-y-3 md:space-y-4 lg:space-y-6">
+          {/* Contact Form */}
+          <Card className="p-4 sm:p-6 md:p-8 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-500 animate-fade-in-up mb-8 md:mb-12 lg:mb-16">
+            <h3 className="text-base sm:text-lg md:text-2xl font-semibold mb-4 md:mb-6 text-white">Отправить сообщение</h3>
+            <form className="space-y-3 md:space-y-4 lg:space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 lg:gap-6">
                 <div>
                   <label htmlFor="name" className="block text-xs sm:text-sm font-medium mb-1 md:mb-2 text-slate-300">
                     Имя *
@@ -140,7 +140,9 @@ const Contact = () => {
                     placeholder="your@email.com"
                   />
                 </div>
+              </div>
 
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 lg:gap-6">
                 <div>
                   <label htmlFor="phone" className="block text-xs sm:text-sm font-medium mb-1 md:mb-2 text-slate-300">
                     Телефон
@@ -167,31 +169,31 @@ const Contact = () => {
                     placeholder="Тема вашего сообщения"
                   />
                 </div>
+              </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-xs sm:text-sm font-medium mb-1 md:mb-2 text-slate-300">
-                    Сообщение *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    required
-                    rows={4}
-                    className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border border-slate-600/30 bg-slate-800/20 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 resize-none text-xs sm:text-sm md:text-base text-white placeholder-slate-400"
-                    placeholder="Ваше сообщение..."
-                  />
-                </div>
+              <div>
+                <label htmlFor="message" className="block text-xs sm:text-sm font-medium mb-1 md:mb-2 text-slate-300">
+                  Сообщение *
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  rows={4}
+                  className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border border-slate-600/30 bg-slate-800/20 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 resize-none text-xs sm:text-sm md:text-base text-white placeholder-slate-400"
+                  placeholder="Ваше сообщение..."
+                />
+              </div>
 
-                <Button type="submit" className="w-full text-xs sm:text-sm md:text-base bg-gradient-to-r from-primary to-orange-600 hover:from-primary/80 hover:to-orange-600/80 transition-all duration-500 shadow-lg">
-                  <Send className="mr-2 h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5" />
-                  Отправить сообщение
-                </Button>
-              </form>
-            </Card>
-          </div>
+              <Button type="submit" className="w-full text-xs sm:text-sm md:text-base bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 transition-all duration-500 shadow-lg">
+                <Send className="mr-2 h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5" />
+                Отправить сообщение
+              </Button>
+            </form>
+          </Card>
 
           {/* Map Section */}
-          <Card className="mt-8 md:mt-12 lg:mt-16 p-4 sm:p-6 md:p-8 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+          <Card className="p-4 sm:p-6 md:p-8 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
             <h3 className="text-base sm:text-lg md:text-2xl font-semibold mb-3 md:mb-4 lg:mb-6 text-center text-white">Как нас найти</h3>
             <div className="aspect-[16/9] sm:aspect-[21/9] md:aspect-video bg-gradient-to-br from-primary/10 to-orange-400/10 rounded-xl flex items-center justify-center">
               <div className="text-center">
