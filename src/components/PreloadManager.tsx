@@ -73,7 +73,7 @@ const PreloadManager = ({ children }: PreloadManagerProps) => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-black animate-fade-in">
+    <div className="animate-fade-in">
       {children}
     </div>
   );
