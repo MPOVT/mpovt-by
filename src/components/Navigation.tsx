@@ -102,11 +102,16 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
       >
         <div className="flex justify-center w-full pt-4">
           <nav className={cn(
-            "max-w-5xl transition-all duration-700 ease-out",
+            "max-w-5xl transition-all duration-700 ease-out rounded-2xl px-6 py-3",
             scrolled 
-              ? "bg-black/85 backdrop-blur-xl border-2 border-white/30 rounded-2xl shadow-lg px-6 py-3 shadow-slate-500/20" 
-              : "px-6 py-3"
-          )}>
+              ? "bg-black/60 backdrop-blur-xl border-2 shadow-lg shadow-slate-900/30" 
+              : ""
+          )}
+          style={{
+            borderColor: scrolled ? 'rgba(255, 255, 255, 0.3)' : 'transparent',
+            borderWidth: '2px'
+          }}
+          >
             <div className="flex justify-between items-center">
               <Link to="/" className="flex items-center group">
                 <img 
@@ -149,14 +154,14 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
                   </button>
                   
                   <div className={cn(
-                    "absolute top-full left-0 mt-4 min-w-[360px] transition-all duration-500 ease-out origin-top transform",
+                    "absolute top-full left-0 mt-6 min-w-[360px] transition-all duration-500 ease-out origin-top transform",
                     activeDropdown === 'company' 
                       ? "opacity-100 scale-100 translate-y-0 pointer-events-auto" 
                       : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
                   )}
                   style={{ zIndex: 1001 }}
                   >
-                    <div className="rounded-xl p-2 shadow-xl bg-black/90 backdrop-blur-xl border-2 border-white/20 shadow-slate-500/20">
+                    <div className="rounded-xl p-2 shadow-xl bg-black/90 backdrop-blur-xl border-2 border-white/20 shadow-slate-900/30">
                       <Link
                         to="/company"
                         className="flex items-center px-4 py-3 text-sm text-white hover:text-orange-300 rounded-lg transition-all duration-300 hover:bg-white/10 border-b border-white/10 mb-2 font-medium group"
@@ -198,14 +203,14 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
                   </button>
                   
                   <div className={cn(
-                    "absolute top-full left-0 mt-4 min-w-[400px] transition-all duration-500 ease-out origin-top transform",
+                    "absolute top-full left-0 mt-6 min-w-[400px] transition-all duration-500 ease-out origin-top transform",
                     activeDropdown === 'products' 
                       ? "opacity-100 scale-100 translate-y-0 pointer-events-auto" 
                       : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
                   )}
                   style={{ zIndex: 1001 }}
                   >
-                    <div className="rounded-xl p-2 shadow-xl bg-black/90 backdrop-blur-xl border-2 border-white/20 shadow-slate-500/20">
+                    <div className="rounded-xl p-2 shadow-xl bg-black/90 backdrop-blur-xl border-2 border-white/20 shadow-slate-900/30">
                       <Link
                         to="/products"
                         className="flex items-center px-4 py-3 text-sm text-white hover:text-orange-300 rounded-lg transition-all duration-300 hover:bg-white/10 border-b border-white/10 mb-2 font-medium group"
@@ -288,11 +293,16 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
         }}
       >
         <div className={cn(
-          "transition-all duration-700 ease-out",
+          "transition-all duration-700 ease-out rounded-2xl",
           scrolled 
-            ? "rounded-2xl bg-black/85 backdrop-blur-xl border-2 border-white/30 shadow-lg shadow-slate-500/20" 
+            ? "bg-black/60 backdrop-blur-xl border shadow-lg shadow-slate-900/30" 
             : "rounded-2xl"
-        )}>
+        )}
+        style={{
+          borderColor: scrolled ? 'rgba(255, 255, 255, 0.3)' : 'transparent',
+          borderWidth: '1px'
+        }}
+        >
           <div className="flex items-center justify-between px-4 py-3">
             <Link to="/" className="flex items-center">
               <img 
@@ -336,7 +346,7 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
         />
         
         <div className={cn(
-          "absolute bg-black/90 backdrop-blur-xl border-2 border-white/20 rounded-xl shadow-xl p-6 transition-all duration-500 ease-out transform max-h-[70vh] overflow-y-auto shadow-slate-500/20",
+          "absolute bg-black/90 backdrop-blur-xl border-2 border-white/20 rounded-xl shadow-xl p-6 transition-all duration-500 ease-out transform max-h-[70vh] overflow-y-auto shadow-slate-900/30",
           mobileMenuOpen 
             ? "translate-y-0 scale-100 opacity-100" 
             : "-translate-y-4 scale-95 opacity-0"
