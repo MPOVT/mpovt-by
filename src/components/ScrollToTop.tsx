@@ -38,13 +38,19 @@ const ScrollToTop = () => {
       onClick={scrollToTop}
       size="icon"
       className={cn(
-        "fixed bottom-6 right-6 z-[9997] rounded-full shadow-lg transition-all duration-500 ease-out",
-        "bg-black/40 backdrop-blur-xl border border-white/20 hover:bg-black/60 text-white hover:text-orange-300",
+        "rounded-full shadow-lg transition-all duration-500 ease-out",
+        "bg-black/60 backdrop-blur-xl border border-white/20 hover:bg-black/80 text-white hover:text-orange-300",
         "hover:scale-110 hover:shadow-xl",
         isVisible 
           ? "opacity-100 translate-y-0 pointer-events-auto" 
           : "opacity-0 translate-y-2 pointer-events-none"
       )}
+      style={{
+        position: 'fixed',
+        bottom: '24px',
+        right: '24px',
+        zIndex: 1000
+      }}
       aria-label="Scroll to top"
     >
       <ArrowUp className="h-5 w-5" />

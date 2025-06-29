@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -71,12 +70,21 @@ export default function Navigation() {
   return (
     <>
       {/* Desktop Navigation - FIXED POSITIONING */}
-      <header className="fixed top-4 left-1/2 transform -translate-x-1/2 z-[9999] w-full max-w-6xl px-4 hidden xl:block pointer-events-none">
+      <header 
+        className="hidden xl:block"
+        style={{
+          position: 'fixed',
+          top: '0',
+          left: '0',
+          width: '100%',
+          zIndex: 1000
+        }}
+      >
         <nav className={cn(
-          "mx-auto rounded-2xl transition-all duration-500 ease-out pointer-events-auto",
+          "mx-auto max-w-6xl mt-4 mx-4 rounded-2xl transition-all duration-500 ease-out",
           scrolled 
-            ? "bg-black/40 backdrop-blur-xl border border-white/20 shadow-2xl" 
-            : "bg-black/20 backdrop-blur-md border border-white/10"
+            ? "bg-black/60 backdrop-blur-xl border border-white/20 shadow-2xl" 
+            : "bg-black/40 backdrop-blur-xl border border-white/10"
         )}>
           <div className="flex justify-between items-center px-6 py-3">
             <Link to="/" className="flex items-center group">
@@ -110,12 +118,14 @@ export default function Navigation() {
                 </button>
                 
                 <div className={cn(
-                  "absolute top-full left-0 mt-2 min-w-[320px] transition-all duration-300 ease-out origin-top z-[10000]",
+                  "absolute top-full left-0 mt-2 min-w-[320px] transition-all duration-300 ease-out origin-top",
                   activeDropdown === 'company' 
                     ? "opacity-100 scale-100 translate-y-0 pointer-events-auto" 
                     : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
-                )}>
-                  <div className="rounded-xl p-2 shadow-2xl bg-black/60 backdrop-blur-xl border border-white/20">
+                )}
+                style={{ zIndex: 1001 }}
+                >
+                  <div className="rounded-xl p-2 shadow-2xl bg-black/80 backdrop-blur-xl border border-white/20">
                     <Link
                       to="/company"
                       className="block px-4 py-3 text-sm text-white hover:text-orange-300 rounded-lg transition-all duration-300 hover:bg-white/20 border-b border-white/10 mb-2 font-medium"
@@ -150,12 +160,14 @@ export default function Navigation() {
                 </button>
                 
                 <div className={cn(
-                  "absolute top-full left-0 mt-2 min-w-[360px] transition-all duration-300 ease-out origin-top z-[10000]",
+                  "absolute top-full left-0 mt-2 min-w-[360px] transition-all duration-300 ease-out origin-top",
                   activeDropdown === 'products' 
                     ? "opacity-100 scale-100 translate-y-0 pointer-events-auto" 
                     : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
-                )}>
-                  <div className="rounded-xl p-2 shadow-2xl bg-black/60 backdrop-blur-xl border border-white/20">
+                )}
+                style={{ zIndex: 1001 }}
+                >
+                  <div className="rounded-xl p-2 shadow-2xl bg-black/80 backdrop-blur-xl border border-white/20">
                     <Link
                       to="/products"
                       className="block px-4 py-3 text-sm text-white hover:text-orange-300 rounded-lg transition-all duration-300 hover:bg-white/20 border-b border-white/10 mb-2 font-medium"
@@ -207,12 +219,20 @@ export default function Navigation() {
       </header>
 
       {/* Mobile Navigation - FIXED POSITIONING */}
-      <header className="fixed top-4 right-4 z-[9999] xl:hidden pointer-events-none">
+      <header 
+        className="xl:hidden"
+        style={{
+          position: 'fixed',
+          top: '16px',
+          right: '16px',
+          zIndex: 1000
+        }}
+      >
         <div className={cn(
-          "rounded-2xl transition-all duration-500 ease-out pointer-events-auto",
+          "rounded-2xl transition-all duration-500 ease-out",
           scrolled 
-            ? "bg-black/40 backdrop-blur-xl border border-white/20 shadow-2xl" 
-            : "bg-black/20 backdrop-blur-md border border-white/10"
+            ? "bg-black/60 backdrop-blur-xl border border-white/20 shadow-2xl" 
+            : "bg-black/40 backdrop-blur-xl border border-white/10"
         )}>
           <div className="flex items-center justify-between px-4 py-3">
             <Link to="/" className="flex items-center">
@@ -237,22 +257,37 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       <div className={cn(
-        "fixed inset-0 z-[9998] xl:hidden transition-all duration-500 ease-out",
+        "xl:hidden transition-all duration-500 ease-out",
         mobileMenuOpen 
           ? "opacity-100 backdrop-blur-sm bg-black/30 pointer-events-auto" 
           : "opacity-0 pointer-events-none"
-      )}>
+      )}
+      style={{
+        position: 'fixed',
+        top: '0',
+        left: '0',
+        width: '100%',
+        height: '100%',
+        zIndex: 999
+      }}
+      >
         <div 
           className="absolute inset-0"
           onClick={closeMobileMenu}
         />
         
         <div className={cn(
-          "absolute top-24 left-4 right-4 bg-black/60 backdrop-blur-xl border border-white/20 rounded-xl shadow-2xl p-6 transition-all duration-500 ease-out transform",
+          "absolute bg-black/80 backdrop-blur-xl border border-white/20 rounded-xl shadow-2xl p-6 transition-all duration-500 ease-out transform",
           mobileMenuOpen 
             ? "translate-y-0 scale-100 opacity-100" 
             : "-translate-y-4 scale-95 opacity-0"
-        )}>
+        )}
+        style={{
+          top: '100px',
+          left: '16px',
+          right: '16px'
+        }}
+        >
           <div className="space-y-4 max-h-[70vh] overflow-y-auto">
             <Link 
               to="/" 
