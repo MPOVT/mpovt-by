@@ -32,41 +32,69 @@ const OptimizedVideo = ({ src, className, ...props }: { src: string; className?:
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isIntersecting, setIsIntersecting] = useState(false);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    // Сначала убеждаемся, что видео поставлено на паузу
+    const video = videoRef.current;
+    if (video) {
+      video.pause();
+      video.currentTime = 0;
+      console.log('Video initialized and paused:', src);
+    }
+
+    // Создаем observer с более строгими параметрами
+    observerRef.current = new IntersectionObserver(
       ([entry]) => {
-        setIsIntersecting(entry.isIntersecting);
+        const isVisible = entry.isIntersecting && entry.intersectionRatio > 0.5;
+        console.log('Video visibility changed:', src, 'visible:', isVisible, 'ratio:', entry.intersectionRatio);
+        setIsIntersecting(isVisible);
       },
       {
-        threshold: 0.3, // Видео начинает воспроизводиться когда видно 30% элемента
-        rootMargin: '50px'
+        threshold: 0.5, // Видео воспроизводится только когда видно минимум 50%
+        rootMargin: '0px' // Убираем дополнительные отступы
       }
     );
 
     const container = containerRef.current;
-    if (container) {
-      observer.observe(container);
+    if (container && observerRef.current) {
+      observerRef.current.observe(container);
     }
 
     return () => {
-      if (container) {
-        observer.unobserve(container);
+      if (observerRef.current && container) {
+        observerRef.current.unobserve(container);
+        observerRef.current.disconnect();
       }
     };
-  }, []);
+  }, [src]);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
     if (isIntersecting) {
-      video.play().catch(console.error);
+      console.log('Playing video:', src);
+      video.play().catch((error) => {
+        console.error('Error playing video:', src, error);
+      });
     } else {
+      console.log('Pausing video:', src);
       video.pause();
-      video.currentTime = 0; // Сбрасываем видео в начало при скрытии
+      video.currentTime = 0; // Сбрасываем в начало
     }
-  }, [isIntersecting]);
+  }, [isIntersecting, src]);
+
+  // Дополнительная защита - паузим видео при размонтировании
+  useEffect(() => {
+    return () => {
+      const video = videoRef.current;
+      if (video) {
+        video.pause();
+        console.log('Video paused on unmount:', src);
+      }
+    };
+  }, [src]);
 
   return (
     <div ref={containerRef} className="w-full h-full">
@@ -78,6 +106,14 @@ const OptimizedVideo = ({ src, className, ...props }: { src: string; className?:
         muted
         playsInline
         preload="metadata"
+        onLoadedData={() => {
+          // Убеждаемся, что видео на паузе после загрузки
+          const video = videoRef.current;
+          if (video && !isIntersecting) {
+            video.pause();
+            console.log('Video paused after load:', src);
+          }
+        }}
         {...props}
       />
     </div>
