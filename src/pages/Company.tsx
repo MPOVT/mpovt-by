@@ -217,8 +217,8 @@ const Company = () => {
                 </p>
               </div>
               
-              {/* Quote Section */}
-              <div className="mt-4 md:mt-6 p-4 md:p-6 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-xl border border-cyan-500/20">
+              {/* Quote Section with reduced margin */}
+              <div className="mt-2 md:mt-3 p-4 md:p-6 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-xl border border-cyan-500/20">
                 <div className="flex items-start space-x-3">
                   <Quote className="h-6 w-6 md:h-8 md:w-8 text-cyan-400 flex-shrink-0 mt-1" />
                   <div>
@@ -244,7 +244,7 @@ const Company = () => {
                 </div>
                 
                 {/* Company Stats in 3x2 layout */}
-                <div className="grid grid-cols-3 gap-2 md:gap-3 mb-6">
+                <div className="grid grid-cols-3 gap-2 md:gap-3">
                   {companyStats.map((stat, index) => {
                     const Icon = stat.icon;
                     return (
@@ -259,13 +259,6 @@ const Company = () => {
                       </div>
                     );
                   })}
-                </div>
-                
-                {/* Image Caption with increased spacing */}
-                <div className="text-center">
-                  <p className="text-white/70 font-medium text-base md:text-lg">
-                    Головной офис ОАО "МПОВТ"
-                  </p>
                 </div>
               </Card>
             </div>

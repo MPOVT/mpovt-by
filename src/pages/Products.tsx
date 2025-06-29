@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -22,7 +21,9 @@ import {
   Settings,
   Award,
   CheckCircle,
-  Sparkles
+  Sparkles,
+  Star,
+  Zap
 } from "lucide-react";
 
 const Products = () => {
@@ -289,13 +290,13 @@ const Products = () => {
         </div>
       </section>
 
-      {/* Secondary Products Section */}
+      {/* Secondary Products Section with different background spheres positioning */}
       <section className="py-12 md:py-16 lg:py-20 px-4 bg-black relative">
-        {/* Moving animated background spheres */}
+        {/* Moving animated background spheres with different positioning */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute w-32 h-32 md:w-64 md:h-64 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-full blur-3xl animate-pulse moving-sphere-8"></div>
-          <div className="absolute w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r from-teal-500/20 to-cyan-500/20 rounded-full blur-3xl animate-pulse moving-sphere-9"></div>
-          <div className="absolute w-64 h-64 md:w-128 md:h-128 bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 rounded-full blur-3xl animate-pulse moving-sphere-10"></div>
+          <div className="absolute top-1/6 right-1/6 w-32 h-32 md:w-64 md:h-64 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-full blur-3xl animate-pulse moving-sphere-8"></div>
+          <div className="absolute bottom-1/4 left-1/6 w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r from-teal-500/20 to-cyan-500/20 rounded-full blur-3xl animate-pulse moving-sphere-9"></div>
+          <div className="absolute top-2/3 right-1/3 w-64 h-64 md:w-128 md:h-128 bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 rounded-full blur-3xl animate-pulse moving-sphere-10"></div>
         </div>
         
         <div className="container mx-auto relative z-10">
@@ -361,33 +362,77 @@ const Products = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA Section with new styling inspired by main page */}
       <section className="py-16 md:py-20 px-4 bg-black relative">
-        {/* Moving animated background spheres */}
+        {/* Moving animated background spheres with different positioning */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute w-32 h-32 md:w-64 md:h-64 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse moving-sphere-11"></div>
-          <div className="absolute w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r from-purple-500/20 to-teal-500/20 rounded-full blur-3xl animate-pulse moving-sphere-12"></div>
-          <div className="absolute w-64 h-64 md:w-128 md:h-128 bg-gradient-to-r from-teal-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse moving-sphere-13"></div>
+          <div className="absolute top-1/3 left-1/6 w-32 h-32 md:w-64 md:h-64 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse moving-sphere-11"></div>
+          <div className="absolute bottom-1/6 right-1/5 w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r from-purple-500/20 to-teal-500/20 rounded-full blur-3xl animate-pulse moving-sphere-12"></div>
+          <div className="absolute top-1/6 right-1/2 w-64 h-64 md:w-128 md:h-128 bg-gradient-to-r from-teal-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse moving-sphere-13"></div>
         </div>
         
         <div className="container mx-auto text-center relative z-10">
-          <Card className="max-w-4xl mx-auto p-6 md:p-8 lg:p-12 glass-card bg-gradient-to-br from-blue-900/30 via-purple-900/20 to-slate-900/30 border-blue-700/30">
-            <h2 className="text-xl md:text-2xl lg:text-4xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400 bg-clip-text text-transparent">
+          <Card className="max-w-5xl mx-auto p-8 md:p-12 lg:p-16 relative overflow-hidden bg-gradient-to-br from-slate-900/80 via-slate-800/60 to-slate-900/80 backdrop-blur-xl border border-slate-700/30 hover:border-slate-600/50 transition-all duration-700 shadow-2xl">
+            {/* Decorative elements */}
+            <div className="absolute top-4 left-4 w-12 h-12 bg-gradient-to-br from-cyan-400/20 to-purple-400/20 rounded-full blur-lg"></div>
+            <div className="absolute bottom-4 right-4 w-8 h-8 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-lg"></div>
+            <div className="absolute top-1/2 left-1/4 w-6 h-6 bg-gradient-to-br from-emerald-400/20 to-cyan-400/20 rounded-full blur-lg"></div>
+            
+            {/* Icon */}
+            <div className="flex justify-center mb-6">
+              <div className="relative">
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/10">
+                  <Zap className="w-8 h-8 md:w-10 md:h-10 text-cyan-400" />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-purple-400/20 rounded-2xl blur-md"></div>
+              </div>
+            </div>
+
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-cyan-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
               Нужна консультация?
             </h2>
-            <p className="text-base md:text-lg lg:text-xl text-blue-100 mb-6 md:mb-8 max-w-2xl mx-auto">
-              Наши специалисты помогут выбрать оптимальное решение для ваших задач
+            <p className="text-base md:text-lg lg:text-xl text-slate-300 mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed">
+              Наши эксперты помогут подобрать идеальное решение для ваших бизнес-задач. Получите персональную консультацию и техническую поддержку на всех этапах внедрения.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
-              <Button asChild size="lg" className="text-sm md:text-base bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 transition-all duration-500 shadow-lg">
+            
+            {/* Features */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+              <div className="flex items-center justify-center space-x-2 p-3 bg-white/5 rounded-lg backdrop-blur-sm">
+                <Star className="w-4 h-4 text-yellow-400" />
+                <span className="text-sm text-slate-300">Экспертная консультация</span>
+              </div>
+              <div className="flex items-center justify-center space-x-2 p-3 bg-white/5 rounded-lg backdrop-blur-sm">
+                <Zap className="w-4 h-4 text-cyan-400" />
+                <span className="text-sm text-slate-300">Быстрое решение</span>
+              </div>
+              <div className="flex items-center justify-center space-x-2 p-3 bg-white/5 rounded-lg backdrop-blur-sm">
+                <CheckCircle className="w-4 h-4 text-emerald-400" />
+                <span className="text-sm text-slate-300">Индивидуальный подход</span>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                asChild 
+                size="lg" 
+                className="group relative bg-gradient-to-r from-cyan-600 via-blue-600 to-purple-600 hover:from-cyan-500 hover:via-blue-500 hover:to-purple-500 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 text-base md:text-lg px-8 py-6 overflow-hidden"
+              >
                 <Link to="/contact">
-                  Связаться с нами
-                  <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <span className="relative z-10 flex items-center">
+                    Связаться с нами
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1 duration-300" />
+                  </span>
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-white/30 bg-white/10 hover:bg-white/20 text-sm md:text-base transition-all duration-500">
+              <Button 
+                asChild 
+                variant="outline" 
+                size="lg" 
+                className="group border-slate-600/50 bg-slate-800/50 hover:bg-slate-700/50 backdrop-blur-sm text-slate-300 hover:text-white transition-all duration-500 text-base md:text-lg px-8 py-6"
+              >
                 <Link to="/">
-                  <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">
+                  <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent group-hover:from-cyan-300 group-hover:to-purple-300 font-semibold transition-all duration-300">
                     На главную
                   </span>
                 </Link>
@@ -449,27 +494,27 @@ const Products = () => {
         }
         
         .moving-sphere-8 {
-          animation: pulse 8s infinite, moveX 18s infinite alternate, moveY 22s infinite alternate-reverse;
+          animation: pulse 9s infinite 1s, moveX 19s infinite alternate 1s, moveY 23s infinite alternate-reverse 1s;
         }
         
         .moving-sphere-9 {
-          animation: pulse 10s infinite 3s, moveX 16s infinite alternate-reverse 3s, moveY 20s infinite alternate 3s;
+          animation: pulse 11s infinite 4s, moveX 17s infinite alternate-reverse 4s, moveY 21s infinite alternate 4s;
         }
         
         .moving-sphere-10 {
-          animation: pulse 12s infinite 2s, moveX 20s infinite alternate 2s, moveY 24s infinite alternate-reverse 2s;
+          animation: pulse 13s infinite 2.5s, moveX 21s infinite alternate 2.5s, moveY 25s infinite alternate-reverse 2.5s;
         }
         
         .moving-sphere-11 {
-          animation: pulse 8s infinite, moveX 24s infinite alternate, moveY 28s infinite alternate-reverse;
+          animation: pulse 8.5s infinite 1.5s, moveX 23s infinite alternate 1.5s, moveY 27s infinite alternate-reverse 1.5s;
         }
         
         .moving-sphere-12 {
-          animation: pulse 10s infinite 3s, moveX 22s infinite alternate-reverse 3s, moveY 26s infinite alternate 3s;
+          animation: pulse 10.5s infinite 3.5s, moveX 19s infinite alternate-reverse 3.5s, moveY 23s infinite alternate 3.5s;
         }
         
         .moving-sphere-13 {
-          animation: pulse 12s infinite 2s, moveX 26s infinite alternate 2s, moveY 30s infinite alternate-reverse 2s;
+          animation: pulse 12.5s infinite 2.2s, moveX 25s infinite alternate 2.2s, moveY 29s infinite alternate-reverse 2.2s;
         }
         
         .animate-spin-slow {

@@ -1,9 +1,39 @@
 
-
 import { useEffect } from 'react';
 
 const CustomScrollbar = () => {
   useEffect(() => {
+    // Добавляем стили скроллбара
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = `
+      /* Custom Glassmorphism Scrollbar for entire site */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 4px;
+        transition: all 0.3s ease;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.5);
+      }
+
+      /* Firefox */
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+      }
+    `;
+    document.head.appendChild(styleSheet);
+
     // Добавляем только мобильную логику для скроллбара
     let scrollTimer: NodeJS.Timeout;
     const handleScroll = () => {
@@ -23,6 +53,10 @@ const CustomScrollbar = () => {
         window.removeEventListener('scroll', handleScroll);
       }
       clearTimeout(scrollTimer);
+      // Удаляем стили при размонтировании
+      if (styleSheet.parentNode) {
+        styleSheet.parentNode.removeChild(styleSheet);
+      }
     };
   }, []);
 
@@ -30,4 +64,3 @@ const CustomScrollbar = () => {
 };
 
 export default CustomScrollbar;
-
