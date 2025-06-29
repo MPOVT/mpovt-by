@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
@@ -189,6 +188,12 @@ const Company = () => {
                 <p className="text-sm md:text-base">
                   Наша компания сертифицирована по международным стандартам качества ISO 9001, что подтверждает высокий уровень нашей продукции и процессов. Мы постоянно инвестируем в исследования и разработки, внедряя инновационные технологии и решения.
                 </p>
+                <p className="text-sm md:text-base">
+                  За годы работы мы накопили огромный опыт в области электроники и информационных технологий. Наши специалисты регулярно повышают квалификацию и следят за последними тенденциями в отрасли.
+                </p>
+                <p className="text-sm md:text-base">
+                  Мы гордимся тем, что наша продукция используется не только в Беларуси, но и экспортируется в различные страны мира. Это свидетельствует о высоком качестве нашей работы и конкурентоспособности на международном рынке.
+                </p>
               </div>
               
               {/* Quote Section */}
@@ -207,57 +212,39 @@ const Company = () => {
               </div>
             </Card>
 
-            <div className="animate-fade-in-right space-y-4 md:space-y-6 flex flex-col">
-              <Card className="p-3 sm:p-4 md:p-6 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-500 flex-grow flex flex-col">
+            <div className="animate-fade-in-right flex flex-col">
+              <Card className="p-3 sm:p-4 md:p-6 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-500 flex-1 flex flex-col">
                 <div className="flex-1 bg-gradient-to-br from-primary/20 to-orange-400/20 rounded-xl overflow-hidden mb-4">
                   <img 
                     src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=600&fit=crop" 
                     alt="Здание МПОВТ"
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105 min-h-[200px]"
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105 min-h-[250px] md:min-h-[300px]"
                   />
                 </div>
                 
-                {/* Image Caption - now as centered subheading */}
-                <div className="mb-6 text-center">
+                {/* Image Caption */}
+                <div className="mb-4 text-center">
                   <p className="text-white/70 font-medium text-base md:text-lg">
                     Головной офис ОАО "МПОВТ"
                   </p>
                 </div>
                 
-                {/* Company Stats arranged in 2+1 layout */}
-                <div className="flex flex-col gap-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    {companyStats.slice(0, 2).map((stat, index) => {
-                      const Icon = stat.icon;
-                      return (
-                        <div key={index} className="flex flex-col items-center space-y-2 p-4 bg-white/5 dark:bg-black/20 backdrop-blur-sm rounded-lg hover:bg-white/10 transition-all duration-300">
-                          <div className={`p-3 ${stat.bgColor} rounded-xl flex-shrink-0`}>
-                            <Icon className={`h-6 w-6 ${stat.color}`} />
-                          </div>
-                          <div className="text-center">
-                            <p className="text-lg font-semibold text-white">{stat.value}</p>
-                            <p className="text-sm text-slate-400">{stat.label}</p>
-                          </div>
+                {/* Company Stats in 3x1 layout */}
+                <div className="grid grid-cols-3 gap-2 md:gap-3 flex-1">
+                  {companyStats.map((stat, index) => {
+                    const Icon = stat.icon;
+                    return (
+                      <div key={index} className="flex flex-col items-center space-y-2 p-3 md:p-4 bg-white/5 dark:bg-black/20 backdrop-blur-sm rounded-lg hover:bg-white/10 transition-all duration-300 h-full justify-center">
+                        <div className={`p-2 md:p-3 ${stat.bgColor} rounded-xl flex-shrink-0`}>
+                          <Icon className={`h-4 w-4 md:h-6 md:w-6 ${stat.color}`} />
                         </div>
-                      );
-                    })}
-                  </div>
-                  <div className="flex justify-center">
-                    {companyStats.slice(2, 3).map((stat, index) => {
-                      const Icon = stat.icon;
-                      return (
-                        <div key={index + 2} className="flex flex-col items-center space-y-2 p-4 bg-white/5 dark:bg-black/20 backdrop-blur-sm rounded-lg hover:bg-white/10 transition-all duration-300 w-1/2">
-                          <div className={`p-3 ${stat.bgColor} rounded-xl flex-shrink-0`}>
-                            <Icon className={`h-6 w-6 ${stat.color}`} />
-                          </div>
-                          <div className="text-center">
-                            <p className="text-lg font-semibold text-white">{stat.value}</p>
-                            <p className="text-sm text-slate-400">{stat.label}</p>
-                          </div>
+                        <div className="text-center">
+                          <p className="text-sm md:text-lg font-semibold text-white">{stat.value}</p>
+                          <p className="text-xs md:text-sm text-slate-400">{stat.label}</p>
                         </div>
-                      );
-                    })}
-                  </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </Card>
             </div>
