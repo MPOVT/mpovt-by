@@ -53,12 +53,11 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
     return () => document.removeEventListener('click', handleClickOutside);
   }, []);
 
-  // Показываем меню только после окончания загрузки
   useEffect(() => {
     if (!isLoading) {
       const timer = setTimeout(() => {
         setIsVisible(true);
-      }, 300); // Небольшая задержка для плавного появления
+      }, 300);
       return () => clearTimeout(timer);
     } else {
       setIsVisible(false);
@@ -91,7 +90,7 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
       <header 
         className={cn(
           "hidden xl:block transition-all duration-700 ease-out",
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-0"
         )}
         style={{
           position: 'fixed',
@@ -103,10 +102,10 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
       >
         <div className="flex justify-center w-full pt-4">
           <nav className={cn(
-            "max-w-5xl transition-all duration-700 ease-out transform",
+            "max-w-5xl transition-all duration-700 ease-out",
             scrolled 
-              ? "bg-black/85 backdrop-blur-xl border border-white/30 rounded-2xl shadow-2xl px-6 py-3 scale-95 hover:scale-100 shadow-orange-500/20" 
-              : "px-6 py-3 scale-100"
+              ? "bg-black/85 backdrop-blur-xl border-2 border-white/30 rounded-2xl shadow-lg px-6 py-3 shadow-slate-500/20" 
+              : "px-6 py-3"
           )}>
             <div className="flex justify-between items-center">
               <Link to="/" className="flex items-center group">
@@ -121,7 +120,12 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
                 <li>
                   <Link 
                     to="/" 
-                    className="px-4 py-2 rounded-xl font-medium text-white hover:text-orange-300 transition-all duration-300 hover:bg-white/10 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/20"
+                    className={cn(
+                      "px-4 py-2 rounded-xl font-medium text-white transition-all duration-300",
+                      scrolled 
+                        ? "hover:text-orange-300" 
+                        : "hover:text-orange-300 hover:bg-white/10"
+                    )}
                   >
                     Главная
                   </Link>
@@ -130,7 +134,12 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
                 <li className="relative">
                   <button
                     onClick={(e) => handleDropdownClick(e, 'company')}
-                    className="flex items-center px-4 py-2 rounded-xl font-medium text-white hover:text-orange-300 transition-all duration-300 hover:bg-white/10 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/20"
+                    className={cn(
+                      "flex items-center px-4 py-2 rounded-xl font-medium text-white transition-all duration-300",
+                      scrolled 
+                        ? "hover:text-orange-300" 
+                        : "hover:text-orange-300 hover:bg-white/10"
+                    )}
                   >
                     О компании 
                     <ChevronDown className={cn(
@@ -140,17 +149,17 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
                   </button>
                   
                   <div className={cn(
-                    "absolute top-full left-0 mt-2 min-w-[360px] transition-all duration-500 ease-out origin-top transform",
+                    "absolute top-full left-0 mt-4 min-w-[360px] transition-all duration-500 ease-out origin-top transform",
                     activeDropdown === 'company' 
-                      ? "opacity-100 scale-100 translate-y-0 pointer-events-auto rotate-0" 
-                      : "opacity-0 scale-90 -translate-y-4 pointer-events-none -rotate-1"
+                      ? "opacity-100 scale-100 translate-y-0 pointer-events-auto" 
+                      : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
                   )}
                   style={{ zIndex: 1001 }}
                   >
-                    <div className="rounded-xl p-2 shadow-2xl bg-black/90 backdrop-blur-xl border border-white/20 shadow-orange-500/10">
+                    <div className="rounded-xl p-2 shadow-xl bg-black/90 backdrop-blur-xl border-2 border-white/20 shadow-slate-500/20">
                       <Link
                         to="/company"
-                        className="flex items-center px-4 py-3 text-sm text-white hover:text-orange-300 rounded-lg transition-all duration-300 hover:bg-white/10 border-b border-white/10 mb-2 font-medium hover:scale-105 hover:shadow-md"
+                        className="flex items-center px-4 py-3 text-sm text-white hover:text-orange-300 rounded-lg transition-all duration-300 hover:bg-white/10 border-b border-white/10 mb-2 font-medium group"
                         onClick={() => setActiveDropdown(null)}
                       >
                         <Users className="mr-3 h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
@@ -160,7 +169,7 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
                         <Link
                           key={item.path}
                           to={item.path}
-                          className="flex items-center px-4 py-3 text-sm text-white/90 hover:text-orange-300 rounded-lg transition-all duration-300 hover:bg-white/5 hover:scale-105 group"
+                          className="flex items-center px-4 py-3 text-sm text-white/90 hover:text-orange-300 rounded-lg transition-all duration-300 hover:bg-white/5 group"
                           onClick={() => setActiveDropdown(null)}
                         >
                           <item.icon className="mr-3 h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
@@ -174,7 +183,12 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
                 <li className="relative">
                   <button
                     onClick={(e) => handleDropdownClick(e, 'products')}
-                    className="flex items-center px-4 py-2 rounded-xl font-medium text-white hover:text-orange-300 transition-all duration-300 hover:bg-white/10 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/20"
+                    className={cn(
+                      "flex items-center px-4 py-2 rounded-xl font-medium text-white transition-all duration-300",
+                      scrolled 
+                        ? "hover:text-orange-300" 
+                        : "hover:text-orange-300 hover:bg-white/10"
+                    )}
                   >
                     Продукция 
                     <ChevronDown className={cn(
@@ -184,17 +198,17 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
                   </button>
                   
                   <div className={cn(
-                    "absolute top-full left-0 mt-2 min-w-[400px] transition-all duration-500 ease-out origin-top transform",
+                    "absolute top-full left-0 mt-4 min-w-[400px] transition-all duration-500 ease-out origin-top transform",
                     activeDropdown === 'products' 
-                      ? "opacity-100 scale-100 translate-y-0 pointer-events-auto rotate-0" 
-                      : "opacity-0 scale-90 -translate-y-4 pointer-events-none -rotate-1"
+                      ? "opacity-100 scale-100 translate-y-0 pointer-events-auto" 
+                      : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
                   )}
                   style={{ zIndex: 1001 }}
                   >
-                    <div className="rounded-xl p-2 shadow-2xl bg-black/90 backdrop-blur-xl border border-white/20 shadow-orange-500/10">
+                    <div className="rounded-xl p-2 shadow-xl bg-black/90 backdrop-blur-xl border-2 border-white/20 shadow-slate-500/20">
                       <Link
                         to="/products"
-                        className="flex items-center px-4 py-3 text-sm text-white hover:text-orange-300 rounded-lg transition-all duration-300 hover:bg-white/10 border-b border-white/10 mb-2 font-medium hover:scale-105 hover:shadow-md group"
+                        className="flex items-center px-4 py-3 text-sm text-white hover:text-orange-300 rounded-lg transition-all duration-300 hover:bg-white/10 border-b border-white/10 mb-2 font-medium group"
                         onClick={() => setActiveDropdown(null)}
                       >
                         <ShoppingCart className="mr-3 h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
@@ -204,7 +218,7 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
                         <Link
                           key={item.path}
                           to={item.path}
-                          className="flex items-center px-4 py-3 text-sm text-white/90 hover:text-orange-300 rounded-lg transition-all duration-300 hover:bg-white/5 hover:scale-105 group"
+                          className="flex items-center px-4 py-3 text-sm text-white/90 hover:text-orange-300 rounded-lg transition-all duration-300 hover:bg-white/5 group"
                           onClick={() => setActiveDropdown(null)}
                         >
                           <item.icon className="mr-3 h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
@@ -218,7 +232,12 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
                 <li>
                   <Link 
                     to="/services" 
-                    className="px-4 py-2 rounded-xl font-medium text-white hover:text-orange-300 transition-all duration-300 hover:bg-white/10 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/20"
+                    className={cn(
+                      "px-4 py-2 rounded-xl font-medium text-white transition-all duration-300",
+                      scrolled 
+                        ? "hover:text-orange-300" 
+                        : "hover:text-orange-300 hover:bg-white/10"
+                    )}
                   >
                     Услуги
                   </Link>
@@ -226,7 +245,12 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
                 <li>
                   <Link 
                     to="/contact" 
-                    className="px-4 py-2 rounded-xl font-medium text-white hover:text-orange-300 transition-all duration-300 hover:bg-white/10 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/20"
+                    className={cn(
+                      "px-4 py-2 rounded-xl font-medium text-white transition-all duration-300",
+                      scrolled 
+                        ? "hover:text-orange-300" 
+                        : "hover:text-orange-300 hover:bg-white/10"
+                    )}
                   >
                     Контакты
                   </Link>
@@ -234,7 +258,12 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
                 <li>
                   <Link 
                     to="/support" 
-                    className="px-4 py-2 rounded-xl font-medium text-white hover:text-orange-300 transition-all duration-300 hover:bg-white/10 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/20"
+                    className={cn(
+                      "px-4 py-2 rounded-xl font-medium text-white transition-all duration-300",
+                      scrolled 
+                        ? "hover:text-orange-300" 
+                        : "hover:text-orange-300 hover:bg-white/10"
+                    )}
                   >
                     Поддержка и сервис
                   </Link>
@@ -249,7 +278,7 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
       <header 
         className={cn(
           "xl:hidden transition-all duration-700 ease-out",
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-0"
         )}
         style={{
           position: 'fixed',
@@ -259,10 +288,10 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
         }}
       >
         <div className={cn(
-          "transition-all duration-700 ease-out transform",
+          "transition-all duration-700 ease-out",
           scrolled 
-            ? "rounded-2xl bg-black/85 backdrop-blur-xl border border-white/30 shadow-2xl scale-95 hover:scale-100 shadow-orange-500/20" 
-            : "rounded-2xl scale-100"
+            ? "rounded-2xl bg-black/85 backdrop-blur-xl border-2 border-white/30 shadow-lg shadow-slate-500/20" 
+            : "rounded-2xl"
         )}>
           <div className="flex items-center justify-between px-4 py-3">
             <Link to="/" className="flex items-center">
@@ -277,7 +306,7 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
               variant="ghost" 
               size="icon" 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="ml-3 rounded-full transition-all duration-300 hover:scale-110 hover:bg-white/10 text-white hover:text-orange-300 hover:shadow-lg hover:shadow-orange-500/20"
+              className="ml-3 rounded-full transition-all duration-300 hover:scale-110 hover:bg-white/10 text-white hover:text-orange-300"
             >
               {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
@@ -307,10 +336,10 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
         />
         
         <div className={cn(
-          "absolute bg-black/90 backdrop-blur-xl border border-white/20 rounded-xl shadow-2xl p-6 transition-all duration-500 ease-out transform max-h-[70vh] overflow-y-auto shadow-orange-500/10",
+          "absolute bg-black/90 backdrop-blur-xl border-2 border-white/20 rounded-xl shadow-xl p-6 transition-all duration-500 ease-out transform max-h-[70vh] overflow-y-auto shadow-slate-500/20",
           mobileMenuOpen 
-            ? "translate-y-0 scale-100 opacity-100 rotate-0" 
-            : "-translate-y-4 scale-95 opacity-0 -rotate-1"
+            ? "translate-y-0 scale-100 opacity-100" 
+            : "-translate-y-4 scale-95 opacity-0"
         )}
         style={{
           top: '100px',
@@ -321,7 +350,7 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
           <div className="space-y-4">
             <Link 
               to="/" 
-              className="block text-lg font-medium py-2 text-white hover:text-orange-300 transition-all duration-300 hover:scale-105" 
+              className="block text-lg font-medium py-2 text-white hover:text-orange-300 transition-all duration-300" 
               onClick={closeMobileMenu}
             >
               Главная
@@ -332,7 +361,7 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
               <div className="ml-4 space-y-2">
                 <Link 
                   to="/company"
-                  className="block py-1 text-base text-white hover:text-orange-300 transition-all duration-300 font-medium hover:scale-105" 
+                  className="block py-1 text-base text-white hover:text-orange-300 transition-all duration-300 font-medium" 
                   onClick={closeMobileMenu}
                 >
                   О компании - Главная
@@ -341,7 +370,7 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
                   <Link 
                     key={item.path}
                     to={item.path} 
-                    className="block py-1 text-sm text-white/80 hover:text-orange-300 transition-all duration-300 hover:scale-105" 
+                    className="block py-1 text-sm text-white/80 hover:text-orange-300 transition-all duration-300" 
                     onClick={closeMobileMenu}
                   >
                     {item.name}
@@ -355,7 +384,7 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
               <div className="ml-4 space-y-2">
                 <Link 
                   to="/products"
-                  className="block py-1 text-base text-white hover:text-orange-300 transition-all duration-300 font-medium hover:scale-105" 
+                  className="block py-1 text-base text-white hover:text-orange-300 transition-all duration-300 font-medium" 
                   onClick={closeMobileMenu}
                 >
                   Продукция - Главная
@@ -364,7 +393,7 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
                   <Link 
                     key={item.path}
                     to={item.path} 
-                    className="block py-1 text-sm text-white/80 hover:text-orange-300 transition-all duration-300 hover:scale-105" 
+                    className="block py-1 text-sm text-white/80 hover:text-orange-300 transition-all duration-300" 
                     onClick={closeMobileMenu}
                   >
                     {item.name}
@@ -375,21 +404,21 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
             
             <Link 
               to="/services" 
-              className="block text-lg font-medium py-2 text-white hover:text-orange-300 transition-all duration-300 hover:scale-105" 
+              className="block text-lg font-medium py-2 text-white hover:text-orange-300 transition-all duration-300" 
               onClick={closeMobileMenu}
             >
               Услуги
             </Link>
             <Link 
               to="/contact" 
-              className="block text-lg font-medium py-2 text-white hover:text-orange-300 transition-all duration-300 hover:scale-105" 
+              className="block text-lg font-medium py-2 text-white hover:text-orange-300 transition-all duration-300" 
               onClick={closeMobileMenu}
             >
               Контакты
             </Link>
             <Link 
               to="/support" 
-              className="block text-lg font-medium py-2 text-white hover:text-orange-300 transition-all duration-300 hover:scale-105" 
+              className="block text-lg font-medium py-2 text-white hover:text-orange-300 transition-all duration-300" 
               onClick={closeMobileMenu}
             >
               Поддержка и сервис
