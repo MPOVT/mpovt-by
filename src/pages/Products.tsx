@@ -1,10 +1,10 @@
+
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { 
   ArrowRight,
   Laptop,
@@ -30,7 +30,31 @@ import {
 // Компонент для оптимизированного видео
 const OptimizedVideo = ({ src, className, ...props }: { src: string; className?: string; [key: string]: any }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const { targetRef, isIntersecting } = useIntersectionObserver();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isIntersecting, setIsIntersecting] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsIntersecting(entry.isIntersecting);
+      },
+      {
+        threshold: 0.3, // Видео начинает воспроизводиться когда видно 30% элемента
+        rootMargin: '50px'
+      }
+    );
+
+    const container = containerRef.current;
+    if (container) {
+      observer.observe(container);
+    }
+
+    return () => {
+      if (container) {
+        observer.unobserve(container);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -40,11 +64,12 @@ const OptimizedVideo = ({ src, className, ...props }: { src: string; className?:
       video.play().catch(console.error);
     } else {
       video.pause();
+      video.currentTime = 0; // Сбрасываем видео в начало при скрытии
     }
   }, [isIntersecting]);
 
   return (
-    <div ref={targetRef} className="w-full h-full">
+    <div ref={containerRef} className="w-full h-full">
       <video
         ref={videoRef}
         src={src}
@@ -52,6 +77,7 @@ const OptimizedVideo = ({ src, className, ...props }: { src: string; className?:
         loop
         muted
         playsInline
+        preload="metadata"
         {...props}
       />
     </div>
