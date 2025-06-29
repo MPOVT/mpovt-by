@@ -12,6 +12,7 @@ import NotFound from "./pages/NotFound";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import ScrollToTop from "./components/ScrollToTop";
 import PreloadManager from "./components/PreloadManager";
+import Navigation from "./components/Navigation";
 
 // Create a react-query client
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
             <Toaster />
             <Sonner />
             <BrowserRouter>
+              <Navigation />
               <ScrollToTop />
               <Routes>
                 <Route path="/" element={<Index />} />
