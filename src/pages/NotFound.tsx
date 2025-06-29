@@ -19,8 +19,6 @@ const NotFound = () => {
 
   return (
     <div className="min-h-screen bg-black">
-      <Navigation />
-      
       {/* Hero section with animated background similar to main page */}
       <section className="pt-40 md:pt-44 lg:pt-48 pb-12 md:pb-16 lg:pb-20 px-4 text-center relative overflow-hidden bg-black">
         {/* Animated background spheres matching main page style */}

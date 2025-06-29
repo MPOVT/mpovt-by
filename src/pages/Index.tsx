@@ -282,8 +282,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      <Navigation />
-      
       {/* Hero Section - with existing animated background */}
       <section className="pt-40 md:pt-44 lg:pt-48 pb-12 md:pb-16 lg:pb-20 px-4 text-center relative overflow-hidden bg-black">
         {/* Enhanced smooth animated background extending to next section */}
