@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { 
   ArrowRight,
   Laptop,
@@ -25,6 +26,37 @@ import {
   Star,
   Zap
 } from "lucide-react";
+
+// Компонент для оптимизированного видео
+const OptimizedVideo = ({ src, className, ...props }: { src: string; className?: string; [key: string]: any }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const { targetRef, isIntersecting } = useIntersectionObserver();
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (isIntersecting) {
+      video.play().catch(console.error);
+    } else {
+      video.pause();
+    }
+  }, [isIntersecting]);
+
+  return (
+    <div ref={targetRef} className="w-full h-full">
+      <video
+        ref={videoRef}
+        src={src}
+        className={className}
+        loop
+        muted
+        playsInline
+        {...props}
+      />
+    </div>
+  );
+};
 
 const Products = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -208,19 +240,15 @@ const Products = () => {
                 >
                   <Card className="group overflow-hidden bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-700 hover:shadow-2xl hover:shadow-slate-900/50">
                     <div className="grid lg:grid-cols-2 gap-0">
-                      {/* Video/Image Section */}
+                      {/* Video/Image Section - Updated to use OptimizedVideo */}
                       <div 
                         className="relative overflow-hidden bg-slate-900 aspect-video lg:aspect-auto lg:min-h-[300px]"
                         onMouseEnter={() => setHoveredCard(index)}
                         onMouseLeave={() => setHoveredCard(null)}
                       >
-                        <video
+                        <OptimizedVideo
                           src={product.videoUrl}
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
                         />
 
                         {/* Description overlay on hover */}
