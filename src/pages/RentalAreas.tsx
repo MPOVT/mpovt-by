@@ -3,7 +3,7 @@ import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Phone, Mail, User, Download, Building, Car, Zap, Droplets, Home, Shield, DollarSign } from "lucide-react";
+import { MapPin, Phone, Mail, User, Download, Building, Car, Zap, Droplets, Home, Shield, DollarSign, CheckCircle } from "lucide-react";
 import Footer from "@/components/Footer";
 
 const RentalAreas = () => {
