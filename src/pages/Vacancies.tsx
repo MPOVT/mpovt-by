@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { MapPin, Clock, ExternalLink, Phone, Mail, User } from "lucide-react";
+import { MapPin, Clock, ExternalLink, Phone, Mail, User, TrendingUp, Users, Award } from "lucide-react";
 import Footer from "@/components/Footer";
 
 const Vacancies = () => {
@@ -17,7 +17,6 @@ const Vacancies = () => {
       title: "Инженер-программист",
       department: "Департамент разработок",
       location: "г. Минск, ул. Притыцкого, 62",
-      salary: "от 1500 BYN",
       type: "Полная занятость",
       experience: "от 2 лет",
       description: "Разработка и поддержка программного обеспечения для автомобильной электроники",
@@ -28,7 +27,6 @@ const Vacancies = () => {
       title: "Технолог производства",
       department: "Производственный отдел",
       location: "г. Минск, ул. Притыцкого, 62",
-      salary: "от 1200 BYN",
       type: "Полная занятость",
       experience: "от 3 лет",
       description: "Разработка и оптимизация технологических процессов производства электронных блоков",
@@ -39,7 +37,6 @@ const Vacancies = () => {
       title: "Менеджер по качеству",
       department: "Отдел качества",
       location: "г. Минск, ул. Притыцкого, 62",
-      salary: "от 1300 BYN",
       type: "Полная занятость",
       experience: "от 2 лет",
       description: "Контроль качества продукции, ведение документации по системе менеджмента качества",
@@ -69,178 +66,199 @@ const Vacancies = () => {
     email: "ulkin@mpovt.by"
   };
 
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
-      {/* Hero Section */}
-      <section className="pt-24 md:pt-32 pb-12 md:pb-16 px-4 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/10 to-slate-900/30"></div>
-        
-        <div className="container mx-auto relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
-              Карьера в ОАО "МПОВТ"
-            </h1>
-            <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Присоединяйтесь к команде профессионалов и развивайте свою карьеру в одной из ведущих компаний Беларуси в области электронных технологий.
-            </p>
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-blue-500/50 text-blue-400 hover:bg-blue-500/10"
-              onClick={() => window.open('https://rabota.by/search/vacancy?from=employerPage&employer_id=1006818&hhtmFrom=employer', '_blank')}
-            >
-              <ExternalLink className="w-5 h-5 mr-2" />
-              Смотреть актуальные вакансии на rabota.by
-            </Button>
-          </div>
-        </div>
-      </section>
+  const benefits = [
+    {
+      icon: TrendingUp,
+      title: "Стабильность и рост",
+      description: "Надежная компания с многолетней историей и стабильным финансовым положением"
+    },
+    {
+      icon: Users,
+      title: "Развитие и обучение",
+      description: "Возможности для профессионального роста и обучения новым технологиям"
+    },
+    {
+      icon: Award,
+      title: "Социальный пакет",
+      description: "Полный социальный пакет, медицинская страховка и дополнительные льготы"
+    }
+  ];
 
-      {/* Content Section */}
-      <section className="py-12 md:py-16">
-        <div className="container mx-auto px-4">
-          {/* Vacancies Section */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold text-white mb-8 text-center">
+  return (
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Background with animated spheres */}
+      <div className="fixed inset-0 bg-black">
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
+        
+        {/* Animated spheres */}
+        <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-green-600/20 to-blue-600/20 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute top-40 right-20 w-80 h-80 bg-gradient-to-r from-blue-500/15 to-purple-500/15 rounded-full blur-3xl animate-pulse-slow" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-40 left-1/3 w-64 h-64 bg-gradient-to-r from-indigo-500/10 to-green-500/10 rounded-full blur-3xl animate-pulse-slow" style={{animationDelay: '4s'}}></div>
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10">
+        {/* Hero Section */}
+        <section className="pt-24 md:pt-32 pb-16 px-4 text-center relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-green-900/5 to-transparent"></div>
+          
+          <div className="container mx-auto relative z-10">
+            <div className="max-w-4xl mx-auto">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-green-400 via-blue-500 to-purple-400 bg-clip-text text-transparent leading-tight">
+                Карьера в ОАО "МПОВТ"
+              </h1>
+              <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+                Присоединяйтесь к команде профессионалов и развивайте свою карьеру в одной из ведущих компаний Беларуси в области электронных технологий.
+              </p>
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-500 hover:to-blue-500 text-white border-0"
+                onClick={() => window.open('https://rabota.by/search/vacancy?from=employerPage&employer_id=1006818&hhtmFrom=employer', '_blank')}
+              >
+                <ExternalLink className="w-5 h-5 mr-2" />
+                Актуальные вакансии на rabota.by
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Benefits Section - moved to top */}
+        <section className="py-16 px-4">
+          <div className="container mx-auto">
+            <h2 className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+              Почему стоит работать с нами?
+            </h2>
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              {benefits.map((benefit, index) => (
+                <div key={index} className="glass-card p-6 text-center hover:scale-105 transition-all duration-300">
+                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-green-500/20 to-blue-500/20 rounded-full flex items-center justify-center">
+                    <benefit.icon className="w-8 h-8 text-green-400" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-gray-300">{benefit.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Vacancies Section */}
+        <section className="py-16 px-4">
+          <div className="container mx-auto">
+            <h2 className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
               Открытые позиции
             </h2>
             
             {loading ? (
-              <div className="grid gap-6">
+              <div className="grid gap-6 max-w-5xl mx-auto">
                 {[1, 2, 3].map((i) => (
-                  <Card key={i} className="bg-white/5 border-white/10 backdrop-blur-sm animate-pulse">
-                    <CardContent className="p-6">
-                      <div className="h-6 bg-white/10 rounded mb-4"></div>
-                      <div className="h-4 bg-white/10 rounded mb-2"></div>
-                      <div className="h-4 bg-white/10 rounded w-2/3"></div>
-                    </CardContent>
-                  </Card>
+                  <div key={i} className="glass-card p-6 animate-pulse">
+                    <div className="h-6 bg-white/10 rounded mb-4"></div>
+                    <div className="h-4 bg-white/10 rounded mb-2"></div>
+                    <div className="h-4 bg-white/10 rounded w-2/3"></div>
+                  </div>
                 ))}
               </div>
             ) : (
-              <div className="grid gap-6">
+              <div className="grid gap-6 max-w-5xl mx-auto">
                 {vacancies.map((vacancy, index) => (
-                  <Card key={vacancy.id} className="bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300">
-                    <CardHeader>
-                      <div className="flex justify-between items-start">
-                        <div>
-                          <CardTitle className="text-xl text-white mb-2">{vacancy.title}</CardTitle>
-                          <div className="flex flex-wrap gap-2 mb-4">
-                            <Badge className="bg-blue-500/20 text-blue-400 border-blue-500/30">
-                              {vacancy.department}
-                            </Badge>
-                            <Badge variant="outline" className="border-white/20 text-white/70">
-                              {vacancy.type}
-                            </Badge>
-                          </div>
-                        </div>
-                        <div className="text-right">
-                          <div className="text-2xl font-bold text-blue-400">{vacancy.salary}</div>
-                          <div className="text-sm text-slate-400">в месяц</div>
+                  <div key={vacancy.id} className="glass-card p-8 hover:scale-105 transition-all duration-300">
+                    <div className="flex justify-between items-start mb-6">
+                      <div className="flex-1">
+                        <h3 className="text-2xl font-bold mb-3 bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                          {vacancy.title}
+                        </h3>
+                        <div className="flex flex-wrap gap-3 mb-4">
+                          <Badge className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 text-purple-300 border-purple-500/30 px-3 py-1">
+                            {vacancy.department}
+                          </Badge>
+                          <Badge className="bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-blue-300 border-blue-500/30 px-3 py-1">
+                            {vacancy.type}
+                          </Badge>
                         </div>
                       </div>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-4">
-                        <div className="flex items-center text-slate-300">
-                          <MapPin className="w-4 h-4 mr-2 text-blue-400" />
-                          {vacancy.location}
-                        </div>
-                        <div className="flex items-center text-slate-300">
-                          <Clock className="w-4 h-4 mr-2 text-blue-400" />
-                          Опыт работы: {vacancy.experience}
-                        </div>
-                        <p className="text-slate-300">{vacancy.description}</p>
-                        <div>
-                          <h4 className="text-white font-semibold mb-2">Требования:</h4>
-                          <ul className="list-disc list-inside text-slate-300 space-y-1">
-                            {vacancy.requirements.map((req, index) => (
-                              <li key={index}>{req}</li>
-                            ))}
-                          </ul>
-                        </div>
-                        <Button 
-                          className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
-                          onClick={() => window.open('https://rabota.by/search/vacancy?from=employerPage&employer_id=1006818&hhtmFrom=employer', '_blank')}
-                        >
-                          Откликнуться на вакансию
-                        </Button>
+                    </div>
+                    <div className="space-y-4">
+                      <div className="flex items-center text-gray-300">
+                        <MapPin className="w-5 h-5 mr-3 text-cyan-400" />
+                        {vacancy.location}
                       </div>
-                    </CardContent>
-                  </Card>
+                      <div className="flex items-center text-gray-300">
+                        <Clock className="w-5 h-5 mr-3 text-purple-400" />
+                        Опыт работы: {vacancy.experience}
+                      </div>
+                      <p className="text-gray-300 text-lg">{vacancy.description}</p>
+                      <div>
+                        <h4 className="text-lg font-semibold mb-3 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                          Требования:
+                        </h4>
+                        <ul className="list-disc list-inside text-gray-300 space-y-2">
+                          {vacancy.requirements.map((req, index) => (
+                            <li key={index}>{req}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      <Button 
+                        size="lg"
+                        className="w-full bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-500 hover:to-cyan-500 text-white border-0 mt-6"
+                        onClick={() => window.open('https://rabota.by/search/vacancy?from=employerPage&employer_id=1006818&hhtmFrom=employer', '_blank')}
+                      >
+                        Откликнуться на вакансию
+                      </Button>
+                    </div>
+                  </div>
                 ))}
               </div>
             )}
           </div>
+        </section>
 
-          {/* HR Manager Contact */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold text-white mb-8 text-center">
+        {/* HR Manager Contact */}
+        <section className="py-16 px-4">
+          <div className="container mx-auto">
+            <h2 className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
               Контакты по вопросам трудоустройства
             </h2>
-            <Card className="bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 max-w-2xl mx-auto">
-              <CardContent className="p-8">
-                <div className="flex items-center space-x-6">
-                  <div className="flex-shrink-0">
-                    <img
-                      src={hrManager.photo}
-                      alt={hrManager.name}
-                      className="w-24 h-24 rounded-full object-cover border-2 border-blue-500/30"
-                    />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-white mb-2">{hrManager.name}</h3>
-                    <p className="text-blue-400 mb-4">{hrManager.position}</p>
-                    <div className="space-y-2">
-                      {hrManager.phones.map((phone, index) => (
-                        <div key={index} className="flex items-center text-slate-300">
-                          <Phone className="w-4 h-4 mr-2 text-blue-400" />
-                          <a href={`tel:${phone}`} className="hover:text-blue-400 transition-colors">
-                            {phone}
-                          </a>
-                        </div>
-                      ))}
-                      <div className="flex items-center text-slate-300">
-                        <Mail className="w-4 h-4 mr-2 text-blue-400" />
-                        <a href={`mailto:${hrManager.email}`} className="hover:text-blue-400 transition-colors">
-                          {hrManager.email}
+            <div className="glass-card p-8 max-w-2xl mx-auto hover:scale-105 transition-all duration-300">
+              <div className="flex items-center space-x-6">
+                <div className="flex-shrink-0">
+                  <img
+                    src={hrManager.photo}
+                    alt={hrManager.name}
+                    className="w-24 h-24 rounded-full object-cover border-2 border-orange-500/50"
+                  />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold mb-2 bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+                    {hrManager.name}
+                  </h3>
+                  <p className="text-orange-300 mb-4">{hrManager.position}</p>
+                  <div className="space-y-2">
+                    {hrManager.phones.map((phone, index) => (
+                      <div key={index} className="flex items-center text-gray-300">
+                        <Phone className="w-4 h-4 mr-2 text-orange-400" />
+                        <a href={`tel:${phone}`} className="hover:text-orange-400 transition-colors">
+                          {phone}
                         </a>
                       </div>
+                    ))}
+                    <div className="flex items-center text-gray-300">
+                      <Mail className="w-4 h-4 mr-2 text-orange-400" />
+                      <a href={`mailto:${hrManager.email}`} className="hover:text-orange-400 transition-colors">
+                        {hrManager.email}
+                      </a>
                     </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Benefits Section */}
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-br from-blue-900/30 to-purple-900/30 rounded-2xl p-8 border border-white/10 backdrop-blur-sm">
-              <div className="text-center">
-                <h3 className="text-2xl font-bold text-white mb-6">
-                  Почему стоит работать с нами?
-                </h3>
-                <div className="grid md:grid-cols-3 gap-6">
-                  <div>
-                    <h4 className="text-lg font-semibold text-blue-400 mb-2">Стабильность</h4>
-                    <p className="text-slate-300">Надежная компания с многолетней историей и стабильным финансовым положением</p>
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold text-blue-400 mb-2">Развитие</h4>
-                    <p className="text-slate-300">Возможности для профессионального роста и обучения новым технологиям</p>
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold text-blue-400 mb-2">Соцпакет</h4>
-                    <p className="text-slate-300">Полный социальный пакет, медицинская страховка и дополнительные льготы</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 };

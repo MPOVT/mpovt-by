@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail } from "lucide-react";
+import { Phone, Mail, Zap, Shield, Headphones, Star, Award, CheckCircle } from "lucide-react";
 import Footer from "@/components/Footer";
 
 const AssetSales = () => {
@@ -17,14 +17,37 @@ const AssetSales = () => {
   });
 
   const products = [
-    { name: "Блок управления двигателем", price: "150 BYN", stock: "В наличии" },
-    { name: "Контроллер ЭПХХ", price: "120 BYN", stock: "В наличии" },
-    { name: "Блок комфорта", price: "90 BYN", stock: "Ограничено" },
-    { name: "Контроллер АБС", price: "200 BYN", stock: "В наличии" },
-    { name: "Блок управления кондиционером", price: "80 BYN", stock: "В наличии" },
-    { name: "Контроллер системы безопасности", price: "110 BYN", stock: "Ограничено" },
-    { name: "Блок управления светом", price: "60 BYN", stock: "В наличии" },
-    { name: "Контроллер парковочной системы", price: "140 BYN", stock: "В наличии" }
+    { name: "Блок управления двигателем", stock: "В наличии" },
+    { name: "Контроллер ЭПХХ", stock: "В наличии" },
+    { name: "Блок комфорта", stock: "Ограничено" },
+    { name: "Контроллер АБС", stock: "В наличии" },
+    { name: "Блок управления кондиционером", stock: "В наличии" },
+    { name: "Контроллер системы безопасности", stock: "Ограничено" },
+    { name: "Блок управления светом", stock: "В наличии" },
+    { name: "Контроллер парковочной системы", stock: "В наличии" }
+  ];
+
+  const advantages = [
+    {
+      icon: Award,
+      title: "Высокое качество",
+      description: "Вся продукция проходит строгий контроль качества и соответствует международным стандартам ISO"
+    },
+    {
+      icon: Star,
+      title: "Выгодные цены",
+      description: "Конкурентоспособные цены на высококачественные электронные компоненты собственного производства"
+    },
+    {
+      icon: Headphones,
+      title: "Профессиональная поддержка",
+      description: "Квалифицированная техническая поддержка и консультации по использованию продукции"
+    },
+    {
+      icon: CheckCircle,
+      title: "Гарантия надежности",
+      description: "Все изделия имеют гарантию и полное техническое сопровождение от производителя"
+    }
   ];
 
   const handleInputChange = (e) => {
@@ -41,205 +64,219 @@ const AssetSales = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
-      {/* Hero Section */}
-      <section className="pt-24 md:pt-32 pb-12 md:pb-16 px-4 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/10 to-slate-900/30"></div>
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Background with animated spheres */}
+      <div className="fixed inset-0 bg-black">
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
         
-        <div className="container mx-auto relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
-              Продажа неликвидов
-            </h1>
-            <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Приобретайте качественные электронные блоки и контроллеры собственного производства ОАО "МПОВТ" 
-              по выгодным ценам.
-            </p>
-          </div>
-        </div>
-      </section>
+        {/* Animated spheres */}
+        <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-blue-600/20 to-green-600/20 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute top-40 right-20 w-80 h-80 bg-gradient-to-r from-green-500/15 to-teal-500/15 rounded-full blur-3xl animate-pulse-slow" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-40 left-1/3 w-64 h-64 bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-full blur-3xl animate-pulse-slow" style={{animationDelay: '4s'}}></div>
+      </div>
 
-      {/* Content Section */}
-      <section className="py-12 md:py-16">
-        <div className="container mx-auto px-4">
-          {/* Products Table */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold text-white mb-8 text-center">
+      {/* Content */}
+      <div className="relative z-10">
+        {/* Hero Section */}
+        <section className="pt-24 md:pt-32 pb-16 px-4 text-center relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/5 to-transparent"></div>
+          
+          <div className="container mx-auto relative z-10">
+            <div className="max-w-4xl mx-auto">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-green-500 to-teal-400 bg-clip-text text-transparent leading-tight">
+                Продажа неликвидов
+              </h1>
+              <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+                Приобретайте качественные электронные блоки и контроллеры собственного производства ОАО "МПОВТ" 
+                по выгодным ценам.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Advantages Section - moved to top */}
+        <section className="py-16 px-4">
+          <div className="container mx-auto">
+            <h2 className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
+              Преимущества покупки у нас
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+              {advantages.map((advantage, index) => (
+                <div key={index} className="glass-card p-6 text-center hover:scale-105 transition-all duration-300">
+                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500/20 to-green-500/20 rounded-full flex items-center justify-center">
+                    <advantage.icon className="w-8 h-8 text-blue-400" />
+                  </div>
+                  <h3 className="text-lg font-bold mb-3 bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
+                    {advantage.title}
+                  </h3>
+                  <p className="text-gray-300 text-sm">{advantage.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Products Table */}
+        <section className="py-16 px-4">
+          <div className="container mx-auto">
+            <h2 className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-transparent">
               Доступные товары
             </h2>
-            <Card className="bg-white/5 border-white/10 backdrop-blur-sm">
-              <CardContent className="p-0">
-                <div className="overflow-x-auto">
-                  <table className="w-full">
-                    <thead>
-                      <tr className="border-b border-white/10">
-                        <th className="text-left p-4 text-white font-semibold">Наименование</th>
-                        <th className="text-left p-4 text-white font-semibold">Цена</th>
-                        <th className="text-left p-4 text-white font-semibold">Наличие</th>
+            <div className="glass-card p-0 max-w-5xl mx-auto overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b border-white/10 bg-gradient-to-r from-green-500/10 to-teal-500/10">
+                      <th className="text-left p-6 text-white font-semibold bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-transparent">
+                        Наименование
+                      </th>
+                      <th className="text-left p-6 text-white font-semibold bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-transparent">
+                        Наличие
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {products.map((product, index) => (
+                      <tr key={index} className="border-b border-white/5 hover:bg-white/5 transition-colors">
+                        <td className="p-6 text-gray-300 font-medium">{product.name}</td>
+                        <td className="p-6">
+                          <span className={`inline-flex px-3 py-1 rounded-full text-xs font-medium ${
+                            product.stock === "В наличии" 
+                              ? "bg-green-500/20 text-green-300 border border-green-500/30"
+                              : "bg-yellow-500/20 text-yellow-300 border border-yellow-500/30"
+                          }`}>
+                            {product.stock}
+                          </span>
+                        </td>
                       </tr>
-                    </thead>
-                    <tbody>
-                      {products.map((product, index) => (
-                        <tr key={index} className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                          <td className="p-4 text-slate-300">{product.name}</td>
-                          <td className="p-4 text-blue-400 font-semibold">{product.price}</td>
-                          <td className="p-4">
-                            <span className={`inline-flex px-2 py-1 rounded-full text-xs font-medium ${
-                              product.stock === "В наличии" 
-                                ? "bg-green-500/20 text-green-400"
-                                : "bg-yellow-500/20 text-yellow-400"
-                            }`}>
-                              {product.stock}
-                            </span>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </CardContent>
-            </Card>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
+        </section>
 
-          {/* Contact and Form Section */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {/* Contact Info */}
-            <Card className="bg-white/5 border-white/10 backdrop-blur-sm">
-              <CardHeader>
-                <CardTitle className="text-2xl text-white">Отдел продаж</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
+        {/* Contact and Form Section */}
+        <section className="py-16 px-4">
+          <div className="container mx-auto">
+            <h2 className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              Связаться с нами
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+              {/* Contact Info */}
+              <div className="glass-card p-8 hover:scale-105 transition-all duration-300">
+                <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  Отдел продаж
+                </h3>
+                <div className="space-y-6">
                   <div>
-                    <h4 className="text-lg font-semibold text-white mb-3">Телефоны:</h4>
-                    <div className="space-y-2">
-                      <div className="flex items-center text-slate-300">
-                        <Phone className="w-4 h-4 mr-2 text-blue-400" />
-                        <a href="tel:+375173889464" className="hover:text-blue-400 transition-colors">
+                    <h4 className="text-lg font-semibold mb-4 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                      Телефоны:
+                    </h4>
+                    <div className="space-y-3">
+                      <div className="flex items-center text-gray-300">
+                        <Phone className="w-5 h-5 mr-3 text-purple-400" />
+                        <a href="tel:+375173889464" className="hover:text-purple-400 transition-colors">
                           +375 (17) 388 94 64
                         </a>
                       </div>
-                      <div className="flex items-center text-slate-300">
-                        <Phone className="w-4 h-4 mr-2 text-blue-400" />
-                        <a href="tel:+375173889465" className="hover:text-blue-400 transition-colors">
+                      <div className="flex items-center text-gray-300">
+                        <Phone className="w-5 h-5 mr-3 text-purple-400" />
+                        <a href="tel:+375173889465" className="hover:text-purple-400 transition-colors">
                           +375 (17) 388 94 65
                         </a>
                       </div>
-                      <div className="flex items-center text-slate-300">
-                        <Phone className="w-4 h-4 mr-2 text-blue-400" />
-                        <a href="tel:+375173889466" className="hover:text-blue-400 transition-colors">
+                      <div className="flex items-center text-gray-300">
+                        <Phone className="w-5 h-5 mr-3 text-purple-400" />
+                        <a href="tel:+375173889466" className="hover:text-purple-400 transition-colors">
                           +375 (17) 388 94 66
                         </a>
                       </div>
                     </div>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-white mb-3">Email:</h4>
-                    <div className="flex items-center text-slate-300">
-                      <Mail className="w-4 h-4 mr-2 text-blue-400" />
-                      <a href="mailto:pcbmarket@mpovt.by" className="hover:text-blue-400 transition-colors">
+                    <h4 className="text-lg font-semibold mb-4 bg-gradient-to-r from-pink-400 to-red-400 bg-clip-text text-transparent">
+                      Email:
+                    </h4>
+                    <div className="flex items-center text-gray-300">
+                      <Mail className="w-5 h-5 mr-3 text-pink-400" />
+                      <a href="mailto:pcbmarket@mpovt.by" className="hover:text-pink-400 transition-colors">
                         pcbmarket@mpovt.by
                       </a>
                     </div>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
 
-            {/* Contact Form */}
-            <Card className="bg-white/5 border-white/10 backdrop-blur-sm">
-              <CardHeader>
-                <CardTitle className="text-2xl text-white">Отправить сообщение</CardTitle>
-              </CardHeader>
-              <CardContent>
+              {/* Contact Form */}
+              <div className="glass-card p-8 hover:scale-105 transition-all duration-300">
+                <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+                  Отправить сообщение
+                </h3>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <Label htmlFor="name" className="text-white">Имя</Label>
+                    <Label htmlFor="name" className="text-white mb-2 block">Имя</Label>
                     <Input
                       id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="bg-white/10 border-white/20 text-white placeholder:text-slate-400"
+                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-orange-400"
                       placeholder="Ваше имя"
                       required
                     />
                   </div>
                   <div>
-                    <Label htmlFor="email" className="text-white">Email</Label>
+                    <Label htmlFor="email" className="text-white mb-2 block">Email</Label>
                     <Input
                       id="email"
                       name="email"
                       type="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="bg-white/10 border-white/20 text-white placeholder:text-slate-400"
+                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-orange-400"
                       placeholder="your@email.com"
                       required
                     />
                   </div>
                   <div>
-                    <Label htmlFor="phone" className="text-white">Телефон</Label>
+                    <Label htmlFor="phone" className="text-white mb-2 block">Телефон</Label>
                     <Input
                       id="phone"
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="bg-white/10 border-white/20 text-white placeholder:text-slate-400"
+                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-orange-400"
                       placeholder="+375 XX XXX XX XX"
                     />
                   </div>
                   <div>
-                    <Label htmlFor="message" className="text-white">Сообщение</Label>
+                    <Label htmlFor="message" className="text-white mb-2 block">Сообщение</Label>
                     <Textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleInputChange}
-                      className="bg-white/10 border-white/20 text-white placeholder:text-slate-400 min-h-[100px]"
+                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-orange-400 min-h-[100px]"
                       placeholder="Опишите ваш запрос..."
                       required
                     />
                   </div>
                   <Button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
+                    className="w-full bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-500 hover:to-red-500 text-white border-0"
                   >
                     Отправить сообщение
                   </Button>
                 </form>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Additional Info */}
-          <div className="mt-16 max-w-4xl mx-auto">
-            <div className="bg-gradient-to-br from-blue-900/30 to-purple-900/30 rounded-2xl p-8 border border-white/10 backdrop-blur-sm">
-              <div className="text-center">
-                <h3 className="text-2xl font-bold text-white mb-4">
-                  Преимущества покупки у нас
-                </h3>
-                <div className="grid md:grid-cols-3 gap-6 text-left">
-                  <div>
-                    <h4 className="text-lg font-semibold text-blue-400 mb-2">Качество</h4>
-                    <p className="text-slate-300">Вся продукция проходит строгий контроль качества и соответствует международным стандартам</p>
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold text-blue-400 mb-2">Цены</h4>
-                    <p className="text-slate-300">Выгодные цены на высококачественные электронные компоненты собственного производства</p>
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold text-blue-400 mb-2">Поддержка</h4>
-                    <p className="text-slate-300">Профессиональная техническая поддержка и консультации по использованию продукции</p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 };
