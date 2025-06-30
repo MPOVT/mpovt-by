@@ -1,10 +1,10 @@
-
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import OptimizedVideoPlayer from "@/components/OptimizedVideoPlayer";
 import { 
   ArrowRight,
   Laptop,
@@ -26,99 +26,6 @@ import {
   Star,
   Zap
 } from "lucide-react";
-
-// Компонент для оптимизированного видео
-const OptimizedVideo = ({ src, className, ...props }: { src: string; className?: string; [key: string]: any }) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [isIntersecting, setIsIntersecting] = useState(false);
-  const observerRef = useRef<IntersectionObserver | null>(null);
-
-  useEffect(() => {
-    // Сначала убеждаемся, что видео поставлено на паузу
-    const video = videoRef.current;
-    if (video) {
-      video.pause();
-      video.currentTime = 0;
-      console.log('Video initialized and paused:', src);
-    }
-
-    // Создаем observer с более строгими параметрами
-    observerRef.current = new IntersectionObserver(
-      ([entry]) => {
-        const isVisible = entry.isIntersecting && entry.intersectionRatio > 0.5;
-        console.log('Video visibility changed:', src, 'visible:', isVisible, 'ratio:', entry.intersectionRatio);
-        setIsIntersecting(isVisible);
-      },
-      {
-        threshold: 0.5, // Видео воспроизводится только когда видно минимум 50%
-        rootMargin: '0px' // Убираем дополнительные отступы
-      }
-    );
-
-    const container = containerRef.current;
-    if (container && observerRef.current) {
-      observerRef.current.observe(container);
-    }
-
-    return () => {
-      if (observerRef.current && container) {
-        observerRef.current.unobserve(container);
-        observerRef.current.disconnect();
-      }
-    };
-  }, [src]);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    if (isIntersecting) {
-      console.log('Playing video:', src);
-      video.play().catch((error) => {
-        console.error('Error playing video:', src, error);
-      });
-    } else {
-      console.log('Pausing video:', src);
-      video.pause();
-      video.currentTime = 0; // Сбрасываем в начало
-    }
-  }, [isIntersecting, src]);
-
-  // Дополнительная защита - паузим видео при размонтировании
-  useEffect(() => {
-    return () => {
-      const video = videoRef.current;
-      if (video) {
-        video.pause();
-        console.log('Video paused on unmount:', src);
-      }
-    };
-  }, [src]);
-
-  return (
-    <div ref={containerRef} className="w-full h-full">
-      <video
-        ref={videoRef}
-        src={src}
-        className={className}
-        loop
-        muted
-        playsInline
-        preload="metadata"
-        onLoadedData={() => {
-          // Убеждаемся, что видео на паузе после загрузки
-          const video = videoRef.current;
-          if (video && !isIntersecting) {
-            video.pause();
-            console.log('Video paused after load:', src);
-          }
-        }}
-        {...props}
-      />
-    </div>
-  );
-};
 
 const Products = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -302,15 +209,16 @@ const Products = () => {
                 >
                   <Card className="group overflow-hidden bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-700 hover:shadow-2xl hover:shadow-slate-900/50">
                     <div className="grid lg:grid-cols-2 gap-0">
-                      {/* Video/Image Section - Updated to use OptimizedVideo */}
+                      {/* Video/Image Section - Updated to use OptimizedVideoPlayer */}
                       <div 
                         className="relative overflow-hidden bg-slate-900 aspect-video lg:aspect-auto lg:min-h-[300px]"
                         onMouseEnter={() => setHoveredCard(index)}
                         onMouseLeave={() => setHoveredCard(null)}
                       >
-                        <OptimizedVideo
+                        <OptimizedVideoPlayer
                           src={product.videoUrl}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          placeholder={product.image}
+                          className="transition-transform duration-700 group-hover:scale-105"
                         />
 
                         {/* Description overlay on hover */}
