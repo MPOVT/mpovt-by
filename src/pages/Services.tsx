@@ -152,12 +152,14 @@ const Services = () => {
               </Card>
 
               {/* Second Card - Testing Types */}
-              <Card className="group overflow-hidden bg-cyan-800/10 backdrop-blur-xl border border-cyan-700/30 hover:border-cyan-500/50 transition-all duration-700 hover:shadow-2xl hover:shadow-cyan-500/20">
-                <div className="p-6 md:p-8 h-full flex flex-col">
-                  <div className="flex-grow">
-                    <div className="flex items-center mb-6">
-                      <Award className="w-6 h-6 md:w-8 md:h-8 text-cyan-400 mr-3" />
-                      <h4 className="text-xl md:text-2xl font-bold text-white">Виды испытаний</h4>
+              <Card className="group overflow-hidden bg-cyan-800/10 backdrop-blur-xl border border-cyan-700/30 hover:border-cyan-500/50 transition-all duration-700 hover:shadow-2xl hover:shadow-cyan-500/20 lg:flex lg:flex-col">
+                <div className="p-6 md:p-8 h-full flex flex-col lg:justify-center lg:max-w-none max-w-md mx-auto">
+                  <div className="flex-grow lg:flex-grow-0">
+                    <div className="mb-6">
+                      <h4 className="text-xl md:text-2xl font-bold text-white mb-3">Виды испытаний</h4>
+                      <p className="text-slate-400 text-sm md:text-base leading-relaxed">
+                        Широкий спектр профессиональных испытаний и сертификационных услуг для промышленности
+                      </p>
                     </div>
                     <div className="space-y-3 md:space-y-4">
                       {[
@@ -180,7 +182,7 @@ const Services = () => {
                     <Button 
                       asChild
                       size="lg"
-                      className="w-full md:w-auto rounded-3xl bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0 text-base md:text-lg px-6 md:px-8 py-4 md:py-6 hover:scale-105 transition-all duration-300"
+                      className="w-full rounded-3xl bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0 text-base md:text-lg px-6 md:px-8 py-4 md:py-6 hover:scale-105 transition-all duration-300"
                     >
                       <Link to="/services/testing-laboratories">
                         Подробнее об испытательных лабораториях
