@@ -134,7 +134,7 @@ const Services = () => {
           </div>
 
           <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-6">
+            <div className="grid xl:grid-cols-2 gap-6 lg:gap-8">
               {/* First Card - Accreditation Info */}
               <Card className="group overflow-hidden bg-cyan-800/10 backdrop-blur-xl border border-cyan-700/30 hover:border-cyan-500/50 transition-all duration-700 hover:shadow-2xl hover:shadow-cyan-500/20">
                 <div className="p-6 md:p-8">
@@ -156,10 +156,10 @@ const Services = () => {
 
               {/* Second Card - Testing Types */}
               <Card className="group overflow-hidden bg-cyan-800/10 backdrop-blur-xl border border-cyan-700/30 hover:border-cyan-500/50 transition-all duration-700 hover:shadow-2xl hover:shadow-cyan-500/20 lg:flex lg:flex-col lg:w-full w-fit mx-auto">
-                <div className="p-6 md:p-8 h-full flex flex-col lg:justify-center lg:max-w-none max-w-md mx-auto">
+                <div className="p-6 md:p-8 h-full flex flex-col lg:justify-center lg:max-w-none max-w-md">
                   <div className="flex-grow lg:flex-grow-0">
                     <div className="mb-6">
-                      <h4 className="text-xl md:text-2xl font-bold text-white mb-3">Виды испытаний</h4>
+                      <h4 className="text-2xl md:text-3xl font-bold text-white mb-3">Виды испытаний</h4>
                       <p className="text-slate-400 text-sm md:text-base leading-relaxed">
                         Широкий спектр профессиональных испытаний и сертификационных услуг для промышленности
                       </p>
@@ -185,10 +185,10 @@ const Services = () => {
                     <Button 
                       asChild
                       size="lg"
-                      className="w-full rounded-3xl bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0 text-base md:text-lg px-6 md:px-8 py-4 md:py-6 hover:scale-105 transition-all duration-300"
+                      className="w-full rounded-lg bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0 text-base md:text-lg sd:text-xs px-6 md:px-8 py-4 md:py-6 hover:scale-105 transition-all duration-300"
                     >
                       <Link to="/services/testing-laboratories">
-                        {isMobile ? "Подробнее о лабораториях" : "Подробнее об испытательных лабораториях"}
+                        {isMobile ? "Подробнее о лабораториях" : "Подробнее о лабораториях" }
                         <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
                       </Link>
                     </Button>
@@ -253,7 +253,7 @@ const Services = () => {
                   break;
                 case 'Прессование термоактивных материалов':
                   solidBg = 'bg-slate-500/20';
-                  hoverBg = 'hover:bg-slate-900/40';
+                  hoverBg = 'hover:bg-slate-800/40';
                   break;
                 default:
                   solidBg = 'bg-slate-800/20';
