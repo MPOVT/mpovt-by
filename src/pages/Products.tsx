@@ -196,7 +196,7 @@ const Products = () => {
             </p>
           </div>
 
-          {/* Mobile-optimized cards */}
+          {/* Mobile-optimized cards with overlay text */}
           <div className="space-y-6 md:space-y-8">
             {priorityProducts.map((product, index) => {
               const isHovered = hoveredCard === index;
@@ -209,35 +209,53 @@ const Products = () => {
                 >
                   <Card className="group overflow-hidden bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-700 hover:shadow-2xl hover:shadow-slate-900/50">
                     <div className="grid lg:grid-cols-2 gap-0">
-                      {/* Video/Image Section - Updated to use OptimizedVideoPlayer */}
+                      {/* Video/Image Section - Mobile full card with overlay */}
                       <div 
                         className="relative overflow-hidden bg-slate-900 aspect-video lg:aspect-auto lg:min-h-[300px]"
                         onMouseEnter={() => setHoveredCard(index)}
                         onMouseLeave={() => setHoveredCard(null)}
                       >
-                        <OptimizedVideoPlayer
-                          src={product.videoUrl}
-                          placeholder={product.image}
-                          className="transition-transform duration-700 group-hover:scale-105"
-                        />
+                        <div className="relative w-full h-full">
+                          <OptimizedVideoPlayer
+                            src={product.videoUrl}
+                            placeholder={product.image}
+                            className={`transition-transform duration-700 group-hover:scale-105 ${
+                              // Mobile overlay: darken and blur video
+                              'lg:filter-none filter brightness-50 blur-sm lg:blur-none lg:brightness-100'
+                            }`}
+                          />
 
-                        {/* Description overlay on hover */}
-                        <div className={`absolute inset-0 bg-black/50 backdrop-blur-sm transition-all duration-700 flex items-center justify-center p-4 md:p-6 ${
-                          isHovered ? 'opacity-100' : 'opacity-0'
-                        }`}>
-                          <div className="text-center text-white max-w-md bg-white/10 backdrop-blur-md rounded-2xl p-4 md:p-6 border border-white/20">
-                            <p className="text-sm md:text-lg leading-relaxed mb-4">
+                          {/* Mobile overlay content - visible on mobile, hidden on desktop */}
+                          <div className="absolute inset-0 lg:hidden flex flex-col justify-center items-center p-6 text-center text-white z-10">
+                            <h3 className="text-2xl font-bold mb-3 drop-shadow-lg">
+                              {product.title}
+                            </h3>
+                            <p className="text-sm leading-relaxed mb-4 opacity-90">
                               {product.description}
                             </p>
-                            <div className={`inline-block relative bg-gradient-to-r ${product.gradient} text-white text-xs md:text-sm px-4 md:px-6 py-2 md:py-3 rounded-full font-semibold flex items-center gap-2 shadow-2xl`}>
-                              <span>{product.badge}</span>
+                            <div className={`inline-block relative bg-gradient-to-r ${product.gradient} text-white text-sm px-4 py-2 rounded-full font-semibold shadow-2xl`}>
+                              {product.badge}
+                            </div>
+                          </div>
+
+                          {/* Desktop hover overlay - hidden on mobile */}
+                          <div className={`hidden lg:flex absolute inset-0 bg-black/50 backdrop-blur-sm transition-all duration-700 items-center justify-center p-4 md:p-6 ${
+                            isHovered ? 'opacity-100' : 'opacity-0'
+                          }`}>
+                            <div className="text-center text-white max-w-md bg-white/10 backdrop-blur-md rounded-2xl p-4 md:p-6 border border-white/20">
+                              <p className="text-sm md:text-lg leading-relaxed mb-4">
+                                {product.description}
+                              </p>
+                              <div className={`inline-block relative bg-gradient-to-r ${product.gradient} text-white text-xs md:text-sm px-4 md:px-6 py-2 md:py-3 rounded-full font-semibold flex items-center gap-2 shadow-2xl`}>
+                                <span>{product.badge}</span>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
                       
-                      {/* Content Section - Mobile optimized and more compact */}
-                      <div className="p-4 md:p-6 lg:p-6 flex flex-col justify-center bg-gradient-to-br from-slate-800/5 to-slate-900/5 backdrop-blur-lg">
+                      {/* Content Section - Hidden on mobile, visible on desktop */}
+                      <div className="hidden lg:flex p-4 md:p-6 lg:p-6 flex-col justify-center bg-gradient-to-br from-slate-800/5 to-slate-900/5 backdrop-blur-lg">
                         
                         {/* Product title */}
                         <h3 className="text-xl md:text-2xl lg:text-2xl font-bold text-white mb-3 md:mb-4 drop-shadow-lg">

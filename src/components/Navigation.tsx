@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, ChevronDown, FileText, Users, Cog, Briefcase, MapPin, Shield, ShoppingCart, Car, Tractor, Truck, Laptop, Phone, Radio, Database, Archive } from "lucide-react";
+import { Menu, X, ChevronDown, FileText, Users, Cog, Briefcase, MapPin, Shield, ShoppingCart, Car, Tractor, Truck, Laptop, Phone, Radio, Database, Archive, FlaskConical } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
@@ -15,13 +15,11 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   const companyMenuItems = [
-    // { name: "Электронное обращение", path: "/company/electronic-appeal", icon: FileText },
     { name: "Система менеджмента качества", path: "/company/quality-management", icon: Cog },
     { name: "Кооперация", path: "/company/cooperation", icon: Users },
     { name: "Вакансии", path: "/company/vacancies", icon: Briefcase },
     { name: "Арендные площади", path: "/company/rental-areas", icon: MapPin },
     { name: "Противодействие коррупции", path: "/company/anti-corruption", icon: Shield },
-    // { name: "Продажа неликвидов", path: "/company/asset-sales", icon: ShoppingCart }
   ];
 
   const productMenuItems = [
@@ -34,6 +32,10 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
     { name: "Специальная связь", path: "/products/special-communication", icon: Radio },
     { name: "Информационные системы", path: "/products/information-systems", icon: Database },
     { name: "Металлические шкафы", path: "/products/metal-cabinets", icon: Archive }
+  ];
+
+  const servicesMenuItems = [
+    { name: "Испытательные лаборатории", path: "/services/testing-laboratories", icon: FlaskConical },
   ];
 
   // Preload logo image
@@ -239,19 +241,55 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
                   </div>
                 </li>
 
-                <li>
-                  <Link 
-                    to="/services" 
+                <li className="relative">
+                  <button
+                    onClick={(e) => handleDropdownClick(e, 'services')}
                     className={cn(
-                      "px-4 py-2 rounded-xl font-medium text-white transition-all duration-300",
+                      "flex items-center px-4 py-2 rounded-xl font-medium text-white transition-all duration-300",
                       scrolled 
                         ? "hover:text-orange-300" 
                         : "hover:text-orange-300 hover:bg-white/10"
                     )}
                   >
                     Услуги
-                  </Link>
+                    <ChevronDown className={cn(
+                      "ml-1 h-4 w-4 transition-all duration-500 ease-out",
+                      activeDropdown === 'services' && "rotate-180 text-orange-300"
+                    )} />
+                  </button>
+                  
+                  <div className={cn(
+                    "absolute top-full left-0 mt-6 min-w-[300px] transition-all duration-500 ease-out origin-top transform",
+                    activeDropdown === 'services' 
+                      ? "opacity-100 scale-100 translate-y-0 pointer-events-auto" 
+                      : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
+                  )}
+                  style={{ zIndex: 1001 }}
+                  >
+                    <div className="rounded-xl p-2 shadow-xl bg-black/90 backdrop-blur-xl border-2 border-white/20 shadow-slate-900/30">
+                      <Link
+                        to="/services"
+                        className="flex items-center px-4 py-3 text-sm text-white hover:text-orange-300 rounded-lg transition-all duration-300 hover:bg-white/10 border-b border-white/10 mb-2 font-medium group"
+                        onClick={() => setActiveDropdown(null)}
+                      >
+                        <Cog className="mr-3 h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
+                        Услуги - Главная
+                      </Link>
+                      {servicesMenuItems.map((item) => (
+                        <Link
+                          key={item.path}
+                          to={item.path}
+                          className="flex items-center px-4 py-3 text-sm text-white/90 hover:text-orange-300 rounded-lg transition-all duration-300 hover:bg-white/5 group"
+                          onClick={() => setActiveDropdown(null)}
+                        >
+                          <item.icon className="mr-3 h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 </li>
+                
                 <li>
                   <Link 
                     to="/contact" 
@@ -263,19 +301,6 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
                     )}
                   >
                     Контакты
-                  </Link>
-                </li>
-                <li>
-                  <Link 
-                    to="/support" 
-                    className={cn(
-                      "px-4 py-2 rounded-xl font-medium text-white transition-all duration-300",
-                      scrolled 
-                        ? "hover:text-orange-300" 
-                        : "hover:text-orange-300 hover:bg-white/10"
-                    )}
-                  >
-                    Поддержка и сервис
                   </Link>
                 </li>
               </ul>
@@ -417,26 +442,35 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
               </div>
             </div>
             
-            <Link 
-              to="/services" 
-              className="block text-lg font-medium py-2 text-white hover:text-orange-300 transition-all duration-300" 
-              onClick={closeMobileMenu}
-            >
-              Услуги
-            </Link>
+            <div>
+              <div className="text-lg font-medium py-2 text-white/70">Услуги</div>
+              <div className="ml-4 space-y-2">
+                <Link 
+                  to="/services"
+                  className="block py-1 text-base text-white hover:text-orange-300 transition-all duration-300 font-medium" 
+                  onClick={closeMobileMenu}
+                >
+                  Услуги - Главная
+                </Link>
+                {servicesMenuItems.map(item => (
+                  <Link 
+                    key={item.path}
+                    to={item.path} 
+                    className="block py-1 text-sm text-white/80 hover:text-orange-300 transition-all duration-300" 
+                    onClick={closeMobileMenu}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            
             <Link 
               to="/contact" 
               className="block text-lg font-medium py-2 text-white hover:text-orange-300 transition-all duration-300" 
               onClick={closeMobileMenu}
             >
               Контакты
-            </Link>
-            <Link 
-              to="/support" 
-              className="block text-lg font-medium py-2 text-white hover:text-orange-300 transition-all duration-300" 
-              onClick={closeMobileMenu}
-            >
-              Поддержка и сервис
             </Link>
           </div>
         </div>
