@@ -25,7 +25,7 @@ import {
 const TestingLaboratories = () => {
   const laboratories = [
     {
-      title: "Аккредитованная лаборатория испытаний",
+      title: "Испытательная лаборатория",
       description: "Полный комплекс механических и климатических испытаний автокомпонентов и других изделий",
       icon: Settings,
       accreditationNumber: "BY/112 2.5349",
@@ -40,7 +40,7 @@ const TestingLaboratories = () => {
       ]
     },
     {
-      title: "Аккредитованная лаборатория метрологии",
+      title: "Метрологическая лаборатория",
       description: "Поверка средств измерений радиотехнических, электрических величин, средств измерения давления и температуры",
       icon: Microscope,
       accreditationNumber: "BY/112 3.0268",
@@ -139,8 +139,7 @@ const TestingLaboratories = () => {
           <div className="absolute top-1/4 left-1/4 w-32 h-32 md:w-64 md:h-64 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-1/3 right-1/4 w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r from-purple-500/20 to-emerald-500/20 rounded-full blur-3xl animate-pulse"></div>
         </div>
-        
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-2 sm:px-8 lg:px-20 relative z-10">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent mb-8">
               Наши лаборатории
@@ -149,26 +148,41 @@ const TestingLaboratories = () => {
               Современное оборудование и высококвалифицированные специалисты
             </p>
           </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
             {laboratories.map((lab, index) => {
               const Icon = lab.icon;
+              // Цвета для акцентов по индексу
+              const accentColors = [
+                {
+                  border: "hover:border-cyan-400/30",
+                  glow: "from-cyan-500/10 to-purple-500/10",
+                  iconBg: "from-cyan-500/20 to-purple-500/20",
+                  icon: "text-cyan-400"
+                },
+                {
+                  border: "hover:border-emerald-400/30",
+                  glow: "from-emerald-500/10 to-green-500/10",
+                  iconBg: "from-emerald-500/20 to-green-500/20",
+                  icon: "text-emerald-400"
+                }
+              ];
+              const color = accentColors[index % accentColors.length];
               return (
-                <Card 
+                <Card
                   key={index}
-                  className="group overflow-hidden bg-slate-900/30 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-700 hover:shadow-2xl hover:shadow-slate-900/50 h-full"
+                  className={`group relative overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 ${color.border} transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-[1.02] flex flex-col h-full`}
                 >
-                  <div className="p-6 md:p-8 flex flex-col h-full">
+                  {/* Background glow on hover */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${color.glow} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`}></div>
+                  <div className="p-6 md:p-8 flex flex-col h-full relative z-10">
                     <div className="flex items-center mb-6">
-                      <div className="bg-gradient-to-r from-cyan-500/20 to-purple-500/20 p-3 rounded-xl mr-4">
-                        <Icon className="w-6 h-6 text-cyan-400" />
+                      <div className={`w-14 h-14 bg-gradient-to-br ${color.iconBg} rounded-xl flex items-center justify-center mr-4 shadow-lg`}>
+                        <Icon className={`w-7 h-7 ${color.icon}`} />
                       </div>
                       <h3 className="text-xl md:text-2xl font-bold text-white">{lab.title}</h3>
                     </div>
-                    
                     <p className="text-slate-300 mb-6 leading-relaxed">{lab.description}</p>
-                    
-                    <div className="mb-6 p-4 bg-slate-800/20 rounded-lg border border-slate-700/30">
+                    <div className="mb-6 p-4 bg-white/10 rounded-lg border border-white/10">
                       <p className="text-sm text-slate-400 mb-2">
                         <strong className="text-white">Основания для оказания услуг:</strong> аттестат аккредитации № {lab.accreditationNumber} от {lab.accreditationDate}
                       </p>
@@ -176,7 +190,6 @@ const TestingLaboratories = () => {
                         <strong className="text-white">Срок действия:</strong> {lab.validityPeriod}
                       </p>
                     </div>
-                    
                     <div className="flex-grow">
                       <h4 className="text-lg font-semibold text-white mb-3">Виды услуг:</h4>
                       <ul className="space-y-2">
@@ -196,65 +209,12 @@ const TestingLaboratories = () => {
         </div>
       </section>
 
-      {/* Documents Section */}
-      <section className="py-16 md:py-20 bg-black relative overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/6 right-1/6 w-32 h-32 md:w-64 md:h-64 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 left-1/6 w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
-        </div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent mb-8">
-              Документы
-            </h2>
-            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              Аттестаты аккредитации и области деятельности наших лабораторий
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
-            {documents.map((doc, index) => (
-              <Card 
-                key={index}
-                className="group overflow-hidden bg-slate-900/20 backdrop-blur-xl border border-slate-700/20 hover:border-blue-500/40 transition-all duration-500 hover:shadow-xl hover:shadow-blue-900/20"
-              >
-                <div className="p-6 flex items-center justify-between">
-                  <div className="flex items-center flex-grow">
-                    <div className="bg-gradient-to-r from-blue-500/20 to-cyan-500/20 p-3 rounded-xl mr-4 group-hover:scale-110 transition-transform duration-300">
-                      <FileText className="w-6 h-6 text-blue-400" />
-                    </div>
-                    <div className="flex-grow">
-                      <h3 className="text-lg font-semibold text-white mb-1 group-hover:text-blue-300 transition-colors">
-                        {doc.title}
-                      </h3>
-                      <p className="text-sm text-slate-400">PDF документ</p>
-                    </div>
-                  </div>
-                  <Button
-                    asChild
-                    variant="ghost"
-                    size="sm"
-                    className="ml-4 hover:bg-blue-500/20 text-blue-400 hover:text-blue-300"
-                  >
-                    <a href={doc.url} target="_blank" rel="noopener noreferrer">
-                      <Download className="w-4 h-4" />
-                    </a>
-                  </Button>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Advantages Section */}
       <section className="py-16 md:py-20 bg-gradient-to-b from-black via-slate-900/30 to-black relative overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/6 right-1/6 w-32 h-32 md:w-64 md:h-64 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 left-1/6 w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r from-teal-500/20 to-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
+        {/* Мягкое, центрированное и плавное свечение */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 md:w-[36rem] md:h-[36rem] bg-gradient-to-br from-emerald-400/10 to-purple-400/10 rounded-full blur-3xl animate-soft-glow"></div>
         </div>
-        
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent mb-8">
@@ -264,20 +224,117 @@ const TestingLaboratories = () => {
               Почему стоит выбрать наши испытательные лаборатории
             </p>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
             {advantages.map((advantage, index) => {
               const Icon = advantage.icon;
+              // Цвета и оформление как в "Наши ценности" на Company
+              const valueCardColors = [
+                {
+                  color: "text-emerald-500",
+                  bgColor: "bg-emerald-500/20"
+                },
+                {
+                  color: "text-blue-500",
+                  bgColor: "bg-blue-500/20"
+                },
+                {
+                  color: "text-purple-500",
+                  bgColor: "bg-purple-500/20"
+                },
+                {
+                  color: "text-orange-500",
+                  bgColor: "bg-orange-500/20"
+                }
+              ];
+              const color = valueCardColors[index % valueCardColors.length];
               return (
-                <Card 
+                <Card
                   key={index}
-                  className={`group text-center p-6 ${advantage.bgColor} backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-500 hover:scale-105 ${advantage.hoverBg}`}
+                  className="p-4 sm:p-6 md:p-8 text-center bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-500 hover:scale-105 animate-fade-in-up"
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 bg-white/5">
-                    <Icon className={`w-8 h-8 ${advantage.iconColor}`} />
+                  <div className={`w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 ${color.bgColor} rounded-xl flex items-center justify-center mx-auto mb-3 md:mb-4 lg:mb-6`}>
+                    <Icon className={`h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 ${color.color}`} />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3">{advantage.title}</h3>
-                  <p className="text-slate-300">{advantage.description}</p>
+                  <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 md:mb-3 text-white">{advantage.title}</h3>
+                  <p className="text-slate-300 text-xs sm:text-sm md:text-base">{advantage.description}</p>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+        {/* Плавная анимация свечения */}
+        <style>{`
+          @keyframes softGlow {
+            0%, 100% { filter: blur(60px) brightness(1); opacity: 0.7; transform: translate(-50%, -50%) scale(1); }
+            50% { filter: blur(80px) brightness(1.1); opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
+          }
+          .animate-soft-glow {
+            animation: softGlow 12s ease-in-out infinite;
+          }
+        `}</style>
+      </section>
+
+      {/* Documents Section */}
+      <section className="py-16 md:py-20 bg-black relative overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/6 right-1/6 w-32 h-32 md:w-64 md:h-64 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 left-1/6 w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent mb-8">
+              Документы
+            </h2>
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+              Аттестаты аккредитации и области деятельности наших лабораторий
+            </p>
+          </div>
+          <div className="grid gap-4 max-w-5xl mx-auto">
+            {documents.map((doc, index) => {
+              // Цвета для карточек документов
+              const docColors = [
+                {
+                  glow: "from-blue-500/10 to-cyan-500/10",
+                  iconBg: "from-blue-500/20 to-cyan-500/20",
+                  icon: "text-blue-400",
+                  border: "hover:border-blue-400/30",
+                  btn: "hover:border-blue-400/50 hover:shadow-blue-500/20"
+                }
+                // {
+                //   glow: "from-purple-500/10 to-pink-500/10",
+                //   iconBg: "from-purple-500/20 to-pink-500/20",
+                //   icon: "text-purple-400",
+                //   border: "hover:border-purple-400/30",
+                //   btn: "hover:border-purple-400/50 hover:shadow-purple-500/20"
+                // }
+              ];
+              const color = docColors[index % docColors.length];
+              return (
+                <Card key={index} className={`p-6 bg-white/5 backdrop-blur-xl border border-white/10 ${color.border} transition-all duration-300 group relative`}>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${color.glow} rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                  <div className="flex items-center justify-between relative z-10">
+                    <div className="flex items-start space-x-4 flex-1">
+                      <div className={`w-12 h-12 bg-gradient-to-br ${color.iconBg} rounded-xl flex items-center justify-center flex-shrink-0`}>
+                        <FileText className={`w-6 h-6 ${color.icon}`} />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-semibold mb-2 text-white">
+                          {doc.title}
+                        </h3>
+                        <p className="text-slate-400 text-sm">PDF документ</p>
+                      </div>
+                    </div>
+                    <Button
+                      size="sm"
+                      className={`bg-white/10 hover:bg-white/20 text-white border border-white/20 ${color.btn} backdrop-blur-sm transition-all duration-300 flex-shrink-0 ml-4 shadow-lg hover:shadow-xl hover:scale-[1.02] group/btn`}
+                      onClick={() => window.open(doc.url, '_blank')}
+                    >
+                      <div className={`absolute inset-0 bg-gradient-to-r ${color.glow} rounded-md opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300`}></div>
+                      <Download className="w-4 h-4 mr-2 relative z-10" />
+                      <span className="relative z-10">PDF</span>
+                    </Button>
+                  </div>
                 </Card>
               );
             })}
@@ -291,7 +348,6 @@ const TestingLaboratories = () => {
           <div className="absolute top-1/4 left-1/4 w-32 h-32 md:w-64 md:h-64 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-1/6 right-1/4 w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r from-pink-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
         </div>
-        
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent mb-8">
@@ -301,33 +357,33 @@ const TestingLaboratories = () => {
               Свяжитесь с руководителем департамента для получения консультации
             </p>
           </div>
-
           <div className="max-w-2xl mx-auto">
-            <Card className="bg-slate-900/30 backdrop-blur-xl border border-slate-700/20 hover:border-purple-500/40 transition-all duration-500">
-              <div className="p-8 text-center">
-                <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <User className="w-10 h-10 text-purple-400" />
-                </div>
-                
-                <h3 className="text-2xl font-bold text-white mb-2">
-                  Руководитель Департамента управления качеством
-                </h3>
-                <p className="text-xl text-purple-300 mb-6 font-semibold">
-                  Шляев Артём Сергеевич
-                </p>
-                
-                <div className="space-y-4">
-                  <div className="flex items-center justify-center text-slate-300">
-                    <Phone className="w-5 h-5 text-emerald-400 mr-3" />
-                    <a href="tel:+375173889093" className="hover:text-emerald-400 transition-colors">
-                      +375 17 3889093
-                    </a>
+            <Card className="overflow-hidden bg-white/10 backdrop-blur-xl border border-white/10 hover:border-purple-400/30 transition-all duration-300 relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="flex flex-col md:flex-row h-full relative z-10">
+                <div className="w-full md:w-40 flex-shrink-0 flex items-center justify-center bg-gradient-to-br from-purple-500/10 to-pink-500/10 p-4 md:p-0">
+                  <div className="w-28 h-32 rounded-lg shadow-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
+                    <User className="w-10 h-10 text-purple-400" />
                   </div>
-                  <div className="flex items-center justify-center text-slate-300">
-                    <Mail className="w-5 h-5 text-cyan-400 mr-3" />
-                    <a href="mailto:shliaev@mpovt.by" className="hover:text-cyan-400 transition-colors">
-                      shliaev@mpovt.by
-                    </a>
+                </div>
+                <div className="flex-1 p-6">
+                  <h3 className="text-xl font-bold mb-2 text-white">
+                    Шляев Артём Сергеевич
+                  </h3>
+                  <p className="text-white/60 mb-4">Руководитель Департамента управления качеством</p>
+                  <div className="space-y-2">
+                    <div className="flex items-center text-slate-300">
+                      <Phone className="w-4 h-4 mr-2 text-purple-400" />
+                      <a href="tel:+375173889093" className="hover:text-purple-400 transition-colors">
+                        +375 17 3889093
+                      </a>
+                    </div>
+                    <div className="flex items-center text-slate-300">
+                      <Mail className="w-4 h-4 mr-2 text-pink-400" />
+                      <a href="mailto:shliaev@mpovt.by" className="hover:text-pink-400 transition-colors">
+                        shliaev@mpovt.by
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -337,7 +393,7 @@ const TestingLaboratories = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 md:py-24 lg:py-28 relative bg-gradient-to-b from-black via-slate-900/20 to-black overflow-hidden">
+      {/* <section className="py-20 md:py-24 lg:py-28 relative bg-gradient-to-b from-black via-slate-900/20 to-black overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-1/4 left-1/4 w-32 h-32 md:w-64 md:h-64 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-1/6 right-1/4 w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-3xl animate-pulse"></div>
@@ -366,7 +422,7 @@ const TestingLaboratories = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <Footer />
     </div>
