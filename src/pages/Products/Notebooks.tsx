@@ -133,7 +133,7 @@ const Notebooks = () => {
               Мобильные решения с производительностью рабочей станции
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white shadow-lg">
+              <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white shadow-lg">
                 <a href="#specifications" className="flex items-center">
                   Характеристики
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -206,6 +206,38 @@ const Notebooks = () => {
                   Этот мобильный ПК поддерживает все функциональные возможности, доступные в корпоративной офисной среде или на полноценном рабочем месте, и при этом достаточно компактен и легок для того, чтобы вы могли повсюду носить его с собой.
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Presentation Section */}
+      <section id="video" className="py-16 md:py-20 px-4 bg-gradient-to-b from-black to-slate-900/50 relative">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+              H-Book в действии
+            </h2>
+            <p className="text-slate-300 text-lg max-w-2xl mx-auto">
+              Посмотрите видеопрезентацию наших ноутбуков и убедитесь в их возможностях
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-2xl blur-2xl"></div>
+              <video 
+                className="w-full h-auto rounded-2xl relative z-10"
+                controls
+                autoPlay
+                muted
+                loop
+                preload="auto"
+                poster="/placeholder.svg"
+              >
+                <source src="/videos/h-book.mp4" type="video/mp4" />
+                Ваш браузер не поддерживает воспроизведение видео.
+              </video>
             </div>
           </div>
         </div>

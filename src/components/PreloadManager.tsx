@@ -15,7 +15,11 @@ const PreloadManager = ({ children, onLoadingChange }: PreloadManagerProps) => {
     const preloadResources = async () => {
       const imagesToPreload = [
         '/lovable-uploads/70fca613-4992-4ede-98c2-f9c7e669d23e.png', // Logo
+        '../public/imgs/laptops/p1.png', // H-Book изображение 1
+        '../public/imgs/laptops/p2.png', // H-Book изображение 2
       ];
+
+      const videoToPreload = '/videos/h-book.mp4'; // H-Book видео
 
       const imagePromises = imagesToPreload.map((src) => {
         return new Promise((resolve, reject) => {
@@ -26,8 +30,36 @@ const PreloadManager = ({ children, onLoadingChange }: PreloadManagerProps) => {
         });
       });
 
+      // Предзагрузка видео
+      const videoPromise = new Promise((resolve, reject) => {
+        const video = document.createElement('video');
+        video.onloadeddata = () => resolve(video);
+        video.onerror = reject;
+        video.src = videoToPreload;
+        video.preload = "auto";
+        video.load();
+      });
+
+      // Добавляем link теги для предзагрузки
+      const resources = [
+        { href: '../public/imgs/laptops/p1.png', as: 'image' },
+        { href: '../public/imgs/laptops/p2.png', as: 'image' },
+        { href: '/videos/h-book.mp4', as: 'video', type: 'video/mp4' }
+      ];
+
+      resources.forEach(resource => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.href = resource.href;
+        link.as = resource.as;
+        if (resource.type) {
+          link.type = resource.type;
+        }
+        document.head.appendChild(link);
+      });
+
       try {
-        await Promise.all(imagePromises);
+        await Promise.all([...imagePromises, videoPromise]);
         
         // Минимальная длительность загрузки 2 секунды
         setTimeout(() => {
@@ -51,6 +83,21 @@ const PreloadManager = ({ children, onLoadingChange }: PreloadManagerProps) => {
     };
 
     preloadResources();
+
+    // Очистка при размонтировании
+    return () => {
+      // Удаляем добавленные link теги
+      const preloadLinks = document.querySelectorAll('link[rel="preload"]') as NodeListOf<HTMLLinkElement>;
+      preloadLinks.forEach(link => {
+        if (link.href.includes('imgs/laptops') || link.href.includes('videos/h-book')) {
+          try {
+            document.head.removeChild(link);
+          } catch (error) {
+            // Игнорируем ошибки если элемент уже удален
+          }
+        }
+      });
+    };
   }, [onLoadingChange]);
 
   if (isLoading) {
