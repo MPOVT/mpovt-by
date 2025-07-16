@@ -40,11 +40,10 @@ const PreloadManager = ({ children, onLoadingChange }: PreloadManagerProps) => {
         video.load();
       });
 
-      // Добавляем link теги для предзагрузки
+      // Добавляем link теги для предзагрузки (только для изображений)
       const resources = [
         { href: '../public/imgs/laptops/p1.png', as: 'image' },
-        { href: '../public/imgs/laptops/p2.png', as: 'image' },
-        { href: '/videos/h-book.mp4', as: 'video', type: 'video/mp4' }
+        { href: '../public/imgs/laptops/p2.png', as: 'image' }
       ];
 
       resources.forEach(resource => {
@@ -52,9 +51,6 @@ const PreloadManager = ({ children, onLoadingChange }: PreloadManagerProps) => {
         link.rel = 'preload';
         link.href = resource.href;
         link.as = resource.as;
-        if (resource.type) {
-          link.type = resource.type;
-        }
         document.head.appendChild(link);
       });
 
@@ -89,7 +85,7 @@ const PreloadManager = ({ children, onLoadingChange }: PreloadManagerProps) => {
       // Удаляем добавленные link теги
       const preloadLinks = document.querySelectorAll('link[rel="preload"]') as NodeListOf<HTMLLinkElement>;
       preloadLinks.forEach(link => {
-        if (link.href.includes('imgs/laptops') || link.href.includes('videos/h-book')) {
+        if (link.href.includes('imgs/laptops')) {
           try {
             document.head.removeChild(link);
           } catch (error) {
