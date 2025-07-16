@@ -67,11 +67,11 @@ const Vacancies = () => {
   };
 
   const hrManager = {
-    name: "Улькин Максим Владимирович",
+    name: "Кононович Елена Александровна",
     position: "Руководитель департамента подбора персонала",
-    photo: "https://mpovt.by/gallery_gen/81e58fda2be845b3a58d1d39baea37d0_290x307_10x0_300x307_crop.jpg?ts=1746513904",
-    phones: ["+375 17 3889458", "+375 44 7635888"],
-    email: "ulkin@mpovt.by"
+    photo: "../public/imgs/workers/elena_kononovich.jpg",
+    phones: ["+375 17 3886446"],
+    email: "ekononovich@mpovt.by"
   };
 
   const benefits = [

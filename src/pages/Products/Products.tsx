@@ -56,7 +56,7 @@ const Products = () => {
       fullDescription: "H-Book - это революция в мобильных потребительских решениях. Ударопрочный магниевый корпус, водонепроницаемость, 20-часовая автономность и возможность горячей замены батарей делают их незаменимыми для полевых работ.",
       videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
       image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=1200&h=800&fit=crop",
-      link: "/products/h-book",
+      link: "/products/laptops",
       gradient: "from-emerald-600 via-emerald-500 to-teal-400",
       bgGradient: "from-emerald-500/20 via-teal-400/20 to-emerald-600/20",
       badge: "Мобильные решения",

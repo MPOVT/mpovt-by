@@ -43,7 +43,7 @@ const Notebooks = () => {
     {
       icon: Wifi,
       title: "Беспроводная связь",
-      description: "Wi-Fi 5 поколения (AC)",
+      description: "Wi-Fi 6 поколения (AX)",
       color: "text-purple-400"
     },
     {
@@ -125,14 +125,14 @@ const Notebooks = () => {
         </div>
 
         <div className="container mx-auto relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+          <div className="max-w-4xl mx-auto text-center animate-fade-in">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-clip-text text-white">
               Ноутбуки H-Book
             </h1>
             <p className="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed">
               Мобильные решения с производительностью рабочей станции
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white shadow-lg">
                 <a href="#specifications" className="flex items-center">
                   Характеристики
@@ -145,7 +145,7 @@ const Notebooks = () => {
                   <Download className="ml-2 h-5 w-5" />
                 </a>
               </Button>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -154,7 +154,7 @@ const Notebooks = () => {
       <section className="py-16 md:py-20 px-4 relative">
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <div className="animate-fade-in-left">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
                 Производство ОАО "МПОВТ"
               </h2>
@@ -167,7 +167,7 @@ const Notebooks = () => {
                 </p>
               </div>
             </div>
-            <div className="relative">
+            <div className="relative animate-fade-in-right">
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-3xl blur-3xl"></div>
               <img 
                 src="../public/imgs/laptops/p1.png" 
@@ -180,10 +180,10 @@ const Notebooks = () => {
       </section>
 
       {/* Performance Section */}
-      <section className="py-16 md:py-20 px-4 bg-gradient-to-b from-black to-slate-900/50 relative">
+      <section className="px-4 bg-gradient-to-b from-black to-slate-900/50 relative">
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1 relative">
+            <div className="order-2 lg:order-1 relative animate-fade-in-left">
               <div className="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-cyan-500/20 rounded-3xl blur-3xl"></div>
               <img 
                 src="../public/imgs/laptops/p2.png" 
@@ -191,7 +191,7 @@ const Notebooks = () => {
                 className="relative rounded-2xl shadow-2xl w-full h-auto transform hover:scale-105 transition-transform duration-700"
               />
             </div>
-            <div className="order-1 lg:order-2">
+            <div className="order-1 lg:order-2 animate-fade-in-right">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">
                 Производительность рабочей станции
               </h2>
@@ -214,7 +214,7 @@ const Notebooks = () => {
       {/* Video Presentation Section */}
       <section id="video" className="py-16 md:py-20 px-4 bg-gradient-to-b from-black to-slate-900/50 relative">
         <div className="container mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
               H-Book в действии
             </h2>
@@ -223,7 +223,7 @@ const Notebooks = () => {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto animate-fade-in-up" style={{ animationDelay: '300ms' }}>
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-2xl blur-2xl"></div>
               <video 
@@ -246,7 +246,7 @@ const Notebooks = () => {
       {/* Display & Features Section */}
       <section className="py-16 md:py-20 px-4 relative">
         <div className="container mx-auto">
-          <div className="max-w-4xl mx-auto text-center mb-12">
+          <div className="max-w-4xl mx-auto text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
               Дисплей и возможности
             </h2>
@@ -271,7 +271,7 @@ const Notebooks = () => {
       {/* Specifications Section */}
       <section id="specifications" className="py-16 md:py-20 px-4 bg-gradient-to-b from-slate-900/50 to-black relative">
         <div className="container mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
               Технические характеристики
             </h2>
@@ -282,7 +282,7 @@ const Notebooks = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {specifications.map((spec, index) => (
-              <Card key={index} className="p-6 bg-slate-800/20 backdrop-blur-sm border-slate-700/30 hover:border-slate-600/50 transition-all duration-300 hover:scale-105">
+              <Card key={index} className="p-6 bg-slate-800/20 backdrop-blur-sm border-slate-700/30 hover:border-slate-600/50 transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
                 <div className="flex flex-col items-center text-center">
                   <div className={`p-3 rounded-full bg-slate-800/40 mb-4`}>
                     <spec.icon className={`w-8 h-8 ${spec.color}`} />
@@ -299,7 +299,7 @@ const Notebooks = () => {
       {/* Key Features */}
       <section className="py-16 md:py-20 px-4 relative">
         <div className="container mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">
               Ключевые особенности
             </h2>
@@ -310,7 +310,7 @@ const Notebooks = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="p-8 bg-slate-800/10 backdrop-blur-sm border-slate-700/20 hover:border-slate-600/40 transition-all duration-300">
+              <Card key={index} className="p-8 bg-slate-800/10 backdrop-blur-sm border-slate-700/20 hover:border-slate-600/40 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: `${index * 150}ms` }}>
                 <div className="flex items-start space-x-4">
                   <div className="p-3 rounded-full bg-gradient-to-r from-emerald-500/20 to-teal-500/20 flex-shrink-0">
                     <feature.icon className="w-6 h-6 text-emerald-400" />
@@ -329,7 +329,7 @@ const Notebooks = () => {
       {/* Downloads Section */}
       <section id="downloads" className="py-16 md:py-20 px-4 bg-gradient-to-b from-black to-slate-900/50 relative">
         <div className="container mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
               Загрузки
             </h2>
@@ -340,7 +340,7 @@ const Notebooks = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {downloads.map((download, index) => (
-              <Card key={index} className="p-6 bg-slate-800/20 backdrop-blur-sm border-slate-700/30 hover:border-slate-600/50 transition-all duration-300 hover:scale-105">
+              <Card key={index} className="p-6 bg-slate-800/20 backdrop-blur-sm border-slate-700/30 hover:border-slate-600/50 transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
                 <div className="text-center">
                   <div className="p-3 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 inline-flex mb-4">
                     <Download className="w-6 h-6 text-cyan-400" />
@@ -366,7 +366,7 @@ const Notebooks = () => {
       {/* CTA Section */}
       <section className="py-16 md:py-20 px-4 relative">
         <div className="container mx-auto text-center">
-          <Card className="max-w-4xl mx-auto p-8 md:p-12 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-500">
+          <Card className="max-w-4xl mx-auto p-8 md:p-12 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-500 animate-fade-in">
             <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6 text-white">
               Заинтересованы в H-Book?
             </h2>
