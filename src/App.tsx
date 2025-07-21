@@ -12,12 +12,12 @@ import Cooperation from "./pages/company/Cooperation";
 import RentalAreas from "./pages/company/RentalAreas";
 import AntiCorruption from "./pages/company/AntiCorruption";
 // import AssetSales from "./pages/AssetSales";
-import Products from "./pages/products/Products";
-import Notebooks from "./pages/products/Notebooks";
+import Products from "./pages/Products/Products";
+import Notebooks from "./pages/Products/Notebooks";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Services from "./pages/services/Services";
-import TestingLabs from "./pages/services/TestingLaboratories"
+import TestingLabs from "./pages/services/TestingLaboratories";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import ScrollToTop from "./components/ScrollToTop";
 import PreloadManager from "./components/PreloadManager";
