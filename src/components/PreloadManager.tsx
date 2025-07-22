@@ -15,8 +15,8 @@ const PreloadManager = ({ children, onLoadingChange }: PreloadManagerProps) => {
     const preloadResources = async () => {
       const imagesToPreload = [
         '/lovable-uploads/70fca613-4992-4ede-98c2-f9c7e669d23e.png', // Logo
-        '../public/imgs/laptops/p1.png', // H-Book изображение 1
-        '../public/imgs/laptops/p2.png', // H-Book изображение 2
+        '/imgs/laptops/p1.png', // H-Book изображение 1
+        '/imgs/laptops/p2.png', // H-Book изображение 2
       ];
 
       const videoToPreload = '/videos/h-book.mp4'; // H-Book видео
@@ -42,8 +42,8 @@ const PreloadManager = ({ children, onLoadingChange }: PreloadManagerProps) => {
 
       // Добавляем link теги для предзагрузки (только для изображений)
       const resources = [
-        { href: '../public/imgs/laptops/p1.png', as: 'image' },
-        { href: '../public/imgs/laptops/p2.png', as: 'image' }
+        { href: '/imgs/laptops/p1.png', as: 'image' },
+        { href: '/imgs/laptops/p2.png', as: 'image' }
       ];
 
       resources.forEach(resource => {

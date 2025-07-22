@@ -143,7 +143,7 @@ const Notebooks = () => {
             <div className="relative animate-fade-in-right">
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-3xl blur-3xl"></div>
               <img 
-                src="../public/imgs/laptops/p1.png" 
+                src="/imgs/laptops/p1.png" 
                 alt="H-Book Ноутбук" 
                 className="relative rounded-2xl shadow-2xl w-full h-auto transform hover:scale-105 transition-transform duration-700"
               />
@@ -159,7 +159,7 @@ const Notebooks = () => {
             <div className="order-2 lg:order-1 relative animate-fade-in-left">
               <div className="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-cyan-500/20 rounded-3xl blur-3xl"></div>
               <img 
-                src="../public/imgs/laptops/p2.png" 
+                src="/imgs/laptops/p2.png" 
                 alt="H-Book Performance" 
                 className="relative rounded-2xl shadow-2xl w-full h-auto transform hover:scale-105 transition-transform duration-700"
               />

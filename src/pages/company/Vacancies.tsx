@@ -69,7 +69,7 @@ const Vacancies = () => {
   const hrManager = {
     name: "Кононович Елена Александровна",
     position: "Руководитель департамента подбора персонала",
-    photo: "../public/imgs/workers/elena_kononovich.jpg",
+    photo: "/imgs/workers/elena_kononovich.jpg",
     phones: ["+375 17 3886446"],
     email: "ekononovich@mpovt.by"
   };
