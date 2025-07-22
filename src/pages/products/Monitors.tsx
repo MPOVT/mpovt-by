@@ -12,12 +12,42 @@ import { Monitor, Zap, Eye, Settings, Shield, Cpu } from 'lucide-react';
 
 const Monitors = () => {
   const specifications = [
-    { icon: Monitor, title: "Диагональ экрана", description: "27\" - 32\" Ultra HD 4K" },
-    { icon: Zap, title: "Частота обновления", description: "144Hz для плавного изображения" },
-    { icon: Eye, title: "Цветопередача", description: "100% sRGB, Delta E < 2" },
-    { icon: Settings, title: "Подключения", description: "USB-C, HDMI 2.1, DisplayPort 1.4" },
-    { icon: Shield, title: "Защита глаз", description: "Технология Low Blue Light" },
-    { icon: Cpu, title: "Время отклика", description: "1ms GTG для геймеров" }
+    { 
+      icon: Monitor, 
+      title: "Диагональ экрана", 
+      description: "27\" - 32\" Ultra HD 4K",
+      color: { icon: "text-blue-400", bg: "bg-blue-500/20" }
+    },
+    { 
+      icon: Zap, 
+      title: "Частота обновления", 
+      description: "До 144Hz для плавного изображения",
+      color: { icon: "text-green-400", bg: "bg-green-500/20" }
+    },
+    { 
+      icon: Eye, 
+      title: "Цветопередача", 
+      description: "100% sRGB, Delta E < 2",
+      color: { icon: "text-yellow-400", bg: "bg-yellow-500/20" }
+    },
+    { 
+      icon: Settings, 
+      title: "Подключения", 
+      description: "USB-C, HDMI 2.1, DisplayPort 1.4",
+      color: { icon: "text-purple-400", bg: "bg-purple-500/20" }
+    },
+    { 
+      icon: Shield, 
+      title: "Защита глаз", 
+      description: "Технология Low Blue Light",
+      color: { icon: "text-pink-400", bg: "bg-pink-500/20" }
+    },
+    { 
+      icon: Cpu, 
+      title: "Время отклика", 
+      description: "1ms GTG для геймеров",
+      color: { icon: "text-indigo-400", bg: "bg-indigo-500/20" }
+    }
   ];
 
   const features = [
@@ -86,17 +116,18 @@ const Monitors = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-black">
       <PageHero
         title="H-Monitor"
         subtitle="Профессиональные дисплеи нового поколения"
         description="Мониторы с превосходной цветопередачей, высокой производительностью и эргономичным дизайном для работы и развлечений"
+        backgroundVariant="default"
       />
 
       <ImageContentSection
         title="Технологии будущего"
         description="H-Monitor объединяет передовые технологии отображения с профессиональной точностью цветопередачи"
-        imageSrc="/imgs/displays/A7_03517-min.jpg"
+        imageSrc="/imgs/displays/A7_03517-min.png"
         imageAlt="H-Monitor дисплей"
         features={[
           "Ultra HD 4K разрешение с HDR10",
@@ -105,6 +136,7 @@ const Monitors = () => {
           "Интеллектуальная настройка яркости"
         ]}
         imagePosition="right"
+        imageSize="small"
       />
 
       <VideoSection
@@ -118,12 +150,13 @@ const Monitors = () => {
         paragraphs={displayDescriptionParagraphs}
       />
 
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
+      <section className="py-16 md:py-20 px-4 bg-gradient-to-b from-slate-900/50 to-black relative">
+        <div className="container mx-auto">
           <SectionHeader
             title="Технические характеристики"
             subtitle="ПРОФЕССИОНАЛЬНЫЕ ВОЗМОЖНОСТИ"
             description="Каждый H-Monitor создан для максимальной производительности и точности"
+            gradientColors='from-emerald-400 to-teal-400'
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
             {specifications.map((spec, index) => (
@@ -132,20 +165,22 @@ const Monitors = () => {
                 icon={spec.icon}
                 title={spec.title}
                 description={spec.description}
-                variant="outline"
-                animationDelay={index * 0.1}
+                color={spec.color}
+                variant="primary"
+                animationDelay={index * 100}
               />
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="container mx-auto px-4">
+      <section className="py-16 md:py-20 px-4 relative">
+        <div className="container mx-auto">
           <SectionHeader
             title="Ключевые преимущества"
             subtitle="ПОЧЕМУ H-MONITOR?"
             description="Технологии, которые делают разницу в вашей работе и развлечениях"
+            gradientColors="from-teal-400 to-cyan-400"
           />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
             {features.map((feature, index) => (

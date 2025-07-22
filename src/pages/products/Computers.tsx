@@ -12,12 +12,42 @@ import { Cpu, HardDrive, Wifi, Thermometer, Volume2, Zap } from 'lucide-react';
 
 const Computers = () => {
   const specifications = [
-    { icon: Cpu, title: "Процессор", description: "Intel Core i7 / AMD Ryzen 7" },
-    { icon: HardDrive, title: "Накопитель", description: "1TB NVMe SSD + 32GB RAM" },
-    { icon: Wifi, title: "Подключения", description: "Wi-Fi 6E, Bluetooth 5.3, USB-C" },
-    { icon: Thermometer, title: "Охлаждение", description: "Бесшумная система до 35°C" },
-    { icon: Volume2, title: "Уровень шума", description: "Менее 25 дБ при полной нагрузке" },
-    { icon: Zap, title: "Энергопотребление", description: "65W TDP, до 90% эффективности" }
+    { 
+      icon: Cpu, 
+      title: "Процессор", 
+      description: "Intel Core i7 / AMD Ryzen 7",
+      color: { icon: "text-blue-400", bg: "bg-blue-500/20" }
+    },
+    { 
+      icon: HardDrive, 
+      title: "Накопитель", 
+      description: "1TB NVMe SSD + 32GB RAM",
+      color: { icon: "text-green-400", bg: "bg-green-500/20" }
+    },
+    { 
+      icon: Wifi, 
+      title: "Подключения", 
+      description: "Wi-Fi 6E, Bluetooth 5.3, USB-C",
+      color: { icon: "text-yellow-400", bg: "bg-yellow-500/20" }
+    },
+    { 
+      icon: Thermometer, 
+      title: "Охлаждение", 
+      description: "Бесшумная система до 35°C",
+      color: { icon: "text-purple-400", bg: "bg-purple-500/20" }
+    },
+    { 
+      icon: Volume2, 
+      title: "Уровень шума", 
+      description: "Менее 25 дБ при полной нагрузке",
+      color: { icon: "text-pink-400", bg: "bg-pink-500/20" }
+    },
+    { 
+      icon: Zap, 
+      title: "Энергопотребление", 
+      description: "65W TDP, до 90% эффективности",
+      color: { icon: "text-indigo-400", bg: "bg-indigo-500/20" }
+    }
   ];
 
   const features = [
@@ -86,7 +116,7 @@ const Computers = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-black">
       <PageHero
         title="H-Top"
         subtitle="Мини-ПК максимальной мощности"
@@ -96,7 +126,7 @@ const Computers = () => {
       <ImageContentSection
         title="Мощь в миниатюре"
         description="H-Top доказывает, что размер не влияет на производительность - современные технологии в минималистичном дизайне"
-        imageSrc="/imgs/mini-pc/h-top 2.jpg"
+        imageSrc="/imgs/mini-pc/H-top5-nobg.png"
         imageAlt="H-Top мини-ПК"
         features={[
           "Процессоры последнего поколения",
@@ -118,29 +148,32 @@ const Computers = () => {
         paragraphs={computerDescriptionParagraphs}
       />
 
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <SectionHeader
-            title="Технические характеристики"
-            subtitle="МОЩНОСТЬ В ДЕТАЛЯХ"
-            description="H-Top объединяет передовые технологии в компактном корпусе"
-          />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-            {specifications.map((spec, index) => (
-              <IconCard
-                key={index}
-                icon={spec.icon}
-                title={spec.title}
-                description={spec.description}
-                variant="outline"
-                animationDelay={index * 0.1}
-              />
-            ))}
+      <section className="py-20">
+        <div className="bg-gradient-to-br from-gray-950 via-gray-900 to-black">
+          <div className="container mx-auto px-4 py-20">
+            <SectionHeader
+              title="Технические характеристики"
+              subtitle="МОЩНОСТЬ В ДЕТАЛЯХ"
+              description="H-Top объединяет передовые технологии в компактном корпусе"
+            />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+              {specifications.map((spec, index) => (
+                <IconCard
+                  key={index}
+                  icon={spec.icon}
+                  title={spec.title}
+                  description={spec.description}
+                  color={spec.color}
+                  variant="primary"
+                  animationDelay={index * 0.1}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="py-20 bg-gray-900/50">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Ключевые преимущества"
