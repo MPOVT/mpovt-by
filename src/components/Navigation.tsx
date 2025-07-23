@@ -38,7 +38,7 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
   // Preload logo image
   useEffect(() => {
     const preloadLogo = new Image();
-    preloadLogo.src = "/lovable-uploads/70fca613-4992-4ede-98c2-f9c7e669d23e.png";
+    preloadLogo.src = "/imgs/logos/mpovt.png";
   }, []);
 
   useEffect(() => {
@@ -119,7 +119,7 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
             <div className="flex justify-between items-center">
               <Link to="/" className="flex items-center group">
                 <img 
-                  src="/lovable-uploads/70fca613-4992-4ede-98c2-f9c7e669d23e.png" 
+                  src="/imgs/logos/mpovt.png" 
                   alt="ОАО МПОВТ Logo" 
                   className="h-8 w-auto transition-all duration-300 group-hover:scale-110 drop-shadow-lg"
                 />
@@ -333,7 +333,7 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
           <div className="flex items-center justify-between px-4 py-3">
             <Link to="/" className="flex items-center">
               <img 
-                src="/lovable-uploads/70fca613-4992-4ede-98c2-f9c7e669d23e.png" 
+                src="/imgs/logos/mpovt.png" 
                 alt="ОАО МПОВТ Logo" 
                 className="h-6 w-auto drop-shadow-lg"
               />

@@ -19,15 +19,7 @@ export const MainPageHero: React.FC<MainPageHeroProps> = ({
 }) => {
   return (
     <section className={`pt-40 md:pt-44 lg:pt-48 pb-12 md:pb-16 lg:pb-20 px-4 text-center relative overflow-hidden bg-black ${className}`}>
-      {/* Enhanced smooth animated background extending to next section */}
-      <div className="absolute inset-0 overflow-hidden" style={{ height: '200%' }}>
-        <div className="absolute top-1/4 left-1/4 w-32 h-32 md:w-64 md:h-64 bg-gradient-to-r from-cyan-500/30 to-blue-500/30 rounded-full blur-3xl opacity-0 animate-pulse" style={{ animationDuration: '8s', animationFillMode: 'forwards', animationDelay: '1s' }}></div>
-        <div className="absolute bottom-1/6 right-1/4 w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-full blur-3xl opacity-0 animate-pulse" style={{ animationDelay: '3s', animationDuration: '10s', animationFillMode: 'forwards' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-128 md:h-128 bg-gradient-to-r from-emerald-500/30 to-teal-500/30 rounded-full blur-3xl opacity-0 animate-pulse" style={{ animationDelay: '2s', animationDuration: '12s', animationFillMode: 'forwards' }}></div>
-        <div className="absolute top-3/4 left-1/3 w-40 h-40 md:w-80 md:h-80 bg-gradient-to-r from-yellow-500/30 to-orange-500/30 rounded-full blur-3xl opacity-0 animate-pulse" style={{ animationDelay: '4s', animationDuration: '9s', animationFillMode: 'forwards' }}></div>
-        <div className="absolute bottom-1/6 right-1/3 w-56 h-56 md:w-112 md:h-112 bg-gradient-to-r from-red-500/30 to-rose-500/30 rounded-full blur-3xl opacity-0 animate-pulse" style={{ animationDelay: '5s', animationDuration: '11s', animationFillMode: 'forwards' }}></div>
-        <div className="absolute bottom-0 left-1/4 w-72 h-72 md:w-144 md:h-144 bg-gradient-to-r from-indigo-500/30 to-purple-500/30 rounded-full blur-3xl opacity-0 animate-pulse" style={{ animationDelay: '6s', animationDuration: '14s', animationFillMode: 'forwards' }}></div>
-      </div>
+      <AnimatedBackground variant="hero" />
       
       <div className="container mx-auto relative z-10">
         <div className="max-w-4xl mx-auto animate-fade-in">

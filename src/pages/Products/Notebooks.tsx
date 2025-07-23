@@ -33,50 +33,98 @@ const Notebooks = () => {
     {
       icon: Cpu,
       title: "Процессор",
-      description: "Intel Core от 13-го поколения",
-      color: { icon: "text-blue-400", bg: "bg-blue-500/20" }
+      description: "Intel Core от 13-го поколения и Ryzen от 7-го поколения",
+      color: { 
+        icon: "text-cyan-400", 
+        bg: "bg-cyan-500/20", 
+        bgHover: "bg-cyan-500/40", 
+        border: "from-cyan-500/20 to-purple-500/20", 
+        cardHover: "bg-cyan-500/20" 
+      }
     },
     {
       icon: Monitor,
       title: "Дисплей",
-      description: "15,6\" FHD IPS с широким углом обзора",
-      color: { icon: "text-green-400", bg: "bg-green-500/20" }
+      description: "15,6\" FHD IPS экран с широким углом обзора и приятной картинкой",
+      color: { 
+        icon: "text-emerald-400", 
+        bg: "bg-emerald-500/20", 
+        bgHover: "bg-emerald-500/40", 
+        border: "from-emerald-500/20 to-teal-500/20", 
+        cardHover: "bg-emerald-500/20" 
+      }
     },
     {
       icon: Battery,
       title: "Автономность",
-      description: "До 12 часов работы от батареи",
-      color: { icon: "text-yellow-400", bg: "bg-yellow-500/20" }
+      description: "Емкая батарея обеспечивает до 12 часов работы от батареи",
+      color: { 
+        icon: "text-yellow-400", 
+        bg: "bg-yellow-500/20", 
+        bgHover: "bg-yellow-500/40", 
+        border: "from-yellow-500/20 to-orange-500/20", 
+        cardHover: "bg-yellow-500/20" 
+      }
     },
     {
       icon: Wifi,
-      title: "Беспроводная связь",
-      description: "Wi-Fi 6 поколения (AX)",
-      color: { icon: "text-purple-400", bg: "bg-purple-500/20" }
+      title: "Беспроводная сеть",
+      description: "Сверхбыстрое соединение с Wi-Fi 6 поколения (AX)",
+      color: { 
+        icon: "text-purple-400", 
+        bg: "bg-purple-500/20", 
+        bgHover: "bg-purple-500/40", 
+        border: "from-purple-500/20 to-pink-500/20", 
+        cardHover: "bg-purple-500/20" 
+      }
     },
     {
       icon: Camera,
       title: "Веб-камера",
       description: "HD 720p с качественным изображением",
-      color: { icon: "text-pink-400", bg: "bg-pink-500/20" }
+      color: { 
+        icon: "text-pink-400", 
+        bg: "bg-pink-500/20", 
+        bgHover: "bg-pink-500/40", 
+        border: "from-pink-500/20 to-rose-500/20", 
+        cardHover: "bg-pink-500/20" 
+      }
     },
     {
       icon: Mic,
       title: "Микрофон",
-      description: "Интеллектуальная система шумоподавления",
-      color: { icon: "text-indigo-400", bg: "bg-indigo-500/20" }
+      description: "Отличное качество звука с интеллектуальной системой шумоподавления",
+      color: { 
+        icon: "text-indigo-400", 
+        bg: "bg-indigo-500/20", 
+        bgHover: "bg-indigo-500/40", 
+        border: "from-indigo-500/20 to-blue-500/20", 
+        cardHover: "bg-indigo-500/20" 
+      }
     },
     {
       icon: Usb,
-      title: "Подключение",
-      description: "Полнофункциональный порт USB Type-C",
-      color: { icon: "text-teal-400", bg: "bg-teal-500/20" }
+      title: "Интерфейсы",
+      description: "Полнофункциональные порты USB Type-C и USB 3.2",
+      color: { 
+        icon: "text-teal-400", 
+        bg: "bg-teal-500/20", 
+        bgHover: "bg-teal-500/40", 
+        border: "from-teal-500/20 to-cyan-500/20", 
+        cardHover: "bg-teal-500/20" 
+      }
     },
     {
       icon: Eye,
       title: "Дизайн",
       description: "Узкие рамки для увеличения площади экрана",
-      color: { icon: "text-orange-400", bg: "bg-orange-500/20" }
+      color: { 
+        icon: "text-orange-400", 
+        bg: "bg-orange-500/20", 
+        bgHover: "bg-orange-500/40", 
+        border: "from-orange-500/20 to-red-500/20", 
+        cardHover: "bg-orange-500/20" 
+      }
     }
   ];
 
@@ -141,7 +189,8 @@ const Notebooks = () => {
     <div className="min-h-screen bg-black">
       <PageHero
         title="Ноутбуки H-Book"
-        description="Мобильные решения с производительностью рабочей станции"
+        subtitle="Мобильные решения с производительностью рабочей станции"
+        description="Белорусские ноутбуки с идеальным сочетанием мобильности, производительности и доступной цены для профессиональной работы в любом месте"
         backgroundVariant="default"
       />
 
@@ -174,8 +223,8 @@ const Notebooks = () => {
 
       {/* Видео секция */}
       <VideoSection
-        title="H-Book в действии"
-        description="Посмотрите видеопрезентацию наших ноутбуков и убедитесь в их возможностях"
+        title=""
+        description=""
         videoSrc="/videos/h-book.mp4"
         posterSrc="/placeholder.svg"
         gradientColors="from-cyan-400 to-blue-400"
@@ -197,7 +246,7 @@ const Notebooks = () => {
             gradientColors="from-emerald-400 to-teal-400"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto justify-center items-stretch place-items-center">
             {specifications.map((spec, index) => (
               <IconCard
                 key={index}
@@ -205,7 +254,7 @@ const Notebooks = () => {
                 title={spec.title}
                 description={spec.description}
                 color={spec.color}
-                variant="primary"
+                variant="quality"
                 animationDelay={index * 100}
               />
             ))}

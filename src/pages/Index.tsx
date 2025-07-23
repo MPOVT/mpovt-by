@@ -101,53 +101,53 @@ const IndexRefactored = () => {
       title: "ПК",
       subtitle: "H-Top",
       description: "Высокопроизводительные потребительские компьютеры для критически важных задач в экстремальных условиях",
-      fullDescription: "Наши потребительские ПК H-Top созданы для работы в самых суровых условиях. Защищенные корпуса IP65, расширенный температурный диапазон от -40°C до +85°C, антивибрационная защита и модульная архитектура обеспечивают надежность в любых применениях.",
+      fullDescription: "Наши потребительские ПК H-Top созданы для работы в самых суровых условиях. Защищенные корпуса IP65, расширенный температурный диапазон от -40°C до +85°C, антивибрационная защита и модульная архитектура обеспечивают надежность в любых применениях",
       videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
       image: "/imgs/mini-pc/h-top.jpg",
       link: "/products/h-pc",
-      gradient: "from-blue-600 via-blue-500 to-cyan-400",
-      bgGradient: "from-blue-900/30 via-slate-900/60 to-cyan-900/40",
-      borderHover: "hover:border-cyan-400/50",
-      buttonShine: "before:from-transparent before:via-cyan-400/60 before:to-transparent"
+      gradient: "from-amber-600 via-slate-500 to-slate-900",
+      bgGradient: "from-amber-900/50 via-slate-900/20 to-slate-900/50",
+      borderHover: "hover:border-orange-400/50",
+      buttonShine: "before:from-transparent before:via-orange-400/60 before:to-transparent"
     },
     {
       title: "Ноутбуки",
       subtitle: "H-Book",
       description: "Мобильные защищенные решения для полевых условий и критических миссий",
-      fullDescription: "H-Book - это революция в мобильных потребительских решениях. Ударопрочный магниевый корпус, водонепроницаемость, 20-часовая автономность и возможность горячей замены батарей делают их незаменимыми для полевых работ.",
+      fullDescription: "H-Book - это революция в мобильных потребительских решениях. Ударопрочный магниевый корпус, водонепроницаемость, 20-часовая автономность и возможность горячей замены батарей делают их незаменимыми для полевых работ",
       videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
       image: "/imgs/laptops/h-book-pro.jpg",
       link: "/products/laptops",
-      gradient: "from-emerald-600 via-emerald-500 to-teal-400",
-      bgGradient: "from-emerald-900/0 via-slate-900/50 to-teal-900/50",
-      borderHover: "hover:border-emerald-400/50",
-      buttonShine: "before:from-transparent before:via-emerald-400/60 before:to-transparent"
+      gradient: "from-amber-600 via-amber-500 to-orange-400",
+      bgGradient: "from-amber-900/50 via-slate-900/20 to-slate-900/50",
+      borderHover: "hover:border-orange-400/50",
+      buttonShine: "before:from-transparent before:via-orange-400/60 before:to-transparent"
     },
     {
       title: "Мониторы",
       subtitle: "H-Monitor",
       description: "Профессиональные дисплеи повышенной надежности для потребительского мониторинга",
-      fullDescription: "Наши потребительские мониторы H обеспечивают кристально четкое изображение в любых условиях освещения. Антибликовые покрытия, сенсорные технологии и широкие углы обзора гарантируют комфортную работу операторов.",
+      fullDescription: "Наши потребительские мониторы H обеспечивают кристально четкое изображение в любых условиях освещения. Антибликовые покрытия, сенсорные технологии и широкие углы обзора гарантируют комфортную работу операторов",
       videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
       image: "/imgs/displays/h-monitor.jpg",
       link: "/products/h-monitors",
-      gradient: "from-purple-600 via-purple-500 to-pink-400",
-      bgGradient: "from-purple-900/60 via-slate-900/50 to-pink-900/50",
-      borderHover: "hover:border-pink-400/50",
-      buttonShine: "before:from-transparent before:via-pink-400/60 before:to-transparent"
+      gradient: "from-amber-600 via-amber-500 to-orange-400",
+      bgGradient: "from-amber-900/50 via-slate-900/20 to-slate-900/50",
+      borderHover: "hover:border-orange-400/50",
+      buttonShine: "before:from-transparent before:via-orange-400/60 before:to-transparent"
     },
     {
       title: "SSD накопители",
       subtitle: "H-Storage",
       description: "Твердотельные накопители промышленного класса для критически важных применений",
-      fullDescription: "H-Storage SSD накопители разработаны для работы в промышленных условиях с расширенным температурным диапазоном. Высокая скорость, надежность и защита данных делают их идеальными для критически важных систем.",
+      fullDescription: "H-Storage SSD накопители разработаны для работы в промышленных условиях с расширенным температурным диапазоном. Высокая скорость, надежность и защита данных делают их идеальными для критически важных систем",
       videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
       image: "/imgs/ssd/h-storage.jpg",
       link: "/products/h-ssd",
-      gradient: "from-red-600 via-red-500 to-orange-400",
-      bgGradient: "from-red-900/60 via-slate-900/50 to-orange-900/50",
-      borderHover: "hover:border-red-400/50",
-      buttonShine: "before:from-transparent before:via-red-400/60 before:to-transparent"
+      gradient: "from-amber-600 via-amber-500 to-orange-400",
+      bgGradient: "from-amber-900/50 via-slate-900/20 to-slate-900/50",
+      borderHover: "hover:border-orange-400/50",
+      buttonShine: "before:from-transparent before:via-orange-400/60 before:to-transparent"
     }
   ];
 
@@ -168,7 +168,7 @@ const IndexRefactored = () => {
     },
     {
       title: "Информационные системы",
-      description: "Комплексные IT-решения для бизнеса",
+      description: "Комплексные IT-решения для бизнеса любых размеров",
       icon: FileText,
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop",
       link: "/products/information-systems"
@@ -199,9 +199,9 @@ const IndexRefactored = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-black">
       <MainPageHero
-        logoSrc="/lovable-uploads/70fca613-4992-4ede-98c2-f9c7e669d23e.png"
+        logoSrc="/imgs/logos/mpovt.png"
         logoAlt="ОАО МПОВТ Logo"
         subtitle="Ведущий производитель электронных компонентов и автокомпонентов с 1956 года"
         scrollIndicatorText="Прокрутите вниз"

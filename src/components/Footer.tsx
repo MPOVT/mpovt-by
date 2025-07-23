@@ -29,6 +29,51 @@ export default function Footer() {
                 <span className="sr-only">Twitter</span>
               </a>
             </div>
+            
+            {/* Studio Logos Block */}
+            <div className="mt-6 pt-4 border-t border-slate-700/50">
+              <div className="flex items-center space-x-6">
+                {/* Freak Studio Logo */}
+                <a 
+                  href="https://t.me/freakstud1o" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="block group transition-all duration-300 hover:scale-105 w-fit"
+                >
+                  <div className="relative h-14">
+                    <img 
+                      src="/imgs/logos/freakstudio-transparent.svg" 
+                      alt="Freak Studio" 
+                      className="h-full w-auto object-contain transition-opacity duration-300 group-hover:opacity-0"
+                    />
+                    <img 
+                      src="/imgs/logos/freakstudio-light.svg" 
+                      alt="Freak Studio" 
+                      className="absolute top-0 left-0 h-full w-auto object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    />
+                  </div>
+                </a>
+                
+                {/* H Brand Logo */}
+                <a 
+                  href="https://h-holding.by" 
+                  className="block group transition-all duration-300 hover:scale-105 w-fit"
+                >
+                  <div className="relative h-14">
+                    <img 
+                      src="/imgs/logos/H-transparent.svg" 
+                      alt="H Brand" 
+                      className="h-full w-auto object-contain transition-opacity duration-300 group-hover:opacity-0"
+                    />
+                    <img 
+                      src="/imgs/logos/H-default.svg" 
+                      alt="H Brand" 
+                      className="absolute top-0 left-0 h-full w-auto object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    />
+                  </div>
+                </a>
+              </div>
+            </div>
           </div>
           
           <div className="animate-slide-in-left" style={{ animationDelay: '200ms' }}>
