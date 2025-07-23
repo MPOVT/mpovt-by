@@ -128,7 +128,7 @@ const Cooperation = () => {
               {/* Background glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-slate-500/5 via-slate-600/5 to-slate-500/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="text-center relative z-10">
-                <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-slate-300 via-slate-200 to-slate-300 bg-clip-text text-transparent">
+                <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-300 via-orange-200 to-rose-300 bg-clip-text text-transparent">
                   О нашем подходе к кооперации
                 </h3>
                 <p className="text-lg text-slate-200 leading-relaxed">

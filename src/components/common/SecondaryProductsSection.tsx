@@ -118,7 +118,7 @@ export const SecondaryProductsSection: React.FC<SecondaryProductsSectionProps> =
                     asChild 
                     variant="outline" 
                     size="sm"
-                    className="self-start border-emerald-400/30 text-emerald-400 hover:bg-emerald-400/10 hover:border-emerald-400/50 transition-all duration-300"
+                    className="self-start border-emerald-400/30 text-emerald-400 bg-slate-800/25 hover:bg-emerald-400/10 hover:border-emerald-400/50 transition-all duration-300"
                   >
                     <Link to={product.link} className="flex items-center">
                       Подробнее

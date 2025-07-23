@@ -26,7 +26,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   return (
     <div className={`mb-12 animate-fade-in ${alignmentClass[textAlign]} ${className}`}>
       {subtitle && (
-        <p className="text-lg text-slate-400 mb-4">
+        <p className="text-xl text-slate-400 mb-4">
           {subtitle}
         </p>
       )}

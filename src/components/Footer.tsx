@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Twitter, Mail, Phone, MapPin, Building2 } from "lucide-react";
+import { Facebook, Instagram, Twitter, Mail, Phone, MapPin, Building2, Github } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -10,15 +10,15 @@ export default function Footer() {
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div className="animate-slide-in-left">
-            <h4 className="text-xl font-bold mb-4 text-cyan-400">ОАО «МПОВТ»</h4>
+            <h4 className="text-xl font-bold mb-4 text-amber-200">ОАО «МПОВТ»</h4>
             <p className="text-slate-300 mb-4">
               Отечественный производитель изделий промышленной электроники, автокомпонентов, 
               компьютерной техники и средств связи на интеллектуальной платформе.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-slate-400 hover:text-cyan-400 transition-all duration-300 hover:scale-110">
-                <Facebook size={20} />
-                <span className="sr-only">Facebook</span>
+              <a href="https://github.com/MPOVT" className="text-slate-400 hover:text-amber-200 transition-all duration-300 hover:scale-110">
+                <Github size={20} />
+                <span className="sr-only">Github</span>
               </a>
               <a href="#" className="text-slate-400 hover:text-purple-400 transition-all duration-300 hover:scale-110">
                 <Instagram size={20} />
@@ -77,7 +77,7 @@ export default function Footer() {
           </div>
           
           <div className="animate-slide-in-left" style={{ animationDelay: '200ms' }}>
-            <h4 className="text-xl font-bold mb-4 text-emerald-400">Быстрые ссылки</h4>
+            <h4 className="text-xl font-bold mb-4 text-amber-200">Быстрые ссылки</h4>
             <ul className="space-y-2">
               {[
                 { name: "Главная", path: "/" },
@@ -90,7 +90,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link 
                     to={link.path} 
-                    className="text-slate-400 hover:text-emerald-300 transition-all duration-300 hover:translate-x-1"
+                    className="text-slate-400 hover:text-amber-200 transition-all duration-300 hover:translate-x-1"
                   >
                     {link.name}
                   </Link>
@@ -100,32 +100,32 @@ export default function Footer() {
           </div>
           
           <div className="animate-slide-in-left" style={{ animationDelay: '400ms' }}>
-            <h4 className="text-xl font-bold mb-4 text-orange-400">Контакты</h4>
+            <h4 className="text-xl font-bold mb-4 text-amber-200">Контакты</h4>
             <ul className="space-y-3">
               <li className="flex items-start transition-all duration-300 hover:translate-x-1">
-                <MapPin className="w-5 h-5 mr-2 mt-0.5 text-orange-400" />
+                <MapPin className="w-5 h-5 mr-2 mt-0.5 text-amber-200" />
                 <span className="text-slate-300">
                   г. Минск, Фрунзенский район<br />
                   Беларусь
                 </span>
               </li>
               <li className="flex items-center transition-all duration-300 hover:translate-x-1">
-                <Phone className="w-5 h-5 mr-2 text-orange-400" />
+                <Phone className="w-5 h-5 mr-2 text-amber-200" />
                 <span className="text-slate-300">+375 (17) XXX-XX-XX</span>
               </li>
               <li className="flex items-center transition-all duration-300 hover:translate-x-1">
-                <Mail className="w-5 h-5 mr-2 text-orange-400" />
+                <Mail className="w-5 h-5 mr-2 text-amber-200" />
                 <span className="text-slate-300">info@mpovt.by</span>
               </li>
               <li className="flex items-center transition-all duration-300 hover:translate-x-1">
-                <Building2 className="w-5 h-5 mr-2 text-orange-400" />
+                <Building2 className="w-5 h-5 mr-2 text-amber-200" />
                 <span className="text-slate-300">mpovt.by</span>
               </li>
             </ul>
           </div>
           
           <div className="animate-slide-in-left" style={{ animationDelay: '600ms' }}>
-            <h4 className="text-xl font-bold mb-4 text-purple-400">Наша продукция</h4>
+            <h4 className="text-xl font-bold mb-4 text-amber-200">Наша продукция</h4>
             <p className="text-slate-300 mb-4">
               Сертифицированная компьютерная и потребительская техника, 
               автоэлектроника, промышленная электроника.
@@ -134,7 +134,7 @@ export default function Footer() {
               <div className="text-sm text-slate-400">
                 <strong className="text-slate-300">Партнеры:</strong> БЕЛАЗ, МАЗ, МТЗ, Гомсельмаш, ПТЗ, КАМАЗ
               </div>
-              <div className="text-sm text-purple-300 font-medium">
+              <div className="text-sm text-amber-200 font-medium">
                 Доля инновационной продукции: 85%+
               </div>
             </div>

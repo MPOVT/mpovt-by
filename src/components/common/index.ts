@@ -11,6 +11,7 @@ export { DownloadsSection } from './DownloadsSection';
 export { ProductOverview } from './ProductOverview';
 export { MainPageHero } from './MainPageHero';
 export { PriorityProductsSection } from './PriorityProductsSection';
+export { PriorityProductsGridSection } from './PriorityProductsGridSection';
 export { InteractiveFeatures } from './InteractiveFeatures';
 export { SecondaryProductsSection } from './SecondaryProductsSection';
 export { AchievementsSection } from './AchievementsSection';
