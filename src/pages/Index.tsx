@@ -95,7 +95,7 @@ const IndexRefactored = () => {
       fullDescription: "Наши потребительские ПК H-Top созданы для работы в самых суровых условиях. Защищенные корпуса IP65, расширенный температурный диапазон от -40°C до +85°C, антивибрационная защита и модульная архитектура обеспечивают надежность в любых применениях",
       videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
       image: "/imgs/mini-pc/H-top.jpg",
-      link: "/products/h-pc",
+      link: "/products/computers",
       gradient: "from-amber-600 via-slate-500 to-slate-900",
       bgGradient: "from-amber-900/50 via-slate-900/20 to-slate-900/50",
       borderHover: "hover:border-orange-400/50",
