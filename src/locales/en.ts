@@ -1,397 +1,229 @@
 export const en = {
-  nav: {
-    home: "Home",
-    apartments: "Apartments",
-    amenities: "Amenities",
-    gallery: "Gallery",
-    contact: "Contact",
-    bookNow: "Book Now"
+  nav: { home: "Home", company: "Company", apartments: "Apartments", amenities: "Amenities", gallery: "Gallery", contact: "Contact", bookNow: "Book Now" },
+  company: {
+    qualityManagement: 'Quality management system',
+    cooperation: 'Cooperation',
+    vacancies: 'Vacancies',
+    rentalAreas: 'Rental areas',
+    antiCorruption: 'Anti-corruption',
+    pageTitle: "About",
+    pageSubtitle: "Over 65 years of experience in electronic component manufacturing",
+    aboutHeading: "Our history",
+    aboutParagraphs: [
+      "MPOVT is a leading Belarusian company in electronic component development and manufacturing. Founded in 1956, the company has evolved and modernized over decades.",
+      "Today MPOVT is a modern high-tech enterprise equipped with advanced machinery and a team of skilled professionals."
+    ],
+    valuesTitle: "Our values",
+    valuesSubtitle: "Principles we follow",
+    timelineTitle: "Development history",
+    ctaTitle: "Ready to start?",
+    ctaDescription: "Contact us to discuss your requirements",
+    ctaButton: "Contact us",
+    stats: {
+      areaLabel: 'Total area',
+      locationLabel: 'Location',
+      foundedLabel: 'Founded',
+      employeesLabel: 'Employees',
+      certificationsLabel: 'Certifications',
+      exportsLabel: 'Exports'
+    }
   },
-  hero: {
-    subtitle: "BEACHFRONT LUXURY ACCOMMODATION",
-    title: "Experience Seaside Tranquility",
-    description: "Discover our exclusive collection of luxury beachfront apartments and hotel rooms, offering unparalleled comfort and breathtaking sea views.",
-    bookStay: "Book Your Stay",
-    exploreApartments: "Explore Apartments",
-    scrollDown: "Scroll Down"
-  },
-  footer: {
-    description: "Luxurious beachfront apartments and hotel rooms with stunning sea views, offering the perfect blend of comfort and elegance for your dream vacation.",
-    quickLinks: "Quick Links",
-    contact: "Contact",
-    newsletter: "Newsletter",
-    newsletterDesc: "Subscribe to our newsletter for special deals and updates.",
-    yourEmail: "Your email address",
-    subscribe: "Subscribe",
-    allRights: "All rights reserved."
-  },
-  bookingForm: {
-    title: "Book Your Stay",
-    checkIn: "Check-in Date",
-    checkOut: "Check-out Date",
-    adults: "Adults",
-    children: "Children",
-    adult: "Adult",
-    child: "Child",
-    selectDate: "Select date",
-    checkAvailability: "Check Availability",
-    bookingConfirmed: "Booking Confirmed!"
-  },
-  testimonials: {
-    title: "What Our Guests Say",
-    description: "Discover why our guests keep coming back to MareSereno for their seaside getaways."
-  },
-  notFound: {
-    title: "Page Not Found",
-    description: "We couldn't find the page you were looking for. Perhaps you took a wrong turn in paradise?",
-    returnHome: "Return Home"
-  },
+  productsMenu: { computers: 'PC', laptops: 'Laptops', monitors: 'Monitors', tablets: 'Tablets', storage: 'SSD Storage', other: 'Other', homeLabel: 'Products - Home' },
+  servicesMenu: { testingLabs: 'Testing Laboratories', homeLabel: 'Services - Home' },
+  hero: { subtitle: "PROFESSIONAL HARDWARE SOLUTIONS", title: "Technology & Manufacturing", description: "Innovative electronics and in-house manufacturing of computing products", bookStay: "Contact", exploreApartments: "Learn more", scrollDown: "Scroll Down" },
+  footer: { description: "Domestic manufacturer of hardware solutions and industrial components. R&D and manufacturing locally.", quickLinks: "Quick Links", contact: "Contact", newsletter: "Newsletter", newsletterDesc: "Subscribe for news and special offers.", yourEmail: "Your email", subscribe: "Subscribe", allRights: "All rights reserved.", productsHeading: "Our products", productsDescription: "Certified computing and consumer electronics, automotive electronics, industrial electronics", partnersLabel: "Partners:", partnersList: "BELAZ, MAZ, MTZ, Gomselmash, PTZ, KAMAZ", innovationShare: "Share of innovative products: 85%+", addressFull: "Minsk, Frunzensky district, Pritykogo st. 62k1, Belarus", copyright: "© 2025 MPOVT" },
+  downloads: { downloadButton: "Download" },
+  testimonials: { title: "Testimonials", description: "What customers say about our products" },
+  notFound: { title: "Page not found", description: "Page not found. Return to home.", returnHome: "Return home" },
   home: {
     welcome: {
-      subtitle: "Welcome to MareSereno",
-      title: "Luxury Seaside Accommodations",
-      description1: "Nestled on the pristine Mediterranean coastline, MareSereno offers an exquisite collection of luxury apartments and hotel rooms. Our beachfront accommodations combine elegant design with modern comfort, creating the perfect setting for an unforgettable seaside getaway.",
-      description2: "Whether you're seeking a romantic escape, a family vacation, or a peaceful retreat, our diverse range of accommodations caters to every preference and need. Each space is thoughtfully designed to provide panoramic sea views and direct beach access.",
-      learnMore: "Learn More"
+      subtitle: "Welcome to MPOVT",
+      title: "Electronics and Automotive Components Manufacturing",
+      description1: "MPOVT is a leading manufacturer of electronic products with a broad portfolio of solutions.",
+      description2: "We offer industrial and consumer solutions designed and manufactured in Belarus.",
+      learnMore: "Learn more"
     },
-    booking: {
-      subtitle: "Book Your Stay",
-      title: "Reserve Your Perfect Getaway",
-      description: "Take the first step towards your dream vacation by checking availability and securing your preferred dates. Our simple booking process ensures a seamless experience from reservation to arrival.",
-      benefits: ["Instant confirmation", "Best rate guarantee", "Flexible cancellation options", "Secure payment"]
-    },
-    featuredApartments: {
-      subtitle: "Our Accommodations",
-      title: "Featured Apartments",
-      description: "Discover our most popular accommodation options, each offering a perfect blend of comfort, style, and breathtaking sea views.",
-      viewAll: "View All Apartments"
-    },
-    amenities: {
-      subtitle: "Hotel Amenities",
-      title: "Experience The Best",
-      description: "Enjoy our premium facilities and services designed to make your stay exceptional.",
-      features: {
-        beachfront: {
-          title: "Beachfront Location",
-          description: "Direct access to pristine beaches with crystal clear waters."
-        },
-        pools: {
-          title: "Swimming Pools",
-          description: "Relax by our infinity pools with stunning sea views."
-        },
-        restaurant: {
-          title: "Gourmet Restaurant",
-          description: "Enjoy exquisite local and international cuisine."
-        },
-        wifi: {
-          title: "High-Speed Wi-Fi",
-          description: "Stay connected with complimentary high-speed internet."
-        },
-        bar: {
-          title: "Beach Bar & Café",
-          description: "Refreshing drinks and snacks served right on the beach."
-        },
-        location: {
-          title: "Prime Location",
-          description: "Close to local attractions, shops, and restaurants."
-        }
+    features: {
+      production: {
+        title: "Modern Production",
+        description: "High-tech equipment and automation ensure world-class quality",
+        fullDescription: "Our facilities are equipped with modern high-tech equipment. Continuous investments in modernization allow us to deliver world-class products"
+      },
+      innovation: {
+        title: "Innovative Technologies",
+        description: "Advanced solutions and modern technologies to create unique products",
+        fullDescription: "We use the most advanced technologies and innovative approaches in development and production. Our R&D center enables unique customer solutions"
+      },
+      reliability: {
+        title: "Reliability and Quality",
+        description: "Strict quality control and international ISO standards",
+        fullDescription: "Our quality management system complies with ISO 9001. Every production stage is controlled to ensure maximum product reliability"
+      },
+      expertise: {
+        title: "Expertise and Experience",
+        description: "Over 65 years of experience in electronic component manufacturing",
+        fullDescription: "Over more than 65 years we've accumulated extensive experience producing electronic components. Our specialists are recognized experts"
       }
     },
-    cta: {
-      title: "Ready for Your Dream Vacation?",
-      description: "Book your stay today and experience the perfect blend of luxury, comfort, and stunning sea views.",
-      bookNow: "Book Now"
-    }
-  },
-  apartments: {
-    title: "Our Apartments & Rooms",
-    subtitle: "Discover our selection of premium accommodations, ranging from cozy studios to luxurious penthouses.",
-    filters: {
-      guests: "Guests",
-      anyGuests: "Any number of guests",
-      onePlus: "1+ guests",
-      twoPlus: "2+ guests",
-      threePlus: "3+ guests",
-      fourPlus: "4+ guests",
-      location: "Location",
-      allLocations: "All locations",
-      priceRange: "Price Range",
-      showing: "Showing",
-      of: "of",
-      accommodations: "accommodations",
-      resetFilters: "Reset Filters",
-      noMatch: "No apartments match your filters",
-      adjustFilters: "Try adjusting your filter criteria to see more options.",
-      viewDetails: "View Details",
-      features: "features",
-      more: "more"
-    }
-  },
-  gallery: {
-    title: "Photo Gallery",
-    subtitle: "Explore our seaside paradise through captivating imagery.",
-    filters: {
-      all: "All",
-      exterior: "Exterior",
-      rooms: "Rooms",
-      amenities: "Amenities"
-    }
-  },
-  booking: {
-    title: "Book Your Stay",
-    subtitle: "Complete your reservation in a few simple steps.",
-    steps: {
-      chooseRoom: "Choose Room",
-      guestDetails: "Guest Details",
-      confirmation: "Confirmation"
-    },
-    dates: {
-      selectDates: "Select Dates and Guests",
-      checkIn: "Check-in Date",
-      checkOut: "Check-out Date",
-      adults: "Adults",
-      children: "Children",
-      adult: "Adult",
-      child: "Child",
-      selectDate: "Select date"
-    },
-    accommodationSelect: {
-      title: "Select Your Accommodation",
-      guests: "Guests",
-      selected: "Selected",
-      select: "Select",
-      continue: "Continue"
-    },
-    guestInfo: {
-      title: "Guest Information",
-      firstName: "First Name",
-      lastName: "Last Name",
-      email: "Email",
-      phone: "Phone",
-      address: "Address",
-      city: "City",
-      zipCode: "Zip Code",
-      country: "Country",
-      specialRequests: "Special Requests",
-      specialRequestsPlaceholder: "Any special requests or notes for your stay"
-    },
-    payment: {
-      title: "Payment Information",
-      creditCard: "Credit Card",
-      payAtProperty: "Pay at Property",
-      nameOnCard: "Name on Card",
-      cardNumber: "Card Number",
-      cardNumberPlaceholder: "0000 0000 0000 0000",
-      expiryDate: "Expiry Date",
-      expiryDatePlaceholder: "MM/YY",
-      cvc: "CVC",
-      cvcPlaceholder: "123",
-      payAtPropertyInfo: "You will be required to provide a valid credit card upon arrival for security purposes, but payment will be collected during your stay at the property."
-    },
-    summary: {
-      title: "Booking Summary",
-      checkIn: "Check-in",
-      checkOut: "Check-out",
-      guests: "Guests",
-      night: "night",
-      nights: "nights",
-      cleaningFee: "Cleaning fee",
-      serviceFee: "Service fee",
-      total: "Total"
-    },
-    confirmation: {
-      title: "Review Booking Details",
-      accommodationDetails: "Accommodation Details",
-      guestDetails: "Guest Details",
-      name: "Name",
-      email: "Email",
-      phone: "Phone",
-      address: "Address", 
-      city: "City",
-      country: "Country",
-      specialRequests: "Special Requests",
-      paymentMethod: "Payment Method",
-      creditCard: "Credit Card",
-      priceSummary: "Price Summary",
-      termsAgree: "I agree to the",
-      termsLink: "Terms and Conditions",
-      privacyLink: "Privacy Policy",
-      cancellationInfo: "I understand that my booking is subject to the property's cancellation policy.",
-      back: "Back",
-      confirmBooking: "Confirm Booking",
-      success: "Booking Confirmed!",
-      emailSent: "Your reservation has been successfully confirmed. A confirmation email has been sent to",
-      bookingReference: "Booking Reference",
-      returnToHome: "Return to Homepage"
+    cta: { title: "Ready to start?", description: "Contact us to discuss your requirements", bookNow: "Contact" }
+    ,
+    featuredApartments: {
+      subtitle: "Flagship products",
+      description: "Next-generation consumer computing breakthroughs"
     }
   },
   contact: {
-    title: "Contact Us",
-    subtitle: "We're here to help make your stay unforgettable. Reach out with any questions or special requests.",
-    getInTouch: "Get In Touch",
-    address: "Address",
-    phone: "Phone",
-    email: "Email",
-    receptionHours: "Reception Hours",
-    checkInTime: "Check-in: After 3:00 PM",
-    checkOutTime: "Check-out: Before 11:00 AM",
-    sendMessage: "Send Us a Message",
-    fullName: "Full Name",
-    phoneNumber: "Phone Number",
-    subject: "Subject",
-    message: "Message",
-    howCanWeHelp: "How can we help you?",
-    send: "Send Message",
-    messageSent: "Message Sent!",
-    thankYou: "Thank you for reaching out. We'll respond to your message as soon as possible.",
-    faq: "Frequently Asked Questions",
-    faqSubtitle: "Find quick answers to commonly asked questions about our accommodations and services.",
-    questions: {
-      checkInOut: {
-        question: "What are your check-in and check-out times?",
-        answer: "Check-in is from 3:00 PM onwards, and check-out is until 11:00 AM. Early check-in or late check-out may be arranged based on availability."
-      },
-      parking: {
-        question: "Is parking available at the property?",
-        answer: "Yes, we offer complimentary parking for all guests. Valet parking service is also available for an additional fee."
-      },
-      pets: {
-        question: "Are pets allowed in the apartments?",
-        answer: "We welcome pets in designated pet-friendly apartments. Please inform us in advance if you plan to bring a pet, as additional charges may apply."
-      },
-      breakfast: {
-        question: "Is breakfast included in the room rate?",
-        answer: "Breakfast is included in select room packages. You can check the inclusion during the booking process or add it to your reservation at any time."
-      },
-      transfers: {
-        question: "Do you offer airport transfers?",
-        answer: "Yes, we offer airport transfers for an additional fee. Please contact our concierge at least 48 hours before your arrival to arrange transportation."
-      },
-      amenities: {
-        question: "What amenities are available at the property?",
-        answer: "Our property features swimming pools, a spa, restaurants, a beach bar, fitness center, and direct beach access. All apartments include Wi-Fi, air conditioning, and modern appliances."
-      }
+    title: "Contact",
+    subtitle: "Get in touch for consultation and ordering",
+    getInTouch: "Contact",
+    info: {
+      phoneHeading: "Phone",
+      phoneDepartment: "Sales department",
+      emailHeading: "Email",
+      emailNote: "Main mailbox",
+      addressHeading: "Address",
+      addressLines: ["Republic of Belarus", "220012, Minsk", "Akademika Kuprevicha St, 21"],
+      hoursHeading: "Opening hours",
+      hoursLines: ["Mon-Fri: 8:00 - 17:00", "Sat-Sun: closed"],
+      hoursNote: "Times are Minsk local time"
+    },
+    form: {
+      title: "Send a message",
+      nameLabel: "Name *",
+      namePlaceholder: "Your name",
+      emailLabel: "Email *",
+      emailPlaceholder: "your@email.com",
+      phoneLabel: "Phone",
+      phonePlaceholder: "+375 (xx) xxx-xx-xx",
+      subjectLabel: "Subject *",
+      subjectPlaceholder: "Subject of your message",
+      messageLabel: "Message *",
+      messagePlaceholder: "Your message...",
+      submit: "Send message"
+    },
+    map: {
+      title: "How to find us",
+      placeholder: "Map will be loaded",
+      address: "Akademika Kuprevicha St, 21, Minsk"
     }
   },
-  apartmentDescriptions: {
-    "1": {
-      name: "Deluxe Sea View Suite",
-      description: "Luxurious suite with panoramic sea views, modern amenities, and a private balcony."
+  products: {
+    priority: {
+      computers: {
+        title: "PC",
+        subtitle: "H-Top",
+        description: "High-performance consumer computers for mission-critical tasks in extreme conditions",
+        fullDescription: "Our H-Top consumer PCs are built to operate in the harshest environments. IP65-rated enclosures, extended temperature range from -40°C to +85°C, anti-vibration protection and modular architecture ensure reliability in any application"
+      },
+      laptops: {
+        title: "Laptops",
+        subtitle: "H-Book",
+        description: "Mobile rugged solutions for field use and critical missions",
+        fullDescription: "H-Book is a revolution in mobile consumer solutions. Shock-resistant magnesium body, waterproofing, 20-hour battery life and hot-swappable batteries make it indispensable for fieldwork"
+      },
+      monitors: {
+        title: "Monitors",
+        subtitle: "H-Monitor",
+        description: "Professional displays with increased reliability for operator monitoring",
+        fullDescription: "Our H monitors deliver crystal-clear images in any lighting conditions. Anti-glare coatings, touch technologies and wide viewing angles ensure operator comfort"
+      },
+      ssd: {
+        title: "SSD Storage",
+        subtitle: "H-Storage",
+        description: "Industrial-grade solid-state drives for mission-critical applications",
+        fullDescription: "H-Storage SSDs are designed for industrial environments with extended temperature ranges. High speed, reliability and data protection make them ideal for mission-critical systems"
+      }
     },
-    "2": {
-      name: "Premium Family Apartment",
-      description: "Spacious apartment ideal for families, with full kitchen and stunning coastal views."
-    },
-    "3": {
-      name: "Executive Beach Studio",
-      description: "Elegant studio with direct beach access, modern design, and premium finishes."
-    },
-    "4": {
-      name: "Luxury Penthouse Suite",
-      description: "Exclusive top-floor suite with expansive terrace and panoramic sea views."
-    },
-    "5": {
-      name: "Classic Double Room",
-      description: "Comfortable hotel room with modern amenities and partial sea views."
-    },
-    "6": {
-      name: "Garden View Apartment",
-      description: "Peaceful apartment surrounded by lush gardens, just a short walk from the beach."
+    secondary: {
+      carComponents: { title: "Automotive Components", description: "Electronic control units for the automotive industry" },
+      informationSystems: { title: "Information Systems", description: "Comprehensive IT solutions for businesses of all sizes" }
     }
   },
-  amenitiesPage: {
-    title: "Our Amenities",
-    subtitle: "Discover the luxury amenities and services that make your stay unforgettable.",
-    description: "At MareSereno, we are dedicated to providing a comprehensive and luxurious stay experience. From our beachfront services to wellness facilities, every detail has been curated to ensure maximum comfort and pleasure.",
-    categories: {
-      wellness: {
-        title: "Wellness & Relaxation",
-        description: "Treat yourself with our range of wellness services designed to rejuvenate body and mind.",
-        items: [
-          {
-            title: "Luxury Spa",
-            description: "Our spa offers a full range of treatments, from traditional therapies to the most modern beauty treatments."
-          },
-          {
-            title: "Fitness Center",
-            description: "Maintain your fitness routine with our state-of-the-art gym featuring panoramic sea views."
-          },
-          {
-            title: "Infinity Pool",
-            description: "Immerse yourself in our infinity pool while admiring the endless horizon of the sea."
-          },
-          {
-            title: "Beach Yoga",
-            description: "Join our morning yoga sessions on the beach for a revitalizing awakening."
-          }
-        ]
-      },
-      dining: {
-        title: "Dining",
-        description: "Discover the best of local and international cuisine at our restaurants and bars.",
-        items: [
-          {
-            title: "Gourmet Restaurant",
-            description: "Savor fine dishes prepared by our chefs with fresh local ingredients."
-          },
-          {
-            title: "Beach Bar",
-            description: "Enjoy refreshing cocktails and light snacks with your feet in the sand."
-          },
-          {
-            title: "Lounge Bar",
-            description: "Relax with a selection of fine wines and spirits in an elegant atmosphere."
-          },
-          {
-            title: "Room Service",
-            description: "Enjoy gourmet meals in the privacy of your apartment, available 24 hours a day."
-          }
-        ]
-      },
-      services: {
-        title: "Extra Services",
-        description: "Take advantage of our additional services for a hassle-free stay.",
-        items: [
-          {
-            title: "24/7 Concierge",
-            description: "Our concierge team is available at any time to assist you with any request."
-          },
-          {
-            title: "Airport Transfers",
-            description: "Travel comfortably to and from the airport with our private transfer service."
-          },
-          {
-            title: "Car Rental",
-            description: "Explore the area with our fleet of premium vehicles available for rent."
-          },
-          {
-            title: "Guided Excursions",
-            description: "Discover local attractions with our personalized expert-guided tours."
-          }
-        ]
-      },
-      entertainment: {
-        title: "Entertainment",
-        description: "Enjoy a variety of recreational activities designed for all tastes.",
-        items: [
-          {
-            title: "Water Sports",
-            description: "Try a wide range of water sports, from paddleboarding to jet skiing."
-          },
-          {
-            title: "Kids Play Area",
-            description: "Little ones can have fun in our safe and supervised play area."
-          },
-          {
-            title: "Themed Evenings",
-            description: "Join our weekly themed evenings with live music and entertainment."
-          },
-          {
-            title: "Library & Game Room",
-            description: "Relax with a good book or enjoy board games in our common room."
-          }
-        ]
-      }
+  achievements: {
+    years: { number: "65+", label: "years of experience", description: "A rich history since 1956" },
+    employees: { number: "500+", label: "employees", description: "A qualified team" },
+    countries: { number: "50+", label: "countries", description: "Supply geography" },
+    iso: { number: "ISO 9001", label: "certification", description: "International standards" }
+  },
+  testingLabs: {
+    documentsHeading: "Documents",
+    documentsDescription: "Accreditation certificates and scopes of activity of our laboratories",
+    documentLabel: "PDF document",
+    documentButton: "PDF",
+    documents: [
+      { title: "Testing Laboratory Certificate", url: "https://mpovt.by/gallery/%D0%90%D1%82%D1%82%D0%B5%D1%81%D1%82%D0%B0%D1%82%20%D0%B0%D0%BA%D0%BA%D1%80%D0%B5%D0%B4%D0%B8%D1%82%D0%B0%D1%86%D0%B8%D0%B8%20%D0%9B%D0%98%D1%81.pdf" },
+      { title: "Scope of Accreditation LIs", url: "https://mpovt.by/gallery/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%20%D0%B0%D0%BA%D0%BA%D1%80%D0%B5%D0%B4%D0%B8%D1%82%D0%B0%D1%86%D0%B8%D0%B8%20%D0%9B%D0%98%D1%81.pdf" },
+      { title: "Metrology Laboratory Certificate", url: "https://mpovt.by/gallery/%D0%90%D1%82%D1%82%D0%B5%D1%81%D1%82%D0%B0%D1%82%20%D0%B0%D0%BA%D0%BA%D1%80%D0%B5%D0%B4%D0%B8%D1%82%D0%B0%D1%86%D0%B8%D0%B8%20%D0%9B%D0%9C_16.07.2021.pdf" },
+      { title: "Scope of Accreditation LM", url: "https://mpovt.by/gallery/%D0%9E%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%20%D0%B0%D0%BA%D0%BA%D1%80%D0%B5%D0%B4%D0%B8%D1%82%D0%B0%D1%86%D0%B8%D0%B8%20%D0%9B%D0%9C.pdf" }
+    ],
+    heroHeading: "Testing Laboratories",
+    heroDescription: "Professional testing and quality control of products",
+    advantagesHeading: "Our advantages",
+    advantagesDescription: "Why choose our testing laboratories",
+    advantages: [
+      { title: "Accreditation", description: "All laboratories have state accreditation", icon: "Award" },
+      { title: "Experienced specialists", description: "A team of highly qualified experts", icon: "Users" },
+      { title: "Fast turnaround", description: "Quick testing and issuing of results", icon: "Clock" },
+      { title: "Reliability", description: "Accurate and reliable test results", icon: "Shield" }
+    ]
+  },
+  services: {
+    pageTitle: "Services",
+    pageSubtitle: "Professional services for your business",
+    testingLabs: {
+      title: "Testing Laboratories",
+      description: "Professional testing and quality control of products",
+      accreditationTitle: "State Accreditation",
+      accreditationDescription: "Our laboratory holds full state accreditation and international recognition.",
+      certifications: [
+        "BGCA - Belarusian State Center for Accreditation",
+        "EA BLA - European accreditation recognition",
+        "ILAC MRA - International Laboratory Accreditation Agreement",
+        "IAF MLA - International accreditation forum"
+      ],
+      types: [
+        "Electronic testing and EMC testing",
+        "Chemical and metrological analysis",
+        "Mechanical and climatic tests",
+        "Product and system certification",
+        "Calibration and metrological processing",
+        "Personnel certification"
+      ],
+      ctaButton: "Learn more about laboratories",
+      advantagesHeading: "Our advantages",
+      advantagesDescription: "Why choose our testing laboratories"
+    },
+    additional: {
+      title: "Manufacturing services",
+      description: "A full range of modern manufacturing and technological solutions",
+      items: [
+        { title: "Metalworking", description: "High-precision machining of metal parts on modern equipment" },
+        { title: "Heat treatment", description: "Specialized thermal processing to improve material properties" },
+        { title: "Plastic molding", description: "Production of plastic parts by injection molding" },
+        { title: "SMD assembly", description: "High-precision surface-mount assembly of electronic components" },
+        { title: "Wave soldering", description: "Automated soldering of electronic components by wave method" },
+        { title: "Manual assembly", description: "Professional manual assembly of complex electronic units" },
+        { title: "Selective soldering", description: "Precise soldering using selective equipment" },
+        { title: "Polymer coating", description: "Protective and decorative polymer coatings for various products" }
+      ]
+    },
+    cta: {
+      title: "Ready to start?",
+      description: "Contact us to discuss your requirements",
+      bookNow: "Contact"
     }
-  }
+  },
+  preload: {
+    initializing: "Initializing...",
+    loadingCritical: "Loading critical resources...",
+    loadingMainImages: "Loading main images...",
+    loadingHomeContent: "Loading home page content...",
+    done: "Done!",
+    logoAlt: "MPOVT",
+    loadingTitle: "Loading"
+  },
+  video: {
+    placeholderAlt: "Video placeholder image"
+  },
+  // extend the existing footer object above with these fields
 };

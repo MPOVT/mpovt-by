@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useLanguage } from '@/contexts/LanguageContext';
 import Footer from "@/components/Footer";
 import { 
   MainPageHero, 
@@ -19,13 +20,14 @@ import {
 
 const IndexRefactored = () => {
   const [activeFeature, setActiveFeature] = useState(0);
+  const { t } = useLanguage();
 
   const features = [
     {
       icon: Factory,
-      title: "Современное производство",
-      description: "Высокотехнологичное оборудование и автоматизация обеспечивают качество мирового уровня",
-      fullDescription: "Наше предприятие оснащено современным высокотехнологичным оборудованием и автоматизированными линиями. Постоянные инвестиции в модернизацию позволяют выпускать продукцию мирового уровня",
+      title: t?.home?.features?.production?.title ?? "Современное производство",
+      description: t?.home?.features?.production?.description ?? "Высокотехнологичное оборудование и автоматизация обеспечивают качество мирового уровня",
+      fullDescription: t?.home?.features?.production?.fullDescription ?? "Наше предприятие оснащено современным высокотехнологичным оборудованием. Постоянные инвестиции в модернизацию позволяют выпускать продукцию мирового уровня",
       backgroundImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop",
       colorScheme: {
         primary: "text-blue-600 dark:text-blue-400",
@@ -39,9 +41,9 @@ const IndexRefactored = () => {
     },
     {
       icon: Settings,
-      title: "Инновационные технологии",
-      description: "Передовые решения и современные технологии для создания уникальных продуктов",
-      fullDescription: "Мы используем самые передовые технологии и инновационные подходы в разработке и производстве. Собственный центр R&D позволяет создавать уникальные решения для наших клиентов",
+  title: t?.home?.features?.innovation?.title ?? "Инновационные технологии",
+  description: t?.home?.features?.innovation?.description ?? "Передовые решения и современные технологии для создания уникальных продуктов",
+  fullDescription: t?.home?.features?.innovation?.fullDescription ?? "Мы используем самые передовые технологии и инновационные подходы в разработке и производстве. Собственный центр R&D позволяет создавать уникальные решения для наших клиентов",
       backgroundImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop",
       colorScheme: {
         primary: "text-emerald-600 dark:text-emerald-400",
@@ -55,9 +57,9 @@ const IndexRefactored = () => {
     },
     {
       icon: Shield,
-      title: "Надежность и качество",
-      description: "Строгий контроль качества и международные стандарты ISO",
-      fullDescription: "Система менеджмента качества соответствует международным стандартам ISO 9001. Каждый этап производства контролируется для обеспечения максимальной надежности продукции",
+  title: t?.home?.features?.reliability?.title ?? "Надежность и качество",
+  description: t?.home?.features?.reliability?.description ?? "Строгий контроль качества и международные стандарты ISO",
+  fullDescription: t?.home?.features?.reliability?.fullDescription ?? "Система менеджмента качества соответствует международным стандартам ISO 9001. Каждый этап производства контролируется для обеспечения максимальной надежности продукции",
       backgroundImage: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&h=600&fit=crop",
       colorScheme: {
         primary: "text-purple-600 dark:text-purple-400",
@@ -71,9 +73,9 @@ const IndexRefactored = () => {
     },
     {
       icon: Award,
-      title: "Экспертность и опыт",
-      description: "Более 65 лет опыта в производстве электронных компонентов",
-      fullDescription: "За более чем 65-летнюю историю мы накопили огромный опыт в производстве электронных компонентов. Наши специалисты - признанные эксперты в своих областях",
+  title: t?.home?.features?.expertise?.title ?? "Экспертность и опыт",
+  description: t?.home?.features?.expertise?.description ?? "Более 65 лет опыта в производстве электронных компонентов",
+  fullDescription: t?.home?.features?.expertise?.fullDescription ?? "За более чем 65-летнюю историю мы накопили огромный опыт в производстве электронных компонентов. Наши специалисты - признанные эксперты в своих областях",
       backgroundImage: "https://mpovt.by/gallery_gen/fccf496500ea44cf6f53d1465fccbc28_fit.jpg?ts=1746513902",
       colorScheme: {
         primary: "text-amber-600 dark:text-amber-400",
@@ -89,10 +91,10 @@ const IndexRefactored = () => {
 
   const priorityProducts = [
     {
-      title: "ПК",
-      subtitle: "H-Top",
-      description: "Высокопроизводительные потребительские компьютеры для критически важных задач в экстремальных условиях",
-      fullDescription: "Наши потребительские ПК H-Top созданы для работы в самых суровых условиях. Защищенные корпуса IP65, расширенный температурный диапазон от -40°C до +85°C, антивибрационная защита и модульная архитектура обеспечивают надежность в любых применениях",
+      title: t?.products?.priority?.computers?.title ?? "ПК",
+      subtitle: t?.products?.priority?.computers?.subtitle ?? "H-Top",
+      description: t?.products?.priority?.computers?.description ?? "Высокопроизводительные потребительские компьютеры для критически важных задач в экстремальных условиях",
+      fullDescription: t?.products?.priority?.computers?.fullDescription ?? "Наши потребительские ПК H-Top созданы для работы в самых суровых условиях. Защищенные корпуса IP65, расширенный температурный диапазон от -40°C до +85°C, антивибрационная защита и модульная архитектура обеспечивают надежность в любых применениях",
       videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
       image: "/imgs/mini-pc/H-top.jpg",
       link: "/products/computers",
@@ -102,10 +104,10 @@ const IndexRefactored = () => {
       buttonShine: "before:from-transparent before:via-orange-400/60 before:to-transparent"
     },
     {
-      title: "Ноутбуки",
-      subtitle: "H-Book",
-      description: "Мобильные защищенные решения для полевых условий и критических миссий",
-      fullDescription: "H-Book - это революция в мобильных потребительских решениях. Ударопрочный магниевый корпус, водонепроницаемость, 20-часовая автономность и возможность горячей замены батарей делают их незаменимыми для полевых работ",
+      title: t?.products?.priority?.laptops?.title ?? "Ноутбуки",
+      subtitle: t?.products?.priority?.laptops?.subtitle ?? "H-Book",
+      description: t?.products?.priority?.laptops?.description ?? "Мобильные защищенные решения для полевых условий и критических миссий",
+      fullDescription: t?.products?.priority?.laptops?.fullDescription ?? "H-Book - это революция в мобильных потребительских решениях. Ударопрочный магниевый корпус, водонепроницаемость, 20-часовая автономность и возможность горячей замены батарей делают их незаменимыми для полевых работ",
       videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
       image: "/imgs/laptops/h-book-pro.jpg",
       link: "/products/laptops",
@@ -115,10 +117,10 @@ const IndexRefactored = () => {
       buttonShine: "before:from-transparent before:via-orange-400/60 before:to-transparent"
     },
     {
-      title: "Мониторы",
-      subtitle: "H-Monitor",
-      description: "Профессиональные дисплеи повышенной надежности для потребительского мониторинга",
-      fullDescription: "Наши потребительские мониторы H обеспечивают кристально четкое изображение в любых условиях освещения. Антибликовые покрытия, сенсорные технологии и широкие углы обзора гарантируют комфортную работу операторов",
+      title: t?.products?.priority?.monitors?.title ?? "Мониторы",
+      subtitle: t?.products?.priority?.monitors?.subtitle ?? "H-Monitor",
+      description: t?.products?.priority?.monitors?.description ?? "Профессиональные дисплеи повышенной надежности для потребительского мониторинга",
+      fullDescription: t?.products?.priority?.monitors?.fullDescription ?? "Наши потребительские мониторы H обеспечивают кристально четкое изображение в любых условиях освещения. Антибликовые покрытия, сенсорные технологии и широкие углы обзора гарантируют комфортную работу операторов",
       videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
       image: "/imgs/displays/h-monitor.jpg",
       link: "/products/monitors",
@@ -128,10 +130,10 @@ const IndexRefactored = () => {
       buttonShine: "before:from-transparent before:via-orange-400/60 before:to-transparent"
     },
     {
-      title: "SSD накопители",
-      subtitle: "H-Storage",
-      description: "Твердотельные накопители промышленного класса для критически важных применений",
-      fullDescription: "H-Storage SSD накопители разработаны для работы в промышленных условиях с расширенным температурным диапазоном. Высокая скорость, надежность и защита данных делают их идеальными для критически важных систем",
+      title: t?.products?.priority?.ssd?.title ?? "SSD накопители",
+      subtitle: t?.products?.priority?.ssd?.subtitle ?? "H-Storage",
+      description: t?.products?.priority?.ssd?.description ?? "Твердотельные накопители промышленного класса для критически важных применений",
+      fullDescription: t?.products?.priority?.ssd?.fullDescription ?? "H-Storage SSD накопители разработаны для работы в промышленных условиях с расширенным температурным диапазоном. Высокая скорость, надежность и защита данных делают их идеальными для критически важных систем",
       videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
       image: "/imgs/ssd/h-storage.jpg",
       link: "/products/h-ssd",
@@ -144,15 +146,15 @@ const IndexRefactored = () => {
 
   const secondaryProducts = [
     {
-      title: "Автокомпоненты",
-      description: "Электронные блоки управления для автомобильной промышленности",
+      title: t?.products?.secondary?.carComponents?.title ?? "Автокомпоненты",
+      description: t?.products?.secondary?.carComponents?.description ?? "Электронные блоки управления для автомобильной промышленности",
       icon: Car,
       image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&h=300&fit=crop",
       link: "/products/car-blocks"
     },
     {
-      title: "Информационные системы",
-      description: "Комплексные IT-решения для бизнеса любых размеров",
+      title: t?.products?.secondary?.informationSystems?.title ?? "Информационные системы",
+      description: t?.products?.secondary?.informationSystems?.description ?? "Комплексные IT-решения для бизнеса любых размеров",
       icon: FileText,
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop",
       link: "/products/information-systems"
@@ -161,24 +163,24 @@ const IndexRefactored = () => {
 
   const achievements = [
     {
-      number: "65+",
-      label: "лет опыта",
-      description: "Богатая история с 1956 года"
+      number: t?.achievements?.years?.number ?? "65+",
+      label: t?.achievements?.years?.label ?? "лет опыта",
+      description: t?.achievements?.years?.description ?? "Богатая история с 1956 года"
     },
     {
-      number: "500+",
-      label: "сотрудников",
-      description: "Квалифицированная команда"
+      number: t?.achievements?.employees?.number ?? "500+",
+      label: t?.achievements?.employees?.label ?? "сотрудников",
+      description: t?.achievements?.employees?.description ?? "Квалифицированная команда"
     },
     {
-      number: "50+",
-      label: "стран",
-      description: "География поставок"
+      number: t?.achievements?.countries?.number ?? "50+",
+      label: t?.achievements?.countries?.label ?? "стран",
+      description: t?.achievements?.countries?.description ?? "География поставок"
     },
     {
-      number: "ISO 9001",
-      label: "сертификация",
-      description: "Международные стандарты"
+      number: t?.achievements?.iso?.number ?? "ISO 9001",
+      label: t?.achievements?.iso?.label ?? "сертификация",
+      description: t?.achievements?.iso?.description ?? "Международные стандарты"
     }
   ];
 
@@ -186,32 +188,32 @@ const IndexRefactored = () => {
     <div className="min-h-screen bg-black">
       <MainPageHero
         logoSrc="/imgs/logos/mpovt.png"
-        logoAlt="ОАО МПОВТ Logo"
-        subtitle="Ведущий производитель электронных компонентов и автокомпонентов с 1956 года"
-        scrollIndicatorText="Прокрутите вниз"
+        logoAlt={t?.footer?.contact ?? 'ОАО МПОВТ'}
+        subtitle={t?.home?.welcome?.subtitle ?? 'Ведущий производитель электронных компонентов и автокомпонентов с 1956 года'}
+        scrollIndicatorText={t?.hero?.scrollDown ?? 'Прокрутите вниз'}
       />
 
       <PriorityProductsSection
-        title="Флагманская продукция"
-        subtitle="Революционные решения потребительской вычислительной техники нового поколения"
+        title={t?.home?.featuredApartments?.subtitle ?? 'Флагманская продукция'}
+        subtitle={t?.home?.featuredApartments?.description ?? 'Революционные решения потребительской вычислительной техники нового поколения'}
         products={priorityProducts}
       />
 
       <InteractiveFeatures
-        title="Инновационные решения для промышленности"
-        subtitle="Современные технологии и многолетний опыт позволяют нам создавать продукцию высочайшего качества"
+        title={t?.home?.welcome?.title ?? 'Инновационные решения для промышленности'}
+        subtitle={t?.home?.welcome?.description1 ?? 'Современные технологии и многолетний опыт позволяют нам создавать продукцию высочайшего качества'}
         features={features}
       />
 
       <SecondaryProductsSection
-        title="Дополнительные направления"
-        subtitle="Проверенные решения для различных отраслей промышленности"
+        title={t?.home?.cta?.title ?? 'Дополнительные направления'}
+        subtitle={t?.home?.cta?.description ?? 'Проверенные решения для различных отраслей промышленности'}
         products={secondaryProducts}
       />
 
       <AchievementsSection
-        title="Наши достижения"
-        subtitle="Цифры, которые говорят о нашем успехе и надежности"
+        title={t?.home?.welcome?.learnMore ?? 'Наши достижения'}
+        subtitle={t?.home?.cta?.description ?? 'Цифры, которые говорят о нашем успехе и надежности'}
         achievements={achievements}
       />
 

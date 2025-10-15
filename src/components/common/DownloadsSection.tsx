@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Download, LucideIcon, FileText } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface DownloadItem {
   title: string;
@@ -73,6 +74,7 @@ export const DownloadsSection: React.FC<DownloadsSectionProps> = ({
   };
 
   const styles = getVariantStyles();
+  const { t } = useLanguage();
 
   return (
     <section className="py-16 md:py-20 bg-black relative overflow-hidden">
@@ -121,7 +123,7 @@ export const DownloadsSection: React.FC<DownloadsSectionProps> = ({
                 >
                   <div className={`absolute inset-0 bg-gradient-to-r ${styles.gradientOverlay} rounded-md opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300`}></div>
                   <Download className="w-4 h-4 mr-2 relative z-10" />
-                  <span className="relative z-10">Скачать</span>
+                  <span className="relative z-10">{t?.downloads?.downloadButton ?? 'Скачать'}</span>
                 </Button>
               </div>
             </Card>

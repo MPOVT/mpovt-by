@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { useLanguage } from '@/contexts/LanguageContext';
 import { 
   Factory, 
   Users, 
@@ -28,6 +29,7 @@ import {
 
 const Company = () => {
   const [activeTimelineIndex, setActiveTimelineIndex] = useState(0);
+  const { t } = useLanguage();
 
   const values = [
     {
@@ -161,6 +163,7 @@ const Company = () => {
       bgColor: "bg-pink-500/20"
     }
   ];
+  const statKeys = ['areaLabel','locationLabel','foundedLabel','employeesLabel','certificationsLabel','exportsLabel'];
 
   return (
     <div className="min-h-screen">
@@ -178,10 +181,10 @@ const Company = () => {
         <div className="container mx-auto relative z-10">
           <div className="max-w-4xl mx-auto animate-fade-in">
             <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-8xl font-black mb-6 md:mb-8 text-white/95 leading-tight">
-              О компании
+              {t?.company?.pageTitle ?? 'О компании'}
             </h1>
             <p className="text-lg md:text-xl xl:text-2xl text-white/70 mb-6 md:mb-8">
-              Более 65 лет опыта в разработке и производстве электронных компонентов
+              {t?.company?.pageSubtitle ?? 'Более 65 лет опыта в разработке и производстве электронных компонентов'}
             </p>
           </div>
         </div>
@@ -198,23 +201,17 @@ const Company = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 mb-12 md:mb-16 lg:mb-20">
             <Card className="p-4 sm:p-6 md:p-8 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-500 animate-fade-in-left flex flex-col">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-4 lg:mb-6 text-white">Наша история</h2>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-4 lg:mb-6 text-white">{t?.company?.aboutHeading ?? 'Наша история'}</h2>
               <div className="space-y-3 md:space-y-4 text-slate-300 leading-relaxed flex-grow">
-                <p className="text-sm md:text-base">
-                  ОАО «МПОВТ» (Минское производственное объединение вычислительной техники) — ведущее предприятие Беларуси в области разработки и производства электронных компонентов и систем. Основанное в 1956 году, предприятие прошло долгий путь развития и модернизации.
-                </p>
-                <p className="text-sm md:text-base">
-                  Сегодня МПОВТ — это современное высокотехнологичное предприятие, оснащенное новейшим оборудованием и укомплектованное высококвалифицированными специалистами. Мы производим широкий спектр продукции: от автокомпонентов до сложных информационных систем.
-                </p>
-                <p className="text-sm md:text-base">
-                  Наша компания сертифицирована по международным стандартам качества ISO 9001, что подтверждает высокий уровень нашей продукции и процессов. Мы постоянно инвестируем в исследования и разработки, внедряя инновационные технологии и решения.
-                </p>
-                <p className="text-sm md:text-base">
-                  За годы работы мы накопили огромный опыт в области электроники и информационных технологий. Наши специалисты регулярно повышают квалификацию и следят за последними тенденциями в отрасли.
-                </p>
-                <p className="text-sm md:text-base">
-                  Мы гордимся тем, что наша продукция используется не только в Беларуси, но и экспортируется в различные страны мира. Это свидетельствует о высоком качестве нашей работы и конкурентоспособности на международном рынке.
-                </p>
+                {(t?.company?.aboutParagraphs ?? [
+                  'ОАО «МПОВТ» (Минское производственное объединение вычислительной техники) — ведущее предприятие Беларуси в области разработки и производства электронных компонентов и систем. Основанное в 1956 году, предприятие прошло долгий путь развития и модернизации.',
+                  'Сегодня МПОВТ — это современное высокотехнологичное предприятие, оснащенное новейшим оборудованием и укомплектованное высококвалифицированными специалистами. Мы производим широкий спектр продукции: от автокомпонентов до сложных информационных систем.',
+                  'Наша компания сертифицирована по международным стандартам качества ISO 9001, что подтверждает высокий уровень нашей продукции и процессов. Мы постоянно инвестируем в исследования и разработки, внедряя инновационные технологии и решения.',
+                  'За годы работы мы накопили огромный опыт в области электроники и информационных технологий. Наши специалисты регулярно повышают квалификацию и следят за последними тенденциями в отрасли.',
+                  'Мы гордимся тем, что наша продукция используется не только в Беларуси, но и экспортируется в различные страны мира. Это свидетельствует о высоком качестве нашей работы и конкурентоспособности на международном рынке.'
+                ]).map((p, i) => (
+                  <p key={i} className="text-sm md:text-base">{p}</p>
+                ))}
               </div>
               
               {/* Quote Section with reduced margin */}
@@ -245,7 +242,8 @@ const Company = () => {
                 
                 {/* Company Stats in 3x2 layout */}
                 <div className="grid grid-cols-3 gap-2 md:gap-3">
-                  {companyStats.map((stat, index) => {
+                        const statKeys = ['areaLabel','locationLabel','foundedLabel','employeesLabel','certificationsLabel','exportsLabel'];
+                        {companyStats.map((stat, index) => {
                     const Icon = stat.icon;
                     return (
                       <div key={index} className="flex flex-col items-center space-y-2 p-2 md:p-3 bg-white/5 dark:bg-black/20 backdrop-blur-sm rounded-lg hover:bg-white/10 transition-all duration-300 h-full justify-center">
@@ -254,7 +252,7 @@ const Company = () => {
                         </div>
                         <div className="text-center">
                           <p className="text-xs md:text-sm font-semibold text-white">{stat.value}</p>
-                          <p className="text-xs text-slate-400">{stat.label}</p>
+                                <p className="text-xs text-slate-400">{t?.company?.stats?.[statKeys[index]] ?? stat.label}</p>
                         </div>
                       </div>
                     );
@@ -268,10 +266,10 @@ const Company = () => {
           <div className="mb-12 md:mb-16 lg:mb-20">
             <div className="text-center mb-8 md:mb-12">
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-cyan-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
-                Наши ценности
+                {t?.company?.valuesTitle ?? 'Наши ценности'}
               </h2>
               <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
-                Принципы, которыми мы руководствуемся в своей работе
+                {t?.company?.valuesSubtitle ?? 'Принципы, которыми мы руководствуемся в своей работе'}
               </p>
             </div>
 
@@ -287,8 +285,8 @@ const Company = () => {
                     <div className={`w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 ${value.bgColor} rounded-xl flex items-center justify-center mx-auto mb-3 md:mb-4 lg:mb-6`}>
                       <Icon className={`h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 ${value.color}`} />
                     </div>
-                    <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 md:mb-3 text-white">{value.title}</h3>
-                    <p className="text-slate-300 text-xs sm:text-sm md:text-base">{value.description}</p>
+                    <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 md:mb-3 text-white">{t?.company?.values?.[index]?.title ?? value.title}</h3>
+                    <p className="text-slate-300 text-xs sm:text-sm md:text-base">{t?.company?.values?.[index]?.description ?? value.description}</p>
                   </Card>
                 );
               })}
@@ -299,10 +297,10 @@ const Company = () => {
           <div className="mb-12 md:mb-16 lg:mb-20">
             <div className="text-center mb-8 md:mb-12">
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-cyan-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
-                История развития
+                {t?.company?.timelineTitle ?? 'История развития'}
               </h2>
               <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
-                Ключевые моменты нашего развития за более чем 65 лет
+                {t?.company?.timelineSubtitle ?? 'Ключевые моменты нашего развития за более чем 65 лет'}
               </p>
             </div>
 
@@ -365,10 +363,10 @@ const Company = () => {
                     className="transition-all duration-400 ease-out animate-fade-in"
                   >
                     <h3 className={`text-xl md:text-2xl font-bold mb-3 ${timelineEvents[activeTimelineIndex].textColor}`}>
-                      {timelineEvents[activeTimelineIndex].title}
+                      {t?.company?.timeline?.[activeTimelineIndex]?.title ?? timelineEvents[activeTimelineIndex].title}
                     </h3>
                     <p className="text-slate-300 text-sm md:text-base leading-relaxed">
-                      {timelineEvents[activeTimelineIndex].description}
+                      {t?.company?.timeline?.[activeTimelineIndex]?.description ?? timelineEvents[activeTimelineIndex].description}
                     </p>
                   </div>
                   
@@ -440,14 +438,14 @@ const Company = () => {
 
           {/* CTA Section */}
           <Card className="p-6 sm:p-8 md:p-12 text-center bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 animate-fade-in-up">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-4 lg:mb-6 text-white">Свяжитесь с нами</h2>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-4 lg:mb-6 text-white">{t?.company?.ctaTitle ?? 'Свяжитесь с нами'}</h2>
             <p className="text-sm sm:text-base md:text-lg text-slate-300 mb-4 md:mb-6 lg:mb-8 max-w-2xl mx-auto">
-              Узнайте больше о наших возможностях и продукции
+              {t?.company?.ctaDescription ?? 'Узнайте больше о наших возможностях и продукции'}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
               <Button asChild size="lg" className="text-sm md:text-base bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 transition-all duration-500 shadow-lg">
                 <Link to="/contact">
-                  Связаться с нами
+                        {t?.company?.ctaButton ?? 'Связаться с нами'}
                   <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
                 </Link>
               </Button>

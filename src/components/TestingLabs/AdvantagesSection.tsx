@@ -1,8 +1,9 @@
 import React from "react";
 import { Card } from "@/components/ui/card";
 import { Award, Users, Clock, Shield } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const advantages = [
+const defaultAdvantages = [
   {
     icon: Award,
     title: "Аккредитация",
@@ -26,6 +27,10 @@ const advantages = [
 ];
 
 const AdvantagesSection = () => {
+  const { t } = useLanguage();
+
+  const advantages = (t.testingLabs && t.testingLabs.advantages) || defaultAdvantages;
+
   return (
     <section className="py-16 md:py-20 bg-gradient-to-b from-black via-slate-900/30 to-black relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -34,10 +39,10 @@ const AdvantagesSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent mb-8">
-            Наши преимущества
+            { (t.testingLabs && t.testingLabs.advantagesHeading) || 'Наши преимущества' }
           </h2>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            Почему стоит выбрать наши испытательные лаборатории
+            { (t.testingLabs && t.testingLabs.advantagesDescription) || 'Почему стоит выбрать наши испытательные лаборатории' }
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">

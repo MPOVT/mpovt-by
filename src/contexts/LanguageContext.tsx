@@ -1,9 +1,14 @@
 
 import React, { createContext, useState, useEffect, useContext, ReactNode } from 'react';
 import { en } from '../locales/en';
-import { it } from '../locales/it';
+import { ru } from '../locales/ru';
+import { be } from '../locales/be';
+import { zh } from '../locales/zh';
+// keep italian only if present
 
-type Translations = typeof en;
+// Use a permissive translations shape to allow partial locales while we
+// progressively add all keys. Components should access keys that exist.
+type Translations = any;
 
 interface LanguageContextType {
   language: string;
@@ -13,7 +18,9 @@ interface LanguageContextType {
 
 const translations: Record<string, Translations> = {
   en,
-  it
+  ru,
+  be,
+  zh,
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);

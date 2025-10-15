@@ -1,5 +1,6 @@
 
 import React from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
@@ -12,6 +13,8 @@ import {
 } from "lucide-react";
 
 const Contact = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -27,10 +30,10 @@ const Contact = () => {
         <div className="container mx-auto relative z-10">
           <div className="max-w-4xl mx-auto animate-fade-in">
             <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-8xl font-black mb-6 md:mb-8 text-white/95 leading-tight">
-              Контакты
+              { (t.contact && t.contact.title) || 'Контакты' }
             </h1>
             <p className="text-lg md:text-xl xl:text-2xl text-white/70 mb-6 md:mb-8">
-              Свяжитесь с нами для получения консультации или размещения заказа
+              { (t.contact && t.contact.subtitle) || 'Свяжитесь с нами для получения консультации или размещения заказа' }
             </p>
           </div>
         </div>
@@ -53,12 +56,12 @@ const Contact = () => {
                 <div className="p-2 md:p-3 bg-emerald-500/20 rounded-xl">
                   <Phone className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-emerald-500" />
                 </div>
-                <h3 className="text-base sm:text-lg md:text-2xl font-semibold text-white">Телефон</h3>
+                <h3 className="text-base sm:text-lg md:text-2xl font-semibold text-white">{ (t.contact && t.contact.info && t.contact.info.phoneHeading) || 'Телефон' }</h3>
               </div>
               <div className="space-y-1 md:space-y-2">
                 <p className="text-sm sm:text-base md:text-lg text-slate-300">+375 (17) 298-45-67</p>
                 <p className="text-sm sm:text-base md:text-lg text-slate-300">+375 (17) 298-45-68</p>
-                <p className="text-slate-400 text-xs sm:text-sm md:text-base">Отдел продаж</p>
+                <p className="text-slate-400 text-xs sm:text-sm md:text-base">{ (t.contact && t.contact.info && t.contact.info.phoneDepartment) || 'Отдел продаж' }</p>
               </div>
             </Card>
 
@@ -67,12 +70,12 @@ const Contact = () => {
                 <div className="p-2 md:p-3 bg-blue-500/20 rounded-xl">
                   <Mail className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-blue-500" />
                 </div>
-                <h3 className="text-base sm:text-lg md:text-2xl font-semibold text-white">Email</h3>
+                <h3 className="text-base sm:text-lg md:text-2xl font-semibold text-white">{ (t.contact && t.contact.info && t.contact.info.emailHeading) || 'Email' }</h3>
               </div>
               <div className="space-y-1 md:space-y-2">
                 <p className="text-sm sm:text-base md:text-lg text-slate-300">info@mpovt.by</p>
                 <p className="text-sm sm:text-base md:text-lg text-slate-300">sales@mpovt.by</p>
-                <p className="text-slate-400 text-xs sm:text-sm md:text-base">Основная почта</p>
+                <p className="text-slate-400 text-xs sm:text-sm md:text-base">{ (t.contact && t.contact.info && t.contact.info.emailNote) || 'Основная почта' }</p>
               </div>
             </Card>
 
@@ -81,12 +84,12 @@ const Contact = () => {
                 <div className="p-2 md:p-3 bg-purple-500/20 rounded-xl">
                   <MapPin className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-purple-500" />
                 </div>
-                <h3 className="text-base sm:text-lg md:text-2xl font-semibold text-white">Адрес</h3>
+                <h3 className="text-base sm:text-lg md:text-2xl font-semibold text-white">{ (t.contact && t.contact.info && t.contact.info.addressHeading) || 'Адрес' }</h3>
               </div>
               <div className="space-y-1 md:space-y-2">
-                <p className="text-sm sm:text-base md:text-lg text-slate-300">Республика Беларусь</p>
-                <p className="text-sm sm:text-base md:text-lg text-slate-300">220012, г. Минск</p>
-                <p className="text-sm sm:text-base md:text-lg text-slate-300">ул. Академика Купревича, 21</p>
+                <p className="text-sm sm:text-base md:text-lg text-slate-300">{ (t.contact && t.contact.info && t.contact.info.addressLines && t.contact.info.addressLines[0]) || 'Республика Беларусь' }</p>
+                <p className="text-sm sm:text-base md:text-lg text-slate-300">{ (t.contact && t.contact.info && t.contact.info.addressLines && t.contact.info.addressLines[1]) || '220012, г. Минск' }</p>
+                <p className="text-sm sm:text-base md:text-lg text-slate-300">{ (t.contact && t.contact.info && t.contact.info.addressLines && t.contact.info.addressLines[2]) || 'ул. Академика Купревича, 21' }</p>
               </div>
             </Card>
 
@@ -95,24 +98,24 @@ const Contact = () => {
                 <div className="p-2 md:p-3 bg-orange-500/20 rounded-xl">
                   <Clock className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-orange-500" />
                 </div>
-                <h3 className="text-base sm:text-lg md:text-2xl font-semibold text-white">Время работы</h3>
+                <h3 className="text-base sm:text-lg md:text-2xl font-semibold text-white">{ (t.contact && t.contact.info && t.contact.info.hoursHeading) || 'Время работы' }</h3>
               </div>
               <div className="space-y-1 md:space-y-2">
-                <p className="text-sm sm:text-base md:text-lg text-slate-300">Пн-Пт: 8:00 - 17:00</p>
-                <p className="text-sm sm:text-base md:text-lg text-slate-300">Сб-Вс: выходной</p>
-                <p className="text-slate-400 text-xs sm:text-sm md:text-base">Время указано по Минску</p>
+                <p className="text-sm sm:text-base md:text-lg text-slate-300">{ (t.contact && t.contact.info && t.contact.info.hoursLines && t.contact.info.hoursLines[0]) || 'Пн-Пт: 8:00 - 17:00' }</p>
+                <p className="text-sm sm:text-base md:text-lg text-slate-300">{ (t.contact && t.contact.info && t.contact.info.hoursLines && t.contact.info.hoursLines[1]) || 'Сб-Вс: выходной' }</p>
+                <p className="text-slate-400 text-xs sm:text-sm md:text-base">{ (t.contact && t.contact.info && t.contact.info.hoursNote) || 'Время указано по Минску' }</p>
               </div>
             </Card>
           </div>
 
           {/* Contact Form */}
           <Card className="p-4 sm:p-6 md:p-8 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-500 animate-fade-in-up mb-8 md:mb-12 lg:mb-16">
-            <h3 className="text-base sm:text-lg md:text-2xl font-semibold mb-4 md:mb-6 text-white">Отправить сообщение</h3>
+            <h3 className="text-base sm:text-lg md:text-2xl font-semibold mb-4 md:mb-6 text-white">{ (t.contact && t.contact.form && t.contact.form.title) || 'Отправить сообщение' }</h3>
             <form className="space-y-3 md:space-y-4 lg:space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 lg:gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-xs sm:text-sm font-medium mb-1 md:mb-2 text-slate-300">
-                    Имя *
+                    <label htmlFor="name" className="block text-xs sm:text-sm font-medium mb-1 md:mb-2 text-slate-300">
+                    { (t.contact && t.contact.form && t.contact.form.nameLabel) || 'Имя *' }
                   </label>
                   <input
                     type="text"
@@ -120,13 +123,13 @@ const Contact = () => {
                     name="name"
                     required
                     className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border border-slate-600/30 bg-slate-800/20 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 text-xs sm:text-sm md:text-base text-white placeholder-slate-400"
-                    placeholder="Ваше имя"
+                    placeholder={(t.contact && t.contact.form && t.contact.form.namePlaceholder) || 'Ваше имя'}
                   />
                 </div>
 
                 <div>
                   <label htmlFor="email" className="block text-xs sm:text-sm font-medium mb-1 md:mb-2 text-slate-300">
-                    Email *
+                    { (t.contact && t.contact.form && t.contact.form.emailLabel) || 'Email *' }
                   </label>
                   <input
                     type="email"
@@ -134,7 +137,7 @@ const Contact = () => {
                     name="email"
                     required
                     className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border border-slate-600/30 bg-slate-800/20 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 text-xs sm:text-sm md:text-base text-white placeholder-slate-400"
-                    placeholder="your@email.com"
+                    placeholder={(t.contact && t.contact.form && t.contact.form.emailPlaceholder) || 'your@email.com'}
                   />
                 </div>
               </div>
@@ -142,20 +145,20 @@ const Contact = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 lg:gap-6">
                 <div>
                   <label htmlFor="phone" className="block text-xs sm:text-sm font-medium mb-1 md:mb-2 text-slate-300">
-                    Телефон
+                    { (t.contact && t.contact.form && t.contact.form.phoneLabel) || 'Телефон' }
                   </label>
                   <input
                     type="tel"
                     id="phone"
                     name="phone"
                     className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border border-slate-600/30 bg-slate-800/20 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 text-xs sm:text-sm md:text-base text-white placeholder-slate-400"
-                    placeholder="+375 (xx) xxx-xx-xx"
+                    placeholder={(t.contact && t.contact.form && t.contact.form.phonePlaceholder) || '+375 (xx) xxx-xx-xx'}
                   />
                 </div>
 
                 <div>
                   <label htmlFor="subject" className="block text-xs sm:text-sm font-medium mb-1 md:mb-2 text-slate-300">
-                    Тема сообщения *
+                    { (t.contact && t.contact.form && t.contact.form.subjectLabel) || 'Тема сообщения *' }
                   </label>
                   <input
                     type="text"
@@ -163,14 +166,14 @@ const Contact = () => {
                     name="subject"
                     required
                     className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border border-slate-600/30 bg-slate-800/20 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 text-xs sm:text-sm md:text-base text-white placeholder-slate-400"
-                    placeholder="Тема вашего сообщения"
+                    placeholder={(t.contact && t.contact.form && t.contact.form.subjectPlaceholder) || 'Тема вашего сообщения'}
                   />
                 </div>
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-xs sm:text-sm font-medium mb-1 md:mb-2 text-slate-300">
-                  Сообщение *
+                  { (t.contact && t.contact.form && t.contact.form.messageLabel) || 'Сообщение *' }
                 </label>
                 <textarea
                   id="message"
@@ -178,26 +181,26 @@ const Contact = () => {
                   required
                   rows={4}
                   className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border border-slate-600/30 bg-slate-800/20 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 resize-none text-xs sm:text-sm md:text-base text-white placeholder-slate-400"
-                  placeholder="Ваше сообщение..."
+                  placeholder={(t.contact && t.contact.form && t.contact.form.messagePlaceholder) || 'Ваше сообщение...'}
                 />
               </div>
 
               <Button type="submit" className="w-full text-xs sm:text-sm md:text-base bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 transition-all duration-500 shadow-lg">
                 <Send className="mr-2 h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5" />
-                Отправить сообщение
+                { (t.contact && t.contact.form && t.contact.form.submit) || 'Отправить сообщение' }
               </Button>
             </form>
           </Card>
 
           {/* Map Section */}
           <Card className="p-1 sm:p-6 md:p-8 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-            <h3 className="text-base sm:text-lg md:text-2xl font-semibold mb-3 md:mb-4 lg:mb-6 text-center text-white">Как нас найти</h3>
+            <h3 className="text-base sm:text-lg md:text-2xl font-semibold mb-3 md:mb-4 lg:mb-6 text-center text-white">{ (t.contact && t.contact.map && t.contact.map.title) || 'Как нас найти' }</h3>
             <div className="aspect-[16/9] sm:aspect-[21/9] md:aspect-video bg-gradient-to-br from-primary/10 to-orange-400/10 rounded-xl flex items-center justify-center">
               
               <div className="text-center mr-24">
                 <MapPin className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 lg:h-16 lg:w-16 text-primary mx-auto mb-3 md:mb-4" />
-                <p className="text-sm sm:text-base md:text-lg font-medium text-white">Карта будет загружена</p>
-                <p className="text-slate-400 text-xs sm:text-sm md:text-base">ул. Академика Купревича, 21, Минск</p>
+                <p className="text-sm sm:text-base md:text-lg font-medium text-white">{ (t.contact && t.contact.map && t.contact.map.placeholder) || 'Карта будет загружена' }</p>
+                <p className="text-slate-400 text-xs sm:text-sm md:text-base">{ (t.contact && t.contact.map && t.contact.map.address) || 'ул. Академика Купревича, 21, Минск' }</p>
               </div>
               <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Abfc3ea831d96eec5aa9555a466a3a38cdd93ff72d0d7b1e384901485a46bab31&amp;source=constructor" width="580" height="394" frameBorder="0"></iframe>
             </div>

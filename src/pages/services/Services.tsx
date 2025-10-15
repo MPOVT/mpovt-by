@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Footer from "@/components/Footer";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
   ArrowRight,
   FlaskConical,
@@ -24,8 +25,9 @@ import {
 
 const Services = () => {
   const isMobile = useIsMobile();
+  const { t } = useLanguage();
 
-  const certifications = [
+  const certifications = t?.services?.testingLabs?.certifications ?? [
     "БГЦА - Белорусский государственный центр аккредитации",
     "EA BLA - Европейское сотрудничество по аккредитации (испытания, калибровки, сертификация)",
     "ILAC MRA - Международное сотрудничество лабораторных аккредитаций",
@@ -110,10 +112,10 @@ const Services = () => {
         <div className="container mx-auto relative z-10">
           <div className="max-w-4xl mx-auto animate-fade-in">
             <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-8xl font-black mb-6 md:mb-8 text-white/95 leading-tight">
-              Услуги
+              {t?.services?.pageTitle ?? 'Услуги'}
             </h1>
             <p className="text-lg md:text-xl xl:text-2xl text-white/70 mb-6 md:mb-8">
-              Профессиональные услуги для вашего бизнеса
+              {t?.services?.pageSubtitle ?? 'Профессиональные услуги для вашего бизнеса'}
             </p>
           </div>
         </div>
@@ -125,11 +127,11 @@ const Services = () => {
           <div className="text-center mb-12 md:mb-16">
             <div className="inline-flex items-center gap-4 mb-8">
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
-                Испытательные лаборатории
+                {t?.services?.testingLabs?.title ?? 'Испытательные лаборатории'}
               </h2>
             </div>
             <p className="text-xl text-slate-300 max-w-4xl mx-auto">
-              Комплексные испытания и контроль качества с международной аккредитацией
+              {t?.services?.testingLabs?.description ?? 'Комплексные испытания и контроль качества с международной аккредитацией'}
             </p>
           </div>
 
@@ -138,10 +140,9 @@ const Services = () => {
               {/* First Card - Accreditation Info */}
               <Card className="group overflow-hidden bg-cyan-800/10 backdrop-blur-xl border border-cyan-700/30 hover:border-cyan-500/50 transition-all duration-700 hover:shadow-2xl hover:shadow-cyan-500/20">
                 <div className="p-6 md:p-8">
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Государственная аккредитация</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">{t?.services?.testingLabs?.accreditationTitle ?? 'Государственная аккредитация'}</h3>
                   <p className="text-slate-400 text-sm md:text-base leading-relaxed pb-5">
-                    Наша лаборатория имеет полную государственную аккредитацию и международное признание.
-                    Мы обеспечиваем комплексные испытания промышленной продукции с выдачей официальных сертификатов соответствия.
+                    {t?.services?.testingLabs?.accreditationDescription ?? 'Наша лаборатория имеет полную государственную аккредитацию и международное признание. Мы обеспечиваем комплексные испытания промышленной продукции с выдачей официальных сертификатов соответствия.'}
                   </p>
                   <div className="space-y-3">
                     {certifications.map((cert, index) => (
@@ -161,18 +162,18 @@ const Services = () => {
                     <div className="mb-6">
                       <h4 className="text-2xl md:text-3xl font-bold text-white mb-3">Виды испытаний</h4>
                       <p className="text-slate-400 text-sm md:text-base leading-relaxed">
-                        Широкий спектр профессиональных испытаний и сертификационных услуг для промышленности
+                        {t?.services?.testingLabs?.shortDescription ?? 'Широкий спектр профессиональных испытаний и сертификационных услуг для промышленности'}
                       </p>
                     </div>
                     <div className="space-y-3 md:space-y-4">
-                      {[
+                      {(t?.services?.testingLabs?.types ?? [
                         "Электронные испытания и EMC тестирование",
                         "Химический и материаловедческий анализ",
                         "Механические и климатические испытания",
                         "Сертификация продукции и систем качества",
                         "Калибровка измерительного оборудования",
                         "Сертификация персонала"
-                      ].map((service, index) => (
+                      ]).map((service, index) => (
                         <div key={index} className="flex items-center text-slate-300">
                           <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-emerald-400 mr-3 flex-shrink-0" />
                           <span className="text-sm md:text-base">{service}</span>
@@ -188,7 +189,7 @@ const Services = () => {
                       className="w-full rounded-lg bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0 text-base md:text-lg sd:text-xs px-6 md:px-8 py-4 md:py-6 hover:scale-105 transition-all duration-300"
                     >
                       <Link to="/services/testing-laboratories">
-                        {isMobile ? "Подробнее о лабораториях" : "Подробнее о лабораториях"}
+                        {t?.services?.testingLabs?.ctaButton ?? (isMobile ? 'Подробнее о лабораториях' : 'Подробнее о лабораториях')}
                         <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
                       </Link>
                     </Button>
@@ -205,10 +206,10 @@ const Services = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-orange-400 via-red-400 to-pink-400 bg-clip-text text-transparent mb-8">
-              Производственные услуги
+              {t?.services?.additional?.title ?? 'Производственные услуги'}
             </h2>
             <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
-              Полный спектр современных производственных и технологических решений
+              {t?.services?.additional?.description ?? 'Полный спектр современных производственных и технологических решений'}
             </p>
           </div>
 

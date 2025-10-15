@@ -1,6 +1,9 @@
 import React from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HeroSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="pt-40 md:pt-44 lg:pt-48 pb-12 md:pb-16 lg:pb-20 px-4 text-center relative overflow-hidden bg-black">
       {/* Animated background */}
@@ -13,10 +16,10 @@ const HeroSection = () => {
       <div className="container mx-auto relative z-10">
         <div className="max-w-4xl mx-auto animate-fade-in">
           <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-8xl font-black mb-6 md:mb-8 text-white/95 leading-tight">
-            Испытательные лаборатории
+            { (t.testingLabs && t.testingLabs.heroHeading) || 'Испытательные лаборатории' }
           </h1>
           <p className="text-lg md:text-xl xl:text-2xl text-white/70 mb-6 md:mb-8">
-            Профессиональные испытания и контроль качества продукции
+            { (t.testingLabs && t.testingLabs.heroDescription) || 'Профессиональные испытания и контроль качества продукции' }
           </p>
         </div>
       </div>

@@ -139,12 +139,6 @@ const Computers = () => {
         imagePosition="left"
       />
 
-      <VideoSection
-        title="H-Top: компактность и мощность"
-        description="Узнайте, как H-Top меняет представление о настольных компьютерах"
-        videoSrc="/videos/h-tab.mp4"
-      />
-
       <DescriptionSection
         title="Технологии нового поколения"
         paragraphs={computerDescriptionParagraphs}

@@ -1,19 +1,19 @@
 
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Twitter, Mail, Phone, MapPin, Building2, Github } from "lucide-react";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
   
   return (
     <footer className="bg-black text-white pt-16 pb-8 border-t border-slate-800 animate-fade-in">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div className="animate-slide-in-left">
-            <h4 className="text-xl font-bold mb-4 text-amber-200">ОАО «МПОВТ»</h4>
             <p className="text-slate-300 mb-4">
-              Отечественный производитель изделий промышленной электроники, автокомпонентов и 
-              компьютерной техники на интеллектуальной платформе
+              {t?.footer?.description ?? 'Отечественный производитель изделий промышленной электроники, автокомпонентов и компьютерной техники на интеллектуальной платформе'}
             </p>
             <div className="flex space-x-4">
               <a href="https://github.com/MPOVT/mpovt-by/" className="text-slate-400 hover:text-amber-200 transition-all duration-300 hover:scale-110">
@@ -56,15 +56,15 @@ export default function Footer() {
           </div>
           
           <div className="animate-slide-in-left" style={{ animationDelay: '200ms' }}>
-            <h4 className="text-xl font-bold mb-4 text-amber-200">Быстрые ссылки</h4>
+            <h4 className="text-xl font-bold mb-4 text-amber-200">{t?.footer?.quickLinks ?? 'Быстрые ссылки'}</h4>
             <ul className="space-y-2">
               {[
-                { name: "Главная", path: "/" },
-                { name: "О компании", path: "/company" },
-                { name: "Продукция", path: "/products" },
-                { name: "Услуги", path: "/services" },
-                { name: "Контакты", path: "/contact" },
-                { name: "Поддержка и сервис", path: "/support" },
+                { name: t?.nav?.home ?? "Главная", path: "/" },
+                { name: t?.nav?.apartments ?? "О компании", path: "/company" },
+                { name: t?.nav?.products ?? "Продукция", path: "/products" },
+                { name: t?.nav?.services ?? "Услуги", path: "/services" },
+                { name: t?.nav?.contact ?? "Контакты", path: "/contact" },
+                { name: t?.nav?.support ?? "Поддержка и сервис", path: "/support" },
               ].map((link) => (
                 <li key={link.name}>
                   <Link 
@@ -79,7 +79,7 @@ export default function Footer() {
           </div>
           
           <div className="animate-slide-in-left" style={{ animationDelay: '400ms' }}>
-            <h4 className="text-xl font-bold mb-4 text-amber-200">Контакты</h4>
+            <h4 className="text-xl font-bold mb-4 text-amber-200">{t?.footer?.contact ?? 'Контакты'}</h4>
             <ul className="space-y-3">
               <li className="flex items-start transition-all duration-300 hover:translate-x-1">
                 <MapPin className="w-5 h-5 mr-2 mt-0.5 text-amber-200" />
@@ -111,24 +111,23 @@ export default function Footer() {
           </div>
           
           <div className="animate-slide-in-left" style={{ animationDelay: '600ms' }}>
-            <h4 className="text-xl font-bold mb-4 text-amber-200">Наша продукция</h4>
+            <h4 className="text-xl font-bold mb-4 text-amber-200">{t?.footer?.productsHeading ?? 'Наша продукция'}</h4>
             <p className="text-slate-300 mb-4">
-              Сертифицированная компьютерная и потребительская техника, 
-              автоэлектроника, промышленная электроника
+              {t?.footer?.productsDescription ?? 'Сертифицированная компьютерная и потребительская техника, автоэлектроника, промышленная электроника'}
             </p>
             <div className="space-y-2">
               {/* <div className="text-sm text-slate-400">
                 <strong className="text-slate-300">Партнеры:</strong> БЕЛАЗ, МАЗ, МТЗ, Гомсельмаш, ПТЗ, КАМАЗ
               </div> */}
               <div className="text-sm text-amber-200 font-medium">
-                Доля инновационной продукции: 85%+
+                {t?.footer?.innovationShare ?? 'Доля инновационной продукции: 85%+'}
               </div>
             </div>
           </div>
         </div>
         
         <div className="border-t border-slate-800 pt-8 mt-8 text-center text-slate-400 animate-fade-in" style={{ animationDelay: '800ms' }}>
-          <p>&copy; {currentYear} ОАО «МПОВТ». Все права защищены</p>
+          <p>{t?.footer?.copyright ?? `© ${currentYear} ОАО «МПОВТ». ${t?.footer?.allRights ?? 'Все права защищены'}`}</p>
         </div>
       </div>
     </footer>

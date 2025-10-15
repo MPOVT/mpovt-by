@@ -9,6 +9,7 @@ import { FeatureCard } from '@/components/common/FeatureCard';
 import { DownloadsSection } from '@/components/common/DownloadsSection';
 import { CTASection } from '@/components/common/CTASection';
 import { Tablet, Battery, Camera, Wifi, Usb, Cpu, Shield } from 'lucide-react';
+import { VideoSection } from '@/components/common/VideoSection';
 
 const Tablets = () => {
   const specifications = [
@@ -53,6 +54,12 @@ const Tablets = () => {
         imageAlt="H-Tab планшет"
         features={["Поддержка стилусов", "LTE/5G опции", "Яркие IPS и OLED дисплеи", "Защитное стекло" ]}
         imagePosition="left"
+      />
+
+      <VideoSection
+        title="H-Tab: компактность и мощность"
+        description="Узнайте, как H-Tab меняет представление о портативных устройствах"
+        videoSrc="/videos/h-tab.mp4"
       />
 
       <DescriptionSection title="Описание" paragraphs={descriptionParagraphs} />

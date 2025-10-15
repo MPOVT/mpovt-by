@@ -2,27 +2,21 @@ import React from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FileText, Download } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const documents = [
-  {
-    title: "Аттестат лаборатории испытаний",
-    url: "https://mpovt.by/gallery/%D0%90%D1%82%D1%82%D0%B5%D1%81%D1%82%D0%B0%D1%82%20%D0%B0%D0%BA%D0%BA%D1%80%D0%B5%D0%B4%D0%B8%D1%82%D0%B0%D1%86%D0%B8%D0%B8%20%D0%9B%D0%98%D1%81.pdf"
-  },
-  {
-    title: "Область аккредитации ЛИс",
-    url: "https://mpovt.by/gallery/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%20%D0%B0%D0%BA%D0%BA%D1%80%D0%B5%D0%B4%D0%B8%D1%82%D0%B0%D1%86%D0%B8%D0%B8%20%D0%9B%D0%98%D1%81.pdf"
-  },
-  {
-    title: "Аттестат лаборатории метрологии",
-    url: "https://mpovt.by/gallery/%D0%90%D1%82%D1%82%D0%B5%D1%81%D1%82%D0%B0%D1%82%20%D0%B0%D0%BA%D0%BA%D1%80%D0%B5%D0%B4%D0%B8%D1%82%D0%B0%D1%86%D0%B8%D0%B8%20%D0%9B%D0%9C_16.07.2021.pdf"
-  },
-  {
-    title: "Область аккредитации ЛМ",
-    url: "https://mpovt.by/gallery/%D0%9E%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%20%D0%B0%D0%BA%D0%BA%D1%80%D0%B5%D0%B4%D0%B8%D1%82%D0%B0%D1%86%D0%B8%D0%B8%20%D0%9B%D0%9C.pdf"
-  }
-];
 
 const DocumentsSection = () => {
+  const { t } = useLanguage();
+
+  const documents = (
+    t.testingLabs && t.testingLabs.documents
+  ) || [
+    { title: "Аттестат лаборатории испытаний", url: "https://mpovt.by/gallery/%D0%90%D1%82%D1%82%D0%B5%D1%81%D1%82%D0%B0%D1%82%20%D0%B0%D0%BA%D0%BA%D1%80%D0%B5%D0%B4%D0%B8%D1%82%D0%B0%D1%86%D0%B8%D0%B8%20%D0%9B%D0%98%D1%81.pdf" },
+    { title: "Область аккредитации ЛИс", url: "https://mpovt.by/gallery/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%20%D0%B0%D0%BA%D0%BA%D1%80%D0%B5%D0%B4%D0%B8%D1%82%D0%B0%D1%86%D0%B8%D0%B8%20%D0%9B%D0%98%D1%81.pdf" },
+    { title: "Аттестат лаборатории метрологии", url: "https://mpovt.by/gallery/%D0%90%D1%82%D1%82%D0%B5%D1%81%D1%82%D0%B0%D1%82%20%D0%B0%D0%BA%D0%BA%D1%80%D0%B5%D0%B4%D0%B8%D1%82%D0%B0%D1%86%D0%B8%D0%B8%20%D0%9B%D0%9C_16.07.2021.pdf" },
+    { title: "Область аккредитации ЛМ", url: "https://mpovt.by/gallery/%D0%9E%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%20%D0%B0%D0%BA%D0%BA%D1%80%D0%B5%D0%B4%D0%B8%D1%82%D0%B0%D1%86%D0%B8%D0%B8%20%D0%9B%D0%9C.pdf" }
+  ];
+
   return (
     <section className="py-16 md:py-20 bg-black relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
@@ -32,10 +26,10 @@ const DocumentsSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent mb-8">
-            Документы
+            { (t.testingLabs && t.testingLabs.documentsHeading) || 'Документы' }
           </h2>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            Аттестаты аккредитации и области деятельности наших лабораторий
+            { (t.testingLabs && t.testingLabs.documentsDescription) || 'Аттестаты аккредитации и области деятельности наших лабораторий' }
           </p>
         </div>
         <div className="grid gap-4 max-w-5xl mx-auto">
@@ -51,7 +45,7 @@ const DocumentsSection = () => {
                     <h3 className="text-lg font-semibold mb-2 text-white">
                       {doc.title}
                     </h3>
-                    <p className="text-slate-400 text-sm">PDF документ</p>
+                    <p className="text-slate-400 text-sm">{ (t.testingLabs && t.testingLabs.documentLabel) || 'PDF документ' }</p>
                   </div>
                 </div>
                 <Button
@@ -61,7 +55,7 @@ const DocumentsSection = () => {
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-md opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
                   <Download className="w-4 h-4 mr-2 relative z-10" />
-                  <span className="relative z-10">PDF</span>
+                  <span className="relative z-10">{ (t.testingLabs && t.testingLabs.documentButton) || 'PDF' }</span>
                 </Button>
               </div>
             </Card>

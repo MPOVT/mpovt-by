@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { LoaderCircle } from 'lucide-react';
 import { MEDIA_ASSETS, ASSET_LOADING_CONFIG, createPreloadLink } from '../lib/media-assets';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface PreloadManagerProps {
   children: React.ReactNode;
@@ -11,7 +12,8 @@ interface PreloadManagerProps {
 const PreloadManager = ({ children, onLoadingChange }: PreloadManagerProps) => {
   const [isLoading, setIsLoading] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
-  const [loadingStatus, setLoadingStatus] = useState('Инициализация...');
+  const { t } = useLanguage();
+  const [loadingStatus, setLoadingStatus] = useState((t.preload && t.preload.initializing) || 'Инициализация...');
 
   useEffect(() => {
     const preloadResources = async () => {
@@ -22,7 +24,7 @@ const PreloadManager = ({ children, onLoadingChange }: PreloadManagerProps) => {
           .catch(error => console.warn('SW registration failed:', error));
       }
       
-      setLoadingStatus('Загружаю критические ресурсы...');
+      setLoadingStatus((t.preload && t.preload.loadingCritical) || 'Загружаю критические ресурсы...');
       
       // Функция для эффективной предзагрузки изображений
       const preloadImage = (src: string): Promise<void> => {
@@ -38,7 +40,7 @@ const PreloadManager = ({ children, onLoadingChange }: PreloadManagerProps) => {
       };
 
       try {
-        // Загружаем только критически важные ресурсы для первой загрузки
+  // Загружаем только критически важные ресурсы для первой загрузки
         const criticalAssets = ASSET_LOADING_CONFIG.critical.assets;
         const priorityAssets = ASSET_LOADING_CONFIG.priority.assets;
         
@@ -50,15 +52,15 @@ const PreloadManager = ({ children, onLoadingChange }: PreloadManagerProps) => {
           }
         });
 
-        // Предзагружаем критические изображения параллельно (максимум 6 одновременно)
-        setLoadingStatus('Загружаю основные изображения...');
+  // Предзагружаем критические изображения параллельно (максимум 6 одновременно)
+  setLoadingStatus((t.preload && t.preload.loadingMainImages) || 'Загружаю основные изображения...');
         const criticalPromises = criticalAssets.map(src => preloadImage(src));
         await Promise.all(criticalPromises);
 
         // Предзагружаем приоритетные изображения (только для главной страницы)
         const currentPath = window.location.pathname;
         if (currentPath === '/' || currentPath === '/index.html') {
-          setLoadingStatus('Загружаю контент главной страницы...');
+          setLoadingStatus((t.preload && t.preload.loadingHomeContent) || 'Загружаю контент главной страницы...');
           const uniquePriorityAssets = priorityAssets
             .filter(src => !criticalAssets.includes(src as any)) // Исключаем уже загруженные
             .slice(0, 4); // Ограничиваем количество
@@ -67,7 +69,7 @@ const PreloadManager = ({ children, onLoadingChange }: PreloadManagerProps) => {
           await Promise.all(priorityPromises);
         }
         
-        setLoadingStatus('Готово!');
+  setLoadingStatus((t.preload && t.preload.done) || 'Готово!');
         
         // Быстрое завершение загрузки (без искусственных задержек)
         setTimeout(() => {
@@ -80,8 +82,8 @@ const PreloadManager = ({ children, onLoadingChange }: PreloadManagerProps) => {
         
       } catch (error) {
         console.warn('Preload error:', error);
-        // Быстро завершаем даже при ошибках
-        setLoadingStatus('Готово!');
+  // Быстро завершаем даже при ошибках
+  setLoadingStatus((t.preload && t.preload.done) || 'Готово!');
         setTimeout(() => {
           setFadeOut(true);
           onLoadingChange?.(false);
@@ -120,7 +122,7 @@ const PreloadManager = ({ children, onLoadingChange }: PreloadManagerProps) => {
           <div className="flex justify-center mb-6">
             <img 
               src="/imgs/logos/mpovt.png" 
-              alt="ОАО МПОВТ" 
+              alt={(t.preload && t.preload.logoAlt) || 'ОАО МПОВТ'} 
               className="h-32 w-auto object-contain opacity-90"
             />
           </div>
@@ -135,7 +137,7 @@ const PreloadManager = ({ children, onLoadingChange }: PreloadManagerProps) => {
           
           {/* Основной текст загрузки */}
           <p className="text-lg text-white/90 font-medium">
-            Загрузка
+            { (t.preload && t.preload.loadingTitle) || 'Загрузка' }
           </p>
           
           {/* Статус процесса */}

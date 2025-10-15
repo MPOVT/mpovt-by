@@ -1,5 +1,6 @@
 
 import React, { useState, useRef, useEffect } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface OptimizedVideoPlayerProps {
   src: string;
@@ -14,6 +15,7 @@ const OptimizedVideoPlayer: React.FC<OptimizedVideoPlayerProps> = ({
   className, 
   ...props 
 }) => {
+  const { t } = useLanguage();
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isIntersecting, setIsIntersecting] = useState(false);
@@ -154,7 +156,7 @@ const OptimizedVideoPlayer: React.FC<OptimizedVideoPlayerProps> = ({
       >
         <img 
           src={placeholder} 
-          alt="Video placeholder"
+          alt={(t && t.video && t.video.placeholderAlt) || 'Video placeholder'}
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/10"></div>
