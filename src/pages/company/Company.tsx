@@ -122,42 +122,42 @@ const Company = () => {
   const companyStats = [
     {
       icon: Building,
-      label: "Общая площадь",
+      label: t?.company?.main?.stats?.areaLabel ?? "Общая площадь",
       value: "150,000 м²",
       color: "text-emerald-500",
       bgColor: "bg-emerald-500/20"
     },
     {
       icon: MapPin,
-      label: "Локация",
+      label: t?.company?.main?.stats?.locationLabel ?? "Локация",
       value: "Минск, Беларусь",
       color: "text-blue-500",
       bgColor: "bg-blue-500/20"
     },
     {
       icon: Calendar,
-      label: "Год основания",
+      label: t?.company?.main?.stats?.foundedLabel ?? "Год основания",
       value: "1956",
       color: "text-purple-500",
       bgColor: "bg-purple-500/20"
     },
     {
       icon: Users,
-      label: "Сотрудники",
+      label: t?.company?.main?.stats?.employeesLabel ?? "Сотрудники",
       value: "500+",
       color: "text-orange-500",
       bgColor: "bg-orange-500/20"
     },
     {
       icon: Award,
-      label: "Сертификаты",
+      label: t?.company?.main?.stats?.certificationsLabel ?? "Сертификаты",
       value: "ISO 9001",
       color: "text-cyan-500",
       bgColor: "bg-cyan-500/20"
     },
     {
       icon: Globe,
-      label: "Экспорт",
+      label: t?.company?.main?.stats?.exportsLabel ?? "Экспорт",
       value: "15+ стран",
       color: "text-pink-500",
       bgColor: "bg-pink-500/20"
@@ -167,7 +167,6 @@ const Company = () => {
 
   return (
     <div className="min-h-screen">
-      
       {/* Hero Section */}
       <section className="pt-40 md:pt-44 lg:pt-48 pb-12 md:pb-16 lg:pb-20 px-4 text-center relative overflow-hidden bg-black">
         {/* Animated background matching main page style */}
@@ -181,10 +180,10 @@ const Company = () => {
         <div className="container mx-auto relative z-10">
           <div className="max-w-4xl mx-auto animate-fade-in">
             <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-8xl font-black mb-6 md:mb-8 text-white/95 leading-tight">
-              {t?.company?.pageTitle ?? 'О компании'}
+              {t?.company?.main?.pageTitle ?? 'О компании'}
             </h1>
             <p className="text-lg md:text-xl xl:text-2xl text-white/70 mb-6 md:mb-8">
-              {t?.company?.pageSubtitle ?? 'Более 65 лет опыта в разработке и производстве электронных компонентов'}
+              {t?.company?.main?.pageSubtitle ?? 'Более 65 лет опыта в разработке и производстве электронных компонентов'}
             </p>
           </div>
         </div>
@@ -203,7 +202,7 @@ const Company = () => {
             <Card className="p-4 sm:p-6 md:p-8 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-500 animate-fade-in-left flex flex-col">
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-4 lg:mb-6 text-white">{t?.company?.aboutHeading ?? 'Наша история'}</h2>
               <div className="space-y-3 md:space-y-4 text-slate-300 leading-relaxed flex-grow">
-                {(t?.company?.aboutParagraphs ?? [
+                {(t?.company?.main?.aboutParagraphs ?? [
                   'ОАО «МПОВТ» (Минское производственное объединение вычислительной техники) — ведущее предприятие Беларуси в области разработки и производства электронных компонентов и систем. Основанное в 1956 году, предприятие прошло долгий путь развития и модернизации.',
                   'Сегодня МПОВТ — это современное высокотехнологичное предприятие, оснащенное новейшим оборудованием и укомплектованное высококвалифицированными специалистами. Мы производим широкий спектр продукции: от автокомпонентов до сложных информационных систем.',
                   'Наша компания сертифицирована по международным стандартам качества ISO 9001, что подтверждает высокий уровень нашей продукции и процессов. Мы постоянно инвестируем в исследования и разработки, внедряя инновационные технологии и решения.',
@@ -220,10 +219,10 @@ const Company = () => {
                   <Quote className="h-6 w-6 md:h-8 md:w-8 text-cyan-400 flex-shrink-0 mt-1" />
                   <div>
                     <blockquote className="text-sm md:text-base text-white/90 italic leading-relaxed mb-2">
-                      "Инженер должен быть не только техником, но и художником, не только математиком, но и психологом."
+                      {t?.company?.main?.quote ?? '"Инженер должен быть не только техником, но и художником, не только математиком, но и психологом."'}
                     </blockquote>
                     <cite className="text-xs md:text-sm text-cyan-400 font-medium">
-                      — Игорь Курчатов, советский физик-ядерщик
+                      {t?.company?.quoteAuthor ?? '— Игорь Курчатов, советский физик-ядерщик'}
                     </cite>
                   </div>
                 </div>
@@ -235,15 +234,14 @@ const Company = () => {
                 <div className="flex-1 bg-gradient-to-br from-primary/20 to-orange-400/20 rounded-xl overflow-hidden mb-4">
                   <img 
                     src="https://www.mpovt.by/gallery_gen/3ae539902c5dfe25dca944087a3ecda1_fit.jpg?ts=1756203533" 
-                    alt="Здание МПОВТ"
+                    alt={t?.company?.main?.imageAlt ?? 'Здание МПОВТ'}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105 min-h-[200px] md:min-h-[250px]"
                   />
                 </div>
                 
                 {/* Company Stats in 3x2 layout */}
                 <div className="grid grid-cols-3 gap-2 md:gap-3">
-                        const statKeys = ['areaLabel','locationLabel','foundedLabel','employeesLabel','certificationsLabel','exportsLabel'];
-                        {companyStats.map((stat, index) => {
+                  {companyStats.map((stat, index) => {
                     const Icon = stat.icon;
                     return (
                       <div key={index} className="flex flex-col items-center space-y-2 p-2 md:p-3 bg-white/5 dark:bg-black/20 backdrop-blur-sm rounded-lg hover:bg-white/10 transition-all duration-300 h-full justify-center">
@@ -266,10 +264,10 @@ const Company = () => {
           <div className="mb-12 md:mb-16 lg:mb-20">
             <div className="text-center mb-8 md:mb-12">
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-cyan-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
-                {t?.company?.valuesTitle ?? 'Наши ценности'}
+                {t?.company?.main?.valuesTitle ?? 'Наши ценности'}
               </h2>
               <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
-                {t?.company?.valuesSubtitle ?? 'Принципы, которыми мы руководствуемся в своей работе'}
+                {t?.company?.main?.valuesSubtitle ?? 'Принципы, которыми мы руководствуемся в своей работе'}
               </p>
             </div>
 
@@ -297,10 +295,10 @@ const Company = () => {
           <div className="mb-12 md:mb-16 lg:mb-20">
             <div className="text-center mb-8 md:mb-12">
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-cyan-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
-                {t?.company?.timelineTitle ?? 'История развития'}
+                {t?.company?.main?.timelineTitle ?? 'История развития'}
               </h2>
               <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
-                {t?.company?.timelineSubtitle ?? 'Ключевые моменты нашего развития за более чем 65 лет'}
+                {t?.company?.main?.timelineSubtitle ?? 'Ключевые моменты нашего развития за более чем 65 лет'}
               </p>
             </div>
 
@@ -363,10 +361,10 @@ const Company = () => {
                     className="transition-all duration-400 ease-out animate-fade-in"
                   >
                     <h3 className={`text-xl md:text-2xl font-bold mb-3 ${timelineEvents[activeTimelineIndex].textColor}`}>
-                      {t?.company?.timeline?.[activeTimelineIndex]?.title ?? timelineEvents[activeTimelineIndex].title}
+                      {t?.company?.main?.timeline?.[activeTimelineIndex]?.title ?? timelineEvents[activeTimelineIndex].title}
                     </h3>
                     <p className="text-slate-300 text-sm md:text-base leading-relaxed">
-                      {t?.company?.timeline?.[activeTimelineIndex]?.description ?? timelineEvents[activeTimelineIndex].description}
+                      {t?.company?.main?.timeline?.[activeTimelineIndex]?.description ?? timelineEvents[activeTimelineIndex].description}
                     </p>
                   </div>
                   
@@ -440,19 +438,19 @@ const Company = () => {
           <Card className="p-6 sm:p-8 md:p-12 text-center bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 animate-fade-in-up">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-4 lg:mb-6 text-white">{t?.company?.ctaTitle ?? 'Свяжитесь с нами'}</h2>
             <p className="text-sm sm:text-base md:text-lg text-slate-300 mb-4 md:mb-6 lg:mb-8 max-w-2xl mx-auto">
-              {t?.company?.ctaDescription ?? 'Узнайте больше о наших возможностях и продукции'}
+              {t?.company?.main?.ctaDescription ?? 'Узнайте больше о наших возможностях и продукции'}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
               <Button asChild size="lg" className="text-sm md:text-base bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 transition-all duration-500 shadow-lg">
                 <Link to="/contact">
-                        {t?.company?.ctaButton ?? 'Связаться с нами'}
+                        {t?.company?.main?.ctaButton ?? 'Связаться с нами'}
                   <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="border-purple-400/30 bg-purple-500/10 hover:bg-purple-500/20 text-sm md:text-base transition-all duration-500">
                 <Link to="/products">
                   <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent font-semibold">
-                    Наша продукция
+                    {t?.company?.main?.productsButton ?? 'Просмотреть продукцию'}
                   </span>
                 </Link>
               </Button>

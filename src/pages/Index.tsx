@@ -1,17 +1,17 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useLanguage } from '@/contexts/LanguageContext';
 import Footer from "@/components/Footer";
-import { 
-  MainPageHero, 
-  PriorityProductsSection, 
-  InteractiveFeatures, 
-  SecondaryProductsSection, 
-  AchievementsSection 
+import {
+  MainPageHero,
+  PriorityProductsSection,
+  InteractiveFeatures,
+  SecondaryProductsSection,
+  AchievementsSection
 } from "@/components/common";
-import { 
-  Factory, 
-  Settings, 
-  Shield, 
+import {
+  Factory,
+  Settings,
+  Shield,
   Award,
   Car,
   Radio,
@@ -41,9 +41,9 @@ const IndexRefactored = () => {
     },
     {
       icon: Settings,
-  title: t?.home?.features?.innovation?.title ?? "Инновационные технологии",
-  description: t?.home?.features?.innovation?.description ?? "Передовые решения и современные технологии для создания уникальных продуктов",
-  fullDescription: t?.home?.features?.innovation?.fullDescription ?? "Мы используем самые передовые технологии и инновационные подходы в разработке и производстве. Собственный центр R&D позволяет создавать уникальные решения для наших клиентов",
+      title: t?.home?.features?.innovation?.title ?? "Инновационные технологии",
+      description: t?.home?.features?.innovation?.description ?? "Передовые решения и современные технологии для создания уникальных продуктов",
+      fullDescription: t?.home?.features?.innovation?.fullDescription ?? "Мы используем самые передовые технологии и инновационные подходы в разработке и производстве. Собственный центр R&D позволяет создавать уникальные решения для наших клиентов",
       backgroundImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop",
       colorScheme: {
         primary: "text-emerald-600 dark:text-emerald-400",
@@ -57,9 +57,9 @@ const IndexRefactored = () => {
     },
     {
       icon: Shield,
-  title: t?.home?.features?.reliability?.title ?? "Надежность и качество",
-  description: t?.home?.features?.reliability?.description ?? "Строгий контроль качества и международные стандарты ISO",
-  fullDescription: t?.home?.features?.reliability?.fullDescription ?? "Система менеджмента качества соответствует международным стандартам ISO 9001. Каждый этап производства контролируется для обеспечения максимальной надежности продукции",
+      title: t?.home?.features?.reliability?.title ?? "Надежность и качество",
+      description: t?.home?.features?.reliability?.description ?? "Строгий контроль качества и международные стандарты ISO",
+      fullDescription: t?.home?.features?.reliability?.fullDescription ?? "Система менеджмента качества соответствует международным стандартам ISO 9001. Каждый этап производства контролируется для обеспечения максимальной надежности продукции",
       backgroundImage: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&h=600&fit=crop",
       colorScheme: {
         primary: "text-purple-600 dark:text-purple-400",
@@ -73,9 +73,9 @@ const IndexRefactored = () => {
     },
     {
       icon: Award,
-  title: t?.home?.features?.expertise?.title ?? "Экспертность и опыт",
-  description: t?.home?.features?.expertise?.description ?? "Более 65 лет опыта в производстве электронных компонентов",
-  fullDescription: t?.home?.features?.expertise?.fullDescription ?? "За более чем 65-летнюю историю мы накопили огромный опыт в производстве электронных компонентов. Наши специалисты - признанные эксперты в своих областях",
+      title: t?.home?.features?.expertise?.title ?? "Экспертность и опыт",
+      description: t?.home?.features?.expertise?.description ?? "Более 65 лет опыта в производстве электронных компонентов",
+      fullDescription: t?.home?.features?.expertise?.fullDescription ?? "За более чем 65-летнюю историю мы накопили огромный опыт в производстве электронных компонентов. Наши специалисты - признанные эксперты в своих областях",
       backgroundImage: "https://mpovt.by/gallery_gen/fccf496500ea44cf6f53d1465fccbc28_fit.jpg?ts=1746513902",
       colorScheme: {
         primary: "text-amber-600 dark:text-amber-400",
@@ -146,15 +146,15 @@ const IndexRefactored = () => {
 
   const secondaryProducts = [
     {
-      title: t?.products?.secondary?.carComponents?.title ?? "Автокомпоненты",
-      description: t?.products?.secondary?.carComponents?.description ?? "Электронные блоки управления для автомобильной промышленности",
+      title: t?.components?.additionalProducts?.autoComponents?.title ?? "Автокомпоненты",
+      description: t?.components?.additionalProducts?.autoComponents?.description ?? "Электронные блоки управления для автомобильной промышленности",
       icon: Car,
       image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&h=300&fit=crop",
       link: "/products/car-blocks"
     },
     {
-      title: t?.products?.secondary?.informationSystems?.title ?? "Информационные системы",
-      description: t?.products?.secondary?.informationSystems?.description ?? "Комплексные IT-решения для бизнеса любых размеров",
+      title: t?.components?.additionalProducts?.itSystems?.title ?? "Информационные системы",
+      description: t?.components?.additionalProducts?.itSystems?.description ?? "Комплексные IT-решения для бизнеса любых размеров",
       icon: FileText,
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop",
       link: "/products/information-systems"
@@ -188,31 +188,31 @@ const IndexRefactored = () => {
     <div className="min-h-screen bg-black">
       <MainPageHero
         logoSrc="/imgs/logos/mpovt.png"
-        logoAlt={t?.footer?.contact ?? 'ОАО МПОВТ'}
+        logoAlt={t?.components?.footer?.contact ?? 'ОАО МПОВТ'}
         subtitle={t?.home?.welcome?.subtitle ?? 'Ведущий производитель электронных компонентов и автокомпонентов с 1956 года'}
-        scrollIndicatorText={t?.hero?.scrollDown ?? 'Прокрутите вниз'}
+        scrollIndicatorText={t?.home?.welcome?.scrollDown ?? 'Прокрутите вниз'}
       />
 
       <PriorityProductsSection
-        title={t?.home?.featuredApartments?.subtitle ?? 'Флагманская продукция'}
-        subtitle={t?.home?.featuredApartments?.description ?? 'Революционные решения потребительской вычислительной техники нового поколения'}
+        title={t?.home?.featuredProducts?.subtitle ?? 'Флагманская продукция'}
+        subtitle={t?.home?.featuredProducts?.description ?? 'Революционные решения потребительской вычислительной техники нового поколения'}
         products={priorityProducts}
       />
 
       <InteractiveFeatures
-        title={t?.home?.welcome?.title ?? 'Инновационные решения для промышленности'}
-        subtitle={t?.home?.welcome?.description1 ?? 'Современные технологии и многолетний опыт позволяют нам создавать продукцию высочайшего качества'}
+        title={t?.home?.innovations?.title ?? 'Инновационные решения для промышленности'}
+        subtitle={t?.home?.innovations?.description ?? 'Современные технологии и многолетний опыт позволяют нам создавать продукцию высочайшего качества'}
         features={features}
       />
 
       <SecondaryProductsSection
-        title={t?.home?.cta?.title ?? 'Дополнительные направления'}
-        subtitle={t?.home?.cta?.description ?? 'Проверенные решения для различных отраслей промышленности'}
+        title={t?.home?.additionalProducts?.title ?? 'Дополнительные направления'}
+        subtitle={t?.home?.additionalProducts?.description ?? 'Проверенные решения для различных отраслей промышленности'}
         products={secondaryProducts}
       />
 
       <AchievementsSection
-        title={t?.home?.welcome?.learnMore ?? 'Наши достижения'}
+        title={t?.home?.achievements?.title ?? 'Наши достижения'}
         subtitle={t?.home?.cta?.description ?? 'Цифры, которые говорят о нашем успехе и надежности'}
         achievements={achievements}
       />
