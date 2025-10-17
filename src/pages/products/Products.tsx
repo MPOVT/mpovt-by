@@ -32,12 +32,12 @@ const Products: React.FC = () => {
   const priorityProducts = [
     {
       title: "H-Top",
-      subtitle: t?.products?.priority?.computers?.subtitle ?? "Мини-ПК",
+      subtitle: t?.products?.priority?.computers?.card?.subtitle ?? "Мини-ПК",
       description:
-        t?.products?.priority?.computers?.description ??
+        t?.products?.priority?.computers?.card?.description ??
         "Компактные высокопроизводительные компьютеры",
       fullDescription:
-        t?.products?.priority?.computers?.fullDescription ??
+        t?.products?.priority?.computers?.card?.fullDescription ??
         "Мощные мини-компьютеры с производительностью полноразмерных систем.",
       videoUrl: "/videos/multi-render.mp4",
       image: MEDIA_ASSETS.priorityProducts.miniPc,
@@ -49,12 +49,12 @@ const Products: React.FC = () => {
     },
     {
       title: "H-Book",
-      subtitle: t?.products?.priority?.laptops?.subtitle ?? "Ноутбуки",
+      subtitle: t?.products?.priority?.laptops?.card?.subtitle ?? "Ноутбуки",
       description:
-        t?.products?.priority?.laptops?.description ??
+        t?.products?.priority?.laptops?.card?.description ??
         "Мобильные защищенные решения",
       fullDescription:
-        t?.products?.priority?.laptops?.fullDescription ??
+        t?.products?.priority?.laptops?.card?.fullDescription ??
         "Профессиональные ноутбуки для мобильной работы.",
       videoUrl: "/videos/h-book.mp4",
       image: MEDIA_ASSETS.priorityProducts.laptop,
@@ -66,12 +66,12 @@ const Products: React.FC = () => {
     },
     {
       title: "H-Monitor",
-      subtitle: t?.products?.priority?.monitors?.subtitle ?? "Мониторы",
+      subtitle: t?.products?.priority?.monitors?.card?.subtitle ?? "Мониторы",
       description:
-        t?.products?.priority?.monitors?.description ??
+        t?.products?.priority?.monitors?.card?.description ??
         "Профессиональные дисплеи",
       fullDescription:
-        t?.products?.priority?.monitors?.fullDescription ??
+        t?.products?.priority?.monitors?.card?.fullDescription ??
         "Высококачественные мониторы для оператора.",
       videoUrl: "/videos/h-tab.mp4",
       image: MEDIA_ASSETS.priorityProducts.monitor,
@@ -83,12 +83,12 @@ const Products: React.FC = () => {
     },
     {
       title: "H-Storage",
-      subtitle: t?.products?.priority?.ssd?.subtitle ?? "Накопители",
+      subtitle: t?.products?.priority?.ssd?.card?.subtitle ?? "Накопители",
       description:
-        t?.products?.priority?.ssd?.description ??
+        t?.products?.priority?.ssd?.card?.description ??
         "Высокоскоростные NVMe SSD накопители",
       fullDescription:
-        t?.products?.priority?.ssd?.fullDescription ??
+        t?.products?.priority?.ssd?.card?.fullDescription ??
         "Сверхбыстрые NVMe накопители для критичных задач.",
       videoUrl: "/videos/multi-render.mp4",
       image: MEDIA_ASSETS.priorityProducts.ssd,
@@ -103,9 +103,9 @@ const Products: React.FC = () => {
   const secondaryProducts = [
     {
       title:
-        t?.products?.secondary?.carComponents?.title ?? "Автокомпоненты",
+        t?.products?.additional?.autoComponents?.title ?? "Автокомпоненты",
       description:
-        t?.products?.secondary?.carComponents?.description ??
+        t?.products?.additional?.autoComponents?.description ??
         "Электронные блоки управления для автомобильной промышленности",
       icon: Car,
       image:
@@ -114,10 +114,10 @@ const Products: React.FC = () => {
     },
     {
       title:
-        t?.products?.secondary?.informationSystems?.title ??
+        t?.products?.additional?.itSystems?.title ??
         "Информационные системы",
       description:
-        t?.products?.secondary?.informationSystems?.description ??
+        t?.products?.additional?.itSystems?.description ??
         "Комплексные IT-решения для бизнеса",
       icon: FileText,
       image:
@@ -129,10 +129,10 @@ const Products: React.FC = () => {
   const technologies = [
     {
       icon: Cpu,
-      title: t?.products?.technologies?.cpuTitle ??
+      title: t?.products?.main?.techCards?.performance?.title ??
         "Высокая производительность",
       description:
-        t?.products?.technologies?.cpuDescription ??
+        t?.products?.main?.techCards?.performance?.description ??
         "Современные процессоры Intel и AMD для максимальной производительности",
       color: {
         icon: "text-cyan-400",
@@ -144,9 +144,9 @@ const Products: React.FC = () => {
     },
     {
       icon: Shield,
-      title: t?.products?.technologies?.reliabilityTitle ?? "Надёжность",
+      title: t?.products?.main?.techCards?.reliability?.title ?? "Надёжность",
       description:
-        t?.products?.technologies?.reliabilityDescription ??
+        t?.products?.main?.techCards?.reliability?.description ??
         "Расширенное тестирование и контроль качества на всех этапах",
       color: {
         icon: "text-emerald-400",
@@ -158,9 +158,9 @@ const Products: React.FC = () => {
     },
     {
       icon: Zap,
-      title: t?.products?.technologies?.efficiencyTitle ?? "Энергоэффективность",
+      title: t?.products?.main?.techCards?.efficiency?.title ?? "Энергоэффективность",
       description:
-        t?.products?.technologies?.efficiencyDescription ??
+        t?.products?.main?.techCards?.efficiency?.description ??
         "Оптимизированное энергопотребление до 90% эффективности",
       color: {
         icon: "text-purple-400",
@@ -172,9 +172,9 @@ const Products: React.FC = () => {
     },
     {
       icon: Thermometer,
-      title: t?.products?.technologies?.tempTitle ?? "Расширенный диапазон",
+      title: t?.products?.main?.techCards?.temperature?.title ?? "Расширенный диапазон",
       description:
-        t?.products?.technologies?.tempDescription ??
+        t?.products?.main?.techCards?.temperature?.description ??
         "Работа в условиях от -40°C до +85°C без потери производительности",
       color: {
         icon: "text-orange-400",
@@ -186,9 +186,9 @@ const Products: React.FC = () => {
     },
     {
       icon: Battery,
-      title: t?.products?.technologies?.batteryTitle ?? "Длительная автономность",
+      title: t?.products?.main?.techCards?.battery?.title ?? "Длительная автономность",
       description:
-        t?.products?.technologies?.batteryDescription ??
+        t?.products?.main?.techCards?.battery?.description ??
         "Управление питанием для работы до 12 часов без подзарядки",
       color: {
         icon: "text-yellow-400",
@@ -200,9 +200,9 @@ const Products: React.FC = () => {
     },
     {
       icon: Wifi,
-      title: t?.products?.technologies?.connectivityTitle ?? "Современная связь",
+      title: t?.products?.main?.techCards?.connectivity?.title ?? "Современная связь",
       description:
-        t?.products?.technologies?.connectivityDescription ??
+        t?.products?.main?.techCards?.connectivity?.description ??
         "Wi-Fi 6E, Bluetooth 5.3 для максимальной совместимости",
       color: {
         icon: "text-indigo-400",
@@ -216,9 +216,9 @@ const Products: React.FC = () => {
   const advantages = [
     {
       icon: MapPin,
-      title: t?.products?.advantages?.localTitle ?? "Отечественное производство",
+      title: t?.products?.main?.advantagesCards?.local?.title ?? "Отечественное производство",
       description:
-        t?.products?.advantages?.localDescription ??
+        t?.products?.main?.advantagesCards?.local?.description ??
         "Продукция производится в Беларуси с использованием современных технологий и международными стандартами качества",
       color: {
         icon: "text-emerald-400",
@@ -230,9 +230,9 @@ const Products: React.FC = () => {
     },
     {
       icon: Award,
-      title: t?.products?.advantages?.isoTitle ?? "Сертификация ISO",
+      title: t?.products?.main?.advantagesCards?.iso?.title ?? "Сертификация ISO",
       description:
-        t?.products?.advantages?.isoDescription ??
+        t?.products?.main?.advantagesCards?.iso?.description ??
         "Система менеджмента качества сертифицирована по международным стандартам ISO 9001 и IATF 16949",
       color: {
         icon: "text-amber-400",
@@ -244,9 +244,9 @@ const Products: React.FC = () => {
     },
     {
       icon: Users,
-      title: t?.products?.advantages?.teamTitle ?? "Экспертная команда",
+      title: t?.products?.main?.advantagesCards?.team?.title ?? "Экспертная команда",
       description:
-        t?.products?.advantages?.teamDescription ??
+        t?.products?.main?.advantagesCards?.team?.description ??
         "Высококвалифицированные специалисты с многолетним опытом разработки и производства электронной техники",
       color: {
         icon: "text-cyan-400",
@@ -258,9 +258,9 @@ const Products: React.FC = () => {
     },
     {
       icon: CheckCircle,
-      title: t?.products?.advantages?.fullCycleTitle ?? "Полный цикл производства",
+      title: t?.products?.main?.advantagesCards?.fullCycle?.title ?? "Полный цикл производства",
       description:
-        t?.products?.advantages?.fullCycleDescription ??
+        t?.products?.main?.advantagesCards?.fullCycle?.description ??
         "От разработки и проектирования до серийного производства и послепродажного обслуживания",
       color: {
         icon: "text-purple-400",
@@ -275,9 +275,9 @@ const Products: React.FC = () => {
   return (
     <div className="min-h-screen bg-black">
       <PageHero
-        title={t?.products?.pageTitle ?? "Продукция"}
+        title={t?.products?.main?.pageTitle ?? "Продукция"}
         description={
-          t?.products?.pageDescription ??
+          t?.products?.main?.pageSubtitle ??
           "Комплексные решения для современных технологических вызовов"
         }
         backgroundVariant="default"
@@ -285,21 +285,22 @@ const Products: React.FC = () => {
 
       {/* Priority Products Section */}
       <PriorityProductsGridSection
-        title={t?.products?.prioritySectionTitle ?? "Флагманская продукция"}
+        title={t?.products?.main?.priorityTitle ?? "Флагманская продукция"}
         subtitle={
-          t?.products?.prioritySectionSubtitle ??
+          t?.products?.main?.prioritySubtitle ??
           "Инновационные решения белорусского производства с мировыми стандартами качества"
         }
         products={priorityProducts}
+        buttonLabel={t?.components?.buttons?.readMore ?? 'Подробнее'}
       />
 
       {/* Технологии и инновации */}
       <section className="py-16 md:py-20 bg-gradient-to-b from-black to-slate-900/50 relative">
         <div className="container mx-auto px-4 relative z-10">
           <SectionHeader
-            title={t?.products?.technologiesSectionTitle ?? "Технологии и инновации"}
+            title={t?.products?.main?.techTitle ?? "Технологии и инновации"}
             description={
-              t?.products?.technologiesSectionDescription ??
+              t?.products?.main?.techSubtitle ??
               "Передовые разработки для решения современных технологических задач"
             }
             gradientColors="from-cyan-400 via-blue-400 to-purple-400"
@@ -328,39 +329,39 @@ const Products: React.FC = () => {
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <SectionHeader
-            title={t?.products?.advantagesSectionTitle ?? "Преимущества нашего производства"}
-            description={t?.products?.advantagesSectionDescription ?? "Белорусское качество с международными стандартами"}
+            title={t?.products?.main?.advantagesTitle ?? "Преимущества нашего производства"}
+            description={t?.products?.main?.advantagesSubtitle ?? "Белорусское качество с международными стандартами"}
             gradientColors="from-green-400 via-breeze-400 to-indigo-400"
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto">
             {advantages.map((advantage, index) => {
               const Icon = advantage.icon;
-              let solidBg = '';
-              let hoverBg = '';
+              let solidBg = advantage.color.bg;
+              let hoverBg = advantage.color.bgHover;
               let iconColor = advantage.color.icon;
 
-              switch (advantage.title) {
-                case 'Отечественное производство':
-                  solidBg = 'bg-emerald-500/20';
-                  hoverBg = 'hover:bg-emerald-900/40';
-                  break;
-                case 'Сертификация ISO':
-                  solidBg = 'bg-amber-500/20';
-                  hoverBg = 'hover:bg-amber-900/40';
-                  break;
-                case 'Экспертная команда':
-                  solidBg = 'bg-cyan-500/20';
-                  hoverBg = 'hover:bg-cyan-900/40';
-                  break;
-                case 'Полный цикл производства':
-                  solidBg = 'bg-purple-500/20';
-                  hoverBg = 'hover:bg-purple-900/40';
-                  break;
-                default:
-                  solidBg = 'bg-slate-500/20';
-                  hoverBg = 'hover:bg-slate-800/40';
-              }
+              // switch (advantage.title) {
+              //   case 'Отечественное производство':
+              //     solidBg = 'bg-emerald-500/20';
+              //     hoverBg = 'hover:bg-emerald-900/40';
+              //     break;
+              //   case 'Сертификация ISO':
+              //     solidBg = 'bg-amber-500/20';
+              //     hoverBg = 'hover:bg-amber-900/40';
+              //     break;
+              //   case 'Экспертная команда':
+              //     solidBg = 'bg-cyan-500/20';
+              //     hoverBg = 'hover:bg-cyan-900/40';
+              //     break;
+              //   case 'Полный цикл производства':
+              //     solidBg = 'bg-purple-500/20';
+              //     hoverBg = 'hover:bg-purple-900/40';
+              //     break;
+              //   default:
+              //     solidBg = 'bg-slate-500/20';
+              //     hoverBg = 'hover:bg-slate-800/40';
+              // }
 
               return (
                 <Card
@@ -380,7 +381,7 @@ const Products: React.FC = () => {
                     <p className="text-slate-300 leading-relaxed flex-grow group-hover:text-slate-200 transition-colors">
                       {advantage.description}
                     </p>
-                    <div className="mt-6 pt-4 border-t border-slate-700/50">
+                    <div className="mt-6 pt-4 border-slate-700/50">
                       <div className={`h-1 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left ${solidBg}`}></div>
                     </div>
                   </div>
@@ -393,17 +394,18 @@ const Products: React.FC = () => {
 
       {/* Secondary Products Section */}
       <SecondaryProductsSection
-        title={t?.products?.secondarySectionTitle ?? "Дополнительные направления"}
-        subtitle={t?.products?.secondarySectionSubtitle ?? "Проверенные решения для различных отраслей промышленности"}
+        title={t?.products?.additional?.title ?? "Дополнительные направления"}
+        subtitle={t?.products?.additional?.description ?? "Проверенные решения для различных отраслей промышленности"}
         products={secondaryProducts}
+        buttonLabel={t?.components?.buttons?.readMore ?? 'Подробнее'}
       />
 
       <CTASection
-        title={t?.products?.ctaTitle ?? "Нужна консультация?"}
-        description={t?.products?.ctaDescription ?? "Наши эксперты помогут подобрать идеальное решение для ваших бизнес-задач"}
-        primaryButtonText={t?.products?.ctaPrimary ?? "Связаться с нами"}
+        title={t?.products?.main?.ctaTitle ?? "Нужна консультация?"}
+        description={t?.products?.main?.ctaDescription ?? "Наши эксперты помогут подобрать идеальное решение для ваших бизнес-задач"}
+        primaryButtonText={t?.products?.main?.ctaButton ?? "Связаться с нами"}
         primaryButtonLink="/contact"
-        secondaryButtonText={t?.products?.ctaSecondary ?? "На главную"}
+        secondaryButtonText={t?.products?.main?.ctaButtonSecond ?? "На главную"}
         secondaryButtonLink="/"
       />
 

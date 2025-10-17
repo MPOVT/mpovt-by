@@ -21,24 +21,24 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
   const { t } = useLanguage();
 
   const companyMenuItems = [
-    { name: t?.company?.qualityManagement ?? 'Система менеджмента качества', path: "/company/quality-management", icon: Cog },
-    { name: t?.company?.cooperation ?? 'Кооперация', path: "/company/cooperation", icon: Users },
-    { name: t?.company?.vacancies ?? 'Вакансии', path: "/company/vacancies", icon: Briefcase },
-    { name: t?.company?.rentalAreas ?? 'Арендные площади', path: "/company/rental-areas", icon: MapPin },
-    { name: t?.company?.antiCorruption ?? 'Противодействие коррупции', path: "/company/anti-corruption", icon: Shield },
+    { name: t?.components?.navigation?.company?.qas ?? 'Система менеджмента качества', path: "/company/quality-management", icon: Cog },
+    { name: t?.components?.navigation?.company?.cooperation ?? 'Кооперация', path: "/company/cooperation", icon: Users },
+    { name: t?.components?.navigation?.company?.vacancies ?? 'Вакансии', path: "/company/vacancies", icon: Briefcase },
+    { name: t?.components?.navigation?.company?.rent ?? 'Арендные площади', path: "/company/rental-areas", icon: MapPin },
+    { name: t?.components?.navigation?.company?.anticorruption ?? 'Противодействие коррупции', path: "/company/anti-corruption", icon: Shield },
   ];
 
   const productMenuItems = [
-    { name: t?.productsMenu?.computers ?? 'Персональные компьютеры', path: "/products/computers", icon: Computer },
-    { name: t?.productsMenu?.laptops ?? 'Ноутбуки', path: "/products/laptops", icon: Laptop },
-    { name: t?.productsMenu?.monitors ?? 'Мониторы', path: "/products/monitors", icon: Monitor },
-    { name: t?.productsMenu?.tablets ?? 'Планшеты', path: "/products/tablets", icon: Tablet },
-    { name: t?.productsMenu?.storage ?? 'Накопители', path: "/products/storage", icon: HardDrive },
-    { name: t?.productsMenu?.other ?? 'Другое', path: "/products/other", icon: MoreHorizontal }
+    { name: t?.components?.navigation?.products?.computers ?? 'Персональные компьютеры', path: "/products/computers", icon: Computer },
+    { name: t?.components?.navigation?.products?.laptops ?? 'Ноутбуки', path: "/products/laptops", icon: Laptop },
+    { name: t?.components?.navigation?.products?.monitors ?? 'Мониторы', path: "/products/monitors", icon: Monitor },
+    { name: t?.components?.navigation?.products?.tablets ?? 'Планшеты', path: "/products/tablets", icon: Tablet },
+    { name: t?.components?.navigation?.products?.storage ?? 'Накопители', path: "/products/storage", icon: HardDrive },
+    { name: t?.components?.navigation?.products?.other ?? 'Другое', path: "/products/other", icon: MoreHorizontal }
   ];
 
   const servicesMenuItems = [
-    { name: t?.servicesMenu?.testingLabs ?? 'Испытательные лаборатории', path: "/services/testing-laboratories", icon: FlaskConical },
+    { name: t?.components?.navigation?.services?.testingLabs ?? 'Испытательные лаборатории', path: "/services/testing-laboratories", icon: FlaskConical },
   ];
 
   // Preload logo image
@@ -143,7 +143,7 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
                         : "hover:text-orange-300 hover:bg-white/10"
                     )}
                   >
-                    {t?.nav?.home ?? 'Главная'}
+                    {t?.components?.navigation?.home ?? 'Главная'}
                   </Link>
                 </li>
                 
@@ -157,7 +157,7 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
                         : "hover:text-orange-300 hover:bg-white/10"
                     )}
                   >
-                    {t?.nav?.company ?? 'О компании'} 
+                    {t?.components?.navigation?.company?.main ?? 'О компании'} 
                     <ChevronDown className={cn(
                       "ml-1 h-4 w-4 transition-all duration-500 ease-out",
                       activeDropdown === 'company' && "rotate-180 text-orange-300"
@@ -179,7 +179,7 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
                         onClick={() => setActiveDropdown(null)}
                       >
                         <Users className="mr-3 h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
-                        {t?.company?.homeLabel ?? 'О компании - Главная'}
+                        {t?.components?.navigation?.company?.home ?? 'О компании - Главная'}
                       </Link>
                       {companyMenuItems.map((item) => (
                         <Link
@@ -206,7 +206,7 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
                         : "hover:text-orange-300 hover:bg-white/10"
                     )}
                   >
-                    {t?.nav?.products ?? 'Продукция'} 
+                    {t?.components?.navigation?.products?.main ?? 'Продукция'} 
                     <ChevronDown className={cn(
                       "ml-1 h-4 w-4 transition-all duration-500 ease-out",
                       activeDropdown === 'products' && "rotate-180 text-orange-300"
@@ -228,7 +228,7 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
                         onClick={() => setActiveDropdown(null)}
                       >
                         <ShoppingCart className="mr-3 h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
-                        {t?.productsMenu?.homeLabel ?? 'Продукция - Главная'}
+                        {t?.components?.navigation?.products?.home ?? 'Продукция - Главная'}
                       </Link>
                       {productMenuItems.map((item) => (
                         <Link
@@ -255,7 +255,7 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
                         : "hover:text-orange-300 hover:bg-white/10"
                     )}
                   >
-                    {t?.nav?.services ?? 'Услуги'}
+                    {t?.components?.navigation?.services?.main ?? 'Услуги'}
                     <ChevronDown className={cn(
                       "ml-1 h-4 w-4 transition-all duration-500 ease-out",
                       activeDropdown === 'services' && "rotate-180 text-orange-300"
@@ -277,7 +277,7 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
                         onClick={() => setActiveDropdown(null)}
                       >
                         <Cog className="mr-3 h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
-                        {t?.servicesMenu?.homeLabel ?? 'Услуги - Главная'}
+                        {t?.components?.navigation?.services?.home ?? 'Услуги - Главная'}
                       </Link>
                       {servicesMenuItems.map((item) => (
                         <Link
@@ -304,7 +304,7 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
                         : "hover:text-orange-300 hover:bg-white/10"
                     )}
                   >
-                    {t?.nav?.contact ?? 'Контакты'}
+                    {t?.components?.navigation?.contacts ?? 'Контакты'}
                   
                   </Link>
                 </li>
@@ -407,18 +407,18 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
               className="block text-lg font-medium py-2 text-white hover:text-orange-300 transition-all duration-300" 
               onClick={closeMobileMenu}
             >
-              {t?.nav?.home ?? 'Главная'}
+              {t?.components?.navigation?.home ?? 'Главная'}
             </Link>
             
             <div>
-              <div className="text-lg font-medium py-2 text-white/70">{t?.nav?.company ?? 'О компании'}</div>
+              <div className="text-lg font-medium py-2 text-white/70">{t?.components?.navigation?.company?.main ?? 'О компании'}</div>
               <div className="ml-4 space-y-2">
                 <Link 
                   to="/company"
                   className="block py-1 text-base text-white hover:text-orange-300 transition-all duration-300 font-medium" 
                   onClick={closeMobileMenu}
                 >
-                  {t?.company?.homeLabel ?? 'О компании - Главная'}
+                  {t?.components?.navigation?.company?.home ?? 'О компании - Главная'}
                 </Link>
                 {companyMenuItems.map(item => (
                   <Link 
@@ -435,14 +435,14 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
             </div>
             
             <div>
-              <div className="text-lg font-medium py-2 text-white/70">{t?.nav?.products ?? 'Продукция'}</div>
+              <div className="text-lg font-medium py-2 text-white/70">{t?.components?.navigation?.products?.main ?? 'Продукция'}</div>
               <div className="ml-4 space-y-2">
                 <Link 
                   to="/products"
                   className="block py-1 text-base text-white hover:text-orange-300 transition-all duration-300 font-medium" 
                   onClick={closeMobileMenu}
                 >
-                  {t?.productsMenu?.homeLabel ?? 'Продукция - Главная'}
+                  {t?.components?.navigation?.products?.home ?? 'Продукция - Главная'}
                 </Link>
                 {productMenuItems.map(item => (
                   <Link 
@@ -458,14 +458,14 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
             </div>
             
             <div>
-              <div className="text-lg font-medium py-2 text-white/70">{t?.nav?.services ?? 'Услуги'}</div>
+              <div className="text-lg font-medium py-2 text-white/70">{t?.components?.navigation?.services?.main ?? 'Услуги'}</div>
               <div className="ml-4 space-y-2">
                 <Link 
                   to="/services"
                   className="block py-1 text-base text-white hover:text-orange-300 transition-all duration-300 font-medium" 
                   onClick={closeMobileMenu}
                 >
-                  {t?.servicesMenu?.homeLabel ?? 'Услуги - Главная'}
+                  {t?.components?.navigation?.services?.home ?? 'Услуги - Главная'}
                 </Link>
                 {servicesMenuItems.map(item => (
                   <Link 
@@ -485,7 +485,7 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
               className="block text-lg font-medium py-2 text-white hover:text-orange-300 transition-all duration-300" 
               onClick={closeMobileMenu}
             >
-              {t?.nav?.contact ?? 'Контакты'}
+              {t?.components?.navigation?.contacts ?? 'Контакты'}
             </Link>
           </div>
         </div>

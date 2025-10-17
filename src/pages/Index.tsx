@@ -91,10 +91,10 @@ const IndexRefactored = () => {
 
   const priorityProducts = [
     {
-      title: t?.products?.priority?.computers?.title ?? "ПК",
-      subtitle: t?.products?.priority?.computers?.subtitle ?? "H-Top",
-      description: t?.products?.priority?.computers?.description ?? "Высокопроизводительные потребительские компьютеры для критически важных задач в экстремальных условиях",
-      fullDescription: t?.products?.priority?.computers?.fullDescription ?? "Наши потребительские ПК H-Top созданы для работы в самых суровых условиях. Защищенные корпуса IP65, расширенный температурный диапазон от -40°C до +85°C, антивибрационная защита и модульная архитектура обеспечивают надежность в любых применениях",
+      title: t?.products?.priority?.computers?.card?.title ?? "ПК",
+      subtitle: t?.products?.priority?.computers?.card?.subtitle ?? "H-Top",
+      description: t?.products?.priority?.computers?.card?.description ?? "Высокопроизводительные потребительские компьютеры для критически важных задач в экстремальных условиях",
+      fullDescription: t?.products?.priority?.computers?.card?.fullDescription ?? "Наши потребительские ПК H-Top созданы для работы в самых суровых условиях. Защищенные корпуса IP65, расширенный температурный диапазон от -40°C до +85°C, антивибрационная защита и модульная архитектура обеспечивают надежность в любых применениях",
       videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
       image: "/imgs/mini-pc/H-top.jpg",
       link: "/products/computers",
@@ -104,10 +104,10 @@ const IndexRefactored = () => {
       buttonShine: "before:from-transparent before:via-orange-400/60 before:to-transparent"
     },
     {
-      title: t?.products?.priority?.laptops?.title ?? "Ноутбуки",
-      subtitle: t?.products?.priority?.laptops?.subtitle ?? "H-Book",
-      description: t?.products?.priority?.laptops?.description ?? "Мобильные защищенные решения для полевых условий и критических миссий",
-      fullDescription: t?.products?.priority?.laptops?.fullDescription ?? "H-Book - это революция в мобильных потребительских решениях. Ударопрочный магниевый корпус, водонепроницаемость, 20-часовая автономность и возможность горячей замены батарей делают их незаменимыми для полевых работ",
+      title: t?.products?.priority?.laptops?.card?.title ?? "Ноутбуки",
+      subtitle: t?.products?.priority?.laptops?.card?.subtitle ?? "H-Book",
+      description: t?.products?.priority?.laptops?.card?.description ?? "Мобильные защищенные решения для полевых условий и критических миссий",
+      fullDescription: t?.products?.priority?.laptops?.card?.fullDescription ?? "H-Book - это революция в мобильных потребительских решениях. Ударопрочный магниевый корпус, водонепроницаемость, 20-часовая автономность и возможность горячей замены батарей делают их незаменимыми для полевых работ",
       videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
       image: "/imgs/laptops/h-book-pro.jpg",
       link: "/products/laptops",
@@ -117,10 +117,10 @@ const IndexRefactored = () => {
       buttonShine: "before:from-transparent before:via-orange-400/60 before:to-transparent"
     },
     {
-      title: t?.products?.priority?.monitors?.title ?? "Мониторы",
-      subtitle: t?.products?.priority?.monitors?.subtitle ?? "H-Monitor",
-      description: t?.products?.priority?.monitors?.description ?? "Профессиональные дисплеи повышенной надежности для потребительского мониторинга",
-      fullDescription: t?.products?.priority?.monitors?.fullDescription ?? "Наши потребительские мониторы H обеспечивают кристально четкое изображение в любых условиях освещения. Антибликовые покрытия, сенсорные технологии и широкие углы обзора гарантируют комфортную работу операторов",
+      title: t?.products?.priority?.monitors?.card?.title ?? "Мониторы",
+      subtitle: t?.products?.priority?.monitors?.card?.subtitle ?? "H-Monitor",
+      description: t?.products?.priority?.monitors?.card?.description ?? "Профессиональные дисплеи повышенной надежности для потребительского мониторинга",
+      fullDescription: t?.products?.priority?.monitors?.card?.fullDescription ?? "Наши потребительские мониторы H обеспечивают кристально четкое изображение в любых условиях освещения. Антибликовые покрытия, сенсорные технологии и широкие углы обзора гарантируют комфортную работу операторов",
       videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
       image: "/imgs/displays/h-monitor.jpg",
       link: "/products/monitors",
@@ -130,10 +130,10 @@ const IndexRefactored = () => {
       buttonShine: "before:from-transparent before:via-orange-400/60 before:to-transparent"
     },
     {
-      title: t?.products?.priority?.ssd?.title ?? "SSD накопители",
-      subtitle: t?.products?.priority?.ssd?.subtitle ?? "H-Storage",
-      description: t?.products?.priority?.ssd?.description ?? "Твердотельные накопители промышленного класса для критически важных применений",
-      fullDescription: t?.products?.priority?.ssd?.fullDescription ?? "H-Storage SSD накопители разработаны для работы в промышленных условиях с расширенным температурным диапазоном. Высокая скорость, надежность и защита данных делают их идеальными для критически важных систем",
+      title: t?.products?.priority?.ssd?.card?.title ?? "SSD накопители",
+      subtitle: t?.products?.priority?.ssd?.card?.subtitle ?? "H-Storage",
+      description: t?.products?.priority?.ssd?.card?.description ?? "Твердотельные накопители промышленного класса для критически важных применений",
+      fullDescription: t?.products?.priority?.ssd?.card?.fullDescription ?? "H-Storage SSD накопители разработаны для работы в промышленных условиях с расширенным температурным диапазоном. Высокая скорость, надежность и защита данных делают их идеальными для критически важных систем",
       videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
       image: "/imgs/ssd/h-storage.jpg",
       link: "/products/h-ssd",
@@ -146,15 +146,15 @@ const IndexRefactored = () => {
 
   const secondaryProducts = [
     {
-      title: t?.components?.additionalProducts?.autoComponents?.title ?? "Автокомпоненты",
-      description: t?.components?.additionalProducts?.autoComponents?.description ?? "Электронные блоки управления для автомобильной промышленности",
+      title: t?.products?.additional?.autoComponents?.title ?? "Автокомпоненты",
+      description: t?.products?.additional?.autoComponents?.description ?? "Электронные блоки управления для автомобильной промышленности",
       icon: Car,
       image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&h=300&fit=crop",
       link: "/products/car-blocks"
     },
     {
-      title: t?.components?.additionalProducts?.itSystems?.title ?? "Информационные системы",
-      description: t?.components?.additionalProducts?.itSystems?.description ?? "Комплексные IT-решения для бизнеса любых размеров",
+      title: t?.products?.additional?.itSystems?.title ?? "Информационные системы",
+      description: t?.products?.additional?.itSystems?.description ?? "Комплексные IT-решения для бизнеса любых размеров",
       icon: FileText,
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop",
       link: "/products/information-systems"
@@ -163,24 +163,24 @@ const IndexRefactored = () => {
 
   const achievements = [
     {
-      number: t?.achievements?.years?.number ?? "65+",
-      label: t?.achievements?.years?.label ?? "лет опыта",
-      description: t?.achievements?.years?.description ?? "Богатая история с 1956 года"
+      number: t?.home?.achievements?.years?.number ?? "65+",
+      label: t?.home?.achievements?.years?.label ?? "лет опыта",
+      description: t?.home?.achievements?.years?.description ?? "Богатая история с 1956 года"
     },
     {
-      number: t?.achievements?.employees?.number ?? "500+",
-      label: t?.achievements?.employees?.label ?? "сотрудников",
-      description: t?.achievements?.employees?.description ?? "Квалифицированная команда"
+      number: t?.home?.achievements?.employees?.number ?? "500+",
+      label: t?.home?.achievements?.employees?.label ?? "сотрудников",
+      description: t?.home?.achievements?.employees?.description ?? "Квалифицированная команда"
     },
     {
-      number: t?.achievements?.countries?.number ?? "50+",
-      label: t?.achievements?.countries?.label ?? "стран",
-      description: t?.achievements?.countries?.description ?? "География поставок"
+      number: t?.home?.achievements?.countries?.number ?? "50+",
+      label: t?.home?.achievements?.countries?.label ?? "стран",
+      description: t?.home?.achievements?.countries?.description ?? "География поставок"
     },
     {
-      number: t?.achievements?.iso?.number ?? "ISO 9001",
-      label: t?.achievements?.iso?.label ?? "сертификация",
-      description: t?.achievements?.iso?.description ?? "Международные стандарты"
+      number: t?.home?.achievements?.iso?.number ?? "ISO 9001",
+      label: t?.home?.achievements?.iso?.label ?? "сертификация",
+      description: t?.home?.achievements?.iso?.description ?? "Международные стандарты"
     }
   ];
 
@@ -197,6 +197,7 @@ const IndexRefactored = () => {
         title={t?.home?.featuredProducts?.subtitle ?? 'Флагманская продукция'}
         subtitle={t?.home?.featuredProducts?.description ?? 'Революционные решения потребительской вычислительной техники нового поколения'}
         products={priorityProducts}
+        buttonLabel={t?.components?.buttons?.readMore ?? 'Подробнее'}
       />
 
       <InteractiveFeatures
@@ -206,14 +207,15 @@ const IndexRefactored = () => {
       />
 
       <SecondaryProductsSection
-        title={t?.home?.additionalProducts?.title ?? 'Дополнительные направления'}
-        subtitle={t?.home?.additionalProducts?.description ?? 'Проверенные решения для различных отраслей промышленности'}
+        title={t?.products?.additional?.title ?? 'Дополнительные направления'}
+        subtitle={t?.products?.additional?.description ?? 'Проверенные решения для различных отраслей промышленности'}
         products={secondaryProducts}
+        buttonLabel={t?.components?.buttons?.readMore ?? 'Подробнее'}
       />
 
       <AchievementsSection
         title={t?.home?.achievements?.title ?? 'Наши достижения'}
-        subtitle={t?.home?.cta?.description ?? 'Цифры, которые говорят о нашем успехе и надежности'}
+        subtitle={t?.home?.achievements?.description ?? 'Цифры, которые говорят о нашем успехе и надежности'}
         achievements={achievements}
       />
 

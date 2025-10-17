@@ -25,13 +25,15 @@ interface PriorityProductsSectionProps {
   subtitle: string;
   products: PriorityProduct[];
   className?: string;
+  buttonLabel?: string;
 }
 
 export const PriorityProductsSection: React.FC<PriorityProductsSectionProps> = ({
   title,
   subtitle,
   products,
-  className = ""
+  className = "",
+  buttonLabel = ""
 }) => {
   // Функция для извлечения цветов кнопки - теперь единый стиль для всех
   const getButtonColors = () => {
@@ -103,7 +105,7 @@ export const PriorityProductsSection: React.FC<PriorityProductsSectionProps> = (
                       >
                         <Link to={product.link} className="flex items-center">
                           <span className={`bg-gradient-to-r ${buttonColors.textGradient} bg-clip-text text-transparent font-semibold`}>
-                            Подробнее
+                            {buttonLabel ?? "Подробнее"}
                           </span>
                           <ArrowRight className={`ml-2 h-4 w-4 md:h-5 md:w-5 bg-gradient-to-r ${buttonColors.textGradient} bg-clip-text text-transparent`} />
                         </Link>

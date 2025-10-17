@@ -34,29 +34,29 @@ const Company = () => {
   const values = [
     {
       icon: Factory,
-      title: "Качество",
-      description: "Высочайшие стандарты качества в каждом продукте",
+      title: t?.company?.main?.values[0]?.title ?? "Качество",
+      description: t?.company?.main?.values[0]?.description ?? "Высочайшие стандарты качества в каждом продукте",
       color: "text-emerald-500",
       bgColor: "bg-emerald-500/20"
     },
     {
       icon: Users,
-      title: "Команда",
-      description: "Опытные специалисты и профессионалы своего дела",
+      title: t?.company?.main?.values[1]?.title ?? "Команда",
+      description: t?.company?.main?.values[1]?.description ?? "Опытные специалисты и профессионалы своего дела",
       color: "text-blue-500",
       bgColor: "bg-blue-500/20"
     },
     {
       icon: TrendingUp,
-      title: "Развитие",
-      description: "Постоянное совершенствование и инновации",
+      title: t?.company?.main?.values[2]?.title ?? "Развитие",
+      description: t?.company?.main?.values[2]?.description ?? "Постоянное совершенствование и инновации",
       color: "text-purple-500",
       bgColor: "bg-purple-500/20"
     },
     {
       icon: Globe,
-      title: "Глобальность",
-      description: "Работаем с партнерами по всему миру",
+      title: t?.company?.main?.values[3]?.title ?? "Глобальность",
+      description: t?.company?.main?.values[3]?.description ?? "Работаем с партнерами по всему миру",
       color: "text-orange-500",
       bgColor: "bg-orange-500/20"
     }
@@ -158,7 +158,7 @@ const Company = () => {
     {
       icon: Globe,
       label: t?.company?.main?.stats?.exportsLabel ?? "Экспорт",
-      value: "15+ стран",
+      value: "15+",
       color: "text-pink-500",
       bgColor: "bg-pink-500/20"
     }
@@ -200,7 +200,7 @@ const Company = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 mb-12 md:mb-16 lg:mb-20">
             <Card className="p-4 sm:p-6 md:p-8 bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 hover:border-slate-600/40 transition-all duration-500 animate-fade-in-left flex flex-col">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-4 lg:mb-6 text-white">{t?.company?.aboutHeading ?? 'Наша история'}</h2>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-4 lg:mb-6 text-white">{t?.company?.main?.aboutHeading ?? 'Наша история'}</h2>
               <div className="space-y-3 md:space-y-4 text-slate-300 leading-relaxed flex-grow">
                 {(t?.company?.main?.aboutParagraphs ?? [
                   'ОАО «МПОВТ» (Минское производственное объединение вычислительной техники) — ведущее предприятие Беларуси в области разработки и производства электронных компонентов и систем. Основанное в 1956 году, предприятие прошло долгий путь развития и модернизации.',
@@ -222,7 +222,7 @@ const Company = () => {
                       {t?.company?.main?.quote ?? '"Инженер должен быть не только техником, но и художником, не только математиком, но и психологом."'}
                     </blockquote>
                     <cite className="text-xs md:text-sm text-cyan-400 font-medium">
-                      {t?.company?.quoteAuthor ?? '— Игорь Курчатов, советский физик-ядерщик'}
+                      {t?.company?.main?.quoteAuthor ?? '— Игорь Курчатов, советский физик-ядерщик'}
                     </cite>
                   </div>
                 </div>
@@ -250,7 +250,7 @@ const Company = () => {
                         </div>
                         <div className="text-center">
                           <p className="text-xs md:text-sm font-semibold text-white">{stat.value}</p>
-                                <p className="text-xs text-slate-400">{t?.company?.stats?.[statKeys[index]] ?? stat.label}</p>
+                                <p className="text-xs text-slate-400">{t?.company?.main?.stats?.[statKeys[index]] ?? stat.label}</p>
                         </div>
                       </div>
                     );
@@ -436,7 +436,7 @@ const Company = () => {
 
           {/* CTA Section */}
           <Card className="p-6 sm:p-8 md:p-12 text-center bg-slate-800/10 backdrop-blur-xl border border-slate-700/20 animate-fade-in-up">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-4 lg:mb-6 text-white">{t?.company?.ctaTitle ?? 'Свяжитесь с нами'}</h2>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-4 lg:mb-6 text-white">{t?.company?.main?.ctaTitle ?? 'Свяжитесь с нами'}</h2>
             <p className="text-sm sm:text-base md:text-lg text-slate-300 mb-4 md:mb-6 lg:mb-8 max-w-2xl mx-auto">
               {t?.company?.main?.ctaDescription ?? 'Узнайте больше о наших возможностях и продукции'}
             </p>

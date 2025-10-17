@@ -1,225 +1,389 @@
 export const zh = {
-  nav: { home: "首页", company: "关于我们", apartments: "公寓", amenities: "服务", gallery: "图库", contact: "联系", bookNow: "立即预订" },
-  company: {
-    qualityManagement: '质量管理体系',
-    cooperation: '合作',
-    vacancies: '招聘',
-    rentalAreas: '租赁面积',
-    antiCorruption: '反腐败',
-    pageTitle: '关于公司',
-    pageSubtitle: '在电子元件制造方面拥有超过65年的经验',
-    aboutHeading: '我们的历史',
-    aboutParagraphs: [
-      'MPOVT 是白俄罗斯领先的电子元件开发与制造企业。公司成立于1956年，经过数十年的发展与现代化。',
-      '如今 MPOVT 是一家现代化的高科技企业，配备先进设备并拥有一支技术熟练的团队。'
-    ],
-    valuesTitle: '我们的价值观',
-    valuesSubtitle: '我们遵循的原则',
-    timelineTitle: '发展历程',
-    ctaTitle: '准备开始吗？',
-    ctaDescription: '联系我们以讨论您的需求',
-    ctaButton: '联系我们',
-    stats: {
-      areaLabel: '总面积',
-      locationLabel: '地点',
-      foundedLabel: '成立',
-      employeesLabel: '员工',
-      certificationsLabel: '认证',
-      exportsLabel: '出口'
+  components: {
+    navigation: {
+      home: "主页",
+      company: {
+        main: "关于公司",
+        home: "关于公司 - 主页",
+        qas: "质量管理",
+        cooperation: "合作",
+        vacancies: "职位空缺",
+        rent: "租赁区域",
+        anticorruption: "反腐败"
+      },
+      contacts: "联系方式",
+      products: {
+        main: "产品",
+        home: "产品 - 主页",
+        computers: "台式机",
+        laptops: "笔记本电脑",
+        monitors: "显示器",
+        tablets: "平板电脑",
+        storage: "固态硬盘",
+        other: "其他"
+      },
+      services: {
+        main: "服务",
+        home: "服务 - 主页",
+        testingLabs: "测试实验室"
+      },
+      support: "支持与服务"
+    },
+    footer: {
+      companyName: "OJSC «MPOVT»",
+      address: {
+        city: "明斯克市",
+        district: "弗鲁恩泽区",
+        street: "普里蒂科戈街62栋1单元",
+        country: "白俄罗斯"
+      },
+      description: "本土硬件和工业组件制造商。研发和生产在白俄罗斯。",
+      quickLinks: "快速链接",
+      contact: "联系方式",
+      allRights: "版权所有",
+      productsHeading: "我们的产品",
+      productsDescription: "认证的计算机及消费电子设备、汽车电子、工业电子产品",
+      partnersLabel: "合作伙伴：",
+      innovationShare: "创新产品占比：85%以上",
+      addressFull: "白俄罗斯明斯克市，弗鲁恩泽区，普里蒂科戈街62栋1单元",
+      copyright: "© 2025 OJSC «MPOVT»"
+    },
+    preload: {
+      initializing: "初始化中...",
+      loadingCritical: "加载关键资源...",
+      loadingMainImages: "加载主要图像...",
+      loadingHomeContent: "加载主页内容...",
+      done: "完成！",
+      logoAlt: "OAO MPOTV",
+      loadingTitle: "加载中"
+    },
+    notFound: {
+      title: "页面未找到",
+      description: "页面未找到。返回主页。",
+      returnHome: "返回主页"
+    },
+    video: {
+      placeholderAlt: "视频占位图"
+    },
+    downloads: {
+      downloadButton: "下载"
+    },
+    buttons: {
+      readMore: "阅读更多",
     }
-    ,
-    values: [
-      { title: 'Excellence', description: 'Highest manufacturing standards in every product' },
-      { title: 'Team', description: 'Experienced specialists and professional leadership' },
-      { title: 'Growth', description: 'Continuous improvement and innovation' },
-      { title: 'Global', description: 'Working with partners across the world' }
-    ],
-    timeline: [
-      { title: 'Founding and early years', description: 'Establishment of Minsk production association of computing technology' },
-      { title: 'Period of growth', description: 'Active expansion of electronic component production' },
-      { title: 'Modernization', description: 'Introduction of modern technologies and production upgrades' },
-      { title: 'Certification', description: 'Achieved ISO 9001 quality management standards' },
-      { title: 'Innovations', description: 'Development of new products and technology solutions' },
-      { title: 'Digitization', description: 'Adoption of digital technologies and automation in production' }
-    ],
-    quote: '"Engineer must be not only a technician, but also a humanist, not only a mathematician, but a psychologist."',
-    quoteAuthor: '— Igor Kurchatov, Soviet physicist',
-    imageAlt: 'MPOVT building'
   },
-  productsMenu: { computers: 'PC', laptops: '笔记本', monitors: '显示器', tablets: '平板', storage: 'SSD 存储', other: '其他', homeLabel: '产品 - 主页' },
-  servicesMenu: { testingLabs: '测试实验室', homeLabel: '服务 - 主页' },
-  hero: {
-    subtitle: "专业级硬件解决方案",
-    title: "技术与制造",
-    description: "创新解决方案与本地制造的电子组件和计算机设备",
-    bookStay: "联系我们",
-    exploreApartments: "了解更多",
-    scrollDown: "向下滚动"
-  },
-  footer: {
-    description: "国内硬件与工业组件制造商，研发与生产本地完成。",
-    quickLinks: "快速链接",
-    contact: "联系方式",
-    newsletter: "订阅",
-    newsletterDesc: "订阅以获取新闻和特别优惠。",
-    yourEmail: "您的邮箱",
-    subscribe: "订阅",
-    allRights: "版权所有",
-    productsHeading: "我们的产品",
-    productsDescription: "经过认证的计算和消费电子产品、汽车电子和工业电子",
-    partnersLabel: "合作伙伴:",
-    partnersList: "BELAZ, MAZ, MTZ, Gomselmash, PTZ, KAMAZ",
-    innovationShare: "创新产品占比: 85%+",
-    addressFull: "白俄罗斯，明斯克市，弗鲁恩占区，普里蒂科戈街 62k1"
-  },
-  downloads: { downloadButton: "下载" },
-  testimonials: { title: "评价", description: "客户对我们产品的评价" },
-  notFound: { title: "未找到页面", description: "页面未找到。返回首页。", returnHome: "返回首页" },
   home: {
     welcome: {
-      subtitle: "欢迎来到MPOVT",
-      title: "电子与汽车零部件制造",
-      description1: "MPOVT是领先的电子产品制造商，拥有广泛的解决方案组合。",
-      description2: "我们提供在白俄罗斯设计并制造的工业和消费解决方案。",
+      subtitle: "领先的消费及工业电子产品制造商",
+      scrollDown: "向下滚动",
+      title: "电子产品及汽车组件制造",
+      description1: "OJSC «MPOVT» 是领先的电子产品制造商，提供丰富的解决方案组合。",
+      description2: "我们提供在白俄罗斯研发和生产的工业及消费电子解决方案。",
       learnMore: "了解更多"
     },
     features: {
-      company: {
-        pageTitle: '关于公司',
-        pageSubtitle: '关于我们的公司与历史',
-        aboutHeading: '关于我们',
-        aboutParagraphs: [
-          '我们是白俄罗斯的电子与计算设备制造商。',
-          '我们的使命是为广泛的客户群提供高质量的设备。'
-        ],
-        valuesTitle: '我们的价值观',
-        valuesSubtitle: '指引我们的原则',
-        values: [
-          { title: '质量', description: '每件产品都坚持高标准' },
-          { title: '团队', description: '经验丰富的专业团队' },
-          { title: '发展', description: '持续改进与创新' }
-        ],
-        timeline: [
-          { title: '成立', description: '公司成立与早期发展' },
-          { title: '成长', description: '生产能力与规模的扩展' }
-        ],
-        quote: '"创新是进步的核心。"',
-        quoteAuthor: '— 创始人',
-        imageAlt: '公司大楼',
-        cta: {
-          title: '与我们合作',
-          subtitle: '成为合作伙伴或供应商',
-          button: '联系'
-        }
+      production: {
+        title: "现代化生产",
+        description: "高科技设备和自动化确保世界级品质",
+        fullDescription: "我们的工厂配备了现代化高科技设备。持续投资升级，使产品达到世界级水平"
       },
-      contact: {
-        title: "联系",
-        subtitle: "联系我们以获取咨询和订单",
-        getInTouch: "联系我们",
-        info: {
-          phoneHeading: "电话",
-          phoneDepartment: "销售部",
-          emailHeading: "电子邮件",
-          emailNote: "主要邮箱",
-          addressHeading: "地址",
-          addressLines: ["白俄罗斯，220012, 明斯克，Академика Купревича 街, 21"],
-          hoursHeading: "接待时间",
-          hoursLines: ["周一-周五: 8:00 - 17:00", "周六-周日: 休息"],
-          hoursNote: "时间为明斯克当地时间"
+      innovation: {
+        title: "创新技术",
+        description: "前沿方案与现代技术打造独特产品",
+        fullDescription: "我们在研发和生产中采用最前沿的技术与创新方法。自有研发中心为客户提供独特解决方案"
+      },
+      reliability: {
+        title: "可靠性与质量",
+        description: "严格的质量控制和 ISO 国际标准",
+        fullDescription: "质量管理体系符合 ISO 9001 国际标准。生产的每个环节都经过严格控制，以确保产品最大可靠性"
+      },
+      expertise: {
+        title: "专业与经验",
+        description: "超过65年的电子组件制造经验",
+        fullDescription: "在超过65年的历史中，我们积累了丰富的电子组件制造经验。我们的专家在各自领域享有盛誉"
+      }
+    },
+    innovations: {
+      title: "工业创新解决方案",
+      description: "现代技术和多年经验让我们生产高质量产品",
+      cards: {
+        production: {
+          title: "现代化生产",
+          subtitle: "高科技设备和自动化确保世界级品质",
+          cardTitle: "我们的工厂配备了现代化高科技设备。持续投资升级，使产品达到世界级水平"
         },
-        form: {
-          title: "发送消息",
-          nameLabel: "姓名 *",
-          namePlaceholder: "您的姓名",
-          emailLabel: "电子邮件 *",
-          emailPlaceholder: "your@email.com",
-          phoneLabel: "电话",
-          phonePlaceholder: "+375 (xx) xxx-xx-xx",
-          subjectLabel: "主题 *",
-          subjectPlaceholder: "您的消息主题",
-          messageLabel: "消息 *",
-          messagePlaceholder: "您的消息...",
-          submit: "发送消息"
+        innovation: {
+          title: "创新技术",
+          subtitle: "前沿方案与现代技术打造独特产品",
+          cardTitle: "我们在研发和生产中采用最前沿的技术与创新方法。自有研发中心为客户提供独特解决方案"
         },
-        map: {
-          title: "如何找到我们",
-          placeholder: "地图将在此加载",
-          address: "Академика Купревича 街, 21, 明斯克"
+        reliability: {
+          title: "可靠性与质量",
+          subtitle: "严格的质量控制和 ISO 国际标准",
+          cardTitle: "质量管理体系符合 ISO 9001 国际标准。生产的每个环节都经过严格控制，以确保产品最大可靠性"
+        },
+        expertise: {
+          title: "专业与经验",
+          subtitle: "超过65年的电子组件制造经验",
+          cardTitle: "在超过65年的历史中，我们积累了丰富的电子组件制造经验。我们的专家在各自领域享有盛誉"
         }
       }
-      ,
-      products: {
-        priority: {
-          computers: {
-            title: "PC",
-            subtitle: "H-Top",
-            description: "用于极端条件下关键任务的高性能消费级计算机",
-            fullDescription: "我们的 H-Top 消费级台式机可在最恶劣的环境中运行。IP65 机箱，温度范围从 -40°C 至 +85°C，抗振动保护和模块化架构，确保在任何应用中的可靠性"
-          },
-          laptops: {
-            title: "笔记本",
-            subtitle: "H-Book",
-            description: "适用于野战和关键任务的移动坚固解决方案",
-            fullDescription: "H-Book 是移动消费解决方案的革命。抗冲击镁合金机身、防水、20 小时续航以及热插拔电池，使其成为野外工作的理想之选"
-          },
-          monitors: {
-            title: "显示器",
-            subtitle: "H-Monitor",
-            description: "用于操作监控的高可靠性专业显示器",
-            fullDescription: "我们的 H 系列显示器在任何光照条件下都能提供清晰的图像。防眩光涂层、触摸技术和广视角确保操作员的舒适性"
-          },
-          ssd: {
-            title: "SSD 存储",
-            subtitle: "H-Storage",
-            description: "用于关键任务应用的工业级固态硬盘",
-            fullDescription: "H-Storage SSD 设计用于具有扩展温度范围的工业环境。高速、可靠并具备数据保护，是关键系统的理想选择"
-          }
-        },
-        secondary: {
-          carComponents: { title: "汽车组件", description: "用于汽车工业的电子控制单元" },
-          informationSystems: { title: "信息系统", description: "适用于各种规模企业的综合 IT 解决方案" }
-        }
-      },
-      achievements: {
-        years: { number: "65+", label: "年经验", description: "自 1956 年以来的丰富历史" },
-        employees: { number: "500+", label: "名员工", description: "合格的团队" },
-        countries: { number: "50+", label: "个国家", description: "供应范围" },
-        iso: { number: "ISO 9001", label: "认证", description: "国际标准" }
-      },
+    },
+    achievements: {
+      title: "我们的成就",
+      description: "数字展示我们的成功与可靠性",
+      years: { number: "65+", label: "年经验", description: "自1956年以来的丰富历史" },
+      employees: { number: "500+", label: "员工", description: "专业团队" },
+      countries: { number: "50+", label: "国家", description: "出口范围" },
+      iso: { number: "ISO 9001", label: "认证", description: "国际标准" }
+    },
+    featuredProducts: {
+      subtitle: "旗舰产品",
+      description: "新一代消费计算机技术的革命性解决方案"
+    }
+  },
+  services: {
+    main: {
+      pageTitle: "服务",
+      pageSubtitle: "为您的业务提供专业服务",
       testingLabs: {
-        documentsHeading: "文件",
-        documentsDescription: "我们实验室的认证证书和活动范围",
-        documentLabel: "PDF 文档",
-        documentButton: "PDF",
-        documents: [
-          { title: "测试实验室证书", url: "https://mpovt.by/gallery/%D0%90%D1%82%D1%82%D0%B5%D1%81%D1%82%D0%B0%D1%82%20%D0%B0%D0%BA%D0%BA%D1%80%D0%B5%D0%B4%D0%B8%D1%82%D0%B0%D1%86%D0%B8%D0%B8%20%D0%9B%D0%98%D1%81.pdf" },
-          { title: "LIs 认证范围", url: "https://mpovt.by/gallery/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%20%D0%B0%D0%BA%D0%BA%D1%80%D0%B5%D0%B4%D0%B8%D1%82%D0%B0%D1%86%D0%B8%D0%B8%20%D0%9B%D0%98%D1%81.pdf" },
-          { title: "计量实验室证书", url: "https://mpovt.by/gallery/%D0%90%D1%82%D1%82%D0%B5%D1%81%D1%82%D0%B0%D1%82%20%D0%B0%D0%BA%D0%BA%D1%80%D0%B5%D0%B4%D0%B8%D1%82%D0%B0%D1%86%D0%B8%D0%B8%20%D0%9B%D0%9C_16.07.2021.pdf" },
-          { title: "LM 认证范围", url: "https://mpovt.by/gallery/%D0%9E%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%20%D0%B0%D0%BA%D0%BA%D1%80%D0%B5%D0%B4%D0%B8%D1%82%D0%B0%D1%86%D0%B8%D0%B8%20%D0%9B%D0%9C.pdf" }
+        title: "测试实验室",
+        description: "专业的产品测试与质量控制",
+        typesTitle: "测试类型",
+        typesSubtitle: "为工业提供广泛的专业测试和认证服务",
+        accreditationTitle: "国家认证",
+        accreditationDescription: "我们的实验室具有完整的国家认证和国际认可。",
+        certifications: [
+          "BGCA - 白俄罗斯国家认证中心",
+          "EA BLA - 欧洲认证认可（测试、校准、认证）",
+          "ILAC MRA - 国际实验室认可协议",
+          "IAF MLA - 国际认证形式（产品与体系认证）"
         ],
-        heroHeading: "测试实验室",
-        heroDescription: "专业的产品测试与质量控制",
+        types: [
+          "电子测试与EMC测试",
+          "化学与计量分析",
+          "机械与气候测试",
+          "产品与体系认证",
+          "校准与测量处理",
+          "人员认证"
+        ],
+        ctaButton: "了解实验室详情",
         advantagesHeading: "我们的优势",
-        advantagesDescription: "为什么选择我们的测试实验室",
-        advantages: [
-          { title: "认证", description: "所有实验室均具有国家认证", icon: "Award" },
-          { title: "经验丰富的专家", description: "一支高素质的专家团队", icon: "Users" },
-          { title: "快速周转", description: "快速进行测试并出具结果", icon: "Clock" },
-          { title: "可靠性", description: "准确且可靠的测试结果", icon: "Shield" }
+        advantagesDescription: "为什么选择我们的测试实验室"
+      },
+      additional: {
+        title: "制造服务",
+        description: "提供全面的现代生产与技术解决方案",
+        items: [
+          { title: "金属加工", description: "在现代设备上高精度加工金属零件" },
+          { title: "热处理", description: "专门的热处理工艺以改善材料性能" },
+          { title: "塑料注塑", description: "通过注塑工艺生产塑料制品" },
+          { title: "SMD贴装", description: "高精度贴装电子元件" },
+          { title: "波峰焊", description: "使用波峰焊自动焊接电子元件" },
+          { title: "手工组装", description: "复杂电子组件的专业手工组装" },
+          { title: "选择性焊接", description: "使用选择性设备精确焊接元件" },
+          { title: "聚合物涂层", description: "为各种产品提供保护和装饰性聚合物涂层" },
+          { title: "热固性材料压制", description: "热固性聚合物材料制品的成型" }
         ]
       },
-      preload: {
-        initializing: "初始化...",
-        loadingCritical: "正在加载关键资源...",
-        loadingMainImages: "正在加载主要图片...",
-        loadingHomeContent: "正在加载主页内容...",
-        done: "完成!",
-        logoAlt: "MPOVT",
-        loadingTitle: "加载中"
+      cta: {
+        title: "准备开始了吗？",
+        description: "联系我们，讨论您的需求",
+        bookNow: "联系我们"
+      }
+    },
+  },
+  company: {
+    main: {
+      pageTitle: '关于公司',
+      pageSubtitle: '65年以上电子组件研发和生产经验',
+      aboutHeading: '我们的历史',
+      aboutParagraphs: [
+        'OJSC «MPOVT»（明斯克计算机技术生产联合体）是白俄罗斯领先的电子组件和系统研发生产企业。成立于1956年，经历了长期发展与现代化。',
+        '今天，MPOVT是一家现代化高科技企业，配备最新设备并拥有高素质的专业人员。我们生产广泛的产品，从汽车组件到复杂的信息系统。',
+        '公司已通过ISO 9001国际质量认证，证明了我们的产品和流程质量。我们持续投资研发，引入创新技术与解决方案。',
+        '多年来我们积累了丰富的电子和信息技术经验。我们的专家不断提升技能，关注行业最新趋势。',
+        '我们自豪于产品不仅在白俄罗斯使用，还出口到世界各地。这体现了我们工作的高质量和国际竞争力。'
+      ],
+      valuesTitle: '我们的价值观',
+      valuesSubtitle: '我们工作中遵循的原则',
+      timelineTitle: '发展历程',
+      timelineSubtitle: '在超过65年的发展历程中的关键时刻',
+      ctaTitle: '准备合作了吗？',
+      ctaDescription: '联系我们，讨论您的需求',
+      ctaButton: '联系我们',
+      stats: {
+        areaLabel: '总面积',
+        locationLabel: '地点',
+        foundedLabel: '成立年份',
+        employeesLabel: '员工',
+        certificationsLabel: '认证',
+        exportsLabel: '出口国家'
       },
-      video: {
-        placeholderAlt: "视频占位图"
+      values: [
+        { title: '质量', description: '每件产品均符合最高质量标准' },
+        { title: '团队', description: '经验丰富的专业团队' },
+        { title: '发展', description: '持续改进与创新' },
+        { title: '全球化', description: '与全球合作伙伴合作' }
+      ],
+      timeline: [
+        { title: '企业成立', description: '创建明斯克计算机技术生产联合体' },
+        { title: '发展阶段', description: '电子组件生产的积极发展' },
+        { title: '现代化', description: '引入现代技术和设备' },
+        { title: '认证', description: '获得ISO 9001国际质量认证' },
+        { title: '创新', description: '开发新产品和技术解决方案' },
+        { title: '数字化', description: '引入数字技术和生产自动化，启动SSD、平板电脑和计算机生产' }
+      ],
+      quote: '"工程师不仅是技术人员，也应是艺术家，不仅是数学家，也应是心理学家" ',
+      quoteAuthor: '— 伊戈尔·库尔恰托夫，苏联核物理学家',
+      imageAlt: 'MPOTV大楼',
+      productsButton: '查看产品',
+      qualityManagement: '质量管理体系',
+      cooperation: '合作',
+      vacancies: '职位空缺',
+      rentalAreas: '租赁区域',
+      antiCorruption: '反腐败',
+      homeLabel: '关于公司 - 主页'
+    },
+  },
+  products: {
+    main: {
+      pageTitle: '产品',
+      pageSubtitle: '应对现代技术挑战的综合解决方案',
+      priorityTitle: '旗舰产品',
+      prioritySubtitle: '白俄罗斯创新产品，符合国际质量标准',
+      techTitle: '技术与创新',
+      techSubtitle: '先进研发以解决现代技术问题',
+      techCards: {
+        performance: {
+          title: "高性能",
+          description: "采用Intel和AMD的现代处理器，实现最大性能"
+        },
+        reliability: {
+          title: "可靠性",
+          description: "在各个环节进行广泛测试和质量控制"
+        },
+        efficiency: {
+          title: "能效",
+          description: "优化组件运行以降低能耗"
+        },
+        temperature: {
+          title: "极端环境工作",
+          description: "广泛温度范围：-40°C至+85°C"
+        },
+        battery: {
+          title: "长时间运行",
+          description: "优化方案提高设备续航"
+        },
+        connectivity: {
+          title: "现代接口",
+          description: "支持最新连接和通信标准"
+        }
       },
+      advantagesTitle: "我们的优势",
+      advantagesSubtitle: "白俄罗斯品质，国际标准",
+      advantagesCards: {
+        local: {
+          title: "本土生产",
+          description: "产品在白俄罗斯生产，采用现代技术和国际质量标准"
+        },
+        iso: {
+          title: "ISO认证",
+          description: "质量管理体系通过ISO 9001和IATF 16949国际认证"
+        },
+        team: {
+          title: "专业团队",
+          description: "经验丰富的高技能电子研发和生产专家"
+        },
+        fullCycle: {
+          title: "全生产周期",
+          description: "从研发设计到生产、测试和售后服务"
+        }
+      },
+      ctaTitle: "需要咨询？",
+      ctaDescription: "我们的专家帮助您选择最佳解决方案",
+      ctaButton: "联系我们",
+      ctaButtonSecond: "回到主页"
+    },
+    priority: {
+      computers: {
+        card: {
+          title: "台式机",
+          subtitle: "H-Top",
+          description: "高性能消费级电脑，适用于极端条件下关键任务",
+          fullDescription: "我们的H-Top消费级台式机适用于最严苛环境。IP65防护外壳，-40°C至+85°C的温度范围，防震保护及模块化架构，确保在各种应用中的可靠性"
+        }
+      },
+      laptops: {
+        card: {
+          title: "笔记本电脑",
+          subtitle: "H-Book",
+          description: "适用于野外和关键任务的移动防护解决方案",
+          fullDescription: "H-Book是移动消费解决方案的革命性产品。防冲击镁合金机身、防水设计、20小时续航以及可热插拔电池，使其成为野外工作的理想选择"
+        }
+      },
+      monitors: {
+        card: {
+          title: "显示器",
+          subtitle: "H-Monitor",
+          description: "高可靠性专业显示器，适用于消费监控",
+          fullDescription: "我们的H系列消费显示器在任何光照条件下都能呈现高清图像。防眩光涂层、触控技术及广视角保证操作者舒适"
+        }
+      },
+      ssd: {
+        card: {
+          title: "固态硬盘",
+          subtitle: "H-Storage",
+          description: "工业级固态硬盘，适用于关键应用",
+          fullDescription: "H-Storage SSD设计用于工业环境，具有扩展温度范围。高速、可靠并提供数据保护，是关键系统的理想选择"
+        }
+      }
+    },
+    additional: {
+      title: "附加方向",
+      description: "为各行各业提供可靠解决方案",
+      autoComponents: {
+        title: "汽车组件",
+        description: "汽车行业的电子控制单元"
+      },
+      itSystems: {
+        title: "信息系统",
+        description: "适用于各种规模企业的综合IT解决方案"
+      }
+    }
+  },
+  contact: {
+    pageTitle: "联系方式",
+    pageSubtitle: "联系我们以获取咨询或下单",
+    info: {
+      phoneHeading: "电话",
+      phoneDepartment: "销售部门",
+      emailHeading: "邮箱",
+      emailNote: "主要邮箱",
+      addressHeading: "地址",
+      addressLines: ["白俄罗斯共和国", "220012 明斯克市", "库普列维奇学院街21号"],
+      hoursHeading: "工作时间",
+      hoursLines: ["周一至周五：8:00 - 17:00", "周六至周日：休息"],
+      hoursNote: "时间以明斯克为准"
+    },
+    form: {
+      title: "发送消息",
+      nameLabel: "姓名 *",
+      namePlaceholder: "您的姓名",
+      emailLabel: "邮箱 *",
+      emailPlaceholder: "your@email.com",
+      phoneLabel: "电话",
+      phonePlaceholder: "+375 (xx) xxx-xx-xx",
+      subjectLabel: "主题 *",
+      subjectPlaceholder: "您的消息主题",
+      messageLabel: "消息 *",
+      messagePlaceholder: "您的消息...",
+      submit: "发送消息"
+    },
+    map: {
+      title: "如何找到我们",
+      placeholder: "地图加载中",
+      address: "库普列维奇学院街21号，明斯克"
     }
   }
 }

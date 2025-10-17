@@ -18,13 +18,15 @@ interface SecondaryProductsSectionProps {
   subtitle: string;
   products: SecondaryProduct[];
   className?: string;
+  buttonLabel?: string;
 }
 
 export const SecondaryProductsSection: React.FC<SecondaryProductsSectionProps> = ({
   title,
   subtitle,
   products,
-  className = ""
+  className = "",
+  buttonLabel = ""
 }) => {
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -33,16 +35,16 @@ export const SecondaryProductsSection: React.FC<SecondaryProductsSectionProps> =
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
     
-    const rotateX = (y - centerY) / 25; // Еще больше увеличиваем делитель для более медленного эффекта
+    const rotateX = (y - centerY) / 25;
     const rotateY = (centerX - x) / 25;
     
     e.currentTarget.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
-    e.currentTarget.style.transition = 'transform 0.3s ease-out'; // Увеличиваем время перехода
+    e.currentTarget.style.transition = 'transform 0.3s ease-out';
   };
 
   const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
     e.currentTarget.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
-    e.currentTarget.style.transition = 'transform 0.8s ease-out'; // Еще больше увеличиваем время возврата
+    e.currentTarget.style.transition = 'transform 0.8s ease-out';
   };
 
   return (
@@ -121,7 +123,7 @@ export const SecondaryProductsSection: React.FC<SecondaryProductsSectionProps> =
                     className="self-start border-emerald-400/30 text-emerald-400 bg-slate-800/25 hover:bg-emerald-400/10 hover:border-emerald-400/50 transition-all duration-300"
                   >
                     <Link to={product.link} className="flex items-center">
-                      Подробнее
+                      {buttonLabel}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>

@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { ChevronDown } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -46,12 +45,11 @@ export default function LanguageSelector({ compact = false }: Props) {
         aria-label={compact ? `Language: ${selected.name}` : undefined}
       >
         <span className={compact ? "text-lg" : "text-lg mr-2"}>{selected.flag}</span>
-        {!compact && <span className="text-sm mr-2">{selected.name}</span>}
-        {!compact && <ChevronDown className={open ? 'rotate-180 transition-transform duration-500' : 'transition-transform duration-500'} />}
+        {!compact && <ChevronDown className={open ? 'ml-1 h-4 w-4 rotate-180 transition-transform duration-500' : 'ml-1 h-4 w-4 transition-transform duration-500'} />}
       </button>
 
       <div
-        className={"absolute right-0 mt-3 min-w-[200px] transition-all duration-500 ease-out origin-top transform " + (open ? "opacity-100 scale-100 translate-y-0 pointer-events-auto" : "opacity-0 scale-95 -translate-y-2 pointer-events-none")}
+        className={"absolute right-0 mt-5 transition-all duration-500 ease-out origin-top transform " + (open ? "opacity-100 scale-100 translate-y-0 pointer-events-auto" : "opacity-0 scale-95 -translate-y-2 pointer-events-none")}
         style={{ zIndex: 1200 }}
       >
         <div className="rounded-xl p-2 shadow-xl bg-black/90 backdrop-blur-xl border-2 border-white/20 shadow-slate-900/30">

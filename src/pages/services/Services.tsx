@@ -27,7 +27,7 @@ const Services = () => {
   const isMobile = useIsMobile();
   const { t } = useLanguage();
 
-  const certifications = t?.services?.testingLabs?.certifications ?? [
+  const certifications = t?.services?.main?.testingLabs?.certifications ?? [
     "БГЦА - Белорусский государственный центр аккредитации",
     "EA BLA - Европейское сотрудничество по аккредитации (испытания, калибровки, сертификация)",
     "ILAC MRA - Международное сотрудничество лабораторных аккредитаций",
@@ -36,65 +36,83 @@ const Services = () => {
 
   const additionalServices = [
     {
-      title: "Металлообработка",
-      description: "Высокоточная обработка металлических деталей на современном оборудовании с ЧПУ",
+      title: t?.services?.main?.additional?.items[0]?.title ?? "Металлообработка",
+      description: t?.services?.main?.additional?.items[0]?.description ?? "Высокоточная обработка металлических деталей на современном оборудовании с ЧПУ",
       icon: Settings,
+      solidBg: 'bg-blue-500/20',
+      hoverBg: 'hover:bg-blue-900/40',
       color: "from-blue-500 to-cyan-500",
       iconColor: "text-blue-400"
     },
     {
-      title: "Термообработка",
-      description: "Специализированная термическая обработка для улучшения свойств материалов",
+      title: t?.services?.main?.additional?.items[1]?.title ?? "Термообработка",
+      description: t?.services?.main?.additional?.items[1]?.description ?? "Специализированная термическая обработка для улучшения свойств материалов",
       icon: Flame,
+      solidBg: 'bg-red-500/20',
+      hoverBg: 'hover:bg-red-900/40',
       color: "from-red-500 to-orange-500",
       iconColor: "text-red-400"
     },
     {
-      title: "Литье пластика",
-      description: "Производство пластиковых изделий методом литья под давлением",
+      title: t?.services?.main?.additional?.items[2]?.title ?? "Литье пластика",
+      description: t?.services?.main?.additional?.items[2]?.description ?? "Производство пластиковых изделий методом литья под давлением",
       icon: Package,
+      solidBg: 'bg-green-500/20',
+      hoverBg: 'hover:bg-green-900/40',
       color: "from-green-500 to-emerald-500",
       iconColor: "text-green-400"
     },
     {
-      title: "SMD-монтаж",
-      description: "Поверхностный монтаж электронных компонентов с высокой точностью",
+      title: t?.services?.main?.additional?.items[3]?.title ?? "SMD-монтаж",
+      description: t?.services?.main?.additional?.items[3]?.description ?? "Поверхностный монтаж электронных компонентов с высокой точностью",
       icon: Cpu,
+      solidBg: 'bg-purple-500/20',
+      hoverBg: 'hover:bg-purple-900/40',
       color: "from-purple-500 to-violet-500",
       iconColor: "text-purple-400"
     },
     {
-      title: "Волновая пайка",
-      description: "Автоматизированная пайка электронных компонентов волновым методом",
+      title: t?.services?.main?.additional?.items[4]?.title ?? "Волновая пайка",
+      description: t?.services?.main?.additional?.items[4]?.description ?? "Автоматизированная пайка электронных компонентов волновым методом",
       icon: Waves,
+      solidBg: 'bg-teal-500/20',
+      hoverBg: 'hover:bg-teal-900/40',
       color: "from-teal-500 to-cyan-500",
       iconColor: "text-teal-400"
     },
     {
-      title: "Ручной монтаж",
-      description: "Прецизионный ручной монтаж сложных электронных узлов",
+      title: t?.services?.main?.additional?.items[5]?.title ?? "Ручной монтаж",
+      description: t?.services?.main?.additional?.items[5]?.description ?? "Прецизионный ручной монтаж сложных электронных узлов",
       icon: Wrench,
+      solidBg: 'bg-amber-500/20',
+      hoverBg: 'hover:bg-amber-900/40',
       color: "from-amber-500 to-yellow-500",
       iconColor: "text-amber-400"
     },
     {
-      title: "Селективная пайка",
-      description: "Точечная пайка компонентов с использованием селективного оборудования",
+      title: t?.services?.main?.additional?.items[6]?.title ?? "Селективная пайка",
+      description: t?.services?.main?.additional?.items[6]?.description ?? "Точечная пайка компонентов с использованием селективного оборудования",
       icon: Target,
+      solidBg: 'bg-pink-500/20',
+      hoverBg: 'hover:bg-pink-900/40',
       color: "from-pink-500 to-rose-500",
       iconColor: "text-pink-400"
     },
     {
-      title: "Полимерное покрытие",
-      description: "Защитные и декоративные полимерные покрытия для различных изделий",
+      title: t?.services?.main?.additional?.items[7]?.title ?? "Полимерное покрытие",
+      description: t?.services?.main?.additional?.items[7]?.description ?? "Защитные и декоративные полимерные покрытия для различных изделий",
       icon: Shield,
+      solidBg: 'bg-indigo-500/20',
+      hoverBg: 'hover:bg-indigo-900/40',
       color: "from-indigo-500 to-blue-500",
       iconColor: "text-indigo-400"
     },
     {
-      title: "Прессование термоактивных материалов",
-      description: "Формование изделий из термоактивных полимерных материалов",
+      title: t?.services?.main?.additional?.items[8]?.title ?? "Прессование термоактивных материалов",
+      description: t?.services?.main?.additional?.items[8]?.description ?? "Формование изделий из термоактивных полимерных материалов",
       icon: Cog,
+      solidBg: 'bg-slate-500/20',
+      hoverBg: 'hover:bg-slate-800/40',
       color: "from-slate-500 to-gray-500",
       iconColor: "text-slate-400"
     }
@@ -112,10 +130,10 @@ const Services = () => {
         <div className="container mx-auto relative z-10">
           <div className="max-w-4xl mx-auto animate-fade-in">
             <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-8xl font-black mb-6 md:mb-8 text-white/95 leading-tight">
-              {t?.services?.pageTitle ?? 'Услуги'}
+              {t?.services?.main?.pageTitle ?? 'Услуги'}
             </h1>
             <p className="text-lg md:text-xl xl:text-2xl text-white/70 mb-6 md:mb-8">
-              {t?.services?.pageSubtitle ?? 'Профессиональные услуги для вашего бизнеса'}
+              {t?.services?.main?.pageSubtitle ?? 'Профессиональные услуги для вашего бизнеса'}
             </p>
           </div>
         </div>
@@ -127,11 +145,11 @@ const Services = () => {
           <div className="text-center mb-12 md:mb-16">
             <div className="inline-flex items-center gap-4 mb-8">
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
-                {t?.services?.testingLabs?.title ?? 'Испытательные лаборатории'}
+                {t?.services?.main?.testingLabs?.title ?? 'Испытательные лаборатории'}
               </h2>
             </div>
             <p className="text-xl text-slate-300 max-w-4xl mx-auto">
-              {t?.services?.testingLabs?.description ?? 'Комплексные испытания и контроль качества с международной аккредитацией'}
+              {t?.services?.main?.testingLabs?.description ?? 'Комплексные испытания и контроль качества с международной аккредитацией'}
             </p>
           </div>
 
@@ -140,9 +158,9 @@ const Services = () => {
               {/* First Card - Accreditation Info */}
               <Card className="group overflow-hidden bg-cyan-800/10 backdrop-blur-xl border border-cyan-700/30 hover:border-cyan-500/50 transition-all duration-700 hover:shadow-2xl hover:shadow-cyan-500/20">
                 <div className="p-6 md:p-8">
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">{t?.services?.testingLabs?.accreditationTitle ?? 'Государственная аккредитация'}</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">{t?.services?.main?.testingLabs?.accreditationTitle ?? 'Государственная аккредитация'}</h3>
                   <p className="text-slate-400 text-sm md:text-base leading-relaxed pb-5">
-                    {t?.services?.testingLabs?.accreditationDescription ?? 'Наша лаборатория имеет полную государственную аккредитацию и международное признание. Мы обеспечиваем комплексные испытания промышленной продукции с выдачей официальных сертификатов соответствия.'}
+                    {t?.services?.main?.testingLabs?.accreditationDescription ?? 'Наша лаборатория имеет полную государственную аккредитацию и международное признание. Мы обеспечиваем комплексные испытания промышленной продукции с выдачей официальных сертификатов соответствия.'}
                   </p>
                   <div className="space-y-3">
                     {certifications.map((cert, index) => (
@@ -160,13 +178,13 @@ const Services = () => {
                 <div className="p-6 md:p-8 h-full lg:max-w-none">
                   <div className="flex-grow lg:flex-grow-0">
                     <div className="mb-6">
-                      <h4 className="text-2xl md:text-3xl font-bold text-white mb-3">Виды испытаний</h4>
+                      <h4 className="text-2xl md:text-3xl font-bold text-white mb-3">{t?.services?.main?.testingLabs?.typesTitle ?? "Виды испытаний"}</h4>
                       <p className="text-slate-400 text-sm md:text-base leading-relaxed">
-                        {t?.services?.testingLabs?.shortDescription ?? 'Широкий спектр профессиональных испытаний и сертификационных услуг для промышленности'}
+                        {t?.services?.main?.testingLabs?.typesSubtitle ?? 'Широкий спектр профессиональных испытаний и сертификационных услуг для промышленности'}
                       </p>
                     </div>
                     <div className="space-y-3 md:space-y-4">
-                      {(t?.services?.testingLabs?.types ?? [
+                      {(t?.services?.main?.testingLabs?.types ?? [
                         "Электронные испытания и EMC тестирование",
                         "Химический и материаловедческий анализ",
                         "Механические и климатические испытания",
@@ -189,7 +207,7 @@ const Services = () => {
                       className="w-full rounded-lg bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0 text-base md:text-lg sd:text-xs px-6 md:px-8 py-4 md:py-6 hover:scale-105 transition-all duration-300"
                     >
                       <Link to="/services/testing-laboratories">
-                        {t?.services?.testingLabs?.ctaButton ?? (isMobile ? 'Подробнее о лабораториях' : 'Подробнее о лабораториях')}
+                        {t?.services?.main?.testingLabs?.ctaButton ?? (isMobile ? 'Подробнее о лабораториях' : 'Подробнее о лабораториях')}
                         <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
                       </Link>
                     </Button>
@@ -206,10 +224,10 @@ const Services = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-orange-400 via-red-400 to-pink-400 bg-clip-text text-transparent mb-8">
-              {t?.services?.additional?.title ?? 'Производственные услуги'}
+              {t?.services?.main?.additional?.title ?? 'Производственные услуги'}
             </h2>
             <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
-              {t?.services?.additional?.description ?? 'Полный спектр современных производственных и технологических решений'}
+              {t?.services?.main?.additional?.description ?? 'Полный спектр современных производственных и технологических решений'}
             </p>
           </div>
 
@@ -217,49 +235,49 @@ const Services = () => {
             {additionalServices.map((service, index) => {
               const Icon = service.icon;
               // Цвет для solid background и hover
-              let solidBg = '';
-              let hoverBg = '';
-              switch (service.title) {
-                case 'Металлообработка':
-                  solidBg = 'bg-blue-500/20';
-                  hoverBg = 'hover:bg-blue-900/40';
-                  break;
-                case 'Термообработка':
-                  solidBg = 'bg-red-500/20';
-                  hoverBg = 'hover:bg-red-900/40';
-                  break;
-                case 'Литье пластика':
-                  solidBg = 'bg-green-500/20';
-                  hoverBg = 'hover:bg-green-900/40';
-                  break;
-                case 'SMD-монтаж':
-                  solidBg = 'bg-purple-500/20';
-                  hoverBg = 'hover:bg-purple-900/40';
-                  break;
-                case 'Волновая пайка':
-                  solidBg = 'bg-teal-500/20';
-                  hoverBg = 'hover:bg-teal-900/40';
-                  break;
-                case 'Ручной монтаж':
-                  solidBg = 'bg-amber-500/20';
-                  hoverBg = 'hover:bg-amber-900/40';
-                  break;
-                case 'Селективная пайка':
-                  solidBg = 'bg-pink-500/20';
-                  hoverBg = 'hover:bg-pink-900/40';
-                  break;
-                case 'Полимерное покрытие':
-                  solidBg = 'bg-indigo-500/20';
-                  hoverBg = 'hover:bg-indigo-900/40';
-                  break;
-                case 'Прессование термоактивных материалов':
-                  solidBg = 'bg-slate-500/20';
-                  hoverBg = 'hover:bg-slate-800/40';
-                  break;
-                default:
-                  solidBg = 'bg-slate-800/20';
-                  hoverBg = 'hover:bg-slate-900/40';
-              }
+              let solidBg = service.solidBg;
+              let hoverBg = service.hoverBg;
+              // switch (service.title) {
+              //   case 'Металлообработка':
+              //     solidBg = 'bg-blue-500/20';
+              //     hoverBg = 'hover:bg-blue-900/40';
+              //     break;
+              //   case 'Термообработка':
+              //     solidBg = 'bg-red-500/20';
+              //     hoverBg = 'hover:bg-red-900/40';
+              //     break;
+              //   case 'Литье пластика':
+              //     solidBg = 'bg-green-500/20';
+              //     hoverBg = 'hover:bg-green-900/40';
+              //     break;
+              //   case 'SMD-монтаж':
+              //     solidBg = 'bg-purple-500/20';
+              //     hoverBg = 'hover:bg-purple-900/40';
+              //     break;
+              //   case 'Волновая пайка':
+              //     solidBg = 'bg-teal-500/20';
+              //     hoverBg = 'hover:bg-teal-900/40';
+              //     break;
+              //   case 'Ручной монтаж':
+              //     solidBg = 'bg-amber-500/20';
+              //     hoverBg = 'hover:bg-amber-900/40';
+              //     break;
+              //   case 'Селективная пайка':
+              //     solidBg = 'bg-pink-500/20';
+              //     hoverBg = 'hover:bg-pink-900/40';
+              //     break;
+              //   case 'Полимерное покрытие':
+              //     solidBg = 'bg-indigo-500/20';
+              //     hoverBg = 'hover:bg-indigo-900/40';
+              //     break;
+              //   case 'Прессование термоактивных материалов':
+              //     solidBg = 'bg-slate-500/20';
+              //     hoverBg = 'hover:bg-slate-800/40';
+              //     break;
+              //   default:
+              //     solidBg = 'bg-slate-800/20';
+              //     hoverBg = 'hover:bg-slate-900/40';
+              // }
               return (
                 <Card
                   key={index}
