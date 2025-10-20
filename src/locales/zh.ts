@@ -245,6 +245,145 @@ export const zh = {
       antiCorruption: '反腐败',
       homeLabel: '关于公司 - 主页'
     },
+    qas: {
+      pageTitle: '质量管理体系',
+      pageSubtitle: '我们坚持最高的质量标准，并通过国际认证和严格遵守 ISO 要求来加以验证',
+      qualityTitle: '我们对质量的承诺',
+      qualitySubtitle: '符合国际标准并持续改进各项流程',
+      qualityCards: {
+        iso: {
+          title: '国际标准',
+          description: '通过 ISO 9001 和 IATF 16949 认证，证明我们的产品和流程符合全球质量标准'
+        },
+        growing: {
+          title: '持续改进',
+          description: '不断优化流程并引入先进的质量管理方法'
+        },
+        team: {
+          title: '专业团队',
+          description: '高素质的专业人员在各个阶段确保质量控制'
+        }
+      },
+      certsTitle: '证书与标准',
+      certsSubtitle: '证明符合国际要求的官方文件',
+      certsNumberLabel: '编号',
+      certsExpiriesLabel: '有效期至',
+      certsProviderLabel: '认证机构',
+      certsDownloadLabel: '下载证书',
+      certsCards: {
+        iso9001: {
+          title: 'STB ISO 9001',
+          description: '质量管理体系国际标准，确保流程持续改进与客户满意度提升',
+          provider: '白俄罗斯国家计量院（БелГИМ）'
+        },
+        iatf16949: {
+          title: 'STB IATF 16949',
+          description: '适用于汽车零部件设计与制造企业的国际标准，确保产品高质量与安',
+          provider: '白俄罗斯国家计量院（БелГИМ）'
+        }
+      },
+      docsTitle: '文件与指南',
+      docsSubtitle: '关于质量管理体系的规范性文件与指导资料',
+      docsCards: {
+        pipQualityPolicy: {
+          title: '汽车零部件与材料供应商质量管理手册',
+          description: '规定供应商要求并确保汽车零部件及材料的质量'
+        },
+        qualityPolicy: {
+          title: '质量方针',
+          description: '明确公司在质量领域的承诺与持续改进的目标'
+        }
+      },
+      validCertsTitle: '自有产品合格证书',
+      validCertsSubtitle: '证明公司产品质量与安全性的文件',
+      validCertsCards: {
+        tractors: {
+          title: '汽车与拖拉机产品',
+          description: '用于拖拉机和农业机械的电子控制单元'
+        },
+        laptops: {
+          title: '笔记本电脑',
+          description: '适用于专业及教育用途的便携式电脑'
+        },
+        powerAdapters: {
+          title: '电源适配器',
+          description: '用于电子设备的电源与充电装置'
+        },
+        systemPlates: {
+          title: '主板',
+          description: '计算机设备的核心组件与主板'
+        }
+      }
+    },
+    cooperation: {
+      pageTitle: '合作关系',
+      pageSubtitle: '我们致力于发展互惠互利的合作伙伴关系，与可靠的伙伴共同创造成功的商业机会',
+      cooperationTitle: '合作伙伴关系发展',
+      cooperationSubtitle: '以信任与专业精神为基础，建立长期合作',
+      cooperationCards: {
+        longTermCooperation: {
+          title: '长期合作',
+          description: '与可靠的合作伙伴建立长期互利关系'
+        },
+        flexibleTerms: {
+          title: '灵活的合作条件',
+          description: '为每位合作伙伴提供个性化方案，支持多种合作形式'
+        },
+        highQualityStandards: {
+          title: '高质量标准',
+          description: '确保所有合作环节的产品与服务符合国际要求'
+        }
+      },
+      additionalCard: {
+        title: '我们的合作理念',
+        description: '我们重视每一位合作伙伴，致力于建立稳固、互利的关系。我们的理念基于信任、专业与共同成功，并积极拓展多领域合作机会。'
+      },
+      docsTitle: '合作文件',
+      docsSubtitle: '为潜在合作伙伴和采购参与者提供的文件与资料',
+      docsCards: {
+        sales: {
+          title: '参与采购程序',
+          description: '关于公司参与招标、政府及商业采购的相关信息'
+        },
+        realResources: {
+          title: '可供出售资产',
+          description: '公司可供转让或出售的主要资产最新信息'
+        }
+      }
+    },
+    vacancies: {
+      pageTitle: '招聘信息',
+      pageSubtitle: '加入专业团队，在白俄罗斯领先的电子技术公司中发展您的职业生涯',
+      whyUsTitle: '为什么选择我们？',
+      whyUsSubtitle: '稳定、成长与舒适的职业环境',
+      whyUsCards: {
+        stability: {
+          title: '成长与稳定',
+          description: '一家具有多年历史和稳定财务状况的可靠企业'
+        },
+        improvement: {
+          title: '职业发展',
+          description: '提供学习新技术、提升技能和职业晋升的机会'
+        },
+        benefits: {
+          title: '社会保障与福利',
+          description: '具竞争力的薪资、社会保障、员工福利与奖金制度'
+        }
+      },
+      offersTitle: '当前职位',
+      offersSubtitle: '在领先的求职平台上查看所有开放职位',
+      offersCard: {
+        title: 'rabota.by 职位',
+        description: '您可在 rabota.by 上的 ОАО “МПОВТ” 页面查看所有最新职位信息',
+        buttonLabel: '前往 rabota.by'
+      },
+      contactTitle: '招聘联系方式',
+      contactSubtitle: '如需更多信息，请联系我公司人力资源部门',
+      contactInfo: {
+        name: '叶莲娜·阿列克桑德罗夫娜·科农诺维奇',
+        jobLabel: '人力资源部主管'
+      }
+    }
   },
   products: {
     main: {

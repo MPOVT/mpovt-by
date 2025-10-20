@@ -174,11 +174,9 @@ const Vacancies = () => {
           </div>
         </section>
 
-        {/* Vacancies Section */}
-        <section className="py-16 md:py-20 px-4 relative z-10">
+        {/* <section className="py-16 md:py-20 px-4 relative z-10">
           <div className="container mx-auto">
             <div className="text-center mb-12 relative">
-              {/* Background glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-purple-400/15 to-pink-400/15 rounded-3xl blur-3xl"></div>
               <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent relative z-10">
                 Открытые позиции
@@ -202,7 +200,6 @@ const Vacancies = () => {
               <div className="grid gap-6 max-w-5xl mx-auto">
                 {vacancies.map((vacancy) => (
                   <Card key={vacancy.id} className="bg-white/5 backdrop-blur-xl border border-white/10 hover:border-white/20 transition-all duration-300 relative overflow-hidden">
-                    {/* Background glow */}
                     <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
                     <div className="p-6 relative z-10">
                       <div className="flex items-start justify-between mb-4">
@@ -304,7 +301,7 @@ const Vacancies = () => {
               </div>
             )}
           </div>
-        </section>
+        </section> */}
 
         {/* Rabota.by info block */}
         <section className="py-16 md:py-20 px-4 relative z-10">
@@ -328,8 +325,8 @@ const Vacancies = () => {
                   Больше вакансий на rabota.by
                 </h3>
                 <p className="text-lg text-cyan-100 mb-6 leading-relaxed">
-                  Полный список актуальных вакансий ОАО "МПОВТ" доступен на нашей странице в rabota.by. 
-                  Здесь вы найдете самую свежую информацию о всех открытых позициях.
+                  Полный список актуальных вакансий ОАО «МПОВТ» доступен на нашей странице в rabota.by
+                  Здесь вы найдете самую свежую информацию о всех открытых позициях
                 </p>
                 <Button
                   size="lg"

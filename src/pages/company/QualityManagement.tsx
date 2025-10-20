@@ -4,46 +4,51 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { FileText, Download, CheckCircle, Award, Shield, Target, Users, Truck, Laptop, Cable, Cpu, Factory, Computer, Zap, Microchip } from "lucide-react";
 import Footer from "@/components/Footer";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const QualityManagement = () => {
+  const { t } = useLanguage();
+
   const certificates = [
     {
-      title: "СТБ ISO 9001-2015",
+      title: t?.company?.qas?.certsCards?.iso9001?.title ?? "СТБ ISO 9001-2015",
       number: "BY /112 05.01. 003.01 00601",
       validUntil: "14.02.2026",
-      certifier: "РУП «БелГИМ»",
-      description: "Международный стандарт системы менеджмента качества, обеспечивающий постоянное улучшение процессов и удовлетворенность клиентов",
+      certifier: t?.company?.qas?.certsCards?.iso9001?.provider ?? "РУП «БелГИМ»",
+      description: t?.company?.qas?.certsCards?.iso9001?.description ?? "Международный стандарт системы менеджмента качества, обеспечивающий постоянное улучшение процессов и удовлетворенность клиентов",
       pdfUrl: "https://mpovt.by/gallery/%D0%A1%D0%A2%D0%91%20ISO%209001.pdf"
     },
     {
-      title: "СТБ 16949-2018",
+      title: t?.company?.qas?.certsCards?.iatf16949?.title ?? "СТБ 16949-2018",
       number: "BY/112 05.07. 003.01 00602",
       validUntil: "14.02.2026",
-      certifier: "РУП «БелГИМ»",
-      description: "Стандарт системы менеджмента качества для автомобильной промышленности, обеспечивающий высочайшие требования к качеству продукции",
+      certifier: t?.company?.qas?.certsCards?.iatf16949?.provider ?? "РУП «БелГИМ»",
+      description: t?.company?.qas?.certsCards?.iatf16949?.description ?? "Стандарт системы менеджмента качества для автомобильной промышленности, обеспечивающий высочайшие требования к качеству продукции",
       pdfUrl: "https://mpovt.by/gallery/%D0%A1%D0%A2%D0%91%2016949.pdf"
     }
   ];
 
   const documents = [
     {
-      title: "Руководство по менеджменту качества поставщиков ПКИ и материалов для производства автокомпонентов",
+      title: t?.company?.qas?.docsCards?.pipQualityPolicy?.title ?? "Руководство по менеджменту качества поставщиков ПКИ и материалов для производства автокомпонентов",
+      description: t?.company?.qas?.docsCards?.pipQualityPolicy?.description ?? "Документ, определяющий требования и стандарты качества для поставщиков продукции и материалов, используемых в производстве автокомпонентов",
       url: "https://mpovt.by/gallery/%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE.pdf"
     },
     {
-      title: "Политика в области качества",
+      title: t?.company?.qas?.docsCards?.qualityPolicy?.title ?? "Политика в области качества",
+      description: t?.company?.qas?.docsCards?.qualityPolicy?.description ?? "Официальный документ, отражающий приверженность компании обеспечению высокого качества продукции и услуг",
       url: "https://mpovt.by/gallery/%D0%9E%D0%A2%D0%9A%D0%A0%D0%AB%D0%A2%D0%9E%D0%95%20%D0%90%D0%9A%D0%A6%D0%98%D0%9E%D0%9D%D0%95%D0%A0%D0%9D%D0%9E%D0%95%20%D0%9E%D0%91%D0%A9%D0%95%D0%A1%D0%A2%D0%92%D0%9E.pdf"
     },
-    {
-      title: "План выполнения ОАО \"МПОВТ\" мероприятий Республиканского плана мероприятий по проведению в 2024 году Года качества",
-      url: "https://mpovt.by/gallery/%D0%9F%D0%BB%D0%B0%D0%BD%20%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BC%D0%B5%D1%80%D0%BE%D0%BF%D1%80%D0%B8%D1%8F%D1%82%D0%B8%D0%B9.pdf"
-    }
+    // {
+    //   title: "План выполнения ОАО \"МПОВТ\" мероприятий Республиканского плана мероприятий по проведению в 2024 году Года качества",
+    //   url: "https://mpovt.by/gallery/%D0%9F%D0%BB%D0%B0%D0%BD%20%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BC%D0%B5%D1%80%D0%BE%D0%BF%D1%80%D0%B8%D1%8F%D1%82%D0%B8%D0%B9.pdf"
+    // }
   ];
 
   const productCertificates = [
     {
-      title: "Автотракторная продукция",
-      description: "Электронные блоки управления для тракторов и сельскохозяйственной техники",
+      title: t?.company?.qas?.validCertsCards?.tractors?.title ?? "Автотракторная продукция",
+      description: t?.company?.qas?.validCertsCards?.tractors?.description ?? "Электронные блоки управления для тракторов и сельскохозяйственной техники",
       icon: Factory,
       iconColor: "text-orange-400",
       bgColor: "from-orange-500/20 to-red-500/20",
@@ -52,8 +57,8 @@ const QualityManagement = () => {
       url: "https://mpovt.by/gallery/%D0%A1%D0%95%D0%A0%D0%A2%D0%98%D0%A4%D0%98%D0%9A%D0%90%D0%A2%20%D0%A1%D0%9E%D0%91%D0%A1%D0%A2%D0%92%D0%95%D0%9D%D0%9D%D0%9E%D0%93%D0%9E%20%D0%9F%D0%A0%D0%9E%D0%98%D0%97%D0%92%D0%9E%D0%94%D0%A1%D0%A2%D0%92%D0%90%20(%D0%B0%D0%B2%D1%82%D0%BE%D1%82%D1%80%D0%B0%D0%BA%D1%82%D0%BE%D1%80%D0%BD%D0%BE%D0%B5).pdf"
     },
     {
-      title: "Ноутбуки",
-      description: "Портативные компьютеры для профессионального и образовательного использования",
+      title: t?.company?.qas?.validCertsCards?.laptops?.title ?? "Ноутбуки",
+      description: t?.company?.qas?.validCertsCards?.laptops?.description ?? "Портативные компьютеры для профессионального и образовательного использования",
       icon: Computer,
       iconColor: "text-blue-400",
       bgColor: "from-blue-500/20 to-cyan-500/20",
@@ -62,8 +67,8 @@ const QualityManagement = () => {
       url: "https://mpovt.by/gallery/%D0%A1%D0%95%D0%A0%D0%A2%D0%98%D0%A4%D0%98%D0%9A%D0%90%D0%A2%20%D0%A1%D0%9E%D0%91%D0%A1%D0%A2%D0%92%D0%95%D0%9D%D0%9D%D0%9E%D0%93%D0%9E%20%D0%9F%D0%A0%D0%9E%D0%98%D0%97%D0%92%D0%9E%D0%94%D0%A1%D0%A2%D0%92%D0%90%20%D0%9D%D0%90%20%D0%9D%D0%9E%D0%A3%D0%A2%D0%91%D0%A3%D0%9A%D0%98.PDF"
     },
     {
-      title: "Адаптер сетевой",
-      description: "Источники питания и зарядные устройства для электронной техники",
+      title: t?.company?.qas?.validCertsCards?.powerAdapters?.title ?? "Адаптер сетевой",
+      description: t?.company?.qas?.validCertsCards?.powerAdapters?.description ?? "Источники питания и зарядные устройства для электронной техники",
       icon: Zap,
       iconColor: "text-yellow-400",
       bgColor: "from-yellow-500/20 to-orange-500/20",
@@ -72,8 +77,8 @@ const QualityManagement = () => {
       url: "https://mpovt.by/gallery/%D0%90%D0%B4%D0%B0%D0%BF%D1%82%D0%B5%D1%80%20%D1%81%D0%B5%D1%82%D0%B5%D0%B2%D0%BE%D0%B9%20%D1%81%D0%B5%D1%80%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82%20%D1%81%D0%BE%D0%B1%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%B0.PDF"
     },
     {
-      title: "Плата системная",
-      description: "Основные компоненты и материнские платы для компьютерной техники",
+      title: t?.company?.qas?.validCertsCards?.systemPlates?.title ?? "Плата системная",
+      description: t?.company?.qas?.validCertsCards?.systemPlates?.description ?? "Основные компоненты и материнские платы для компьютерной техники",
       icon: Microchip,
       iconColor: "text-green-400",
       bgColor: "from-green-500/20 to-emerald-500/20",
@@ -86,18 +91,18 @@ const QualityManagement = () => {
   const advantages = [
     {
       icon: Shield,
-      title: "Международные стандарты",
-      description: "Сертификация по ISO 9001 и IATF 16949 подтверждает соответствие мировым стандартам качества"
+      title: t?.company?.qas?.qualityCards?.iso?.title ?? "Международные стандарты",
+      description: t?.company?.qas?.qualityCards?.iso?.description ?? "Сертификация по ISO 9001 и IATF 16949 подтверждает соответствие мировым стандартам качества"
     },
     {
       icon: Target,
-      title: "Постоянное совершенствование",
-      description: "Непрерывное улучшение процессов и внедрение передовых методов управления качеством"
+      title: t?.company?.qas?.qualityCards?.growing?.title ?? "Постоянное совершенствование",
+      description: t?.company?.qas?.qualityCards?.growing?.description ?? "Непрерывное улучшение процессов и внедрение передовых методов управления качеством"
     },
     {
       icon: Users,
-      title: "Квалифицированная команда",
-      description: "Высококвалифицированные специалисты обеспечивают контроль качества на всех этапах"
+      title: t?.company?.qas?.qualityCards?.team?.title ?? "Квалифицированная команда",
+      description: t?.company?.qas?.qualityCards?.team?.description ?? "Высококвалифицированные специалисты обеспечивают контроль качества на всех этапах"
     }
   ];
 
@@ -115,10 +120,10 @@ const QualityManagement = () => {
         <div className="container mx-auto relative z-10">
           <div className="max-w-4xl mx-auto animate-fade-in">
             <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-8xl font-black mb-6 md:mb-8 text-white leading-tight">
-              Система менеджмента качества
+              {t?.company?.qas?.pageTitle ?? "Система менеджмента качества"}
             </h1>
             <p className="text-lg md:text-xl xl:text-2xl text-white/70 mb-6 md:mb-8 max-w-3xl mx-auto">
-              ОАО "МПОВТ" поддерживает высочайшие стандарты качества, подтвержденные международными сертификатами и строгим соблюдением требований ISO.
+              {t?.company?.qas?.pageSubtitle ?? "ОАО \"МПОВТ\" поддерживает высочайшие стандарты качества, подтвержденные международными сертификатами и строгим соблюдением требований ISO"}
             </p>
           </div>
         </div>
@@ -140,10 +145,10 @@ const QualityManagement = () => {
               {/* Background glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 via-purple-400/10 to-emerald-400/10 rounded-3xl blur-3xl"></div>
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent relative z-10">
-                Наша приверженность качеству
+                {t?.company?.qas?.qualityTitle ?? "Наша приверженность качеству"}
               </h2>
               <p className="text-lg text-white/60 relative z-10">
-                Соответствие международным стандартам и непрерывное совершенствование процессов
+                {t?.company?.qas?.qualitySubtitle ?? "Соответствие международным стандартам и непрерывное совершенствование процессов"}
               </p>
             </div>
 
@@ -189,10 +194,10 @@ const QualityManagement = () => {
               {/* Background glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/10 to-cyan-400/10 rounded-3xl blur-3xl"></div>
               <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent relative z-10">
-                Сертификаты соответствия
+                {t?.company?.qas?.certsTitle ?? "Сертификаты соответствия"}
               </h2>
               <p className="text-lg text-white/60 relative z-10">
-                Официальные документы, подтверждающие соответствие международным стандартам качества
+                {t?.company?.qas?.certsSubtitle ?? "Официальные документы, подтверждающие соответствие международным стандартам качества"}
               </p>
             </div>
             
@@ -206,7 +211,7 @@ const QualityManagement = () => {
                       <Award className="w-6 h-6 text-emerald-400" />
                     </div>
                     <Badge className="bg-emerald-500/10 text-emerald-300 border-emerald-500/20 px-3 py-1 text-sm">
-                      до {cert.validUntil}
+                      {t?.company?.qas?.certsExpiriesLabel ?? "до"} {cert.validUntil}
                     </Badge>
                   </div>
                   <h3 className="text-xl font-bold mb-4 text-white relative z-10">
@@ -217,10 +222,10 @@ const QualityManagement = () => {
                   </p>
                   <div className="space-y-3 mb-6 relative z-10">
                     <p className="text-slate-300 text-sm">
-                      <span className="text-emerald-400 font-medium">Номер:</span> {cert.number}
+                      <span className="text-emerald-400 font-medium">{t?.company?.qas?.certsNumberLabel ?? "Номер"}:</span> {cert.number}
                     </p>
                     <p className="text-slate-300 text-sm">
-                      <span className="text-emerald-400 font-medium">Орган сертификации:</span> {cert.certifier}
+                      <span className="text-emerald-400 font-medium">{t?.company?.qas?.certsProviderLabel ?? "Орган сертификации"}:</span> {cert.certifier}
                     </p>
                   </div>
                   <Button
@@ -229,7 +234,7 @@ const QualityManagement = () => {
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 rounded-md opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
                     <Download className="w-4 h-4 mr-2 relative z-10" />
-                    <span className="relative z-10">Скачать сертификат</span>
+                    <span className="relative z-10">{t?.company?.qas?.certsDownloadLabel ?? "Скачать сертификат"}</span>
                   </Button>
                 </Card>
               ))}
@@ -244,10 +249,10 @@ const QualityManagement = () => {
               {/* Background glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 to-pink-400/10 rounded-3xl blur-3xl"></div>
               <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent relative z-10">
-                Документы и руководства
+                {t?.company?.qas?.docsTitle ?? "Документы и руководства"}
               </h2>
               <p className="text-lg text-white/60 relative z-10">
-                Нормативная документация и руководящие материалы по системе менеджмента качества
+                {t?.company?.qas?.docsSubtitle ?? "Нормативная документация и руководящие материалы по системе менеджмента качества"}
               </p>
             </div>
             
@@ -269,7 +274,7 @@ const QualityManagement = () => {
                         <h3 className="text-lg font-semibold mb-2 text-white">
                           {doc.title}
                         </h3>
-                        <p className="text-slate-400 text-sm">Официальный документ ОАО "МПОВТ"</p>
+                        <p className="text-slate-400 text-sm">{doc.description}</p>
                       </div>
                     </div>
                     <Button
@@ -295,10 +300,10 @@ const QualityManagement = () => {
               {/* Background glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-orange-400/10 to-yellow-400/10 rounded-3xl blur-3xl"></div>
               <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent relative z-10">
-                Сертификаты соответствия продукции собственного производства
+                {t?.company?.qas?.validCertsTitle ?? "Сертификаты соответствия продукции собственного производства"}
               </h2>
               <p className="text-lg text-white/60 relative z-10">
-                Документы, подтверждающие качество и безопасность выпускаемой продукции
+                {t?.company?.qas?.validCertsSubtitle ?? "Документы, подтверждающие качество и безопасность выпускаемой продукции"}
               </p>
             </div>
             
@@ -338,7 +343,6 @@ const QualityManagement = () => {
             </div>
           </div>
         </section>
-
         <Footer />
       </div>
     </div>

@@ -4,17 +4,20 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { FileText, Download, ExternalLink, Handshake, Target, Users, TrendingUp, Award, CheckCircle, Phone, Mail, Building } from "lucide-react";
 import Footer from "@/components/Footer";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Cooperation = () => {
+  const { t } = useLanguage();
+
   const cooperationInfo = [
     {
-      title: "Участие ОАО \"МПОВТ\" в процедурах закупок",
-      description: "Информация о участии предприятия в государственных и коммерческих закупках",
+      title: t?.company?.cooperation?.docsCards?.sales?.title ?? "Участие ОАО \"МПОВТ\" в процедурах закупок",
+      description: t?.company?.cooperation?.docsCards?.sales?.description ?? "Информация о участии предприятия в государственных и коммерческих закупках",
       url: "https://mpovt.by/gallery/%D0%A3%D1%87%D0%B0%D1%81%D1%82%D0%B8%D0%B5%20%D0%9E%D0%90%D0%9E%20%D0%9C%D0%9F%D0%9E%D0%92%D0%A2%20%D0%B2%20%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D0%B4%D1%83%D1%80%D0%B0%D1%85%20%D0%B7%D0%B0%D0%BA%D1%83%D0%BF%D0%BE%D0%BA.pdf"
     },
     {
-      title: "Перечень основных средств ОАО \"МПОВТ\", подлежащих реализации",
-      description: "Актуальная информация об основных средствах предприятия, доступных для реализации",
+      title: t?.company?.cooperation?.docsCards?.realResources?.title ?? "Перечень основных средств ОАО \"МПОВТ\", подлежащих реализации",
+      description: t?.company?.cooperation?.docsCards?.realResources?.description ?? "Актуальная информация об основных средствах предприятия, доступных для реализации",
       url: "https://mpovt.by/gallery/%D0%9F%D0%B5%D1%80%D0%B5%D1%87%D0%B5%D0%BD%D1%8C%20%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D1%8B%D1%85%20%D1%81%D1%80%D0%B5%D0%B4%D1%81%D1%82%D0%B2%20%D0%9E%D0%90%D0%9E%20%D0%9C%D0%9F%D0%9E%D0%92%D0%A2%20%D0%B4%D0%BB%D1%8F%20%D1%80%D0%B5%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8.pdf"
     }
   ];
@@ -22,18 +25,18 @@ const Cooperation = () => {
   const advantages = [
     {
       icon: Handshake,
-      title: "Долгосрочное партнерство",
-      description: "Стремимся к построению долгосрочных и взаимовыгодных отношений с надежными партнерами"
+      title: t?.company?.cooperation?.cooperationCards?.longTermCooperation?.title ?? "Долгосрочное партнерство",
+      description: t?.company?.cooperation?.cooperationCards?.longTermCooperation?.description ?? "Стремимся к построению долгосрочных и взаимовыгодных отношений с надежными партнерами"
     },
     {
       icon: Target,
-      title: "Гибкие условия сотрудничества",
-      description: "Индивидуальный подход к каждому партнеру и готовность к различным формам кооперации"
+      title: t?.company?.cooperation?.cooperationCards?.flexibleTerms?.title ?? "Гибкие условия сотрудничества",
+      description: t?.company?.cooperation?.cooperationCards?.flexibleTerms?.description ?? "Индивидуальный подход к каждому партнеру и готовность к различным формам кооперации"
     },
     {
       icon: Award,
-      title: "Высокие стандарты качества",
-      description: "Соблюдение международных стандартов качества во всех аспектах сотрудничества"
+      title: t?.company?.cooperation?.cooperationCards?.highQualityStandards?.title ?? "Высокие стандарты качества",
+      description: t?.company?.cooperation?.cooperationCards?.highQualityStandards?.description ?? "Соблюдение международных стандартов качества во всех аспектах сотрудничества"
     }
   ];
 
@@ -59,10 +62,10 @@ const Cooperation = () => {
         <div className="container mx-auto relative z-10">
           <div className="max-w-4xl mx-auto animate-fade-in">
             <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-8xl font-black mb-6 md:mb-8 text-white leading-tight">
-              Кооперация
+              {t?.company?.cooperation?.pageTitle ?? "Кооперация"}
             </h1>
             <p className="text-lg md:text-xl xl:text-2xl text-white/70 mb-6 md:mb-8 max-w-3xl mx-auto">
-              Развиваем взаимовыгодные партнерские отношения и создаем возможности для успешного бизнеса вместе с надежными партнерами.
+              {t?.company?.cooperation?.pageSubtitle ?? "Развиваем взаимовыгодные партнерские отношения и создаем возможности для успешного бизнеса вместе с надежными партнерами"}
             </p>
           </div>
         </div>
@@ -84,10 +87,10 @@ const Cooperation = () => {
               {/* Background glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/15 via-purple-400/15 to-emerald-400/15 rounded-3xl blur-3xl"></div>
               <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-orange-400 to-pink-400 bg-clip-text text-transparent relative z-10">
-                Развитие партнерских отношений
+                {t?.company?.cooperation?.cooperationTitle ?? "Развитие партнерских отношений"}
               </h2>
               <p className="text-lg text-white/60 relative z-10">
-                Строим долгосрочные партнерства на основе взаимного доверия и профессионализма
+                {t?.company?.cooperation?.cooperationSubtitle ?? "Строим долгосрочные партнерства на основе взаимного доверия и профессионализма"}
               </p>
             </div>
 
@@ -129,10 +132,10 @@ const Cooperation = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-slate-500/5 via-slate-600/5 to-slate-500/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="text-center relative z-10">
                 <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-300 via-orange-200 to-rose-300 bg-clip-text text-transparent">
-                  О нашем подходе к кооперации
+                  {t?.company?.cooperation?.additionalCard?.title ?? "О нашем подходе к кооперации"}
                 </h3>
                 <p className="text-lg text-slate-200 leading-relaxed">
-                  ОАО "МПОВТ" заинтересовано в развитии долгосрочных партнерских отношений с поставщиками, подрядчиками и другими участниками рынка. Мы стремимся к взаимовыгодному сотрудничеству и готовы рассмотреть различные формы кооперации.
+                  {t?.company?.cooperation?.additionalCard?.description ?? "ОАО \"МПОВТ\" заинтересовано в развитии долгосрочных партнерских отношений с поставщиками, подрядчиками и другими участниками рынка. Мы стремимся к взаимовыгодному сотрудничеству и готовы рассмотреть различные формы кооперации."}
                 </p>
               </div>
             </Card>
@@ -146,10 +149,10 @@ const Cooperation = () => {
               {/* Background glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-purple-400/15 to-pink-400/15 rounded-3xl blur-3xl"></div>
               <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent relative z-10">
-                Информация о сотрудничестве
+                {t?.company?.cooperation?.docsTitle ?? "Информация о сотрудничестве"}
               </h2>
               <p className="text-lg text-white/60 relative z-10">
-                Документы и материалы для потенциальных партнеров и участников закупочных процедур
+                {t?.company?.cooperation?.docsSubtitle ?? "Документы и материалы для потенциальных партнеров и участников закупочных процедур"}
               </p>
             </div>
             
@@ -186,11 +189,9 @@ const Cooperation = () => {
           </div>
         </section>
 
-        {/* Contact Person Section */}
-        <section className="py-16 md:py-20 px-4 relative z-10">
+        {/* <section className="py-16 md:py-20 px-4 relative z-10">
           <div className="container mx-auto">
             <div className="text-center mb-12 relative">
-              {/* Background glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-orange-400/15 to-yellow-400/15 rounded-3xl blur-3xl"></div>
               <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent relative z-10">
                 Контакты по вопросам кооперации
@@ -201,7 +202,6 @@ const Cooperation = () => {
             </div>
             
             <Card className="max-w-2xl mx-auto overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 hover:border-white/20 transition-all duration-300 relative">
-              {/* Background glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-yellow-500/10 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
               <div className="flex flex-col md:flex-row h-full relative z-10">
                 <div className="w-full md:w-40 flex-shrink-0 flex items-center justify-center bg-gradient-to-br from-orange-500/10 to-yellow-500/10 p-4 md:p-0">
@@ -234,7 +234,7 @@ const Cooperation = () => {
               </div>
             </Card>
           </div>
-        </section>
+        </section> */}
 
         <Footer />
       </div>
