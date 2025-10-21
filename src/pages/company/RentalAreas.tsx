@@ -1,4 +1,6 @@
 import { useRef } from "react";
+import CTACard from "@/components/common/CTACard";
+
 // Кастомный хук для 3D-tilt/parallax эффекта
 function useCardTilt() {
   const ref = useRef(null);
@@ -29,12 +31,14 @@ import React from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, User, Download, Building, Car, Zap, Droplets, Home, Shield, CheckCircle, Award, Star, Sun, Droplet, Thermometer, Eye } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import Footer from "@/components/Footer";
 
 const RentalAreas = () => {
+  const { t } = useLanguage();
   const contact = {
-    name: "Медведь Татьяна Николаевна",
-    position: "Ведущий инженер",
+    name: t?.company?.rent?.contactInfo?.name ?? "Медведь Татьяна Николаевна",
+    position: t?.company?.rent?.contactInfo?.jobLabel ?? "Ведущий инженер",
     phones: ["+375 17 3889405", "+375 17 3639295"],
     email: "rent2@mpovt.by"
   };
@@ -42,64 +46,71 @@ const RentalAreas = () => {
   const facilities = [
     {
       icon: Building,
-      title: "Офисные помещения",
-      description: "Современные офисные пространства с естественным освещением и комфортными условиями работы"
+      title: t?.company?.rent?.roomsTypesCards?.office?.title ?? "Офисные помещения",
+      description: t?.company?.rent?.roomsTypesCards?.office?.description ?? "Современные офисные пространства с естественным освещением и комфортными условиями работы"
     },
     {
       icon: Building,
-      title: "Производственные площади",
-      description: "Оборудованные производственные помещения для различных видов деятельности с высокими потолками"
+      title: t?.company?.rent?.roomsTypesCards?.production?.title ?? "Производственные площади",
+      description: t?.company?.rent?.roomsTypesCards?.production?.description ?? "Оборудованные производственные помещения для различных видов деятельности с высокими потолками"
     },
     {
       icon: Building,
-      title: "Складские помещения",
-      description: "Просторные складские комплексы с удобными подъездными путями и погрузочными зонами"
-    },
-    {
-      icon: Car,
-      title: "Парковочные места",
-      description: "Удобная парковка для сотрудников и посетителей с охраняемой территорией"
+      title: t?.company?.rent?.roomsTypesCards?.storage?.title ?? "Складские помещения",
+      description: t?.company?.rent?.roomsTypesCards?.storage?.description ?? "Просторные складские комплексы с удобными подъездными путями и погрузочными зонами"
     }
   ];
 
   const amenities = [
     {
       icon: Zap,
-      title: "Электроснабжение",
-      description: "Стабильное электроснабжение с резервными источниками питания"
+      title: t?.company?.rent?.benefitsCards?.electricity?.title ?? "Электроснабжение",
+      description: t?.company?.rent?.benefitsCards?.electricity?.description ?? "Стабильное электроснабжение с резервными источниками питания",
+      color: "from-yellow-400/20 to-orange-400/20", 
+      iconColor: "text-yellow-400", 
+      titleColor: "from-yellow-400 to-orange-400"
     },
     {
       icon: Droplets,
-      title: "Водоснабжение",
-      description: "Централизованное водоснабжение и канализация"
+      title: t?.company?.rent?.benefitsCards?.water?.title ?? "Водоснабжение",
+      description: t?.company?.rent?.benefitsCards?.water?.description ?? "Централизованное водоснабжение и канализация",
+      color: "from-cyan-400/20 to-blue-400/20",
+      iconColor: "text-cyan-400",
+      titleColor: "from-cyan-400 to-blue-400"
     },
     {
       icon: Home,
-      title: "Отопление",
-      description: "Централизованное отопление с возможностью регулирования температуры"
+      title: t?.company?.rent?.benefitsCards?.heating?.title ?? "Отопление",
+      description: t?.company?.rent?.benefitsCards?.heating?.description ?? "Централизованное отопление с возможностью регулирования температуры",
+      color: "from-red-400/20 to-pink-400/20",
+      iconColor: "text-red-400",
+      titleColor: "from-red-400 to-pink-400"
     },
     {
       icon: MapPin,
-      title: "Транспорт",
-      description: "Удобные выездные пути и близость к транспортным узлам"
+      title: t?.company?.rent?.benefitsCards?.transport?.title ?? "Транспорт",
+      description: t?.company?.rent?.benefitsCards?.transport?.description ?? "Удобные выездные пути и близость к транспортным узлам",
+      color: "from-green-400/20 to-lime-400/20",
+      iconColor: "text-green-400",
+      titleColor: "from-green-400 to-lime-400"
     }
   ];
 
   const advantages = [
     {
       icon: Shield,
-      title: "Надежный собственник",
-      description: "ОАО \"МПОВТ\" - юридическое лицо с многолетней репутацией и стабильным положением"
+      title: t?.company?.rent?.whyUsCards?.reliability?.title ?? "Надежный собственник",
+      description: t?.company?.rent?.whyUsCards?.reliability?.description ?? "ОАО \"МПОВТ\" - юридическое лицо с многолетней репутацией и стабильным положением"
     },
     {
       icon: Star,
-      title: "Удобное расположение",
-      description: "Центральное расположение в Минске с развитой инфраструктурой и транспортной доступностью"
+      title: t?.company?.rent?.whyUsCards?.location?.title ?? "Удобное расположение",
+      description: t?.company?.rent?.whyUsCards?.location?.description ?? "Центральное расположение в Минске с развитой инфраструктурой и транспортной доступностью"
     },
     {
       icon: Award,
-      title: "Гибкие условия",
-      description: "Различные варианты площадей от 10 до 10,000 кв.м с индивидуальными условиями аренды"
+      title: t?.company?.rent?.whyUsCards?.flexibility?.title ?? "Гибкие условия",
+      description: t?.company?.rent?.whyUsCards?.flexibility?.description ?? "Различные варианты площадей от 10 до 10,000 кв.м с индивидуальными условиями аренды"
     }
   ];
 
@@ -139,10 +150,10 @@ const RentalAreas = () => {
         <div className="container mx-auto relative z-10">
           <div className="max-w-4xl mx-auto animate-fade-in">
             <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-8xl font-black mb-6 md:mb-8 text-white leading-tight">
-              Арендные площади
+              {t?.company?.rent?.pageTitle ?? "Арендные площади"}
             </h1>
             <p className="text-lg md:text-xl xl:text-2xl text-white/70 mb-6 md:mb-8 max-w-3xl mx-auto">
-              ОАО "МПОВТ" предлагает в аренду офисные, производственные и складские помещения с развитой инфраструктурой в удобном районе Минска.
+              {t?.company?.rent?.pageSubtitle ?? "Мы предлагаем в аренду офисные, производственные и складские помещения с развитой инфраструктурой в удобном местоположении"}
             </p>
           </div>
         </div>
@@ -163,10 +174,10 @@ const RentalAreas = () => {
               {/* Background glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-violet-400/15 via-fuchsia-400/15 to-indigo-400/15 rounded-3xl blur-3xl"></div>
               <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-violet-400 via-fuchsia-400 to-indigo-400 bg-clip-text text-transparent relative z-10">
-                Преимущества аренды у нас
+                {t?.company?.rent?.whyUsTitle ?? "Преимущества аренды у нас"}
               </h2>
               <p className="text-lg text-white/60 relative z-10">
-                Почему стоит выбрать арендные площади ОАО "МПОВТ"
+                {t?.company?.rent?.whyUsSubtitle ?? "Почему стоит выбрать арендные площади ОАО \"МПОВТ\""}
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12 justify-center items-stretch place-items-center">
@@ -209,10 +220,10 @@ const RentalAreas = () => {
             <div className="text-center mb-12 relative">
               <div className="absolute inset-0 bg-gradient-to-r from-violet-400/10 via-fuchsia-400/10 to-indigo-400/10 rounded-3xl blur-3xl"></div>
               <h2 className="text-3xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-violet-400 via-fuchsia-400 to-indigo-400 bg-clip-text text-transparent relative z-10">
-                Основная информация
+                {t?.company?.rent?.infoTitle ?? "Основная информация"}
               </h2>
               <p className="text-lg text-white/60 mb-4 relative z-10">
-                Ключевые характеристики и инфраструктура арендуемых площадей
+                {t?.company?.rent?.infoSubtitle ?? "Ключевые характеристики и инфраструктура арендуемых площадей"}
               </p>
               {/* Убрана полоска */}
             </div>
@@ -220,8 +231,8 @@ const RentalAreas = () => {
               {/* Характеристики */}
               <Card className="p-8 bg-white/5 backdrop-blur-xl border border-white/10 hover:border-violet-400/30 transition-all duration-300 group relative flex flex-col">
                 <div className="mb-4">
-                  <h3 className="text-2xl font-bold bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent mb-1">Характеристики помещений</h3>
-                  <p className="text-sm text-white/60 mb-2">Параметры и преимущества для арендаторов</p>
+                  <h3 className="text-2xl font-bold bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent mb-1">{t?.company?.rent?.infoCards?.features?.title ?? "Характеристики помещений"}</h3>
+                  <p className="text-sm text-white/60 mb-2">{t?.company?.rent?.infoCards?.features?.description ?? "Параметры и преимущества для арендаторов"}</p>
                 </div>
                 <div className="grid gap-4">
                   {/* Пример уникальных карточек с разными иконками и цветами */}
@@ -229,52 +240,52 @@ const RentalAreas = () => {
                     <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-r from-indigo-500/10 to-fuchsia-500/10">
                       <Home className="w-6 h-6 text-indigo-400" />
                     </span>
-                    <span className="text-slate-200 text-base">Площади от 10 кв. м до 10 000 кв. м</span>
+                    <span className="text-slate-200 text-base">{t?.company?.rent?.infoCards?.features?.area ?? "Площади от 10 кв. м до 10 000 кв. м"}</span>
                   </div>
                   <div className="flex items-center gap-4 p-4 rounded-xl border border-fuchsia-500/20 shadow-lg">
                     <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-r from-fuchsia-500/10 to-pink-500/10">
                       <Zap className="w-6 h-6 text-fuchsia-400" />
                     </span>
-                    <span className="text-slate-200 text-base">Стабильное электроснабжение 380/220В</span>
+                    <span className="text-slate-200 text-base">{t?.company?.rent?.infoCards?.features?.electricity ?? "Стабильное электроснабжение 380/220В"}</span>
                   </div>
                   <div className="flex items-center gap-4 p-4 rounded-xl border border-emerald-500/20 shadow-lg">
                     <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-r from-emerald-500/10 to-lime-500/10">
                       <Droplets className="w-6 h-6 text-emerald-400" />
                     </span>
-                    <span className="text-slate-200 text-base">Холодное и горячее водоснабжение</span>
+                    <span className="text-slate-200 text-base">{t?.company?.rent?.infoCards?.features?.heating ?? "Холодное и горячее водоснабжение"}</span>
                   </div>
                   <div className="flex items-center gap-4 p-4 rounded-xl border border-yellow-500/20 shadow-lg">
                     <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-r from-yellow-500/10 to-orange-500/10">
                       <Shield className="w-6 h-6 text-yellow-400" />
                     </span>
-                    <span className="text-slate-200 text-base">Охраняемые парковочные места</span>
+                    <span className="text-slate-200 text-base">{t?.company?.rent?.infoCards?.features?.security ?? "Охраняемые парковочные места"}</span>
                   </div>
                   <div className="flex items-center gap-4 p-4 rounded-xl border border-cyan-500/20 shadow-lg">
                     <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-r from-cyan-500/10 to-blue-500/10">
                       <Car className="w-6 h-6 text-cyan-400" />
                     </span>
-                    <span className="text-slate-200 text-base">Удобные выездные пути на основные магистрали</span>
+                    <span className="text-slate-200 text-base">{t?.company?.rent?.infoCards?.features?.routes ?? "Удобные выездные пути на основные магистрали"}</span>
                   </div>
                 </div>
               </Card>
               {/* Местоположение + карта */}
               <Card className="p-8 bg-white/5 backdrop-blur-xl border border-white/10 hover:border-indigo-400/30 transition-all duration-300 group relative flex flex-col">
                 <div className="mb-4">
-                  <h3 className="text-2xl font-bold bg-gradient-to-r from-indigo-400 to-fuchsia-400 bg-clip-text text-transparent mb-1">Местоположение</h3>
-                  <p className="text-sm text-white/60 mb-2">Инфраструктура и транспортная доступность</p>
+                  <h3 className="text-2xl font-bold bg-gradient-to-r from-indigo-400 to-fuchsia-400 bg-clip-text text-transparent mb-1">{t?.company?.rent?.infoCards?.location?.title ?? "Местоположение"}</h3>
+                  <p className="text-sm text-white/60 mb-2">{t?.company?.rent?.infoCards?.location?.description ?? "Инфраструктура и транспортная доступность"}</p>
                 </div>
                 <div className="grid gap-4 mb-4">
                   <div className="flex items-center gap-4 p-4 rounded-xl border border-blue-500/20 shadow-lg">
                     <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-r from-blue-500/10 to-cyan-500/10">
                       <MapPin className="w-6 h-6 text-blue-400" />
                     </span>
-                    <span className="text-slate-200 text-base">г. Минск, ул. Притыцкого, 62</span>
+                    <span className="text-slate-200 text-base">{t?.company?.rent?.infoCards?.location?.address ?? "г. Минск, ул. Притыцкого, 62"}</span>
                   </div>
                   <div className="flex items-center gap-4 p-4 rounded-xl border border-emerald-500/20 shadow-lg">
                     <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-r from-emerald-500/10 to-lime-500/10">
                       <Building className="w-6 h-6 text-emerald-400" />
                     </span>
-                    <span className="text-slate-200 text-base">Собственник: ОАО "МПОВТ"</span>
+                    <span className="text-slate-200 text-base">{t?.company?.rent?.infoCards?.location?.organization ?? "Собственник: ОАО \"МПОВТ\""}</span>
                   </div>
                 </div>
                 {/* Мини-карта/заглушка */}
@@ -297,11 +308,11 @@ const RentalAreas = () => {
               {/* Background glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/10 to-cyan-400/10 rounded-3xl blur-3xl"></div>
               <h2 className="text-3xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent relative z-10">
-                Типы помещений
+                {t?.company?.rent?.roomsTypesTitle ?? "Типы помещений"}
               </h2>
-              <p className="text-lg text-white/60 mb-4 relative z-10">Варианты доступных площадей для аренды</p>
+              <p className="text-lg text-white/60 mb-4 relative z-10">{t?.company?.rent?.roomsTypesSubtitle ?? "Варианты доступных площадей для аренды"}</p>
             </div>
-            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto center">
               {facilities.map((facility, index) => (
                 <Card key={index} className="p-6 bg-white/5 backdrop-blur-xl border border-white/10 hover:border-white/20 transition-all duration-300 group relative">
                   {/* Background glow */}
@@ -329,26 +340,20 @@ const RentalAreas = () => {
             <div className="text-center mb-12 relative">
               <div className="absolute inset-0 bg-gradient-to-r from-orange-400/10 to-yellow-400/10 rounded-3xl blur-3xl"></div>
               <h2 className="text-3xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent relative z-10">
-                Коммунальные услуги и удобства
+                {t?.company?.rent?.benefitsTitle ?? "Коммунальные услуги и удобства"}
               </h2>
               <p className="text-lg text-white/60 mb-4 relative z-10">
-                Современные инженерные системы и комфорт для арендаторов
+                {t?.company?.rent?.benefitsSubtitle ?? "Современные инженерные системы и комфорт для арендаторов"}
               </p>
-              {/* Убрана полоска */}
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
               {/* Карточки с пассивным 3D-покачиванием и цветами, соответствующими иконкам */}
-              {[ 
-                { icon: Zap, title: "Электроснабжение", desc: "Стабильное электроснабжение с резервными источниками питания", color: "from-yellow-400/20 to-orange-400/20", iconColor: "text-yellow-400", titleColor: "from-yellow-400 to-orange-400", anim: "animate-tilt-1" },
-                { icon: Droplets, title: "Водоснабжение", desc: "Централизованное водоснабжение и канализация", color: "from-cyan-400/20 to-blue-400/20", iconColor: "text-cyan-400", titleColor: "from-cyan-400 to-blue-400", anim: "animate-tilt-2" },
-                { icon: Home, title: "Отопление", desc: "Централизованное отопление с возможностью регулирования температуры", color: "from-pink-400/20 to-rose-400/20", iconColor: "text-pink-400", titleColor: "from-pink-400 to-rose-400", anim: "animate-tilt-3" },
-                { icon: MapPin, title: "Транспорт", desc: "Удобные выездные пути и близость к транспортным узлам", color: "from-emerald-400/20 to-lime-400/20", iconColor: "text-emerald-400", titleColor: "from-emerald-400 to-lime-400", anim: "animate-tilt-4" }
-              ].map((item, idx) => {
+              {amenities.map((item, idx) => {
                 const Icon = item.icon;
                 return (
                   <Card
                     key={idx}
-                    className={`p-6 text-center bg-white/5 backdrop-blur-xl border border-white/10 transition-all duration-300 group relative cursor-pointer select-none shadow-xl ${item.anim} hover:scale-105 hover:rotate-0`}
+                    className={`p-6 text-center bg-white/5 backdrop-blur-xl border border-white/10 transition-all duration-300 group relative cursor-pointer select-none shadow-xl hover:scale-105 hover:rotate-0`}
                     style={{ perspective: 1000, willChange: 'transform' }}
                     onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.05) rotateX(0deg) rotateY(0deg)'; e.currentTarget.style.transition = 'transform 0.3s'; }}
                     onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.transition = 'transform 1.2s'; }}
@@ -359,7 +364,7 @@ const RentalAreas = () => {
                     <h3 className={`text-lg font-bold mb-2 bg-gradient-to-r ${item.titleColor} bg-clip-text text-transparent`}>
                       {item.title}
                     </h3>
-                    <p className="text-slate-300 text-sm">{item.desc}</p>
+                    <p className="text-slate-300 text-sm">{item.description}</p>
                   </Card>
                 );
               })}
@@ -367,8 +372,8 @@ const RentalAreas = () => {
           </div>
         </section>
 
-        {/* Price List Download Section */}
-        <section className="py-16 md:py-20 px-4 relative z-10">
+        {/* Price List Download Section - Hidden */}
+        <section className="hidden py-16 md:py-20 px-4 relative z-10">
           <div className="container mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-12 relative">
               {/* Background glow */}
@@ -418,7 +423,7 @@ const RentalAreas = () => {
                     </thead>
                     <tbody className="divide-y divide-white/10">
                       {Array.from({ length: 20 }).map((_, i) => {
-                        // Примерные данные
+                        
                         const floor = (i % 5) + 1;
                         const inv = 100000 + i * 123;
                         const types = ["Офисное помещение", "Складское помещение", "Производственное помещение", "Парковка"];
@@ -466,8 +471,6 @@ const RentalAreas = () => {
           </div>
         </section>
 
-        {/* Map Section удалён, карта теперь в карточке "Местоположение" */}
-
         {/* Contact Person Section */}
         <section className="py-16 md:py-20 px-4 relative z-10">
           <div className="container mx-auto">
@@ -475,13 +478,23 @@ const RentalAreas = () => {
               {/* Background glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-purple-400/15 to-pink-400/15 rounded-3xl blur-3xl"></div>
               <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent relative z-10">
-                Контактное лицо
+                {t?.company?.rent?.contactTitle ?? "Контактное лицо"}
               </h2>
               <p className="text-lg text-white/60 relative z-10">
-                Свяжитесь с нашим специалистом по вопросам аренды
+                {t?.company?.rent?.contactSubtitle ?? "Свяжитесь с нашим специалистом по вопросам аренды"}
               </p>
             </div>
-            <Card className="p-8 max-w-2xl mx-auto bg-white/5 backdrop-blur-xl border border-white/10 hover:border-white/20 transition-all duration-300 group relative">
+
+            <CTACard
+              name={contact.name}
+              position={contact.position}
+              phoneNumbers={contact.phones}
+              emails={[contact.email]}
+              holderColorFrom="from-purple-500/10"
+              holderColorTo="to-pink-500/10"
+            />
+
+            <Card className="hidden p-8 max-w-2xl mx-auto bg-white/5 backdrop-blur-xl border border-white/10 hover:border-white/20 transition-all duration-300 group relative">
               {/* Background glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="flex items-start space-x-6 relative z-10">

@@ -20,7 +20,7 @@ const ContactSection = () => {
         </div>
         <div className="max-w-2xl mx-auto">
           <Card className="overflow-hidden bg-white/10 backdrop-blur-xl border border-white/10 hover:border-purple-400/30 transition-all duration-300 relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+        
             <div className="flex flex-col md:flex-row h-full relative z-10">
               <div className="w-full md:w-40 flex-shrink-0 flex items-center justify-center bg-gradient-to-br from-purple-500/10 to-pink-500/10 p-4 md:p-0">
                 <div className="w-28 h-32 rounded-lg shadow-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">

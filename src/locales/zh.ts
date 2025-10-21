@@ -374,7 +374,7 @@ export const zh = {
       offersSubtitle: '在领先的求职平台上查看所有开放职位',
       offersCard: {
         title: 'rabota.by 职位',
-        description: '您可在 rabota.by 上的 ОАО “МПОВТ” 页面查看所有最新职位信息',
+        description: '您可在 rabota.by 上的 OJSC «MPOVT» 页面查看所有最新职位信息',
         buttonLabel: '前往 rabota.by'
       },
       contactTitle: '招聘联系方式',
@@ -382,6 +382,87 @@ export const zh = {
       contactInfo: {
         name: '叶莲娜·阿列克桑德罗夫娜·科农诺维奇',
         jobLabel: '人力资源部主管'
+      }
+    },
+    rent: {
+      pageTitle: "出租场地",
+      pageSubtitle: "我们提供位于便利地段、基础设施完善的办公、生产和仓储空间供租赁",
+      whyUsTitle: "在我们这里租赁的优势",
+      whyUsSubtitle: "为您的业务提供便利条件和优惠方案",
+      whyUsCards: {
+        reliability: {
+          title: "可靠的出租方",
+          description: "拥有悠久历史和良好声誉的稳定公司"
+        },
+        location: {
+          title: "便利的位置",
+          description: "位于明斯克市中心，基础设施完善，交通便利"
+        },
+        flexibility: {
+          title: "灵活的租赁条件",
+          description: "为每位租户提供个性化方案，可根据您的需求调整条件"
+        }
+      },
+      infoTitle: "基本信息",
+      infoSubtitle: "出租空间的主要特征与基础设施",
+      infoCards: {
+        features: {
+          title: "房间特征",
+          description: "为租户提供的参数与优势",
+          area: "面积从 10 平方米至 10,000 平方米",
+          electricity: "稳定的 380/220V 电力供应",
+          heating: "冷热水供应",
+          security: "有安保的停车位",
+          routes: "便捷通往主要干道的出入口"
+        },
+        location: {
+          title: "地理位置",
+          description: "基础设施与交通便利性",
+          address: "明斯克市 普里提茨科街 62 号",
+          organization: "业主：开放式股份公司 «MPOVT»"
+        }
+      },
+      roomsTypesTitle: "房间类型",
+      roomsTypesSubtitle: "多样化的租赁空间，满足不同需求",
+      roomsTypesCards: {
+        office: {
+          title: "办公空间",
+          description: "现代化办公区，采光良好，提供舒适的工作环境"
+        },
+        production: {
+          title: "生产空间",
+          description: "配备齐全的高顶生产车间，适用于多种业务类型"
+        },
+        storage: {
+          title: "仓储空间",
+          description: "宽敞便利的仓库，可支持物流运作"
+        }
+      },
+      benefitsTitle: "公共服务与便利设施",
+      benefitsSubtitle: "现代化工程系统与舒适的租赁环境",
+      benefitsCards: {
+        heating: {
+          title: "供暖",
+          description: "高效供暖系统，全年保持舒适环境"
+        },
+        electricity: {
+          title: "电力供应",
+          description: "稳定的电力供应，可连接工业用电"
+        },
+        water: {
+          title: "供水",
+          description: "所有类型房间均配备冷热水供应"
+        },
+        transport: {
+          title: "交通",
+          description: "交通便捷，临近主要交通枢纽"
+        }
+      },
+      contactTitle: "联系人",
+      contactSubtitle: "如有租赁问题，请与我们的专家联系",
+      contactInfo: {
+        name: "梅德韦季·塔季扬娜·尼古拉耶夫娜",
+        jobLabel: "高级工程师"
       }
     }
   },

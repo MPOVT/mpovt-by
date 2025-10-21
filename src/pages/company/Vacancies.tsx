@@ -4,8 +4,10 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, ExternalLink, Phone, Mail, User, TrendingUp, Users, Award, Briefcase, ChevronDown, ChevronUp } from "lucide-react";
 import Footer from "@/components/Footer";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Vacancies = () => {
+  const { t } = useLanguage();
   const [vacancies, setVacancies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [expandedVacancies, setExpandedVacancies] = useState({});
@@ -67,8 +69,8 @@ const Vacancies = () => {
   };
 
   const hrManager = {
-    name: "Кононович Елена Александровна",
-    position: "Руководитель департамента подбора персонала",
+    name: t?.company?.vacancies?.contactInfo?.name ?? "Кононович Елена Александровна",
+    position: t?.company?.vacancies?.contactInfo?.jobLabel ?? "Руководитель департамента подбора персонала",
     photo: "/imgs/workers/elena_kononovich.jpg",
     phones: ["+375 17 3886446"],
     email: "ekononovich@mpovt.by"
@@ -77,18 +79,18 @@ const Vacancies = () => {
   const benefits = [
     {
       icon: TrendingUp,
-      title: "Стабильность и рост",
-      description: "Надежная компания с многолетней историей и стабильным финансовым положением"
+      title: t?.company?.vacancies?.whyUsCards?.stability?.title ?? "Стабильность и рост",
+      description: t?.company?.vacancies?.whyUsCards?.stability?.description ?? "Надежная компания с многолетней историей и стабильным финансовым положением"
     },
     {
       icon: Users,
-      title: "Развитие и обучение",
-      description: "Возможности для профессионального роста и обучения новым технологиям"
+      title: t?.company?.vacancies?.whyUsCards?.improvement?.title ?? "Развитие и обучение",
+      description: t?.company?.vacancies?.whyUsCards?.improvement?.description ?? "Возможности для профессионального роста и обучения новым технологиям"
     },
     {
       icon: Award,
-      title: "Социальный пакет",
-      description: "Полный социальный пакет, медицинская страховка и дополнительные льготы"
+      title: t?.company?.vacancies?.whyUsCards?.benefits?.title ?? "Социальный пакет",
+      description: t?.company?.vacancies?.whyUsCards?.benefits?.description ?? "Полный социальный пакет, медицинская страховка и дополнительные льготы"
     }
   ];
 
@@ -107,10 +109,10 @@ const Vacancies = () => {
         <div className="container mx-auto relative z-10">
           <div className="max-w-4xl mx-auto animate-fade-in">
             <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-8xl font-black mb-6 md:mb-8 text-white leading-tight">
-              Вакансии
+              {t?.company?.vacancies?.pageTitle ?? "Вакансии"}
             </h1>
             <p className="text-lg md:text-xl xl:text-2xl text-white/70 mb-6 md:mb-8 max-w-3xl mx-auto">
-              Присоединяйтесь к команде профессионалов и развивайте свою карьеру в одной из ведущих компаний Беларуси в области электронных технологий.
+              {t?.company?.vacancies?.pageSubtitle ?? "Присоединяйтесь к команде профессионалов и развивайте свою карьеру в одной из ведущих компаний Беларуси в области электронных технологий."}
             </p>
           </div>
         </div>
@@ -132,10 +134,10 @@ const Vacancies = () => {
               {/* Background glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/15 via-purple-400/15 to-emerald-400/15 rounded-3xl blur-3xl"></div>
               <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent relative z-10">
-                Почему стоит работать с нами?
+                {t?.company?.vacancies?.whyUsTitle ?? "Почему стоит работать с нами?"}
               </h2>
               <p className="text-lg text-white/60 relative z-10">
-                Стабильность, развитие и комфортные условия для успешной карьеры
+                {t?.company?.vacancies?.whyUsSubtitle ?? "Стабильность, развитие и комфортные условия для успешной карьеры"}
               </p>
             </div>
 
@@ -310,10 +312,10 @@ const Vacancies = () => {
               {/* Background glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-400/15 to-cyan-400/15 rounded-3xl blur-3xl"></div>
               <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent relative z-10">
-                Актуальные вакансии
+                {t?.company?.vacancies?.offersTitle ?? "Актуальные вакансии"}
               </h2>
               <p className="text-lg text-white/60 relative z-10">
-                Полный список открытых позиций на ведущей платформе поиска работы
+                {t?.company?.vacancies?.offersSubtitle ?? "Полный список открытых позиций на ведущей платформе поиска работы"}
               </p>
             </div>
             
@@ -322,11 +324,10 @@ const Vacancies = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
               <div className="text-center relative z-10">
                 <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">
-                  Больше вакансий на rabota.by
+                  {t?.company?.vacancies?.offersCard?.title ?? "Больше вакансий на rabota.by"}
                 </h3>
                 <p className="text-lg text-cyan-100 mb-6 leading-relaxed">
-                  Полный список актуальных вакансий ОАО «МПОВТ» доступен на нашей странице в rabota.by
-                  Здесь вы найдете самую свежую информацию о всех открытых позициях
+                  {t?.company?.vacancies?.offersCard?.description ?? "Полный список актуальных вакансий ОАО «МПОВТ» доступен на нашей странице в rabota.by Здесь вы найдете самую свежую информацию о всех открытых позициях"}
                 </p>
                 <Button
                   size="lg"
@@ -335,7 +336,7 @@ const Vacancies = () => {
                   onClick={() => window.open('https://rabota.by/search/vacancy?from=employerPage&employer_id=1006818&hhtmFrom=employer', '_blank')}
                 >
                   <ExternalLink className="w-5 h-5 mr-2" />
-                  <span>Перейти на rabota.by</span>
+                  <span>{t?.company?.vacancies?.offersCard?.buttonLabel ?? "Перейти на rabota.by"}</span>
                 </Button>
               </div>
             </Card>
@@ -349,10 +350,10 @@ const Vacancies = () => {
               {/* Background glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-green-400/25 via-green-500/20 to-teal-400/25 rounded-3xl blur-3xl"></div>
               <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-transparent relative z-10">
-                Контакты по вопросам трудоустройства
+                {t?.company?.vacancies?.contactTitle ?? "Контакты по вопросам трудоустройства"}
               </h2>
               <p className="text-lg text-white/60 relative z-10">
-                Свяжитесь с нашим специалистом по подбору персонала для получения подробной информации
+                {t?.company?.vacancies?.contactSubtitle ?? "Свяжитесь с нашим специалистом по подбору персонала для получения подробной информации"}
               </p>
             </div>
             
@@ -393,7 +394,6 @@ const Vacancies = () => {
             </Card>
           </div>
         </section>
-
         <Footer />
       </div>
     </div>

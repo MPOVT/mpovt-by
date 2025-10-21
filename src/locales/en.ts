@@ -382,6 +382,87 @@ export const en = {
         name: 'Kononovich Elena Alexandrovna',
         jobLabel: 'Head of Recruitment Department'
       }
+    },
+    rent: {
+      pageTitle: 'Rental Spaces',
+      pageSubtitle: 'We offer office, production, and warehouse spaces for rent with developed infrastructure and a convenient location',
+      whyUsTitle: 'Why Rent from Us',
+      whyUsSubtitle: 'Convenient conditions and beneficial offers for your business',
+      whyUsCards: {
+        reliability: {
+          title: 'Reliable Landlord',
+          description: 'A stable company with a long-term history and impeccable reputation'
+        },
+        location: {
+          title: 'Convenient Location',
+          description: 'Centrally located in Minsk with well-developed infrastructure and transport accessibility'
+        },
+        flexibility: {
+          title: 'Flexible Lease Terms',
+          description: 'An individual approach to each tenant and the ability to adapt conditions to your needs'
+        }
+      },
+      infoTitle: 'General Information',
+      infoSubtitle: 'Key features and infrastructure of the rental spaces',
+      infoCards: {
+        features: {
+          title: 'Premises Characteristics',
+          description: 'Parameters and advantages for tenants',
+          area: 'Spaces from 10 sq.m to 10,000 sq.m',
+          electricity: 'Stable 380/220V power supply',
+          heating: 'Cold and hot water supply',
+          security: 'Secured parking spaces',
+          routes: 'Convenient access to main highways'
+        },
+        location: {
+          title: 'Location',
+          description: 'Infrastructure and transport accessibility',
+          address: 'Minsk, Prititskogo St. 62',
+          organization: 'Owner: OJSC «MPOVT»'
+        }
+      },
+      roomsTypesTitle: 'Types of Premises',
+      roomsTypesSubtitle: 'Various rental space options for different needs',
+      roomsTypesCards: {
+        office: {
+          title: 'Office Premises',
+          description: 'Modern office spaces with natural lighting and comfortable working conditions'
+        },
+        production: {
+          title: 'Production Premises',
+          description: 'Equipped production facilities for various activities with high ceilings'
+        },
+        storage: {
+          title: 'Warehouse Premises',
+          description: 'Spacious and convenient warehouse areas with logistics possibilities'
+        }
+      },
+      benefitsTitle: 'Utilities and Amenities',
+      benefitsSubtitle: 'Modern engineering systems and comfort for tenants',
+      benefitsCards: {
+        heating: {
+          title: 'Heating',
+          description: 'Efficient heating system for comfortable conditions all year round'
+        },
+        electricity: {
+          title: 'Electricity Supply',
+          description: 'Stable power supply with the option of industrial capacity connection'
+        },
+        water: {
+          title: 'Water Supply',
+          description: 'Cold and hot water supply for all types of premises'
+        },
+        transport: {
+          title: 'Transport',
+          description: 'Convenient access routes and proximity to transport hubs'
+        }
+      },
+      contactTitle: 'Contact Person',
+      contactSubtitle: 'Get in touch with our rental specialist',
+      contactInfo: {
+        name: 'Tatyana Nikolaevna Medved',
+        jobLabel: 'Lead Engineer',
+      }
     }
   },
   products: {
