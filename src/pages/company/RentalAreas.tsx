@@ -33,6 +33,7 @@ import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, User, Download, Building, Car, Zap, Droplets, Home, Shield, CheckCircle, Award, Star, Sun, Droplet, Thermometer, Eye } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Footer from "@/components/Footer";
+import ContactSection from "@/components/TestingLabs/ContactSection";
 
 const RentalAreas = () => {
   const { t } = useLanguage();
@@ -470,9 +471,26 @@ const RentalAreas = () => {
             </div>
           </div>
         </section>
+        
+      <ContactSection
+        title={t?.company?.rent?.contactTitle ?? "Контактное лицо"}
+        subtitle={t?.company?.rent?.contactSubtitle ?? "Свяжитесь с нашим специалистом по вопросам аренды"}
+        titleGradientFrom="from-purple-400"
+        titleGradientTo="to-pink-400"
+        glowFrom="from-purple-400/20"
+        glowTo="to-pink-500/20"
+        contact={{
+          name: contact.name,
+          position: contact.position,
+          phones: contact.phones,
+          emails: [contact.email],
+        }}
+        holderColorFrom="from-purple-500/10"
+        holderColorTo="to-pink-500/10"
+      />
 
         {/* Contact Person Section */}
-        <section className="py-16 md:py-20 px-4 relative z-10">
+        <section className="hidden py-16 md:py-20 px-4 relative z-10">
           <div className="container mx-auto">
             <div className="text-center mb-12 relative">
               {/* Background glow */}
