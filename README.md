@@ -1,3 +1,6 @@
+<img width="947" height="462" alt="изображение" src="https://github.com/user-attachments/assets/5d96c7d9-a1ad-4a4d-831c-15a00918afb2" />
+
+
 # OJSC "MPOVT" Web App
 
 A modern, visually-rich website for the commercial property rental division of OJSC "MPOVT". Built with React, Vite, and Tailwind CSS, this project delivers a premium, adaptive user experience for showcasing available rental spaces, amenities, and company advantages.
@@ -28,7 +31,7 @@ Visit the production site: [lovable preview link](https://preview--mpovt-by.lova
 - **Tailwind CSS** (utility-first styling)
 - **PostCSS** (for Tailwind and future CSS features)
 - **Lucide-react** (icon set)
-- **lovable.dev** (production hosting and site skeleton)
+- **lovable.dev** (production hosting)
 
 
 ## 📁 File Structure
@@ -109,7 +112,7 @@ mpovt-by/
 - First development stages by [lovable.dev](https://lovable.dev)
 - Icons by [Lucide](https://lucide.dev)
 - Sponsored by [OJSC "MPOVT"](https://mpovt.by)
-- Special thanks to the JSC "MPOVT" team for content and feedback.
+- Special thanks to the OJSC "MPOVT" team for content and feedback.
 
 
 ## 📄 License
