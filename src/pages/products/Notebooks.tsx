@@ -155,7 +155,6 @@ const Notebooks = () => {
     {
       title: "15 MAK4 (T32E3W, T52E4W, T74E4W)",
       description: "Драйвера для моделей серии MAK4",
-      icon: Download,
       fileName: "MAK4_drivers.zip",
       fileSize: "~45 MB",
       downloadUrl: "https://disk.yandex.ru/d/No7uvNYqKiqs4w"
@@ -163,7 +162,6 @@ const Notebooks = () => {
     {
       title: "14 MAK1 (TC2E3W)",
       description: "Драйвера для модели MAK1",
-      icon: Download,
       fileName: "MAK1_drivers.zip",
       fileSize: "~38 MB",
       downloadUrl: "https://disk.yandex.ru/d/deUWwPDwYlt_UQ?pane=file-info"
@@ -171,7 +169,6 @@ const Notebooks = () => {
     {
       title: "15 IPK1 (T32E3WG, T52E3WG, T74E4WG)",
       description: "Драйвера для моделей серии IPK1",
-      icon: Download,
       fileName: "IPK1_drivers.zip",
       fileSize: "~42 MB",
       downloadUrl: "https://disk.yandex.com/d/pPtpyEGQnC51dQ"
@@ -291,8 +288,8 @@ const Notebooks = () => {
         title="Загрузки"
         description="Драйвера для различных моделей H-Book"
         downloads={downloads}
-        variant="primary"
-        gradientColors="from-cyan-400 to-blue-400"
+        gradientFrom="cyan-400"
+        gradientTo="blue-400"
       />
 
       {/* CTA Section */}

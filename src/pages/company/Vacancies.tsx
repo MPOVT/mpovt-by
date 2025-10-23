@@ -364,58 +364,6 @@ const Vacancies = () => {
           holderColorFrom="from-green-500/10"
           holderColorTo="to-teal-500/10"
         />
-
-        {/* HR Manager Contact */}
-        <section className="hidden py-16 md:py-20 px-4 relative z-10">
-          <div className="container mx-auto">
-            <div className="text-center mb-12 relative">
-              {/* Background glow */}
-              <div className="absolute inset-0 bg-gradient-to-r from-green-400/25 via-green-500/20 to-teal-400/25 rounded-3xl blur-3xl"></div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-transparent relative z-10">
-                {t?.company?.vacancies?.contactTitle ?? "Контакты по вопросам трудоустройства"}
-              </h2>
-              <p className="text-lg text-white/60 relative z-10">
-                {t?.company?.vacancies?.contactSubtitle ?? "Свяжитесь с нашим специалистом по подбору персонала для получения подробной информации"}
-              </p>
-            </div>
-
-            <Card className="max-w-2xl mx-auto overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 hover:border-white/20 transition-all duration-300 relative">
-              {/* Background glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-teal-500/10 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="flex flex-col md:flex-row h-full relative z-10">
-                <div className="w-full md:w-40 flex-shrink-0 flex items-center justify-center bg-gradient-to-br from-green-500/10 to-teal-500/10 p-4 md:p-0">
-                  <img
-                    src={hrManager.photo}
-                    alt={hrManager.name}
-                    className="w-28 h-32 object-cover rounded-lg shadow-lg"
-                  />
-                </div>
-                <div className="flex-1 p-6">
-                  <h3 className="text-xl font-bold mb-2 text-white">
-                    {hrManager.name}
-                  </h3>
-                  <p className="text-white/60 mb-4">{hrManager.position}</p>
-                  <div className="space-y-2">
-                    {hrManager.phones.map((phone, index) => (
-                      <div key={index} className="flex items-center text-slate-300">
-                        <Phone className="w-4 h-4 mr-2 text-green-400" />
-                        <a href={`tel:${phone}`} className="hover:text-green-400 transition-colors">
-                          {phone}
-                        </a>
-                      </div>
-                    ))}
-                    <div className="flex items-center text-slate-300">
-                      <Mail className="w-4 h-4 mr-2 text-teal-400" />
-                      <a href={`mailto:${hrManager.email}`} className="hover:text-teal-400 transition-colors">
-                        {hrManager.email}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </div>
-        </section>
         <Footer />
       </div>
     </div>

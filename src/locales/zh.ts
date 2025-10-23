@@ -464,6 +464,64 @@ export const zh = {
         name: "梅德韦季·塔季扬娜·尼古拉耶夫娜",
         jobLabel: "高级工程师"
       }
+    },
+    anticorruption: {
+      pageTitle: "反腐败工作",
+      pageSubtitle: "我们在所有业务活动中秉持诚实、透明和负责任的原则",
+      policyTitle: "我们的立场",
+      policySubtitle: "公司在防止腐败行为方面的承诺与方法",
+      policyCards: {
+        zeroTolerance: {
+          title: "零容忍",
+          description: "严格遵守反腐败法律，对任何腐败行为零容忍"
+        },
+        justice: {
+          title: "合法与公正",
+          description: "公司所有流程均基于合法、公正和平等的原则"
+        },
+        opacity: {
+          title: "活动透明",
+          description: "确保所有业务流程与管理决策的公开与透明"
+        }
+      },
+      bottomCard: {
+        title: "我们在反腐败方面的做法",
+        description: "我们致力于建立以诚信、责任和透明为基础的企业文化。员工定期接受职业道德和反腐败政策培训。我们积极与国家机关及社会组织合作，以增强信任并确保公司活动的透明度。"
+      },
+      docsTitle: "规范性文件",
+      docsSubtitle: "规范我们反腐败政策的官方文件",
+      docsCards: {
+        anticorruptionPolicy: {
+          title: "白俄罗斯共和国《反腐败法》",
+          description: "规定我们防止腐败行为的义务与方法的文件"
+        },
+        anticorruptionManual: {
+          title: "反腐败工作组织方法指南",
+          description: "关于在企业内部建立反腐败体系的建议与程序"
+        },
+        countryDecision: {
+          title: "白俄罗斯共和国部长会议第45号决议（2016年1月22日）",
+          description: "关于在企业和组织中开展反腐败工作的程序规定"
+        },
+        commissionStatement: {
+          title: "反腐败委员会条例",
+          description: "规定开放式股份公司«МПОВТ»反腐败委员会活动的规范文件"
+        },
+        plan: {
+          title: "反腐败委员会活动计划",
+          description: "企业加强反腐败政策的最新行动计划"
+        },
+        patrioticEducation: {
+          title: "落实白俄罗斯共和国公民爱国主义教育计划的行动方案",
+          description: "旨在培养员工责任感与工作诚信的活动"
+        }
+      },
+      contactTitle: "联系人",
+      contactSubtitle: "如有反腐败相关问题，请与我们的专家联系",
+      contactInfo: {
+        name: "尤利娅·伊万诺夫娜·奥斯塔片科",
+        jobLabel: "反腐败委员会秘书"
+      }
     }
   },
   products: {

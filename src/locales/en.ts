@@ -33,7 +33,7 @@ export const en = {
       companyName: "OJSC «MPOVT»",
       address: {
         city: "Minsk",
-        disctrict: "Frunzensky District",
+        district: "Frunzensky District",
         street: "Prytitskogo Street 62k1",
         country: "Belarus"
       },
@@ -462,6 +462,64 @@ export const en = {
       contactInfo: {
         name: 'Tatyana Nikolaevna Medved',
         jobLabel: 'Lead Engineer',
+      }
+    },
+    anticorruption: {
+      pageTitle: 'Anti-Corruption',
+      pageSubtitle: 'We are committed to the principles of honesty, transparency, and responsibility in our operations',
+      policyTitle: 'Our Position',
+      policySubtitle: 'Commitments and approaches to preventing corruption practices within the company',
+      policyCards: {
+        zeroTolerance: {
+          title: 'Zero Tolerance',
+          description: 'Strict compliance with anti-corruption legislation and zero tolerance for corruption'
+        },
+        justice: {
+          title: 'Legality and Fairness',
+          description: 'All company processes are based on the principles of legality, fairness, and equality'
+        },
+        opacity: {
+          title: 'Transparency of Operations',
+          description: 'Openness and transparency in all business processes and management decisions'
+        }
+      },
+      bottomCard: {
+        title: 'Our Approach to Combating Corruption',
+        description: 'We strive to create a corporate culture founded on honesty, responsibility, and transparency. Our employees undergo regular training on ethics and anti-corruption policies. We actively cooperate with government bodies and public organizations to strengthen trust and ensure transparency in our activities'
+      },
+      docsTitle: 'Regulatory Documents',
+      docsSubtitle: 'Official documents governing our anti-corruption policy',
+      docsCards: {
+        anticorruptionPolicy: {
+          title: 'Law of the Republic of Belarus “On Combating Corruption”',
+          description: 'A document defining our obligations and approaches to preventing corruption practices'
+        },
+        anticorruptionManual: {
+          title: 'Methodological Guidelines for Organizing Anti-Corruption Work',
+          description: 'Recommendations and procedures for building an anti-corruption system within the enterprise'
+        },
+        countryDecision: {
+          title: 'Resolution of the Council of Ministers of the Republic of Belarus No. 45 of January 22, 2016',
+          description: 'The procedure for organizing anti-corruption activities in enterprises and organizations'
+        },
+        commissionStatement: {
+          title: 'Regulations on the Anti-Corruption Commission',
+          description: 'Regulation of the activities of the OJSC “MPOVT” Anti-Corruption Commission'
+        },
+        plan: {
+          title: 'Action Plan of the Anti-Corruption Commission',
+          description: 'The current action plan to strengthen the anti-corruption policy within the enterprise'
+        },
+        patrioticEducation: {
+          title: 'Action Plan for the Implementation of the Patriotic Education Program of the Population of the Republic of Belarus',
+          description: 'Activities aimed at fostering a sense of responsibility and integrity among employees'
+        }
+      },
+      contactTitle: 'Contact Person',
+      contactSubtitle: 'Contact our specialist on anti-corruption matters',
+      contactInfo: {
+        name: 'Yulia Ivanovna Ostapenko',
+        jobLabel: 'Secretary of the Anti-Corruption Commission',
       }
     }
   },
