@@ -217,31 +217,34 @@ const RentalAreas = () => {
                 <div className="grid gap-4">
                   {/* Пример уникальных карточек с разными иконками и цветами */}
                   <div className="flex items-center gap-4 p-4 rounded-xl border border-indigo-500/20 shadow-lg">
-                    <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-r from-indigo-500/10 to-fuchsia-500/10">
-                      <Home className="w-6 h-6 text-indigo-400" />
+                    <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-r from-blue-500/10 to-indigo-500/10 flex-shrink-0"> {/* Добавлен flex-shrink-0 */}
+                      <Home className="w-6 h-6 text-indigo-400" /> {/* Размер иконки фиксирован */}
                     </span>
-                    <span className="text-slate-200 text-base">{t?.company?.rent?.infoCards?.features?.area ?? "Площади от 10 кв. м до 10 000 кв. м"}</span>
+                    <span className="text-slate-200 text-base flex-shrink"> {/* Или flex-shrink-1, если нужно сжиматься */}
+                      {t?.company?.rent?.infoCards?.features?.area ?? "Площади от 10 кв. м до 10 000 кв. м"}
+                    </span>
+                    {/* <span className="text-slate-200 text-base max-[410px]:text-sm">{t?.company?.rent?.infoCards?.features?.area ?? "Площади от 10 кв. м до 10 000 кв. м"}</span> */}
                   </div>
                   <div className="flex items-center gap-4 p-4 rounded-xl border border-fuchsia-500/20 shadow-lg">
-                    <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-r from-fuchsia-500/10 to-pink-500/10">
+                    <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-r from-fuchsia-500/10 to-pink-500/10 flex-shrink-0">
                       <Zap className="w-6 h-6 text-fuchsia-400" />
                     </span>
                     <span className="text-slate-200 text-base">{t?.company?.rent?.infoCards?.features?.electricity ?? "Стабильное электроснабжение 380/220В"}</span>
                   </div>
                   <div className="flex items-center gap-4 p-4 rounded-xl border border-emerald-500/20 shadow-lg">
-                    <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-r from-emerald-500/10 to-lime-500/10">
+                    <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-r from-emerald-500/10 to-lime-500/10 flex-shrink-0">
                       <Droplets className="w-6 h-6 text-emerald-400" />
                     </span>
                     <span className="text-slate-200 text-base">{t?.company?.rent?.infoCards?.features?.heating ?? "Холодное и горячее водоснабжение"}</span>
                   </div>
                   <div className="flex items-center gap-4 p-4 rounded-xl border border-yellow-500/20 shadow-lg">
-                    <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-r from-yellow-500/10 to-orange-500/10">
+                    <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-r from-yellow-500/10 to-orange-500/10 flex-shrink-0">
                       <Shield className="w-6 h-6 text-yellow-400" />
                     </span>
                     <span className="text-slate-200 text-base">{t?.company?.rent?.infoCards?.features?.security ?? "Охраняемые парковочные места"}</span>
                   </div>
                   <div className="flex items-center gap-4 p-4 rounded-xl border border-cyan-500/20 shadow-lg">
-                    <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-r from-cyan-500/10 to-blue-500/10">
+                    <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-r from-cyan-500/10 to-blue-500/10 flex-shrink-0">
                       <Car className="w-6 h-6 text-cyan-400" />
                     </span>
                     <span className="text-slate-200 text-base">{t?.company?.rent?.infoCards?.features?.routes ?? "Удобные выездные пути на основные магистрали"}</span>
@@ -256,16 +259,16 @@ const RentalAreas = () => {
                 </div>
                 <div className="grid gap-4 mb-4">
                   <div className="flex items-center gap-4 p-4 rounded-xl border border-blue-500/20 shadow-lg">
-                    <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-r from-blue-500/10 to-cyan-500/10">
+                    <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-r from-blue-500/10 to-cyan-500/10 flex-shrink-0">
                       <MapPin className="w-6 h-6 text-blue-400" />
                     </span>
                     <span className="text-slate-200 text-base">{t?.company?.rent?.infoCards?.location?.address ?? "г. Минск, ул. Притыцкого, 62к2"}</span>
                   </div>
                   <div className="flex items-center gap-4 p-4 rounded-xl border border-emerald-500/20 shadow-lg">
-                    <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-r from-emerald-500/10 to-lime-500/10">
+                    <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-r from-emerald-500/10 to-lime-500/10 flex-shrink-0">
                       <Building className="w-6 h-6 text-emerald-400" />
                     </span>
-                    <span className="text-slate-200 text-base">{t?.company?.rent?.infoCards?.location?.organization ?? "Собственник: ОАО \"МПОВТ\""}</span>
+                    <span className="text-slate-200 text-base">{t?.company?.rent?.infoCards?.location?.organization ?? "Собственность ОАО \"МПОВТ\""}</span>
                   </div>
                 </div>
                 {/* Мини-карта */}

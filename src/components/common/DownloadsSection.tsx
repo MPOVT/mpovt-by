@@ -77,7 +77,7 @@ export const DownloadsSection: React.FC<DownloadsSectionProps> = ({
                 className={`absolute inset-0 bg-gradient-to-br ${gradientOverlay} rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
               ></div>
 
-              <div className="flex items-center justify-between relative z-10">
+              <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row md:items-center md:justify-between relative z-10">
                 <div className="flex items-start space-x-4 flex-1">
                   <div
                     className={`w-12 h-12 ${iconContainer} rounded-xl flex items-center justify-center flex-shrink-0`}
@@ -85,7 +85,7 @@ export const DownloadsSection: React.FC<DownloadsSectionProps> = ({
                     <FileText className={`w-6 h-6 ${iconColor}`} />
                   </div>
 
-                  <div className="flex-1">
+                  <div className="flex-1 min-w-0"> {/* Добавлен min-w-0 для предотвращения overflow */}
                     <h3 className="text-lg font-semibold text-white">
                       {download.title}
                     </h3>
@@ -97,7 +97,7 @@ export const DownloadsSection: React.FC<DownloadsSectionProps> = ({
                       <div className="text-xs text-slate-500">
                         {download.fileName && <span>{download.fileName}</span>}
                         {download.fileName && download.fileSize && (
-                          <span className="mx-2">•</span>
+                          <span className="mx-2 sm:inline">@</span>
                         )}
                         {download.fileSize && <span>{download.fileSize}</span>}
                       </div>
@@ -105,9 +105,10 @@ export const DownloadsSection: React.FC<DownloadsSectionProps> = ({
                   </div>
                 </div>
 
+                {/* Кнопка перенесена вниз для мобильных и справа для десктопа */}
                 <Button
                   size="sm"
-                  className={`${buttonClasses} backdrop-blur-sm transition-all duration-300 flex-shrink-0 ml-4 shadow-lg hover:shadow-xl hover:scale-[1.02] group/btn relative overflow-hidden`}
+                  className={`${buttonClasses} backdrop-blur-sm transition-all duration-300 flex-shrink-0 md:ml-4 shadow-lg hover:shadow-xl hover:scale-[1.02] group/btn relative overflow-hidden w-full md:w-auto`} // w-full для мобильных
                   onClick={() => window.open(download.downloadUrl, "_blank")}
                 >
                   <div

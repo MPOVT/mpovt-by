@@ -54,7 +54,7 @@ export const en = {
       loadingHomeContent: "Loading home page content...",
       done: "Done!",
       logoAlt: "OJSC «MPOVT»",
-      loadingTitle: "Loading"
+      loadingTitle: "Loading..."
     },
     notFound: {
       title: "Page Not Found",

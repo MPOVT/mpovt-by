@@ -56,7 +56,7 @@ export const be = {
       loadingHomeContent: "Загружаю кантэнт галоўнай старонкі...",
       done: "Гатова!",
       logoAlt: "ААТ МПОВТ",
-      loadingTitle: "Загрузка"
+      loadingTitle: "Загрузка..."
     },
     notFound: {
       title: "Старонка не знойдзена",

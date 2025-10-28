@@ -71,29 +71,29 @@ export const PriorityProductsSection: React.FC<PriorityProductsSectionProps> = (
                 className="w-full animate-fade-in-up"
                 style={{ animationDelay: `${index * 200}ms` }}
               >
-                <Card className={`group overflow-hidden bg-slate/10 backdrop-blur-md border border-white/20 hover:border-amber-400/50 hover:bg-slate/50 transition-all duration-700 mx-8 md:mx-12 lg:mx-16 hover:shadow-2xl hover:shadow-amber-500/20`}>
-                  <div className="grid lg:grid-cols-2 gap-0 min-h-[20vh] h-[315px]">
+                <Card className={`group overflow-hidden bg-slate/10 backdrop-blur-md border border-white/20 hover:border-amber-400/50 hover:bg-slate/50 transition-all duration-700 mx-4 sm:mx-6 md:mx-8 lg:mx-12 xl:mx-16 hover:shadow-2xl hover:shadow-amber-500/20`}>
+                  <div className="grid sm:grid-cols-2 gap-0 min-h-[15vh] sm:min-h-[20vh] h-auto sm:h-[315px]">
                     {/* Video Section */}
                     <div className="relative overflow-hidden bg-slate-900">
                       <OptimizedVideoPlayer
                         src={product.videoUrl}
                         placeholder={product.image}
-                        className="transition-transform duration-700 group-hover:scale-105"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                     </div>
                     
                     {/* Content Section */}
-                    <div className="p-6 lg:p-8 flex flex-col justify-center bg-white/5 backdrop-blur-sm border-l border-white/10">
-                      <div className="flex items-center space-x-3 mb-2">
-                        <h3 className="text-2xl lg:text-3xl font-bold text-white drop-shadow-lg">
+                    <div className="p-4 sm:p-6 lg:p-8 flex flex-col justify-center bg-white/5 backdrop-blur-sm border-t sm:border-t-0 sm:border-l border-white/10">
+                      <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-3 mb-2">
+                        <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white drop-shadow-lg">
                           {product.title}
                         </h3>
-                        <span className="text-lg lg:text-xl text-slate-400 font-medium">
+                        <span className="text-base sm:text-lg lg:text-xl text-slate-400 font-medium self-start sm:self-auto">
                           {product.subtitle}
                         </span>
                       </div>
 
-                      <p className="text-slate-300 leading-relaxed mb-8 text-sm lg:text-base">
+                      <p className="text-slate-300 leading-relaxed mb-4 sm:mb-8 text-xs sm:text-sm lg:text-base flex-grow">
                         {product.fullDescription}
                       </p>
                       
@@ -101,13 +101,12 @@ export const PriorityProductsSection: React.FC<PriorityProductsSectionProps> = (
                         asChild 
                         variant="outline" 
                         size="lg" 
-                        className={`${buttonColors.border} ${buttonColors.bg} ${buttonColors.hover} text-sm md:text-base transition-all duration-500`}
+                        className={`${buttonColors.border} ${buttonColors.bg} ${buttonColors.hover} text-xs sm:text-sm md:text-base w-full sm:w-fit max-w-full sm:max-w-[200px] transition-all duration-500`} // Изменено: w-full sm:w-fit max-w-full sm:max-w-[200px]
                       >
-                        <Link to={product.link} className="flex items-center">
+                        <Link to={product.link} className="flex items-center justify-center sm:justify-start">
                           <span className={`bg-gradient-to-r ${buttonColors.textGradient} bg-clip-text text-transparent font-semibold`}>
                             {buttonLabel ?? "Подробнее"}
                           </span>
-                          <ArrowRight className={`ml-2 h-4 w-4 md:h-5 md:w-5 bg-gradient-to-r ${buttonColors.textGradient} bg-clip-text text-transparent`} />
                         </Link>
                       </Button>
                     </div>

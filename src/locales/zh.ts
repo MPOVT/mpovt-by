@@ -55,7 +55,7 @@ export const zh = {
       loadingHomeContent: "加载主页内容...",
       done: "完成！",
       logoAlt: "OAO MPOTV",
-      loadingTitle: "加载中"
+      loadingTitle: "加载中..."
     },
     notFound: {
       title: "页面未找到",

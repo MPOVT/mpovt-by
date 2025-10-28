@@ -23,9 +23,9 @@ const PreloadManager = ({ children, onLoadingChange }: PreloadManagerProps) => {
           .then(registration => console.log('SW registered:', registration))
           .catch(error => console.warn('SW registration failed:', error));
       }
-      
-      setLoadingStatus((t.preload && t.preload.loadingCritical) || 'Загружаю критические ресурсы...');
-      
+
+      setLoadingStatus(t?.components?.preload?.loadingCritical ?? 'Загружаю критические ресурсы...');
+
       // Функция для эффективной предзагрузки изображений
       const preloadImage = (src: string): Promise<void> => {
         return new Promise((resolve) => {
@@ -40,10 +40,10 @@ const PreloadManager = ({ children, onLoadingChange }: PreloadManagerProps) => {
       };
 
       try {
-  // Загружаем только критически важные ресурсы для первой загрузки
+        // Загружаем только критически важные ресурсы для первой загрузки
         const criticalAssets = ASSET_LOADING_CONFIG.critical.assets;
         const priorityAssets = ASSET_LOADING_CONFIG.priority.assets;
-        
+
         // Добавляем preload ссылки только для критических ресурсов
         criticalAssets.forEach(href => {
           if (!document.querySelector(`link[href="${href}"]`)) {
@@ -52,25 +52,25 @@ const PreloadManager = ({ children, onLoadingChange }: PreloadManagerProps) => {
           }
         });
 
-  // Предзагружаем критические изображения параллельно (максимум 6 одновременно)
-  setLoadingStatus((t.preload && t.preload.loadingMainImages) || 'Загружаю основные изображения...');
+        // Предзагружаем критические изображения параллельно (максимум 6 одновременно)
+        setLoadingStatus(t?.components?.preload?.loadingMainImages ?? 'Загружаю основные изображения...');
         const criticalPromises = criticalAssets.map(src => preloadImage(src));
         await Promise.all(criticalPromises);
 
         // Предзагружаем приоритетные изображения (только для главной страницы)
         const currentPath = window.location.pathname;
         if (currentPath === '/' || currentPath === '/index.html') {
-          setLoadingStatus((t.preload && t.preload.loadingHomeContent) || 'Загружаю контент главной страницы...');
+          setLoadingStatus(t?.components?.preload?.loadingHomeContent ?? 'Загружаю контент главной страницы...');
           const uniquePriorityAssets = priorityAssets
             .filter(src => !criticalAssets.includes(src as any)) // Исключаем уже загруженные
             .slice(0, 4); // Ограничиваем количество
-          
+
           const priorityPromises = uniquePriorityAssets.map(src => preloadImage(src));
           await Promise.all(priorityPromises);
         }
-        
-  setLoadingStatus((t.preload && t.preload.done) || 'Готово!');
-        
+
+        setLoadingStatus(t?.components?.preload?.done ?? 'Готово!');
+
         // Быстрое завершение загрузки (без искусственных задержек)
         setTimeout(() => {
           setFadeOut(true);
@@ -79,11 +79,11 @@ const PreloadManager = ({ children, onLoadingChange }: PreloadManagerProps) => {
             setIsLoading(false);
           }, 1300);
         }, 1200);
-        
+
       } catch (error) {
         console.warn('Preload error:', error);
-  // Быстро завершаем даже при ошибках
-  setLoadingStatus((t.preload && t.preload.done) || 'Готово!');
+        // Быстро завершаем даже при ошибках
+        setLoadingStatus(t?.components?.preload?.done ?? 'Готово!');
         setTimeout(() => {
           setFadeOut(true);
           onLoadingChange?.(false);
@@ -112,34 +112,33 @@ const PreloadManager = ({ children, onLoadingChange }: PreloadManagerProps) => {
 
   if (isLoading) {
     return (
-      <div 
-        className={`fixed inset-0 z-50 bg-gradient-to-br from-slate-900 via-slate-800 to-black flex items-center justify-center transition-opacity duration-600 ${
-          fadeOut ? 'opacity-0' : 'opacity-100'
-        }`}
+      <div
+        className={`fixed inset-0 z-50 bg-gradient-to-br from-slate-900 via-slate-800 to-black flex items-center justify-center transition-opacity duration-600 ${fadeOut ? 'opacity-0' : 'opacity-100'
+          }`}
       >
         <div className="text-center space-y-6 animate-fade-in">
           {/* Логотип МПОВТ */}
           <div className="flex justify-center mb-6">
-            <img 
-              src="/imgs/logos/mpovt.png" 
-              alt={(t.preload && t.preload.logoAlt) || 'ОАО МПОВТ'} 
+            <img
+              src="/imgs/logos/mpovt.png"
+              alt={t?.components?.preload?.logoAlt ?? 'ОАО МПОВТ'}
               className="h-32 w-auto object-contain opacity-90"
             />
           </div>
-          
+
           {/* Индикатор загрузки */}
           <div className="flex justify-center">
-            <LoaderCircle 
-              size={48} 
-              className="animate-spin text-white/80" 
+            <LoaderCircle
+              size={48}
+              className="animate-spin text-white/80"
             />
           </div>
-          
+
           {/* Основной текст загрузки */}
-          <p className="text-lg text-white/90 font-medium">
-            { (t.preload && t.preload.loadingTitle) || 'Загрузка' }
+          <p className="text-xl text-white/90 font-medium">
+            {t?.components?.preload?.loadingTitle ?? 'Загрузка'}
           </p>
-          
+
           {/* Статус процесса */}
           <p className="text-sm text-white/50 font-normal animate-pulse">
             {loadingStatus}

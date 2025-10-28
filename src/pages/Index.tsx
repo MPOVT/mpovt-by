@@ -3,7 +3,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import Footer from "@/components/Footer";
 import {
   MainPageHero,
-  PriorityProductsSection,
+  PriorityProductsGridSection,
   InteractiveFeatures,
   SecondaryProductsSection,
   AchievementsSection
@@ -193,9 +193,12 @@ const IndexRefactored = () => {
         scrollIndicatorText={t?.home?.welcome?.scrollDown ?? 'Прокрутите вниз'}
       />
 
-      <PriorityProductsSection
-        title={t?.home?.featuredProducts?.subtitle ?? 'Флагманская продукция'}
-        subtitle={t?.home?.featuredProducts?.description ?? 'Революционные решения потребительской вычислительной техники нового поколения'}
+      <PriorityProductsGridSection
+        title={t?.products?.main?.priorityTitle ?? "Флагманская продукция"}
+        subtitle={
+          t?.products?.main?.prioritySubtitle ??
+          "Революционные решения потребительской вычислительной техники нового поколения"
+        }
         products={priorityProducts}
         buttonLabel={t?.components?.buttons?.readMore ?? 'Подробнее'}
       />

@@ -56,7 +56,7 @@ export const ru = {
       loadingHomeContent: "Загружаю контент главной страницы...",
       done: "Готово!",
       logoAlt: "ОАО МПОВТ",
-      loadingTitle: "Загрузка"
+      loadingTitle: "Загрузка..."
     },
     notFound: {
       title: "Страница не найдена",

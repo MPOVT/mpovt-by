@@ -29,13 +29,13 @@ const CTACard: React.FC<CTACardProps> = ({
             <div className="flex flex-col md:flex-row h-full relative z-10">
                 {/* Фото или иконка */}
                 <div
-                    className={`w-full md:w-40 flex-shrink-0 flex items-center justify-center bg-gradient-to-br ${holderColorFrom} ${holderColorTo} p-4 md:p-0`}
+                    className={`w-full md:w-40 flex-shrink-0 flex items-center justify-center bg-gradient-to-br ${holderColorFrom} ${holderColorTo}`}
                 >
                     {photo ? (
                         <img
                             src={photo}
                             alt={name}
-                            className="w-28 h-32 object-cover rounded-lg shadow-lg"
+                            className="w-28 h-32 object-cover rounded-lg shadow-lg m-4"
                         />
                     ) : (
                         <div className="w-full h-full flex-shrink-0 flex items-center justify-center bg-gradient-to-br from-purple-500/10 to-pink-500/10 p-4 md:p-0">
