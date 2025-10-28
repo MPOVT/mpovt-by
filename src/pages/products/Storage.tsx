@@ -5,7 +5,7 @@ import { DescriptionSection } from '@/components/common/DescriptionSection';
 import { SectionHeader } from '@/components/common/SectionHeader';
 import { IconCard } from '@/components/common/IconCard';
 import { FeatureCard } from '@/components/common/FeatureCard';
-import { DownloadsSection } from '@/components/common/DownloadsSection';
+import { DownloadsSection } from '@/components/sections/DownloadsSection';
 import { CTASection } from '@/components/sections/CTASection';
 import { MEDIA_ASSETS } from '@/lib/media-assets';
 import { HardDrive, Zap, Cpu, Shield, Activity, Download } from 'lucide-react';

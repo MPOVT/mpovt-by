@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 import InfoCardsSection from "@/components/sections/InfoCardsSection";
 import ContactSection from "@/components/sections/ContactSection";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { DownloadsSection } from "@/components/common/DownloadsSection";
+import { DownloadsSection } from "@/components/sections/DownloadsSection";
 
 const AntiCorruption = () => {
   const { t } = useLanguage();

@@ -6,7 +6,8 @@ import { FileText, Download, CheckCircle, Award, Shield, Target, Users, Truck, L
 import Footer from "@/components/Footer";
 import { useLanguage } from '@/contexts/LanguageContext';
 import InfoCardsSection from "@/components/sections/InfoCardsSection";
-import { DownloadsSection } from "@/components/common/DownloadsSection";
+import { DownloadsSection } from "@/components/sections/DownloadsSection";
+import { HeroSection } from "@/components/sections/HeroSection";
 
 const QualityManagement = () => {
   const { t } = useLanguage();
@@ -92,26 +93,13 @@ const QualityManagement = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="pt-40 md:pt-44 lg:pt-48 pb-12 md:pb-16 lg:pb-20 px-4 text-center relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-800 to-black">
-        {/* Animated background spheres */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-32 h-32 md:w-64 md:h-64 bg-gradient-to-r from-cyan-500/30 to-blue-500/30 rounded-full blur-3xl animate-pulse moving-sphere-1"></div>
-          <div className="absolute bottom-1/6 right-1/4 w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-full blur-3xl animate-pulse moving-sphere-2"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-128 md:h-128 bg-gradient-to-r from-emerald-500/30 to-teal-500/30 rounded-full blur-3xl animate-pulse moving-sphere-3"></div>
-        </div>
-
-        <div className="container mx-auto relative z-10">
-          <div className="max-w-4xl mx-auto animate-fade-in">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-8xl font-black mb-6 md:mb-8 text-white leading-tight">
-              {t?.company?.qas?.pageTitle ?? "Система менеджмента качества"}
-            </h1>
-            <p className="text-lg md:text-xl xl:text-2xl text-white/70 mb-6 md:mb-8 max-w-3xl mx-auto">
-              {t?.company?.qas?.pageSubtitle ?? "ОАО \"МПОВТ\" поддерживает высочайшие стандарты качества, подтвержденные международными сертификатами и строгим соблюдением требований ISO"}
-            </p>
-          </div>
-        </div>
-      </section>
+      <HeroSection
+        title={t?.company?.qas?.pageTitle ?? "Система менеджмента качества"}
+        subtitle={t?.company?.qas?.pageSubtitle ?? "ОАО \"МПОВТ\" поддерживает высочайшие стандарты качества, подтвержденные международными сертификатами и строгим соблюдением требований ISO"}
+        sphere1="from-cyan-500/30 to-blue-500/30"
+        sphere2="from-purple-500/30 to-pink-500/30"
+        sphere3="from-emerald-500/30 to-teal-500/30"
+      />
 
       <div className="bg-gradient-to-b from-black to-black relative overflow-hidden">
         {/* Enhanced animated background spheres */}
