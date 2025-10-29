@@ -1,8 +1,7 @@
-import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { FileText, Download, CheckCircle, Award, Shield, Target, Users, Truck, Laptop, Cable, Cpu, Factory, Computer, Zap, Microchip } from "lucide-react";
+import { Download, Award, Shield, Target, Users, Factory, Computer, Zap, Microchip } from "lucide-react";
 import Footer from "@/components/Footer";
 import { useLanguage } from '@/contexts/LanguageContext';
 import InfoCardsSection from "@/components/sections/InfoCardsSection";
@@ -19,7 +18,7 @@ const QualityManagement = () => {
       validUntil: "14.02.2026",
       certifier: t?.company?.qas?.certsCards?.iso9001?.provider ?? "РУП «БелГИМ»",
       description: t?.company?.qas?.certsCards?.iso9001?.description ?? "Международный стандарт системы менеджмента качества, обеспечивающий постоянное улучшение процессов и удовлетворенность клиентов",
-      pdfUrl: "https://mpovt.by/gallery/%D0%A1%D0%A2%D0%91%20ISO%209001.pdf"
+      pdfUrl: "/public/pdf/certificates/COC/ISO9001.pdf"
     },
     {
       title: t?.company?.qas?.certsCards?.iatf16949?.title ?? "СТБ 16949-2018",
@@ -27,7 +26,7 @@ const QualityManagement = () => {
       validUntil: "14.02.2026",
       certifier: t?.company?.qas?.certsCards?.iatf16949?.provider ?? "РУП «БелГИМ»",
       description: t?.company?.qas?.certsCards?.iatf16949?.description ?? "Стандарт системы менеджмента качества для автомобильной промышленности, обеспечивающий высочайшие требования к качеству продукции",
-      pdfUrl: "https://mpovt.by/gallery/%D0%A1%D0%A2%D0%91%2016949.pdf"
+      pdfUrl: "/public/pdf/certificates/COC/IATF16949.pdf"
     }
   ];
 
@@ -35,12 +34,12 @@ const QualityManagement = () => {
     {
       title: t?.company?.qas?.docsCards?.pipQualityPolicy?.title ?? "Руководство по менеджменту качества поставщиков ПКИ и материалов для производства автокомпонентов",
       description: t?.company?.qas?.docsCards?.pipQualityPolicy?.description ?? "Документ, определяющий требования и стандарты качества для поставщиков продукции и материалов, используемых в производстве автокомпонентов",
-      downloadUrl: "https://mpovt.by/gallery/%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE.pdf"
+      downloadUrl: "/public/pdf/policy/QA_Suppliers_Guide.pdf"
     },
     {
       title: t?.company?.qas?.docsCards?.qualityPolicy?.title ?? "Политика в области качества",
       description: t?.company?.qas?.docsCards?.qualityPolicy?.description ?? "Официальный документ, отражающий приверженность компании обеспечению высокого качества продукции и услуг",
-      downloadUrl: "https://mpovt.by/gallery/%D0%9E%D0%A2%D0%9A%D0%A0%D0%AB%D0%A2%D0%9E%D0%95%20%D0%90%D0%9A%D0%A6%D0%98%D0%9E%D0%9D%D0%95%D0%A0%D0%9D%D0%9E%D0%95%20%D0%9E%D0%91%D0%A9%D0%95%D0%A1%D0%A2%D0%92%D0%9E.pdf"
+      downloadUrl: "/public/pdf/policy/Quality.pdf"
     },
     // {
     //   title: "План выполнения ОАО \"МПОВТ\" мероприятий Республиканского плана мероприятий по проведению в 2024 году Года качества",
@@ -57,7 +56,7 @@ const QualityManagement = () => {
       bgColor: "from-orange-500/20 to-red-500/20",
       hoverBg: "from-orange-500/10 to-red-500/10",
       borderColor: "from-orange-500/30 to-red-500/30",
-      url: "https://mpovt.by/gallery/%D0%A1%D0%95%D0%A0%D0%A2%D0%98%D0%A4%D0%98%D0%9A%D0%90%D0%A2%20%D0%A1%D0%9E%D0%91%D0%A1%D0%A2%D0%92%D0%95%D0%9D%D0%9D%D0%9E%D0%93%D0%9E%20%D0%9F%D0%A0%D0%9E%D0%98%D0%97%D0%92%D0%9E%D0%94%D0%A1%D0%A2%D0%92%D0%90%20(%D0%B0%D0%B2%D1%82%D0%BE%D1%82%D1%80%D0%B0%D0%BA%D1%82%D0%BE%D1%80%D0%BD%D0%BE%D0%B5).pdf"
+      url: "/public/pdf/certificates/COP/Auto_Components.pdf"
     },
     {
       title: t?.company?.qas?.validCertsCards?.laptops?.title ?? "Ноутбуки",
@@ -67,7 +66,7 @@ const QualityManagement = () => {
       bgColor: "from-blue-500/20 to-cyan-500/20",
       hoverBg: "from-blue-500/10 to-cyan-500/10",
       borderColor: "from-blue-500/30 to-cyan-500/30",
-      url: "https://mpovt.by/gallery/%D0%A1%D0%95%D0%A0%D0%A2%D0%98%D0%A4%D0%98%D0%9A%D0%90%D0%A2%20%D0%A1%D0%9E%D0%91%D0%A1%D0%A2%D0%92%D0%95%D0%9D%D0%9D%D0%9E%D0%93%D0%9E%20%D0%9F%D0%A0%D0%9E%D0%98%D0%97%D0%92%D0%9E%D0%94%D0%A1%D0%A2%D0%92%D0%90%20%D0%9D%D0%90%20%D0%9D%D0%9E%D0%A3%D0%A2%D0%91%D0%A3%D0%9A%D0%98.PDF"
+      url: "/public/pdf/certificates/COP/Laptops.pdf"
     },
     {
       title: t?.company?.qas?.validCertsCards?.powerAdapters?.title ?? "Адаптер сетевой",
@@ -77,7 +76,7 @@ const QualityManagement = () => {
       bgColor: "from-yellow-500/20 to-orange-500/20",
       hoverBg: "from-yellow-500/10 to-orange-500/10",
       borderColor: "from-yellow-500/30 to-orange-500/30",
-      url: "https://mpovt.by/gallery/%D0%90%D0%B4%D0%B0%D0%BF%D1%82%D0%B5%D1%80%20%D1%81%D0%B5%D1%82%D0%B5%D0%B2%D0%BE%D0%B9%20%D1%81%D0%B5%D1%80%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82%20%D1%81%D0%BE%D0%B1%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%B0.PDF"
+      url: "/public/pdf/certificates/COP/Power_Adapters.pdf"
     },
     {
       title: t?.company?.qas?.validCertsCards?.systemPlates?.title ?? "Плата системная",
@@ -87,7 +86,7 @@ const QualityManagement = () => {
       bgColor: "from-green-500/20 to-emerald-500/20",
       hoverBg: "from-green-500/10 to-emerald-500/10",
       borderColor: "from-green-500/30 to-emerald-500/30",
-      url: "https://mpovt.by/gallery/%D0%9F%D0%BB%D0%B0%D1%82%D0%B0%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%BD%D0%B0%D1%8F%20%D1%81%D0%B5%D1%80%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82%20%D1%81%D0%BE%D0%B1%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%B0.PDF"
+      url: "/public/pdf/certificates/COP/System_Boards.pdf"
     }
   ];
 

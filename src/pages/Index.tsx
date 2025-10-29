@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import { useLanguage } from '@/contexts/LanguageContext';
 import Footer from "@/components/Footer";
 import {
@@ -14,7 +14,6 @@ import {
   Shield,
   Award,
   Car,
-  Radio,
   FileText,
 } from "lucide-react";
 

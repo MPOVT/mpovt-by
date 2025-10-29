@@ -1,37 +1,9 @@
-import { useRef } from "react";
-import CTACard from "@/components/common/CTACard";
 import SmallMap from "@/components/common/SmallMap";
-
-// Кастомный хук для 3D-tilt/parallax эффекта
-function useCardTilt() {
-  const ref = useRef(null);
-  const handleMouseMove = (e) => {
-    const card = ref.current;
-    if (!card) return;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = ((y - centerY) / centerY) * 10;
-    const rotateY = ((x - centerX) / centerX) * 10;
-    card.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg) scale3d(1.04,1.04,1.04)`;
-    card.style.transition = 'transform 0.1s';
-  };
-  const handleMouseLeave = () => {
-    const card = ref.current;
-    if (!card) return;
-    card.style.transform = '';
-    card.style.transition = 'transform 0.5s';
-  };
-  return { ref, handleMouseMove, handleMouseLeave };
-}
-
 
 import React from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MapPin, Phone, Mail, User, Download, Building, Car, Zap, Droplets, Home, Shield, CheckCircle, Award, Star, Sun, Droplet, Thermometer, Eye } from "lucide-react";
+import { MapPin, Download, Building, Car, Zap, Droplets, Home, Shield, Award, Star, Sun, Droplet, Thermometer, Eye } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/sections/ContactSection";
@@ -98,18 +70,6 @@ const RentalAreas = () => {
       titleColor: "from-green-400 to-lime-400"
     }
   ];
-
-  // --- Пассивные анимации для 3D-покачивания карточек ---
-  const tiltStyles = `\n@keyframes tilt1 { 0%{transform:rotateX(10deg) rotateY(-10deg);} 50%{transform:rotateX(-10deg) rotateY(10deg);} 100%{transform:rotateX(10deg) rotateY(-10deg);} }\n@keyframes tilt2 { 0%{transform:rotateX(-8deg) rotateY(8deg);} 50%{transform:rotateX(8deg) rotateY(-8deg);} 100%{transform:rotateX(-8deg) rotateY(8deg);} }\n@keyframes tilt3 { 0%{transform:rotateX(6deg) rotateY(-6deg);} 50%{transform:rotateX(-6deg) rotateY(6deg);} 100%{transform:rotateX(6deg) rotateY(-6deg);} }\n@keyframes tilt4 { 0%{transform:rotateX(-6deg) rotateY(6deg);} 50%{transform:rotateX(6deg) rotateY(-6deg);} 100%{transform:rotateX(-6deg) rotateY(6deg);} }\n.animate-tilt-1 {animation: tilt1 3s ease-in-out infinite alternate;}\n.animate-tilt-2 {animation: tilt2 3.5s ease-in-out infinite alternate;}\n.animate-tilt-3 {animation: tilt3 2.5s ease-in-out infinite alternate;}\n.animate-tilt-4 {animation: tilt4 4s ease-in-out infinite alternate;}\n`;
-
-  React.useEffect(() => {
-    if (!document.getElementById('tilt-anim-styles')) {
-      const style = document.createElement('style');
-      style.id = 'tilt-anim-styles';
-      style.innerHTML = tiltStyles;
-      document.head.appendChild(style);
-    }
-  }, []);
 
   return (
     <div className="min-h-screen">

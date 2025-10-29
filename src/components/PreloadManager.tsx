@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import { LoaderCircle } from 'lucide-react';
-import { MEDIA_ASSETS, ASSET_LOADING_CONFIG, createPreloadLink } from '../lib/media-assets';
+import { ASSET_LOADING_CONFIG, createPreloadLink } from '../lib/media-assets';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface PreloadManagerProps {

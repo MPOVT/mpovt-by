@@ -16,22 +16,22 @@ const TestingLaboratories = () => {
     {
       title: t?.services?.testingLabs?.docsCards?.testing?.title ?? "Аттестат лаборатории испытаний",
       description: t?.services?.testingLabs?.docsCards?.testing?.description ?? "Аттестат аккредитации испытательной лаборатории, подтверждающий компетентность в проведении испытаний автокомпонентов и других изделий",
-      downloadUrl: "https://mpovt.by/gallery/%D0%90%D1%82%D1%82%D0%B5%D1%81%D1%82%D0%B0%D1%82%20%D0%B0%D0%BA%D0%BA%D1%80%D0%B5%D0%B4%D0%B8%D1%82%D0%B0%D1%86%D0%B8%D0%B8%20%D0%9B%D0%98%D1%81.pdf"
+      downloadUrl: "/public/pdf/certificates/accreditation/LIS_Accreditation_Certificate.pdf"
     },
     {
       title: t?.services?.testingLabs?.docsCards?.lis?.title ?? "Область аккредитации ЛИс",
       description: t?.services?.testingLabs?.docsCards?.lis?.description ?? "Перечень услуг, тестов и методик, на которые лаборатория получила официальное подтверждение компетентности",
-      downloadUrl: "https://mpovt.by/gallery/%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%20%D0%B0%D0%BA%D0%BA%D1%80%D0%B5%D0%B4%D0%B8%D1%82%D0%B0%D1%86%D0%B8%D0%B8%20%D0%9B%D0%98%D1%81.pdf"
+      downloadUrl: "/public/pdf/certificates/accreditation/Scope_of_LIS_accreditation.pdf"
     },
     {
       title: t?.services?.testingLabs?.docsCards?.metrology?.title ?? "Аттестат лаборатории метрологии",
       description: t?.services?.testingLabs?.docsCards?.metrology?.description ?? "Аттестат аккредитации метрологической лаборатории, подтверждающий компетентность в поверке средств измерений радиотехнических, электрических величин, давления и температуры",
-      downloadUrl: "https://mpovt.by/gallery/%D0%90%D1%82%D1%82%D0%B5%D1%81%D1%82%D0%B0%D1%82%20%D0%B0%D0%BA%D0%BA%D1%80%D0%B5%D0%B4%D0%B8%D1%82%D0%B0%D1%86%D0%B8%D0%B8%20%D0%9B%D0%9C_16.07.2021.pdf"
+      downloadUrl: "/public/pdf/certificates/accreditation/LM_Accreditation_Certificate.pdf"
     },
     {
       title: t?.services?.testingLabs?.docsCards?.lm?.title ?? "Область аккредитации ЛМ",
       description: t?.services?.testingLabs?.docsCards?.lm?.description ?? "Перечень средств измерений и методик поверки, на которые метрологическая лаборатория получила официальное подтверждение компетентности",
-      downloadUrl: "https://mpovt.by/gallery/%D0%9E%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%20%D0%B0%D0%BA%D0%BA%D1%80%D0%B5%D0%B4%D0%B8%D1%82%D0%B0%D1%86%D0%B8%D0%B8%20%D0%9B%D0%9C.pdf"
+      downloadUrl: "/public/pdf/certificates/accreditation/Scope_of_LM_accreditation.pdf"
     }
   ];
 
