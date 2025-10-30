@@ -3,7 +3,6 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import OptimizedVideoPlayer from '@/components/OptimizedVideoPlayer';
 
 interface PriorityProduct {
   title: string;
@@ -73,11 +72,7 @@ export const PriorityProductsGridSection: React.FC<PriorityProductsGridSectionPr
                   <div className="flex flex-col h-full">
                     {/* Video Section */}
                     <div className="relative overflow-hidden bg-slate-900 aspect-video">
-                      <OptimizedVideoPlayer
-                        src={product.videoUrl}
-                        placeholder={product.image}
-                        className="transition-transform duration-700 group-hover:scale-105"
-                      />
+                      <img src={product.image} alt={product.title} className="object-cover w-full h-full" />
                     </div>
                     
                     {/* Content Section */}

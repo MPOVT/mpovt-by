@@ -347,7 +347,7 @@ export default function Navigation({ isLoading = false }: NavigationProps) {
               <img 
                 src="/imgs/logos/mpovt.png" 
                 alt="ОАО МПОВТ Logo" 
-                className="h-6 w-auto drop-shadow-lg"
+                className="h-6 w-auto drop-shadow-lg pr-4"
               />
             </Link>
 
