@@ -407,7 +407,7 @@ export const en = {
           title: 'Long-Term Partnership',
           description: 'We strive to build long-term and mutually beneficial relationships with reliable partners'
         },
-        flexibleTerms: {
+        flexibleCollaboration: {
           title: 'Flexible Cooperation Terms',
           description: 'Individual approach to each partner and readiness for various forms of cooperation'
         },

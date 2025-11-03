@@ -408,7 +408,7 @@ export const zh = {
           title: '长期合作',
           description: '与可靠的合作伙伴建立长期互利关系'
         },
-        flexibleTerms: {
+        flexibleCollaboration: {
           title: '灵活的合作条件',
           description: '为每位合作伙伴提供个性化方案，支持多种合作形式'
         },
