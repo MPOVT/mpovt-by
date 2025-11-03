@@ -491,7 +491,7 @@ export const en = {
         features: {
           title: 'Premises Characteristics',
           description: 'Parameters and advantages for tenants',
-          area: 'Spaces from 10 sq.m to 10,000 sq.m',
+          area: 'Spaces from 10 m² to 10,000 m²',
           electricity: 'Stable 380/220V power supply',
           heating: 'Cold and hot water supply',
           security: 'Secured parking spaces',

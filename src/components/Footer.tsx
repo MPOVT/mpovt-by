@@ -84,8 +84,8 @@ export default function Footer() {
                 <MapPin className="w-5 h-5 mr-2 mt-0.5 text-amber-200" />
                 <span className="text-slate-300">
                   <a target="_blank" rel="noopener noreferrer" href="https://yandex.by/maps/-/CLFTYGK3">
-                  {t?.components?.footer?.address?.city ?? "г. Минск"}, {t?.components?.footer?.address?.district ?? "Фрунзенский район"}<br />
-                  {t?.components?.footer?.address?.street ?? "улица Притыкого 62к1"}<br />
+                  {t?.components?.footer?.address?.city ?? "г. Москва"}, {t?.components?.footer?.address?.district ?? "Фрунзенский район"}<br />
+                  {t?.components?.footer?.address?.street ?? "улица Китай-город"}<br />
                   {t?.components?.footer?.address?.country ?? "Беларусь"}
                   </a>
                 </span>
