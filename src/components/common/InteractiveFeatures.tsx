@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { LucideIcon } from 'lucide-react';
-import { AnimatedBackground } from './AnimatedBackground';
 
 interface Feature {
   icon: LucideIcon;

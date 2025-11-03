@@ -15,3 +15,4 @@ export { AchievementsSection } from '../sections/AchievementsSection';
 export { VideoSection } from '../sections/VideoSection';
 export { DescriptionSection } from '../sections/DescriptionSection';
 export { ImageContentSection } from '../sections/ImageContentSection';
+export { CompanyOverviewSection } from '../sections/CompanyOverviewSection';

@@ -27,18 +27,34 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     <section
       className={`pt-40 md:pt-44 lg:pt-48 pb-12 md:pb-16 lg:pb-20 px-4 text-center relative overflow-hidden ${backgroundClass}`}
     >
-      {/* Animated background spheres */}
+      {/* Animated background spheres - optimized for all screen ratios */}
       <div className="absolute inset-0 overflow-hidden">
         <div
-          className={`absolute top-1/4 left-1/4 w-32 h-32 md:w-64 md:h-64 bg-gradient-to-r ${sphere1} rounded-full blur-3xl animate-pulse moving-sphere-1`}
+          className={`absolute w-32 h-32 md:w-64 md:h-64 lg:w-80 lg:h-80 bg-gradient-to-r ${sphere1} rounded-full blur-3xl animate-pulse moving-sphere-1`}
+          style={{
+            top: '20%',
+            left: '15%'
+          }}
         ></div>
         <div
-          className={`absolute bottom-1/6 right-1/4 w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r ${sphere2} rounded-full blur-3xl animate-pulse moving-sphere-2`}
+          className={`absolute w-48 h-48 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] bg-gradient-to-r ${sphere2} rounded-full blur-3xl animate-pulse moving-sphere-2`}
+          style={{
+            bottom: '15%',
+            right: '20%'
+          }}
         ></div>
         <div
-          className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-128 md:h-128 bg-gradient-to-r ${sphere3} rounded-full blur-3xl animate-pulse moving-sphere-3`}
+          className={`absolute w-64 h-64 md:w-[32rem] md:h-[32rem] lg:w-[40rem] lg:h-[40rem] bg-gradient-to-r ${sphere3} rounded-full blur-3xl animate-pulse moving-sphere-3`}
+          style={{
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)'
+          }}
         ></div>
       </div>
+      
+      {/* Enhanced gradient overlay for better separation */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/60"></div>
 
       {/* Content */}
       <div className="container mx-auto relative z-10">
